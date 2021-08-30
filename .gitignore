@@ -11,6 +11,9 @@ OpenData/Geuvadis/Processed/*
 
 # Software
 Software/*
-!Software/README.md
+
+
+# Keep all READMEs
+!README.md
 
 
