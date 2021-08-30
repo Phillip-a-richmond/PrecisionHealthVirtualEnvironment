@@ -23,6 +23,25 @@ This creates a new environment called ShortReadTools, which will have the follow
 - bcftools 
 - htslib 
 
+
+### Step 2 modified - Create a new environment from a config.yml
+It's possible to create environments based on a config.yml file, which increases reproducibility and can enable the creation of some trickier conda environments.
+For this, you'll need some kind of config.yml in this format (I call this one Bedtools.yml):
+```
+# platform: linux-64
+name: Bedtools
+channels:
+ - bioconda
+dependencies:
+ - pybedtools
+ - bedtools
+```
+
+Then you can create the environment:
+```
+conda env create --file Bedtools.yml --name Bedtools
+```
+
 ### Step 3 - Activate the environment to use your tools
 We will activate the environment with a simple command. 
 ```
@@ -39,6 +58,21 @@ conda activate ShortReadTools
 ``` 
 
 *NOTE: To use this within a script submitted to the scheduler, simply include the source and activate lines at the top of your script!*
+
+### Step 4 - Test to make sure your tools are working
+If I activated ShortReadTools, then I can now use bwa mem
+```
+bwa mem --help
+```
+
+
+### Step 5 - Deactivate
+You can deactivate this too when you're done using the tools, or if you need to use a different environment for a next step of the pipeline:
+```
+conda deactivate
+conda activate Bedtools
+```
+
 
 
 
