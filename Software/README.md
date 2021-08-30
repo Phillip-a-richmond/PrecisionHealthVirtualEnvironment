@@ -56,6 +56,13 @@ Then simply re-source conda to get it into your path, and run again:
 source /project/st-sturvey-1/PrecisionHealthVirtualEnvironment/Software/miniconda3/etc/profile.d/conda.sh
 conda activate ShortReadTools
 ``` 
+When you activate the environment from the command line, you'll see a small change to your command prompt:
+```
+[richmonp@login03 Software]$ conda activate ShortReadTools
+(ShortReadTools) [richmonp@login03 Software]$ bwa mem -h
+```
+
+
 
 *NOTE: To use this within a script submitted to the scheduler, simply include the source and activate lines at the top of your script!*
 
