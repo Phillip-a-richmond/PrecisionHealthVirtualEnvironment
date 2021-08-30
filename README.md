@@ -2,7 +2,7 @@
 
 > This is a virtual environment which contains databases, software, workflows, and workshops for Precision Health Data Analysis.
 
-Contact: phillip.a.richmond@gmail.com
+Contact: Dr. Phillip Richmond (phillip.a.richmond@gmail.com)
 
 
 ## Overview and Purpose
@@ -22,39 +22,12 @@ This environment is launching in Fall 2021 as a pilot project to demonstrate eff
 
 
 ## Outline
-- Databases
-- Software
-- Open Data
-- Workshops
-- Workflows
+- [Databases](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Databases)
+- [Software](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Software)
+- [Open Data](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/OpenData)
+- [Workshops](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Workshops)
+- [Workflows](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Workflows)
 
-
-
-## Databases
-
-
-
-
-
-## Software
-
-
-
-
-
-
-## Open Data
-
-
-
-
-## Workshops
-
-
-
-
-
-## Workflows
 
 
 
