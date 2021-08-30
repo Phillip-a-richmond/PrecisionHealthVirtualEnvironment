@@ -1,1 +1,14 @@
 # ignore contents inside
+# Databases
+Databases/References/GRCh37/*
+Databases/References/GRCh38/*
+
+# Open data
+OpenData/ThousandGenomes/Raw/*
+OpenData/ThousandGenomes/Processed/*
+OpenData/Geuvadis/Raw/*
+OpenData/Geuvadis/Processed/*
+
+#
+
+
