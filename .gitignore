@@ -9,6 +9,8 @@ OpenData/ThousandGenomes/Processed/*
 OpenData/Geuvadis/Raw/*
 OpenData/Geuvadis/Processed/*
 
-#
+# Software
+Software/*
+!Software/README.md
 
 
