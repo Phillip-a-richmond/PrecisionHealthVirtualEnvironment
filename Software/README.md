@@ -1,6 +1,30 @@
 # Software
 > This directory will store software packages used in the analysis of precision health data.
 
+## Overview
+- [Software Mantra](##Software-Mantra)
+- [Software Organization](##Software-Organization)
+- [Miniconda](##Miniconda)
+- [Rstudio](##Rstudio)
+
+## Software Mantra
+> Installing and configuring bioinformatic software and pipelines can be frustrating, and in many cases it becomes a redundant time-consuming task that, in some cases, prevents users from ever analyzing their own data. *We want to change that.*
+
+Within the PrecisionHealthVirtualEnvironment, we hope to solve some of these redundancies and challenges. We will take a 3 pronged approach:
+1. Provide some walk-throughs on how to manage your own software on shared HPC with miniconda and singularity.
+2. Maintain core software for general use within workshops and precision health data analysis pipelines.
+3. Create a space for users to deploy their software and share with others. Sharing is caring. 
+
+## Software Organization
+The upper level of this software directory is only managed by Phillip Richmond. Users are welcome to create a directory with their username inside of UserDir/, and install tools there.
+
+E.g. on Sockeye:
+```
+mkdir /project/st-sturvey-1/PrecisionHealthVirtualEnvironment/Software/prichmond/
+``` 
+
+If you're open to sharing your user dir with others, please discuss with Phillip Richmond (phillip.a.richmond@gmail.com).
+
 
 ## Miniconda
 Miniconda is a great package manager with low overhead. Miniconda3 is installed here using the InstallMiniconda3.sh shell script.
@@ -79,6 +103,28 @@ You can deactivate this too when you're done using the tools, or if you need to 
 conda deactivate
 conda activate Bedtools
 ```
+
+
+## Rstudio on Sockeye
+
+### Basic Setup
+Using Rstudio on sockeye can be done using the guide here: 
+https://confluence.it.ubc.ca/display/UARC/RStudio+with+Singularity
+
+That guide will walk you through:
+1. Set up your Rstudio container
+2. Set up your Rstudio job
+3. Run the Rstudio job
+4. Open your session in a web browser
+
+I have done this walkthrough within the directory: 
+```
+/project/st-sturvey-1/PrecisionHealthVirtualEnvironment/Software/Rstudio/
+```
+
+### Installing packages
+After completing the basic setup, then you are ready to install packages.
+
 
 
 
