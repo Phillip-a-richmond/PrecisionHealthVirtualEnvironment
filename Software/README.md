@@ -2,10 +2,10 @@
 > This directory will store software packages used in the analysis of precision health data.
 
 ## Overview
-- [Software Mantra](##Software-Mantra)
-- [Software Organization](##Software-Organization)
-- [Miniconda](##Miniconda)
-- [Rstudio](##Rstudio)
+- [Software Mantra](#Software-Mantra)
+- [Software Organization](#Software-Organization)
+- [Miniconda](#Miniconda)
+- [Rstudio](#Rstudio)
 
 ## Software Mantra
 > Installing and configuring bioinformatic software and pipelines can be frustrating, and in many cases it becomes a redundant time-consuming task that, in some cases, prevents users from ever analyzing their own data. *We want to change that.*
