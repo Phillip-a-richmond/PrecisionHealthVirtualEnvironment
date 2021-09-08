@@ -18,4 +18,6 @@ Software/UserDirs/*
 # Keep all READMEs
 !README.md
 
+# nohup stuff
+nohup.out
 
