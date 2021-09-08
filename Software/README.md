@@ -8,9 +8,9 @@
 - [Rstudio](#Rstudio)
 
 ## Software Mantra
-> Installing and configuring bioinformatic software and pipelines can be frustrating, and in many cases it becomes a redundant time-consuming task that, in some cases, prevents users from ever analyzing their own data. *We want to change that.*
+> Installing and configuring bioinformatic software and pipelines can be frustrating, and causes redundant efforts/use of time amongst researchers. In many cases it becomes such a time-consuming task that it even prevents users from analyzing their own data. *We want to change that.*
 
-Within the PrecisionHealthVirtualEnvironment, we hope to solve some of these redundancies and challenges. We will take a 3 pronged approach:
+Within the **PrecisionHealthVirtualEnvironment**, we hope to solve some of these redundancies and challenges. We will take a 3 pronged approach:
 1. Provide some walk-throughs on how to manage your own software on shared HPC with miniconda and singularity.
 2. Maintain core software for general use within workshops and precision health data analysis pipelines.
 3. Create a space for users to deploy their software and share with others. Sharing is caring. 
