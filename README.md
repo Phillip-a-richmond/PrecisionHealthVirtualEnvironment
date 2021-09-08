@@ -25,7 +25,7 @@ This environment is launching in Fall 2021 as a pilot project to demonstrate eff
 
 
 ## Outline
-- [Deployments](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/)
+- [Deployments](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Deployments)
 - [Databases](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Databases)
 - [Software](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Software)
 - [Open Data](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/OpenData)
