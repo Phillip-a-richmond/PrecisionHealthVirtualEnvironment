@@ -2,7 +2,9 @@
 
 > This is a virtual environment which contains databases, software, workflows, and workshops for Precision Health Data Analysis.
 
-Contact: Dr. Phillip Richmond (phillip.a.richmond@gmail.com)
+**Contact:**  
+Dr. Phillip Richmond (prichmond@bcchr.ca)   
+Precision Health Initiative, BC Children's Hospital Research Institute (www.bcchr.ca/phi)
 
 
 ## Overview and Purpose
@@ -17,7 +19,8 @@ The primary goal of the Precision Health Virtual Environment is to provide a col
 1. Serve as an onboarding platform for new users, which will guide them in the usage of Sockeye and Chinook systems for research data analysis.
 2. Provide open source workshops developed by the Precision Health Initiative and community members for the analysis of precision health data.
 3. Establish shared data commons for large shared datasets with utility across research groups in the domain of human precision health.
-4. Build community around researchers using similar precision health technologies to promote collaboration and sharing of functional workflows, software, and pipelines on the ARC platforms. 
+4. Build community around researchers using similar precision health technologies to promote collaboration and sharing of functional workflows, software, and pipelines on the ARC platforms.    
+
 This environment is launching in Fall 2021 as a pilot project to demonstrate efficacy, with the hopes of broader long-term adoption by the UBC research community. The rest of this document details a vision for the environment’s disk space footprint, training content, and plan of action. A key component of this space is designing it with some degree of portability, so that it can be re-implemented in different settings (e.g. NDRIO).
 
 
@@ -28,18 +31,6 @@ This environment is launching in Fall 2021 as a pilot project to demonstrate eff
 - [Open Data](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/OpenData)
 - [Workshops](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Workshops)
 - [Workflows](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Workflows)
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
