@@ -122,8 +122,52 @@ I have done this walkthrough within the directory:
 /project/st-sturvey-1/PrecisionHealthVirtualEnvironment/Software/Rstudio/
 ```
 
+*NOTE*: It is important that you select a version of R here. I chose 4.0.2 since it is stable, and there is a matching R version for 4.0.2 in the CVMFS software stack (relevant for next section of installing R packages).
+
+#### Choosing a specific docker version
+You can choose a specific version of the Rstudio singularity image by choosing from the tags available here: 
+[https://hub.docker.com/r/rocker/rstudio/tags?page=1&ordering=last_updated](https://hub.docker.com/r/rocker/rstudio/tags?page=1&ordering=last_updated)
+
+For me, I wanted to use 4.0.2 since it's stable, and it matches what is on the CVMFS system.
+
+```
+module load gcc
+module load singularity
+singularity pull --name rstudio_4.0.2.sif docker://rocker/rstudio:4.0.2
+```
+
 ### Installing packages
 After completing the basic setup, then you are ready to install packages.
+
+1. Load R into your environment, making sure you match between the Rstudio version you pulled above, and what's available on the system.
+
+```
+module load CVMFS_test
+module load r/4.0.2
+```
+
+2. Make a directory on the system where you'll install your libraries.
+```
+mkdir -p /project/st-sturvey-1/PrecisionHealthVirtualEnvironment/Software/Rstudio/prichmond_rstudio/Libs_4.0.2/
+```
+
+
+3. Open an interactive R session, set the .libPaths() to match the directory you just created.
+```
+R
+```
+> This enters you into an interactive session.
+```
+.libPaths('/project/st-sturvey-1/PrecisionHealthVirtualEnvironment/Software/Rstudio/prichmond_rstudio/Libs_4.0.2/')
+```
+
+4. Staying within the interactive session, install a couple pacakges.
+```
+install.packages("BiocManager")
+library(BiocManager)
+BiocManager::install("sva")
+```
+
 
 
 
