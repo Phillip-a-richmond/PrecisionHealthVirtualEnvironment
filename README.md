@@ -8,12 +8,12 @@ Precision Health Initiative, BC Children's Hospital Research Institute (www.bcch
 
 
 ## Outline
-- [Deployments](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Deployments)
-- [Databases](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Databases)
-- [Software](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Software)
-- [Open Data](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/OpenData)
-- [Workshops](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Workshops)
-- [Workflows](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Workflows)
+- [Databases](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Databases) - Info about databases stored on Sockeye and where they are downloaded from.
+- [Software](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Software) - How-to on managing software, and some software deployments here as well.
+- [Open Data](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/OpenData) - Shared open datasets, staged from Chinook.
+- [Workshops](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Workshops) - Workshop content, including guided and self-paced content.
+- [Workflows](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Workflows) - Functional workflows for processing precision health data. 
+- [Deployments](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Deployments) - This contains info about deploying on different systems.
 - [Overview and Purpose](##Overview_and_Purpose)
 - [Contributions](##Contributions)
 
@@ -34,13 +34,17 @@ The primary goal of the Precision Health Virtual Environment is to provide a col
 This environment is launching in Fall 2021 as a pilot project to demonstrate efficacy, with the hopes of broader long-term adoption by the UBC research community. The rest of this document details a vision for the environment’s disk space footprint, training content, and plan of action. A key component of this space is designing it with some degree of portability, so that it can be re-implemented in different settings (e.g. NDRIO).
 
 
-
-## Community Contributions
+## Contributions
 > This space is made possible by contributions of researchers in the community. If you are interested in contributing to this space, contact Phil Richmond (prichmond@bcchr.ca). 
 
-### Contributors
+### Community Contributors
 - Phillip Richmond (@Phillip-a-richmond)
 - Emilie Theberge 
+
+### UBC ARC Sockeye Collaborators
+- Elizabeth Kinney
+- Jeff Gardner
+- Jiarui Li
 
 
 
