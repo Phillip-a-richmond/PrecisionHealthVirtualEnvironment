@@ -144,7 +144,9 @@ After completing the basic setup, then you are ready to install packages.
 ```
 module load CVMFS_test
 module load r/4.0.2
+module load gcc/8.4.0
 ```
+**NOTE** @Jeff/Jerry Would be easiest to have the GCC and R in lmod native to Sockeye instead of within CVMFS 
 
 2. Make a directory on the system where you'll install your libraries.
 ```
