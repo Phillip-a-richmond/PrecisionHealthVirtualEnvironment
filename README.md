@@ -7,6 +7,16 @@ Dr. Phillip Richmond (prichmond@bcchr.ca)
 Precision Health Initiative, BC Children's Hospital Research Institute (www.bcchr.ca/phi)
 
 
+## Outline
+- [Deployments](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Deployments)
+- [Databases](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Databases)
+- [Software](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Software)
+- [Open Data](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/OpenData)
+- [Workshops](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Workshops)
+- [Workflows](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Workflows)
+- [Overview and Purpose](##Overview_and_Purpose)
+- [Contributions](##Contributions)
+
 ## Overview and Purpose
 ### Precision Health Initiative
 Emerging technologies which enable in-depth biological profiles of patients are transforming our understanding of health and disease, providing clinicians and researchers with the tools to diagnose and treat both rare and complex diseases in a precise manner tailored to each patient. It is now possible to examine the core components of molecular and cellular physiology, including the genome, proteome, metabolome, microbiome, and epigenome (multi-omic data) of patients in a comprehensive manner, enabling patient-specific diagnosis and treatment options. While these tools carry immense value, they also come with logistical and redundancy challenges for effective deployment within research and clinical settings, including ensuring appropriate ethical consent, knowledgebase, education and training, and computational infrastructure. The Precision Health Initiative at BC Children’s Hospital Research Institute (BCCHR) seeks to address these challenges by coordinating computational infrastructure and education/training efforts for the local community of researchers and clinicians. 
@@ -24,13 +34,17 @@ The primary goal of the Precision Health Virtual Environment is to provide a col
 This environment is launching in Fall 2021 as a pilot project to demonstrate efficacy, with the hopes of broader long-term adoption by the UBC research community. The rest of this document details a vision for the environment’s disk space footprint, training content, and plan of action. A key component of this space is designing it with some degree of portability, so that it can be re-implemented in different settings (e.g. NDRIO).
 
 
-## Outline
-- [Deployments](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Deployments)
-- [Databases](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Databases)
-- [Software](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Software)
-- [Open Data](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/OpenData)
-- [Workshops](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Workshops)
-- [Workflows](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Workflows)
+
+## Community Contributions
+> This space is made possible by contributions of researchers in the community. If you are interested in contributing to this space, contact Phil Richmond (prichmond@bcchr.ca). 
+
+### Contributors
+- Phillip Richmond (@Phillip\_a\_richmond)
+- Emilie Theberge 
+
+
+
+
 
 
 
