@@ -39,7 +39,7 @@ This environment is launching in Fall 2021 as a pilot project to demonstrate eff
 > This space is made possible by contributions of researchers in the community. If you are interested in contributing to this space, contact Phil Richmond (prichmond@bcchr.ca). 
 
 ### Contributors
-- Phillip Richmond (@Phillip\_a\_richmond)
+- Phillip Richmond (@Phillip-a-richmond)
 - Emilie Theberge 
 
 
