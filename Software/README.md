@@ -111,11 +111,13 @@ conda activate Bedtools
 Using Rstudio on sockeye can be done using the guide here: 
 https://confluence.it.ubc.ca/display/UARC/RStudio+with+Singularity
 
-That guide will walk you through:
-1. Pull your Rstudio container.
-2. Install packages for use within your container.
+That guide will walk you through basic set up for Rstudio. 
+
+This guide builds upon that, and covers how you:
+1. Pull your Rstudio container with a specific R version.
+2. Install packages for use within your Rstudio session.
 3. Create and run an Rstudio job.
-4. Open your session in a web browser and use Rstudio.
+4. Open your Rstudio session in a web browser and use Rstudio, connecting to your installed packages.
 
 Before we get deep into this walk-through, you need to set 2 directories:
 
@@ -367,27 +369,20 @@ singularity exec --bind $TMPDIR:/var/run \
 ### Full Example with R 4.1.0 (for Matthew Shannon)
 > This is the basic setup for starting a new R environment with version 4.1.0.
 
-I navigated this setup in this directory, but it will work anywhere: 
+1. Choose your Rstudio image and pull from the online repository, load the singularity and gcc modules, and pull the Rstudio image with singularity. Here I'm pulling to a directory on the project mount.
 ```
 cd /project/st-sturvey-1/PrecisionHealthVirtualEnvironment/Software/Rstudio/prichmond_rstudio/
-```
-
-1. Choose your Rstudio image and pull from the online repository, load the singularity and gcc modules, and pull the Rstudio image with singularity.
-```
 module load gcc
 module load singularity
 singularity pull --name rstudio_4.1.0.sif docker://rocker/rstudio:4.1.0
 ```
 
 2. Create a folder to store your R libraries, and Run_Rstudio script in the scratch working space.
-
 ```
 mkdir -p /scratch/st-sturvey-1/Sandbox/Sherlock/Libs_4.1.0/
 ```
 
-3. Activate R from the command line to get to the R console, making sure you line up the version of R with what you pulled for Rstudio.
-
-First activate the environment (you can just copy-paste to the command line).
+3. Get the R executable from the command line to get to the R console, making sure you line up the version of R with what you pulled for Rstudio.
 ```
 module load Software_Collection/2021
 module load gcc/9.4.0 cuda/11.3.1 openmpi/4.1.1-cuda11-3 openblas/0.3.15 python/3.8.10 git/2.31.1
@@ -443,7 +438,7 @@ Type 'q()' to quit R.
 .libPaths('/scratch/st-sturvey-1/Sandbox/Sherlock/Libs_4.1.0/')
 ``` 
 
-7. Now download the R packages you need.
+7. Now download the R packages you need. **NOTE** This can take a logn time. 
 ```
 # Devtools
 install.packages("devtools",repos = "https://mirror.rcg.sfu.ca/mirror/CRAN/")
@@ -458,8 +453,11 @@ devtools::install_github('msraredon/NICHES', ref = 'master')
 q()
 ```
 
-9. Create a RunRstudio.sh script similar to the one below, pointing at the SIF file we pulled with singularity, and setting the home directory to be the working space you created above on the scratch mount. For more details see walk-through above.
-
+9. Create a Run_Rstudio.sh script similar to the one below, pointing at the SIF file we pulled with singularity, and setting the home directory to be the working space you created above on the scratch mount. For more details see walk-through above.
+```
+nano/vi/emacs Run_Rstudio.sh
+```
+> Script should look like this, you can copy and paste, but modify as needed for paths/email/account.
 ```
 #!/bin/bash
  
@@ -572,6 +570,7 @@ ssh -N -L 8787:se003:60328 richmonp@sockeye.arc.ubc.ca
 library(devtools)
 ```
 
+17. Now have fun using Rstudio!
 
 
 
