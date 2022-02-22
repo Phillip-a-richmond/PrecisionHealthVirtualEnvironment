@@ -394,7 +394,7 @@ module load r/4.1.0
 ```
 module list
 ```
-Should output something like this:
+> Should output something like this:
 ```
 Currently Loaded Modules:
   1) openpbs/openpbs/current    8) cuda/11.3.1             15) libx11/1.7.0
@@ -410,7 +410,7 @@ Currently Loaded Modules:
 ```
 R
 ```
-Should look like this:
+> Should look like this:
 ```
 R version 4.1.0 (2021-05-18) -- "Camp Pontanezen"
 Copyright (C) 2021 The R Foundation for Statistical Computing
