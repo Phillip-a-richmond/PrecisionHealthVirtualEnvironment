@@ -107,28 +107,28 @@ conda activate Bedtools
 
 ## Rstudio on Sockeye
 
-### Basic Setup
+### Basic Setup Overview
 Using Rstudio on sockeye can be done using the guide here: 
 https://confluence.it.ubc.ca/display/UARC/RStudio+with+Singularity
 
 That guide will walk you through:
-1. Set up your Rstudio container
-2. Set up your Rstudio job
-3. Run the Rstudio job
-4. Open your session in a web browser
+1. Pull your Rstudio container.
+2. Install packages for use within your container.
+3. Create and run an Rstudio job.
+4. Open your session in a web browser and use Rstudio.
 
 I have done this walkthrough within the directory: 
 ```
 /project/st-sturvey-1/PrecisionHealthVirtualEnvironment/Software/Rstudio/
 ```
 
-*NOTE*: It is important that you select a version of R here. I chose 4.0.2 since it is stable, and there is a matching R version for 4.0.2 in the CVMFS software stack (relevant for next section of installing R packages).
-
-#### Choosing a specific docker version
+### Pulling Rstudio container with specific R version
 You can choose a specific version of the Rstudio singularity image by choosing from the tags available here: 
 [https://hub.docker.com/r/rocker/rstudio/tags?page=1&ordering=last_updated](https://hub.docker.com/r/rocker/rstudio/tags?page=1&ordering=last_updated)
 
 For me, I wanted to use 4.0.2 since it's stable, and it matches what is on the CVMFS system.
+
+*NOTE*: It is important that you select a version of R here. I chose 4.0.2 since it is stable, and there is a matching R version for 4.0.2 in the CVMFS software stack (relevant for next section of installing R packages). I provide an example at the bottom with 4.1.0.
 
 ```
 module load gcc
@@ -137,7 +137,7 @@ singularity pull --name rstudio_4.0.2.sif docker://rocker/rstudio:4.0.2
 ```
 
 ### Installing packages
-After completing the basic setup, then you are ready to install packages.
+After pulling the singularity image, you are ready to install packages.
 
 1. Load R into your environment, making sure you match between the Rstudio version you pulled above, and what's available on the system.
 
@@ -158,7 +158,10 @@ mkdir -p /project/st-sturvey-1/PrecisionHealthVirtualEnvironment/Software/Rstudi
 ```
 R
 ```
-> This enters you into an interactive session.
+> This enters you into an interactive session, should print something and look like this:
+```
+```
+Then set the libPaths()
 ```
 .libPaths('/project/st-sturvey-1/PrecisionHealthVirtualEnvironment/Software/Rstudio/prichmond_rstudio/Libs_4.0.2/')
 ```
@@ -173,7 +176,13 @@ BiocManager::install("sva")
 ### Running Rstudio
 Rstudio is run using a PBS job script, which will open a connection to an Rstudio session that you can connect to with a web browser on your local machine. 
 
-1. Create the Run_Rstudio.sh job script, likely using a text editor (e.g. nano/vi/emacs). The script should look like this:
+1. Identify where you'll be running Rstudio (a directory on scratch space), and make a directory to work in there.
+```
+mkdir /scratch/st-sturvey-1/Sandbox/Sherlock/
+cd /scratch/st-sturvey-1/Sandbox/Sherlock/
+```
+
+2. Create the Run_Rstudio.sh job script, likely using a text editor (e.g. nano/vi/emacs). The script should look like this:
 ```
 #!/bin/bash
  
@@ -237,12 +246,13 @@ singularity exec --bind $TMPDIR:/var/run \
  rserver --auth-none=0 --auth-pam-helper-path=pam-helper --secure-cookie-key-file ${SECURE_COOKIE} --www-port ${PORT}
 ```
 
-The key pieces we need to change here include:
+The key pieces we need to change here include:  
+
 A) Resources needed
 ```
 #PBS -l walltime=03:00:00,select=1:ncpus=1:mem=5gb
 ``` 
-Change this to have the amount of memory/cpu your job requires. We can leave it at 5gb but that won't be enough for many tasks. e.g.
+> Change this to have the amount of memory/cpu your job requires. We can leave it at 5gb but that won't be enough for many tasks. e.g.
 ```
 #PBS -l walltime=06:00:00,select=1:ncpus=6:mem=30gb
 ```
@@ -251,7 +261,7 @@ B) The allocation code.
 ```
 #PBS -A <st-alloc-1>
 ```
-Change this to be your own allocation, e.g:
+> Change this to be your own allocation, e.g:
 ```
 #PBS -A st-sturvey-1
 ```
@@ -260,7 +270,7 @@ C) Email address.
 ```
 #PBS -M <you.email@ubc.ca>
 ```
-Change to be your own email:
+> Change to be your own email:
 ```
 #PBS -M prichmond@bcchr.ca
 ```
@@ -268,18 +278,19 @@ Change to be your own email:
 D) Path to your working directory, and the SIF file, inside the singularity exec command:
 ```
 singularity exec --bind $TMPDIR:/var/run \
- --home /scratch/<st-alloc-1>/<cwl>/my_rstudio \
- /arc/project/<st-alloc-1>/rstudio/rstudio.sif \
+ --home /scratch/st-sturvey-1/Sandbox/Sherlock/ \
+ /arc/project/st-sturvey-1/PrecisionHealthVirtualEnvironment/Software/Rstudio/prichmond_rstudio//rstudio/rstudio.sif \
  rserver --auth-none=0 --auth-pam-helper-path=pam-helper --secure-cookie-key-file ${SECURE_COOKIE} --www-port ${PORT}
 ```
-Change this to be relevant to what we have set up above, notably changing the place we write data (scratch) the place our SIF is stored (project):
+> Change this to be relevant to what we have set up above, notably changing the place we write data (scratch) the place our SIF is stored (project):
 ```
 singularity exec --bind $TMPDIR:/var/run \
  --home /scratch/st-sturvey-1/Sandbox/Sherlock/ \
- /project/st-sturvey-1/PrecisionHealthVirtualEnvironment/Rstudio/prichmond_rstudio/ \
+ /project/st-sturvey-1/PrecisionHealthVirtualEnvironment/Rstudio/prichmond_rstudio/rstudio_4.1.0.sif \
  rserver --auth-none=0 --auth-pam-helper-path=pam-helper --secure-cookie-key-file ${SECURE_COOKIE} --www-port ${PORT}
 ```
 
+Your final script should look something like mine. 
 
 
 
