@@ -146,7 +146,7 @@ module load CVMFS_test
 module load r/4.0.2
 module load gcc/8.4.0
 ```
-**NOTE** @Jeff/Jerry Would be easiest to have the GCC and R in lmod native to Sockeye instead of within CVMFS 
+**NOTE** @Jeff/Jerry Would be easiest to have the GCC and R in lmod native to Sockeye instead of within CVMFS   
 
 2. Make a directory on the system where you'll install your libraries.
 ```
@@ -169,6 +169,217 @@ install.packages("BiocManager")
 library(BiocManager)
 BiocManager::install("sva")
 ```
+
+### Running Rstudio
+Rstudio is run using a PBS job script, which will open a connection to an Rstudio session that you can connect to with a web browser on your local machine. 
+
+1. Create the Run_Rstudio.sh job script, likely using a text editor (e.g. nano/vi/emacs). The script should look like this:
+```
+#!/bin/bash
+ 
+#PBS -l walltime=03:00:00,select=1:ncpus=1:mem=5gb
+#PBS -N my_rstudio_server
+#PBS -A <st-alloc-1>
+#PBS -m abe
+#PBS -M <you.email@ubc.ca>
+ 
+################################################################################
+ 
+# Change directory into the job dir
+cd $PBS_O_WORKDIR
+ 
+# Load software environment
+module load gcc
+module load singularity
+ 
+# Set RANDFILE location to writeable dir
+export RANDFILE=$TMPDIR/.rnd
+ 
+# Generate a unique password for RStudio Server
+export SINGULARITYENV_PASSWORD=$(openssl rand -base64 15)
+ 
+# Find a unique port for RStudio Server to listen on
+readonly PORT=$(python -c 'import socket; s=socket.socket(); s.bind(("", 0)); print(s.getsockname()[1]); s.close()')
+ 
+# Set per-job location for the rserver secure cookie
+export SECURE_COOKIE=$TMPDIR/secure-cookie-key
+ 
+# Print connection details to file
+cat > connection_${PBS_JOBID}.txt <<END
+ 
+1. Create an SSH tunnel to RStudio Server from your local workstation using the following command:
+ 
+ssh -N -L 8787:${HOSTNAME}:${PORT} ${USER}@sockeye.arc.ubc.ca
+ 
+2. Point your web browser to http://localhost:8787
+ 
+3. Login to RStudio Server using the following credentials:
+ 
+Username: ${USER}
+Password: ${SINGULARITYENV_PASSWORD}
+ 
+When done using RStudio Server, terminate the job by:
+ 
+1. Sign out of RStudio (Left of the "power" button in the top right corner of the RStudio window)
+2. Issue the following command on the login node:
+ 
+qdel ${PBS_JOBID}
+ 
+END
+ 
+# Optional: You can modify this container by installing custom R pakcages/libraries in your local PC with root access. In this case, you have to set LD_LIBRARY_PATH to make Rstudio use the system dependencies built in the container, which are located in "/usr/lib/x86_64-linux-gnu".
+export SINGULARITYENV_LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH
+ 
+# Execute the rserver within the rocker/rstudio container
+singularity exec --bind $TMPDIR:/var/run \
+ --home /scratch/<st-alloc-1>/<cwl>/my_rstudio \
+ /arc/project/<st-alloc-1>/rstudio/rstudio.sif \
+ rserver --auth-none=0 --auth-pam-helper-path=pam-helper --secure-cookie-key-file ${SECURE_COOKIE} --www-port ${PORT}
+```
+
+The key pieces we need to change here include:
+A) Resources needed
+```
+#PBS -l walltime=03:00:00,select=1:ncpus=1:mem=5gb
+``` 
+Change this to have the amount of memory/cpu your job requires. We can leave it at 5gb but that won't be enough for many tasks. e.g.
+```
+#PBS -l walltime=06:00:00,select=1:ncpus=6:mem=30gb
+```
+
+B) The allocation code.
+```
+#PBS -A <st-alloc-1>
+```
+Change this to be your own allocation, e.g:
+```
+#PBS -A st-sturvey-1
+```
+
+C) Email address.
+```
+#PBS -M <you.email@ubc.ca>
+```
+Change to be your own email:
+```
+#PBS -M prichmond@bcchr.ca
+```
+
+D) Path to your working directory, and the SIF file, inside the singularity exec command:
+```
+singularity exec --bind $TMPDIR:/var/run \
+ --home /scratch/<st-alloc-1>/<cwl>/my_rstudio \
+ /arc/project/<st-alloc-1>/rstudio/rstudio.sif \
+ rserver --auth-none=0 --auth-pam-helper-path=pam-helper --secure-cookie-key-file ${SECURE_COOKIE} --www-port ${PORT}
+```
+Change this to be relevant to what we have set up above, notably changing the place we write data (scratch) the place our SIF is stored (project):
+```
+singularity exec --bind $TMPDIR:/var/run \
+ --home /scratch/st-sturvey-1/Sandbox/Sherlock/ \
+ /project/st-sturvey-1/PrecisionHealthVirtualEnvironment/Rstudio/prichmond_rstudio/ \
+ rserver --auth-none=0 --auth-pam-helper-path=pam-helper --secure-cookie-key-file ${SECURE_COOKIE} --www-port ${PORT}
+```
+
+
+
+
+### Full Example with R 4.1.0 (for Matthew Shannon)
+> This is the basic setup for starting a new R environment with version 4.1.0.
+
+I navigated this setup in this directory, but it will work anywhere: 
+```
+cd /project/st-sturvey-1/PrecisionHealthVirtualEnvironment/Software/Rstudio/prichmond_rstudio/
+```
+
+1. Choose your Rstudio image and pull from the online repository.
+```
+module load gcc
+module load singularity
+singularity pull --name rstudio_4.1.0.sif docker://rocker/rstudio:4.1.0
+```
+
+2. Create a folder to store your R libraries.
+
+```
+mkdir /project/st-sturvey-1/PrecisionHealthVirtualEnvironment/Software/Rstudio/prichmond_rstudio/Libs_4.1.0/
+```
+
+3. Activate R from the command line to get to the R console, making sure you line up the version of R with what you pulled for Rstudio.
+
+First activate the environment (you can just copy-paste to the command line).
+```
+module load Software_Collection/2021
+module load gcc/9.4.0 cuda/11.3.1 openmpi/4.1.1-cuda11-3 openblas/0.3.15 python/3.8.10 git/2.31.1
+module load r/4.1.0
+```
+
+4. Check that you've got the right modules loaded. 
+
+```
+module list
+```
+Should output something like this:
+```
+Currently Loaded Modules:
+  1) openpbs/openpbs/current    8) cuda/11.3.1             15) libx11/1.7.0
+  2) default-environment        9) numactl/2.0.14          16) libxt/1.1.5
+  3) Software_Collection/2021  10) openmpi/4.1.1-cuda11-3  17) libxmu/1.1.2
+  4) gcc/9.4.0                 11) openblas/0.3.15         18) openjdk/11.0.8_10
+  5) gmp/6.2.1                 12) python/3.8.10           19) r/4.1.0
+  6) singularity/3.8.5         13) curl/7.76.1             20) perl/5.34.0
+  7) libxml2/2.9.10            14) libpng/1.6.37           21) git/2.31.1
+```
+
+5. Open R console on the command line.
+```
+R
+```
+Should look like this:
+```
+R version 4.1.0 (2021-05-18) -- "Camp Pontanezen"
+Copyright (C) 2021 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+>
+
+```
+
+6. Set the .libPaths() parameter in the R console to match the directory we made above.
+```
+.libPaths('/project/st-sturvey-1/PrecisionHealthVirtualEnvironment/Software/Rstudio/prichmond_rstudio/Libs_4.1.0/')
+``` 
+
+7. Now download the R packages you need.
+```
+# Devtools
+install.packages("devtools",repos = "https://mirror.rcg.sfu.ca/mirror/CRAN/")
+# BioCLite
+if (!requireNamespace("BiocManager", quietly = TRUE))
+  install.packages("BiocManager", repos = "https://mirror.rcg.sfu.ca/mirror/CRAN/")
+devtools::install_github('msraredon/NICHES', ref = 'master')
+```
+
+8. Exit the R console when you've finished installing your packages.
+```
+q()
+```
+
+9. Create a RunRstudio.sh script similar to the one below, pointing at the SIF file we pulled with singularity. 
+
 
 
 
