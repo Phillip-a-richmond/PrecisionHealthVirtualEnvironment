@@ -1,5 +1,5 @@
 # Software
-> This directory will store software packages used in the analysis of precision health data.
+> This directory will store software packages used in the analysis of precision health data, and show researchers how to manage their own software stack.
 
 ## Overview
 - [Software Mantra](#Software-Mantra)
@@ -20,7 +20,7 @@ The upper level of this software directory is only managed by Phillip Richmond. 
 
 E.g. on Sockeye:
 ```
-mkdir /project/st-sturvey-1/PrecisionHealthVirtualEnvironment/Software/prichmond/
+mkdir /project/st-sturvey-1/PrecisionHealthVirtualEnvironment/Software/UserDirs/prichmond/
 ``` 
 
 If you're open to sharing your user dir with others, please discuss with Phillip Richmond (phillip.a.richmond@gmail.com).
@@ -571,7 +571,6 @@ library(devtools)
 ```
 
 17. Now have fun using Rstudio!
-
 
 
 
