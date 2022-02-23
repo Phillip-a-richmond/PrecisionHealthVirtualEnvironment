@@ -11,6 +11,7 @@ function buildMiniConda3()
         source ${MINI_CONDA_INSTALL_DIR}/etc/profile.d/conda.sh
         cd $DIR
 	conda --help
+	rm Miniconda3-latest-Linux-x86_64.sh
 }
 
 # Execute it
