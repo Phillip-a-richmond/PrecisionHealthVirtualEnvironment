@@ -65,13 +65,24 @@ cd $DBDIR/GRCh38/Genome/
 
 ### Gencode
 #### Fasta
-wget -c -q http://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_38/GRCh38.primary_assembly.genome.fa.gz
+#wget -c -q http://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_38/GRCh38.primary_assembly.genome.fa.gz
+#
+## GFF3/GTF
+#wget -c -q http://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_38/gencode.v38.annotation.gff3.gz
+#gunzip gencode.v38.annotation.gff3.gz
+#
+#wget -c -q http://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_38/gencode.v38.annotation.gtf.gz
+#gunzip gencode.v38.annotation.gtf.gz
 
-# GFF3/GTF
-wget -c -q http://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_38/gencode.v38.annotation.gff3.gz
-gunzip gencode.v38.annotation.gff3.gz
 
-wget -c -q http://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_38/gencode.v38.annotation.gtf.gz
-gunzip gencode.v38.annotation.gtf.gz
+### GRCh38.14
+mkdir -p GRCh38.14
+#wget -c -q https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/001/405/GCA_000001405.29_GRCh38.p14/GCA_000001405.29_GRCh38.p14_genomic.fna.gz
+#gunzip GCA_000001405.29_GRCh38.p14_genomic.fna.gz
+
+#bwa index GCA_000001405.29_GRCh38.p14_genomic.fna
+
+#wget -c -q https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/001/405/GCA_000001405.29_GRCh38.p14/GCA_000001405.29_GRCh38.p14_genomic.gtf.gz
+#gunzip GCA_000001405.29_GRCh38.p14_genomic.gtf.gz 
 
 
