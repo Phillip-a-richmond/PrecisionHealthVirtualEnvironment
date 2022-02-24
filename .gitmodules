@@ -1,0 +1,3 @@
+[submodule "Workshops/GenomeAnalysisModule"]
+	path = Workshops/GenomeAnalysisModule
+	url = https://github.com/Phillip-a-richmond/GenomeAnalysisModule
