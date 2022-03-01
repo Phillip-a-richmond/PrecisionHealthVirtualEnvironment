@@ -23,5 +23,5 @@ Software/UserDirs/*
 *nohup.out
 
 # Keep shell scripts, they small and useful
-*.sh
+!*.sh
 
