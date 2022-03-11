@@ -1,3 +1,6 @@
 [submodule "Workshops/GenomeAnalysisModule"]
 	path = Workshops/GenomeAnalysisModule
 	url = https://github.com/Phillip-a-richmond/GenomeAnalysisModule
+[submodule "Workshops/fMRIAnalysisModule"]
+	path = Workshops/fMRIAnalysisModule
+	url = https://github.com/LJWilliams/fMRIAnalysisModule.git
