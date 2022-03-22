@@ -1,8 +1,9 @@
-# Learning Command Line Workshop
+# Command Line Workshop
 
 > The purpose of this workshop is to expose novice users to the linux command line. 
 
-> Author: Phillip Richmond (prichmond@bcchr.ca)
+Author: Phillip Richmond 
+Contact: prichmond@bcchr.ca
 
 
 ## Outline
