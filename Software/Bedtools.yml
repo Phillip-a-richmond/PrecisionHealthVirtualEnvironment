@@ -1,0 +1,6 @@
+# platform: linux-64
+channels:
+        - bioconda
+dependencies:
+        - pybedtools
+        - bedtools

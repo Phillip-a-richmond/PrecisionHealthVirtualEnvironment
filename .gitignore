@@ -1,3 +1,6 @@
+# Keep all READMEs
+!README.md
+
 # ignore contents inside
 # Databases
 Databases/References/GRCh37/*
@@ -11,17 +14,20 @@ OpenData/Geuvadis/Raw/*
 OpenData/Geuvadis/Processed/*
 
 # Software
-Software/*
+Software/miniconda3/*
+Software/CellRanger/cellranger*
+Software/CellRanger/refdata*
 Software/UserDirs/*
+Software/Rstudio/*
+
 ## keep software install starters
 !Software/InstallMiniconda3.sh
-
-# Keep all READMEs
-!README.md
 
 # nohup stuff
 *nohup.out
 
 # Keep shell scripts, they small and useful
 !*.sh
+
+
 
