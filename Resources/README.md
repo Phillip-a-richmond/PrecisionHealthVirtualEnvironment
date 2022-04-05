@@ -26,20 +26,20 @@
 ## Community Workshops
 
 1. UBC Library Commons.
- - Link: [https://researchcommons.library.ubc.ca/workshops/](https://researchcommons.library.ubc.ca/workshops/)
- - Github: [https://github.com/ubc-library-rc](https://github.com/ubc-library-rc)
+    - Link: [https://researchcommons.library.ubc.ca/workshops/](https://researchcommons.library.ubc.ca/workshops/)
+    - Github: [https://github.com/ubc-library-rc](https://github.com/ubc-library-rc)
 
 2. BCCHR Trainee Omics Group.
- - Link: [https://bcchr.ca/tog](https://bcchr.ca/tog)
- - Github: [https://github.com/BCCHR-trainee-omics-group/StudyGroup](https://github.com/BCCHR-trainee-omics-group/StudyGroup)
+    - Link: [https://bcchr.ca/tog](https://bcchr.ca/tog)
+    - Github: [https://github.com/BCCHR-trainee-omics-group/StudyGroup](https://github.com/BCCHR-trainee-omics-group/StudyGroup)
 
 3. UBC Medical Genetics Graduate Students' Association
- - Link: [https://mggsa.ca/statistics-and-computational-resources/](https://mggsa.ca/statistics-and-computational-resources/)
+    - Link: [https://mggsa.ca/statistics-and-computational-resources/](https://mggsa.ca/statistics-and-computational-resources/)
 
 
 4. UBC ECOSCOPE
- - Link: [https://lsi.ubc.ca/news-events/events/ecoscope/](https://lsi.ubc.ca/news-events/events/ecoscope/)
- - Github: [https://github.com/EDUCE-UBC](https://github.com/EDUCE-UBC)
+    - Link: [https://lsi.ubc.ca/news-events/events/ecoscope/](https://lsi.ubc.ca/news-events/events/ecoscope/)
+    - Github: [https://github.com/EDUCE-UBC](https://github.com/EDUCE-UBC)
 
 
 
