@@ -38,8 +38,11 @@ This environment is launching in Fall 2021 as a pilot project to demonstrate eff
 > This space is made possible by contributions of researchers in the community. If you are interested in contributing to this space, contact Phil Richmond (prichmond@bcchr.ca). 
 
 ### Community Contributors
-- Phillip Richmond (@Phillip-a-richmond)
-- Emilie Theberge 
+- [Phillip Richmond](https://github.com/Phillip-a-richmond)
+- [Emilie Theberge](https://github.com/ettheberge)
+- [Nikita Telkar](https://github.com/nikita-telkar)
+- [Will Casazza](https://github.com/wilcas)
+- [Lynne Williams](https://github.com/LJWilliams)
 
 ### UBC ARC Sockeye Collaborators
 - Elizabeth Kinney
