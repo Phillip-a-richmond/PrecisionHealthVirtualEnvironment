@@ -404,7 +404,7 @@ mkdir -p /scratch/st-sturvey-1/Sandbox/Sherlock/Libs_4.1.0/
 3. Get the R executable from the command line to get to the R console, making sure you line up the version of R with what you pulled for Rstudio.
 ```
 module load Software_Collection/2021
-module load gcc/9.4.0 cuda/11.3.1 openmpi/4.1.1-cuda11-3 openblas/0.3.15 python/3.8.10 git/2.31.1
+module load gcc/9.4.0 cuda/11.3.1 openmpi/4.1.1-cuda11-3 openblas/0.3.15 python/3.8.10 git/2.31.1 geos/3.8.1
 module load r/4.1.0
 ```
 
@@ -415,14 +415,13 @@ module list
 ```
 > Should output something like this:
 ```
-Currently Loaded Modules:
-  1) openpbs/openpbs/current    8) cuda/11.3.1             15) libx11/1.7.0
-  2) default-environment        9) numactl/2.0.14          16) libxt/1.1.5
-  3) Software_Collection/2021  10) openmpi/4.1.1-cuda11-3  17) libxmu/1.1.2
-  4) gcc/9.4.0                 11) openblas/0.3.15         18) openjdk/11.0.8_10
-  5) gmp/6.2.1                 12) python/3.8.10           19) r/4.1.0
-  6) singularity/3.8.5         13) curl/7.76.1             20) perl/5.34.0
-  7) libxml2/2.9.10            14) libpng/1.6.37           21) git/2.31.1
+  1) openpbs/openpbs/20.0.1     8) numactl/2.0.14          15) libxt/1.1.5
+  2) default-environment        9) openmpi/4.1.1-cuda11-3  16) libxmu/1.1.2
+  3) Software_Collection/2021  10) openblas/0.3.15         17) openjdk/11.0.8_10
+  4) gmp/6.2.1                 11) python/3.8.10           18) r/4.1.0
+  5) gcc/9.4.0                 12) curl/7.76.1             19) geos/3.8.1
+  6) libxml2/2.9.10            13) libpng/1.6.37           20) perl/5.34.0
+  7) cuda/11.3.1               14) libx11/1.7.0            21) git/2.31.1
 ```
 
 5. Open R console on the command line.
@@ -465,6 +464,8 @@ install.packages("devtools",repos = "https://mirror.rcg.sfu.ca/mirror/CRAN/")
 if (!requireNamespace("BiocManager", quietly = TRUE))
   install.packages("BiocManager", repos = "https://mirror.rcg.sfu.ca/mirror/CRAN/")
 devtools::install_github('msraredon/NICHES', ref = 'master')
+# Seurat
+install.packages("Seurat",repos = "https://mirror.rcg.sfu.ca/mirror/CRAN/")
 ```
 
 8. Exit the R console when you've finished installing your packages.
