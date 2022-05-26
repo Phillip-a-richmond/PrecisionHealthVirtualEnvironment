@@ -473,10 +473,20 @@ install.packages("Seurat",repos = "https://mirror.rcg.sfu.ca/mirror/CRAN/")
 q()
 ```
 
-9. Create a Run_Rstudio.sh script similar to the one below, pointing at the SIF file we pulled with singularity, and setting the home directory to be the working space you created above on the scratch mount. For more details see walk-through above.
+9. Create a Run_Rstudio.sh script similar to the one below, pointing at the SIF file we pulled with singularity, and setting the home directory to be the working space you created above on the scratch mount. For more details see walk-through above. Here, we'll use whatever text-editor we are most familiar with, e.g. nano, vi, or emacs.
 ```
-nano/vi/emacs Run_Rstudio.sh
+nano Run_Rstudio.sh
 ```
+OR
+```
+vi Run_Rstudio.sh
+```
+OR
+```
+emacs Run_Rstudio.sh
+```
+
+
 > Script should look like this, you can copy and paste, but modify as needed for paths/email/account.
 ```
 #!/bin/bash
