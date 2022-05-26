@@ -541,9 +541,6 @@ qdel ${PBS_JOBID}
  
 END
  
-# Optional: You can modify this container by installing custom R pakcages/libraries in your local PC with root access. In this case, you have to set LD_LIBRARY_PATH to make Rstudio use the system dependencies built in the container, which are located in "/usr/lib/x86_64-linux-gnu".
-#export SINGULARITYENV_LD_LIBRARY_PATH=/project/st-sturvey-1/PrecisionHealthVirtualEnvironment/Software/Rstudio/prichmond_rstudio/Libs_4.1.0/:/usr/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH
- 
 # Execute the rserver within the rocker/rstudio container
 singularity exec --bind $TMPDIR:/var/run \
  --home /scratch/st-sturvey-1/Sandbox/Sherlock/ \
