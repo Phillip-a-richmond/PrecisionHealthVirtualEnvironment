@@ -1,24 +1,10 @@
----
-title: "BCCHR Precision Health Bootcamp - Terms and Definitions"
-author: Nikita Telkar
-output: 
-  rmdformats::downcute:
-    self_contained: true
-    default_style: "light"
-    downcute_theme: "default"
-    style_switcher: false
-    toc_depth: 4
-    keep_md: yes
+**This document contains the most common commands/functions and computational terms used within Linux, as well as within the BCCHR Precision Health Bootcamp**  
 
----
+To have a copy of the information below for yourself, download the `PHB_Terms_and_Defintions.html` file above.  
 
-***  
+***
 
-> This document contains the most common commands/functions and computaional terms used within Linux, as well as within the BCCHR Precision Health Bootcamp  
-
-***  
-
-### Virtual Environment/Machine 
+**Virtual Environment/Machine** 
 
 A virtual operating system workspace. Each guest can create multiple VMs within their account, with each having it's own software and dependencies.  
 
@@ -26,7 +12,7 @@ A virtual operating system workspace. Each guest can create multiple VMs within 
 
 ***  
 
-### Container 
+**Container**  
 
 A common operating system bundle consisting of multiple applications/software, plus all their dependencies, which can be loaded by each user (and hence they wouldn't have to install their own software.  
 
