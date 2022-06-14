@@ -33,6 +33,17 @@ The primary goal of the Precision Health Virtual Environment is to provide a col
 
 This environment is launching in Fall 2021 as a pilot project to demonstrate efficacy, with the hopes of broader long-term adoption by the UBC research community. The rest of this document details a vision for the environment’s disk space footprint, training content, and plan of action. A key component of this space is designing it with some degree of portability, so that it can be re-implemented in different settings (e.g. NDRIO).
 
+## Precision Health Bootcamp Summer 2022
+
+The Precision Health Bootcamp will run from July 25th - August 10th, 2022.
+
+For the workshop advertisement, please click [here]().
+
+For registration, please click [here]().
+
+For detailed descriptions of the workshops, please click [here]().
+
+
 
 ## Contributions
 > This space is made possible by contributions of researchers in the community. If you are interested in contributing to this space, contact Phil Richmond (prichmond@bcchr.ca). 
