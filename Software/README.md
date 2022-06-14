@@ -107,6 +107,442 @@ conda activate Bedtools
 
 ## Rstudio on Sockeye
 
+## Full Example with Bioconductor Image for Minfi and Seurat
+
+This example is for a bioconductor image, which is useful for many genomics workflows, including DNA methylation analysis or single-cell RNAseq.
+
+### Step 1: Pull your bioconductor image
+
+The steps in this script are contained within the script:
+```
+Get_Rstudio.sh
+```
+
+1. Create yourself a working directory for Rstudio on the scratch space.
+```
+mkdir -p /scratch/tr-precisionhealth-1/Sandbox/<username>/Rstudio/
+```
+
+My example is:
+```
+mkdir -p /scratch/tr-precisionhealth-1/Sandbox/Sherlock/Rstudio/
+```
+
+--------
+
+2. Copy this script to that directory:
+```
+cp /project/tr-precisionhealth-1/PrecisionHealthVirtualEnvironment/Software/Get_Rstudio.sh /scratch/tr-precisionhealth-1/Sandbox/Sherlock/Rstudio/
+```
+
+---------
+
+3. Find a bioconductor image from the available 'tags' here: [https://hub.docker.com/r/bioconductor/bioconductor_docker/tags](https://hub.docker.com/r/bioconductor/bioconductor_docker/tags). 
+
+You can get more info from clicking on the individual release links. 
+
+The release I'm using here is 3\_15, which uses R version 4.2.0. 
+
+----------
+
+4. Modify the Get\_Rstudio.sh script using a text editor, e.g. nano, vim, or emacs.
+```
+nano /scratch/tr-precisionhealth-1/Sandbox/Sherlock/Rstudio/Get_Rstudio.sh
+```
+
+The script looks like this:
+```
+#  load modules
+module load gcc
+module load singularity
+
+# Change to your directory where you'll keep the SIF 
+mkdir -p /scratch/tr-precisionhealth-1/Sandbox/BioconductorExample/
+cd /scratch/tr-precisionhealth-1/Sandbox/BioconductorExample/
+
+# Make an R_Lib directory there that matches the R version. To find the R version read up on the docker tag (link below)
+mkdir -p /scratch/tr-precisionhealth-1/Sandbox/BioconductorExample/R_Libs_4.2.0/
+
+# Set your singularity cache
+export SINGULARITY_CACHEDIR=$PWD
+
+# Use singularity to pull your version of Rstudio docker
+# I prefer to use a stable version other than latest
+# Versions available here: https://hub.docker.com/r/bioconductor/bioconductor_docker/tags 
+singularity pull --name rstudio-bioconductor-Release_3_15.sif docker://bioconductor/bioconductor_docker:RELEASE_3_15
+```
+
+You'll need to make some changes, including changing the path to our Rstudio setup directory. 
+
+For Sherlock, I'll change this file to have the following paths that I made above, but I'll keep release 3\_15 and R version 4.2.0.
+
+Example script for Sherlock:
+```
+#  load modules
+module load gcc
+module load singularity
+
+# Change to your directory where you'll keep the SIF
+mkdir -p /scratch/tr-precisionhealth-1/Sandbox/Sherlock/Rstudio/
+cd /scratch/tr-precisionhealth-1/Sandbox/Sherlock/Rstudio/
+
+# Make an R_Lib directory there that matches the R version. To find the R version read up on the docker tag (link below)
+mkdir -p /scratch/tr-precisionhealth-1/Sandbox/Sherlock/Rstudio/R_Libs_4.2.0/
+
+# Set your singularity cache
+export SINGULARITY_CACHEDIR=$PWD
+
+# Use singularity to pull your version of Rstudio docker
+# I prefer to use a stable version other than latest
+# Versions available here: https://hub.docker.com/r/bioconductor/bioconductor_docker/tags
+singularity pull --name rstudio-bioconductor-Release_3_15.sif docker://bioconductor/bioconductor_docker:RELEASE_3_15
+```
+
+----------
+
+5. Run the script with bash. Note, this has to happen from within our Rstudio directory.
+```
+cd /scratch/tr-precisionhealth-1/Sandbox/Sherlock/Rstudio/
+sh Get_Rstudio.sh
+```
+
+----------
+
+6. When it finishes, check that you have your image where it should be.
+```
+ls -lah /scratch/tr-precisionhealth-1/Sandbox/Sherlock/Rstudio/rstudio-bioconductor-Release_3_15.sif
+```
+
+If you don't have a SIF file, start Step 1 again.
+
+
+### Step 2: Install libraries from R console
+The steps in this script are contained within the script:
+```
+Install_R_Libs.sh
+```
+
+1. Copy this script into your Rstudio directory (here I'm continuing with the Sherlock example from Step 1).
+```
+cp /project/tr-precisionhealth-1/PrecisionHealthVirtualEnvironment/Software/Rstudio/Install_R_Libs.sh /scratch/tr-precisionhealth-1/Sandbox/Sherlock/Rstudio/
+```
+
+----------
+
+2. This is the script:
+```
+# To install packages, we need to launch the container interactively
+
+# First load singularity
+module load singularity
+
+# Point to your Libs, your SIF
+Home_Dir=/scratch/st-sturvey-1/Sandbox/BioconductorExample/
+Lib_Dir=/scratch/st-sturvey-1/Sandbox/BioconductorExample/R_Libs_4.2.0/
+Rstudio_SIF=/scratch/st-sturvey-1/Sandbox/BioconductorExample/rstudio-bioconductor-Release_3_15.sif
+
+# Execute the rserver within the rocker/rstudio container
+singularity exec --bind $TMPDIR:/var/run \
+ --home $Home_Dir \
+ --bind $Lib_Dir \
+ $Rstudio_SIF \
+R
+
+# Run that code from the command line, then once in R, you want to set your .libPaths() to match where your R library is.
+# So it'll look like:
+# .libPaths('/scratch/st-sturvey-1/Sandbox/BioconductorExample/R_Libs_4.2.0/')
+```
+
+We will modify it to match our setup for Sherlock (or your own setup from Step 1 above).
+```
+# To install packages, we need to launch the container interactively
+
+# First load singularity
+module load singularity
+
+# Point to your Libs, your SIF
+Home_Dir=/scratch/st-sturvey-1/Sandbox/Sherlock/Rstudio/
+Lib_Dir=/scratch/st-sturvey-1/Sandbox/Sherlock/Rstudio/R_Libs_4.2.0/
+Rstudio_SIF=/scratch/st-sturvey-1/Sandbox/Sherlock/Rstudio/rstudio-bioconductor-Release_3_15.sif
+
+# Execute the rserver within the rocker/rstudio container
+singularity exec --bind $TMPDIR:/var/run \
+ --home $Home_Dir \
+ --bind $Lib_Dir \
+ $Rstudio_SIF \
+R
+
+# Run that code from the command line, then once in R, you want to set your .libPaths() to match where your R library is.
+# So it'll look like:
+# .libPaths('/scratch/st-sturvey-1/Sandbox/Sherlock/Rstudio/R_Libs_4.2.0/')
+```
+
+--------
+
+3. Run the script:
+```
+sh Install_R_Libs.sh
+```
+
+This will print to the screen something that looks like this:
+```
+INFO:    Convert SIF file to sandbox...
+
+R version 4.2.0 (2022-04-22) -- "Vigorous Calisthenics"
+Copyright (C) 2022 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+During startup - Warning messages:
+1: Setting LC_CTYPE failed, using "C" 
+2: Setting LC_COLLATE failed, using "C" 
+3: Setting LC_TIME failed, using "C" 
+4: Setting LC_MESSAGES failed, using "C" 
+5: Setting LC_MONETARY failed, using "C" 
+6: Setting LC_PAPER failed, using "C" 
+7: Setting LC_MEASUREMENT failed, using "C" 
+> 
+```
+
+--------
+
+4. Now that we are in the interactive R environment, we will set our path to the place we are storing libraries with the .libPaths() command.
+```
+.libPaths('/scratch/st-sturvey-1/Sandbox/Sherlock/Rstudio/R_Libs_4.2.0/')
+```
+
+---------
+
+5. Last, we are now able to install packages, either through install.packages, or BiocManager::install.
+```
+library(BiocManager)
+BiocManager::install("Seurat")
+```
+
+Once you are done installing packages, test that you can load them.
+
+
+```
+library(Seurat)
+```
+
+### Step 3A - Run an Rstudio session with this image and installed libraries
+
+1. Copy a Run\_Rstudio.sh script into a working directory on the scratch mount.
+```
+cp /project/tr-precisionhealth-1/PrecisionHealthVirtualEnvironment/Software/Run_Rstudio.sh /scratch/tr-precisionhealth-1/Sandbox/Sherlock/Rstudio/
+```
+
+That script looks like this:
+```
+#!/bin/bash
+ 
+#PBS -l walltime=03:00:00,select=1:ncpus=4:mem=32gb
+#PBS -N my_rstudio_server
+#PBS -A st-sturvey-1
+#PBS -m abe
+#PBS -M prichmond@bcchr.ca
+ 
+################################################################################
+ 
+# Change directory into the job dir
+cd $PBS_O_WORKDIR
+ 
+# Load software environment
+module load singularity
+
+#####################
+############### 
+# Modify this #
+###############
+
+Rstudio_SIF=/scratch/st-sturvey-1/Sandbox/BioconductorExample/rstudio-bioconductor-Release_3_15.sif
+Home_Dir=/scratch/st-sturvey-1/Sandbox/BioconductorExample/ 
+Data_Dir=/scratch/st-sturvey-1/Workshops/
+Lib_Dir=/scratch/st-sturvey-1/Sandbox/BioconductorExample/R_Libs_4.2.0/
+
+######################
+
+##############################
+# Don't change anything else #
+##############################
+
+# Set RANDFILE location to writeable dir
+export RANDFILE=$TMPDIR/.rnd
+ 
+# Generate a unique password for RStudio Server
+export SINGULARITYENV_PASSWORD=$(openssl rand -base64 15)
+ 
+# Find a unique port for RStudio Server to listen on
+readonly PORT=$(python -c 'import socket; s=socket.socket(); s.bind(("", 0)); print(s.getsockname()[1]); s.close()')
+ 
+# Set per-job location for the rserver secure cookie
+export SECURE_COOKIE=$TMPDIR/secure-cookie-key
+ 
+# Print connection details to file
+cat > connection_${PBS_JOBID}.txt <<END
+ 
+1. Create an SSH tunnel to RStudio Server from your local workstation using the following command:
+ 
+ssh -N -L 8787:${HOSTNAME}:${PORT} ${USER}@sockeye.arc.ubc.ca
+ 
+2. Point your web browser to http://localhost:8787
+ 
+3. Login to RStudio Server using the following credentials:
+ 
+Username: ${USER}
+Password: ${SINGULARITYENV_PASSWORD}
+ 
+When done using RStudio Server, terminate the job by:
+ 
+1. Sign out of RStudio (Left of the "power" button in the top right corner of the RStudio window)
+2. Issue the following command on the login node:
+ 
+qdel ${PBS_JOBID}
+ 
+END
+
+
+# This is where we pass the path to our library, and the libraries installed "in the container" (#zoolander)
+export SINGULARITYENV_LD_LIBRARY_PATH=$Lib_Dir:/usr/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH
+ 
+# Execute the rserver within the rocker/rstudio container
+# We bind path to our data, our home, and our lib, and then call the Rstudio.sif file, and execute the rserver command
+singularity exec --bind $TMPDIR:/var/run \
+ --home $Home_Dir \
+ --bind $Data_Dir \
+ --bind $Lib_Dir \
+ $Rstudio_SIF \
+ rserver --auth-none=0 --auth-pam-helper-path=pam-helper --secure-cookie-key-file ${SECURE_COOKIE} --www-port ${PORT} --server-user ${USER}
+```
+
+--------
+
+2. Make modifications to the top part of the script for your resources needed, singularity image path, the path to your data directories, etc.
+
+Open your editor
+```
+nano Run_Rstudio.sh
+```
+
+Change this part for accurate resources, your own email, etc.
+```
+#!/bin/bash
+ 
+#PBS -l walltime=03:00:00,select=1:ncpus=4:mem=32gb
+#PBS -N my_rstudio_server
+#PBS -A st-sturvey-1
+#PBS -m abe
+#PBS -M prichmond@bcchr.ca
+```
+
+Change these portions to refer to the correct image, and Rstudio deployment:
+```
+############### 
+# Modify this #
+###############
+
+Rstudio_SIF=/scratch/st-sturvey-1/Sandbox/Sherlock/Rstudio/rstudio-bioconductor-Release_3_15.sif
+Home_Dir=/scratch/st-sturvey-1/Sandbox/Sherlock/Rstudio/ 
+Data_Dir=/scratch/st-sturvey-1/Workshops/
+Lib_Dir=/scratch/st-sturvey-1/Sandbox/Sherlock/Rstudio/R_Libs_4.2.0/
+```
+
+-------
+
+3. Run the script with qsub
+
+```
+qsub Run_Rstudio.sh
+```
+
+--------
+
+4. Check to see the job started running.
+
+```
+qstat -u $USER
+```
+
+5. Once it starts, you'll get a "connection" file. That file will look like this:
+
+```
+$ cat  connection_3800271.pbsha.ib.sockeye.txt
+ 
+1. Create an SSH tunnel to RStudio Server from your local workstation using the following command:
+ 
+ssh -N -L 8787:se011:58357 richmonp@sockeye.arc.ubc.ca
+ 
+2. Point your web browser to http://localhost:8787
+ 
+3. Login to RStudio Server using the following credentials:
+ 
+Username: richmonp
+Password: xV4WHGmyJavlbn1/CN8c
+ 
+When done using RStudio Server, terminate the job by:
+ 
+1. Sign out of RStudio (Left of the "power" button in the top right corner of the RStudio window)
+2. Issue the following command on the login node:
+ 
+qdel 3800271.pbsha.ib.sockeye
+```
+
+--------
+
+6. Follow the instructions in the file, first by opening a NEW terminal (not connected to Sockeye), and running the SSH tunnel command. 
+
+This will be unique for each session, and for each user.
+```
+ssh -N -L 8787:se011:58357 richmonp@sockeye.arc.ubc.ca
+```
+
+You'll be prompted with your password, enter it, run the 2-factor authentication, and then it should look like it "hangs".
+
+--------
+
+7. Open up a new web browser window, and type in that http address, then login to the Rstudio window with the username and password provided.
+
+--------
+
+
+8. Once in Rstudio, set the library path with the .libPaths() command, matching the library path we set.
+
+```
+.libPaths('/scratch/st-sturvey-1/Sandbox/Sherlock/Rstudio/R_Libs_4.2.0/')
+```
+
+--------
+
+9. Load your libraries that you installed above. NOTE, you cannot install libraries within the Rstudio session, because there is no access to the internet from the compute nodes.
+
+```
+library(Seurat)
+```
+
+END.
+
+### Step 3B - Run R with the pre-installed library and docker image for Rstudio.
+
+
+
+
+
+
+
+Other examples for Rstudio. NOTE, use the above example first before trying these other methods.
+
 ### Basic Setup Overview
 Using Rstudio on sockeye can be done using the guide here: 
 https://confluence.it.ubc.ca/display/UARC/RStudio+with+Singularity
@@ -600,431 +1036,7 @@ library(devtools)
 17. Now have fun using Rstudio!
 
 
-## Full Example with Bioconductor Image for Minfi and Seurat
 
-This example is for a bioconductor image, which is useful for many genomics workflows, including DNA methylation analysis or single-cell RNAseq.
-
-### Step 1: Pull your bioconductor image
-
-The steps in this script are contained within the script:
-```
-Get_Rstudio.sh
-```
-
-1. Create yourself a working directory for Rstudio on the scratch space.
-```
-mkdir -p /scratch/tr-precisionhealth-1/Sandbox/<username>/Rstudio/
-```
-
-My example is:
-```
-mkdir -p /scratch/tr-precisionhealth-1/Sandbox/Sherlock/Rstudio/
-```
-
---------
-
-2. Copy this script to that directory:
-```
-cp /project/tr-precisionhealth-1/PrecisionHealthVirtualEnvironment/Software/Get_Rstudio.sh /scratch/tr-precisionhealth-1/Sandbox/Sherlock/Rstudio/
-```
-
----------
-
-3. Find a bioconductor image from the available 'tags' here: [https://hub.docker.com/r/bioconductor/bioconductor_docker/tags](https://hub.docker.com/r/bioconductor/bioconductor_docker/tags). 
-
-You can get more info from clicking on the individual release links. 
-
-The release I'm using here is 3\_15, which uses R version 4.2.0. 
-
-----------
-
-4. Modify the Get\_Rstudio.sh script using a text editor, e.g. nano, vim, or emacs.
-```
-nano /scratch/tr-precisionhealth-1/Sandbox/Sherlock/Rstudio/Get_Rstudio.sh
-```
-
-The script looks like this:
-```
-#  load modules
-module load gcc
-module load singularity
-
-# Change to your directory where you'll keep the SIF 
-mkdir -p /scratch/tr-precisionhealth-1/Sandbox/BioconductorExample/
-cd /scratch/tr-precisionhealth-1/Sandbox/BioconductorExample/
-
-# Make an R_Lib directory there that matches the R version. To find the R version read up on the docker tag (link below)
-mkdir -p /scratch/tr-precisionhealth-1/Sandbox/BioconductorExample/R_Libs_4.2.0/
-
-# Set your singularity cache
-export SINGULARITY_CACHEDIR=$PWD
-
-# Use singularity to pull your version of Rstudio docker
-# I prefer to use a stable version other than latest
-# Versions available here: https://hub.docker.com/r/bioconductor/bioconductor_docker/tags 
-singularity pull --name rstudio-bioconductor-Release_3_15.sif docker://bioconductor/bioconductor_docker:RELEASE_3_15
-```
-
-You'll need to make some changes, including changing the path to our Rstudio setup directory. 
-
-For Sherlock, I'll change this file to have the following paths that I made above, but I'll keep release 3\_15 and R version 4.2.0.
-
-Example script for Sherlock:
-```
-#  load modules
-module load gcc
-module load singularity
-
-# Change to your directory where you'll keep the SIF
-mkdir -p /scratch/tr-precisionhealth-1/Sandbox/Sherlock/Rstudio/
-cd /scratch/tr-precisionhealth-1/Sandbox/Sherlock/Rstudio/
-
-# Make an R_Lib directory there that matches the R version. To find the R version read up on the docker tag (link below)
-mkdir -p /scratch/tr-precisionhealth-1/Sandbox/Sherlock/Rstudio/R_Libs_4.2.0/
-
-# Set your singularity cache
-export SINGULARITY_CACHEDIR=$PWD
-
-# Use singularity to pull your version of Rstudio docker
-# I prefer to use a stable version other than latest
-# Versions available here: https://hub.docker.com/r/bioconductor/bioconductor_docker/tags
-singularity pull --name rstudio-bioconductor-Release_3_15.sif docker://bioconductor/bioconductor_docker:RELEASE_3_15
-```
-
-----------
-
-5. Run the script with bash. Note, this has to happen from within our Rstudio directory.
-```
-cd /scratch/tr-precisionhealth-1/Sandbox/Sherlock/Rstudio/
-sh Get_Rstudio.sh
-```
-
-----------
-
-6. When it finishes, check that you have your image where it should be.
-```
-ls -lah /scratch/tr-precisionhealth-1/Sandbox/Sherlock/Rstudio/rstudio-bioconductor-Release_3_15.sif
-```
-
-If you don't have a SIF file, start Step 1 again.
-
-
-### Step 2: Install libraries from R console
-The steps in this script are contained within the script:
-```
-Install_R_Libs.sh
-```
-
-1. Copy this script into your Rstudio directory (here I'm continuing with the Sherlock example from Step 1).
-```
-cp /project/tr-precisionhealth-1/PrecisionHealthVirtualEnvironment/Software/Rstudio/Install_R_Libs.sh /scratch/tr-precisionhealth-1/Sandbox/Sherlock/Rstudio/
-```
-
-----------
-
-2. This is the script:
-```
-# To install packages, we need to launch the container interactively
-
-# First load singularity
-module load singularity
-
-# Point to your Libs, your SIF
-Home_Dir=/scratch/st-sturvey-1/Sandbox/BioconductorExample/
-Lib_Dir=/scratch/st-sturvey-1/Sandbox/BioconductorExample/R_Libs_4.2.0/
-Rstudio_SIF=/scratch/st-sturvey-1/Sandbox/BioconductorExample/rstudio-bioconductor-Release_3_15.sif
-
-# Execute the rserver within the rocker/rstudio container
-singularity exec --bind $TMPDIR:/var/run \
- --home $Home_Dir \
- --bind $Lib_Dir \
- $Rstudio_SIF \
-R
-
-# Run that code from the command line, then once in R, you want to set your .libPaths() to match where your R library is.
-# So it'll look like:
-# .libPaths('/scratch/st-sturvey-1/Sandbox/BioconductorExample/R_Libs_4.2.0/')
-```
-
-We will modify it to match our setup for Sherlock (or your own setup from Step 1 above).
-```
-# To install packages, we need to launch the container interactively
-
-# First load singularity
-module load singularity
-
-# Point to your Libs, your SIF
-Home_Dir=/scratch/st-sturvey-1/Sandbox/Sherlock/Rstudio/
-Lib_Dir=/scratch/st-sturvey-1/Sandbox/Sherlock/Rstudio/R_Libs_4.2.0/
-Rstudio_SIF=/scratch/st-sturvey-1/Sandbox/Sherlock/Rstudio/rstudio-bioconductor-Release_3_15.sif
-
-# Execute the rserver within the rocker/rstudio container
-singularity exec --bind $TMPDIR:/var/run \
- --home $Home_Dir \
- --bind $Lib_Dir \
- $Rstudio_SIF \
-R
-
-# Run that code from the command line, then once in R, you want to set your .libPaths() to match where your R library is.
-# So it'll look like:
-# .libPaths('/scratch/st-sturvey-1/Sandbox/Sherlock/Rstudio/R_Libs_4.2.0/')
-```
-
---------
-
-3. Run the script:
-```
-sh Install_R_Libs.sh
-```
-
-This will print to the screen something that looks like this:
-```
-INFO:    Convert SIF file to sandbox...
-
-R version 4.2.0 (2022-04-22) -- "Vigorous Calisthenics"
-Copyright (C) 2022 The R Foundation for Statistical Computing
-Platform: x86_64-pc-linux-gnu (64-bit)
-
-R is free software and comes with ABSOLUTELY NO WARRANTY.
-You are welcome to redistribute it under certain conditions.
-Type 'license()' or 'licence()' for distribution details.
-
-R is a collaborative project with many contributors.
-Type 'contributors()' for more information and
-'citation()' on how to cite R or R packages in publications.
-
-Type 'demo()' for some demos, 'help()' for on-line help, or
-'help.start()' for an HTML browser interface to help.
-Type 'q()' to quit R.
-
-During startup - Warning messages:
-1: Setting LC_CTYPE failed, using "C" 
-2: Setting LC_COLLATE failed, using "C" 
-3: Setting LC_TIME failed, using "C" 
-4: Setting LC_MESSAGES failed, using "C" 
-5: Setting LC_MONETARY failed, using "C" 
-6: Setting LC_PAPER failed, using "C" 
-7: Setting LC_MEASUREMENT failed, using "C" 
-> 
-```
-
---------
-
-4. Now that we are in the interactive R environment, we will set our path to the place we are storing libraries with the .libPaths() command.
-```
-.libPaths('/scratch/st-sturvey-1/Sandbox/Sherlock/Rstudio/R_Libs_4.2.0/')
-```
-
----------
-
-5. Last, we are now able to install packages, either through install.packages, or BiocManager::install.
-```
-library(BiocManager)
-BiocManager::install("Seurat")
-```
-
-Once you are done installing packages, test that you can load them.
-
-
-```
-library(Seurat)
-```
-
-### Step 3A - Run an Rstudio session with this image and installed libraries
-
-1. Copy a Run\_Rstudio.sh script into a working directory on the scratch mount.
-```
-cp /project/tr-precisionhealth-1/PrecisionHealthVirtualEnvironment/Software/Run_Rstudio.sh /scratch/tr-precisionhealth-1/Sandbox/Sherlock/Rstudio/
-```
-
-That script looks like this:
-```
-#!/bin/bash
- 
-#PBS -l walltime=03:00:00,select=1:ncpus=4:mem=32gb
-#PBS -N my_rstudio_server
-#PBS -A st-sturvey-1
-#PBS -m abe
-#PBS -M prichmond@bcchr.ca
- 
-################################################################################
- 
-# Change directory into the job dir
-cd $PBS_O_WORKDIR
- 
-# Load software environment
-module load singularity
-
-#####################
-############### 
-# Modify this #
-###############
-
-Rstudio_SIF=/scratch/st-sturvey-1/Sandbox/BioconductorExample/rstudio-bioconductor-Release_3_15.sif
-Home_Dir=/scratch/st-sturvey-1/Sandbox/BioconductorExample/ 
-Data_Dir=/scratch/st-sturvey-1/Workshops/
-Lib_Dir=/scratch/st-sturvey-1/Sandbox/BioconductorExample/R_Libs_4.2.0/
-
-######################
-
-##############################
-# Don't change anything else #
-##############################
-
-# Set RANDFILE location to writeable dir
-export RANDFILE=$TMPDIR/.rnd
- 
-# Generate a unique password for RStudio Server
-export SINGULARITYENV_PASSWORD=$(openssl rand -base64 15)
- 
-# Find a unique port for RStudio Server to listen on
-readonly PORT=$(python -c 'import socket; s=socket.socket(); s.bind(("", 0)); print(s.getsockname()[1]); s.close()')
- 
-# Set per-job location for the rserver secure cookie
-export SECURE_COOKIE=$TMPDIR/secure-cookie-key
- 
-# Print connection details to file
-cat > connection_${PBS_JOBID}.txt <<END
- 
-1. Create an SSH tunnel to RStudio Server from your local workstation using the following command:
- 
-ssh -N -L 8787:${HOSTNAME}:${PORT} ${USER}@sockeye.arc.ubc.ca
- 
-2. Point your web browser to http://localhost:8787
- 
-3. Login to RStudio Server using the following credentials:
- 
-Username: ${USER}
-Password: ${SINGULARITYENV_PASSWORD}
- 
-When done using RStudio Server, terminate the job by:
- 
-1. Sign out of RStudio (Left of the "power" button in the top right corner of the RStudio window)
-2. Issue the following command on the login node:
- 
-qdel ${PBS_JOBID}
- 
-END
-
-
-# This is where we pass the path to our library, and the libraries installed "in the container" (#zoolander)
-export SINGULARITYENV_LD_LIBRARY_PATH=$Lib_Dir:/usr/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH
- 
-# Execute the rserver within the rocker/rstudio container
-# We bind path to our data, our home, and our lib, and then call the Rstudio.sif file, and execute the rserver command
-singularity exec --bind $TMPDIR:/var/run \
- --home $Home_Dir \
- --bind $Data_Dir \
- --bind $Lib_Dir \
- $Rstudio_SIF \
- rserver --auth-none=0 --auth-pam-helper-path=pam-helper --secure-cookie-key-file ${SECURE_COOKIE} --www-port ${PORT} --server-user ${USER}
-```
-
---------
-
-2. Make modifications to the top part of the script for your resources needed, singularity image path, the path to your data directories, etc.
-
-Open your editor
-```
-nano Run_Rstudio.sh
-```
-
-Change this part for accurate resources, your own email, etc.
-```
-#!/bin/bash
- 
-#PBS -l walltime=03:00:00,select=1:ncpus=4:mem=32gb
-#PBS -N my_rstudio_server
-#PBS -A st-sturvey-1
-#PBS -m abe
-#PBS -M prichmond@bcchr.ca
-```
-
-Change these portions to refer to the correct image, and Rstudio deployment:
-```
-############### 
-# Modify this #
-###############
-
-Rstudio_SIF=/scratch/st-sturvey-1/Sandbox/Sherlock/Rstudio/rstudio-bioconductor-Release_3_15.sif
-Home_Dir=/scratch/st-sturvey-1/Sandbox/Sherlock/Rstudio/ 
-Data_Dir=/scratch/st-sturvey-1/Workshops/
-Lib_Dir=/scratch/st-sturvey-1/Sandbox/Sherlock/Rstudio/R_Libs_4.2.0/
-```
-
--------
-
-3. Run the script with qsub
-
-```
-qsub Run_Rstudio.sh
-```
-
---------
-
-4. Check to see the job started running.
-
-```
-qstat -u $USER
-```
-
-5. Once it starts, you'll get a "connection" file. That file will look like this:
-
-```
-$ cat  connection_3800271.pbsha.ib.sockeye.txt
- 
-1. Create an SSH tunnel to RStudio Server from your local workstation using the following command:
- 
-ssh -N -L 8787:se011:58357 richmonp@sockeye.arc.ubc.ca
- 
-2. Point your web browser to http://localhost:8787
- 
-3. Login to RStudio Server using the following credentials:
- 
-Username: richmonp
-Password: xV4WHGmyJavlbn1/CN8c
- 
-When done using RStudio Server, terminate the job by:
- 
-1. Sign out of RStudio (Left of the "power" button in the top right corner of the RStudio window)
-2. Issue the following command on the login node:
- 
-qdel 3800271.pbsha.ib.sockeye
-```
-
---------
-
-6. Follow the instructions in the file, first by opening a NEW terminal (not connected to Sockeye), and running the SSH tunnel command. 
-
-This will be unique for each session, and for each user.
-```
-ssh -N -L 8787:se011:58357 richmonp@sockeye.arc.ubc.ca
-```
-
-You'll be prompted with your password, enter it, run the 2-factor authentication, and then it should look like it "hangs".
-
---------
-
-7. Open up a new web browser window, and type in that http address, then login to the Rstudio window with the username and password provided.
-
---------
-
-
-8. Once in Rstudio, set the library path with the .libPaths() command, matching the library path we set.
-
-```
-.libPaths('/scratch/st-sturvey-1/Sandbox/Sherlock/Rstudio/R_Libs_4.2.0/')
-```
-
---------
-
-9. Load your libraries that you installed above. NOTE, you cannot install libraries within the Rstudio session, because there is no access to the internet from the compute nodes.
-
-```
-library(Seurat)
-```
-
-END.
 
 
 
