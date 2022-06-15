@@ -1,5 +1,7 @@
 # Precision Health Bootcamp 2022 Workshop Descriptions
 
+<img src="https://user-images.githubusercontent.com/59856969/173961211-c3902de3-6761-4f21-be10-1184e08760a8.png" alt="BCCHR Precision Health Bootcamp Logo" width="150"/>
+
 
 ## Workshop Outline: 
 
@@ -203,11 +205,9 @@ Applied:
 **Content Overview**:  DeepLabCut (DLC) is widely used for tracking animal body parts for behavioral analysis. In the morning we are going to have a brief overview of the tool, its applications and how to run it on Sockeye server using a Python based virtual environment. The afternoon session will entail labeling few frames of provided dataset, specifying some of the parameters and training a model for automated tracking of the labeled body parts - all on Sockeye server. The session will end with a common question and answer session.
 
 **Prerequisites:** 
-- Basic familiarity with navigation on HPC servers, or our Bootcamp’s Core Workshop: Intro to Sockeye. 
+- Basic familiarity with navigation on HPC servers, or our Bootcamp’s Core Workshop: [Intro to Sockeye](#workshop-1-and-2). 
 
 *** 
-
-
 
 
 
