@@ -5,7 +5,7 @@
 
 Core:
 - [Intro to Sockeye and HPC Basics](#workshop-1-and-2)  
-- [Software Management(Conda, Singularity, Git) and Data Management(Chinook)](#workshop-3-and-4)  
+- [Software Management(Conda, Singularity, Git) and Data Management (Chinook)](#workshop-3-and-4)  
 - [Interactive RStudio + Package Management](#workshop-5)
 - [Core Skills Assessment](#core-skills-practical-exam)
 
@@ -17,7 +17,9 @@ Applied:
 - [SNP Data Handling and Association Testing](#workshop-13-and-14)
 - [Multi-omics Data Integration](#workshops-15-to-18)
 - [fMRI](#workshop-19-and-20)
-- [DeepLabCut](#workshop-21-and-22)
+- [DeepLabCut](#workshop-21-and-22)  
+
+***
 
 #### Workshop 1 and 2   
 ### Introduction to the Precision Health Bootcamp, The Linux Command Line, and High Performance Computing Basics on the Sockeye Server
