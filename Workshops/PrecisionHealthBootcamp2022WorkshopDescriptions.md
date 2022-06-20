@@ -136,9 +136,9 @@ Applied:
 **Part 1**: 9:00 - 11:00 AM    
 **Part 2**: 12:00 - 2:00 PM  
 
-**Workshop Type**: This is an applied workshop for beginner-to-intermediate users  
+**Workshop Type**: This is an applied workshop for beginner-to-intermediate users.  
 
-**Content Overview**: With the advancement of single cell RNA sequencing (scRNAseq) there is a cambrian explosion of associated packages and tools to help scientists analyze their data. However, data needs to be initially processed by  be properly analyzed, the task of removing outliers and cleaning up background noise to create a clean and unbiased dataset is a  data can be properly analyzed
+**Content Overview**: With the advancement of single cell RNA sequencing (scRNAseq) there is a cambrian explosion of associated packages and tools to help scientists analyze their data. However, data needs to be initially processed by  be properly analyzed, the task of removing outliers and cleaning up background noise to create a clean and unbiased dataset is a  data can be properly analyzed.
 
 **Prerequisites:** None
 
@@ -165,10 +165,10 @@ Applied:
 
 **Workshop Dates**: Thursday, August 5 2022 and Monday, August 8 2022  
 
-**Multi-omics Exploratory Data Analysis**: Thursday, August 5 2022: 9:00 - 11:00 AM    
-**Biomarker Discovery and Methods for Evaluation**: Thursday, August 5 2022: 12:00 - 2:00 PM  
-**MOFA, SNF**: Monday, August 8 2022: 9:00 - 11:00 AM  
-**DIABLO**: Monday, August 8 2022: 12:00 - 2:00 PM  
+**Multi-omics Data Exploration Data**: Thursday, August 5 2022: 9:00 - 11:00 AM    
+**Biomarker Discovery and Evaluation Techniques**: Thursday, August 5 2022: 12:00 - 2:00 PM  
+**Unsupervised Multi-omics Data Integration**: Monday, August 8 2022: 9:00 - 11:00 AM  
+**Supervised Multi-omics Data Integration**: Monday, August 8 2022: 12:00 - 2:00 PM  
 
 **Workshop Type**: This is an applied workshop for intermediate users.  
 
