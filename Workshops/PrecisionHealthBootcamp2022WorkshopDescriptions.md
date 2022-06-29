@@ -200,7 +200,7 @@ Applied:
 
 **Workshop Type**: This is an applied workshop for beginner users.  
 
-**Content Overview**:  
+**Content Overview**:  In this workshop we will explore the raw data formats from the functional magnetic resonance imaging (fMRI) technology. We will walk through the data preprocessing pipeline which enable downstream statistical analyses. 
 
 **Prerequisites:**
 - Familiarity with LINUX command line and PBS Pro scheduler or our Bootcamp’s Core Workshop: [Intro to Sockeye and HPC basics](#workshop-1-and-2) 
