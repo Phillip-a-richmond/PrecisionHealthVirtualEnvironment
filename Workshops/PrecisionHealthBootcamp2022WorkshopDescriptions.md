@@ -151,9 +151,9 @@ Applied:
 **Part 1**: 9:00 - 11:00 AM    
 **Part 2**: 12:00 - 2:00 PM  
 
-**Workshop Type**: This is an applied workshop for beginner-to-intermediate users.  
+**Workshop Type**: This is an applied workshop for intermediate users.  
 
-**Content Overview**:  
+**Content Overview**:  This workshop will cover first steps when doing any genetic association analysis. In receiving genetic sequencing and/or SNP microarray data, a number of quality control considerations must be considered prior to analyses. The morning session of this workshop will provide an overview of various SNP file types you may encounter, such as plink format (.bed/.bim/.fam), VCF file format, and summary statistics from GWAS. The afternoon session will run through three applied examples of association testing: Extracting individual-level allelic information (ie. 0, 1, 2 copies of an allele) into a standard row-by-column data frame format so as to compare with other non-genetic variables; conduct fine-mapping analyses to identify causal loci of a trait among associated SNPs; and create polygenic risk scores.  
 
 **Prerequisites:**
 - Basic familiarity with LINUX and HPC or our Bootcamp’s Core Workshops: [Intro to Sockeye and HPC basics](#workshop-1-and-2), [Conda and Singularity](#workshop-3-and-4), [Interactive Rstudio + Package management](#workshop-5)
