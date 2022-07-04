@@ -4,7 +4,8 @@
 
 ## Outline
 - Prerequisites
-- Workshop info
+- Workshop Links
+- Day-by-day Breakdown
 - Supporting links
 
 
