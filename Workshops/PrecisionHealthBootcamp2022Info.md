@@ -3,10 +3,14 @@
 > Welcome to the Precision Health Bootcamp 2022! Here you will find info on the course, agenda, relevant resources, links to slides, etc.
 
 ## Outline
-- Prerequisites
-- Workshop Links
-- Day-by-day Breakdown
-- Supporting links
+- [Workshop Links](#workshop-links)
+- [Prerequisites](#prerequisites)
+- [Day-by-day Breakdown](#day-by-day-breakdown)
+- [Other Info](#other-info)
+
+## Workshop Links
+- Registration: [http://bit.ly/PrecisionHealthBootcamp2022](http://bit.ly/PrecisionHealthBootcamp2022)
+- Zoom Link: [https://ubc.zoom.us/j/67274653046?pwd=SjJZKzR3M0tYM3B5ckFib0FRZW14Zz09](https://ubc.zoom.us/j/67274653046?pwd=SjJZKzR3M0tYM3B5ckFib0FRZW14Zz09)
 
 
 ## Prerequisites
@@ -31,8 +35,13 @@ cd /scratch/tr-precisionhealth-1/
 
 4. Email Phil (prichmond@bcchr.ca) with confirmation that you have access to this space.
 
-## Workshop Information
 
+## Day-by-day Breakdown
+
+### Intro to Workshop and Sockeye
+*Date*: July 25th, 9:00-11:00AM.
+*Leader*: Dr. Phillip Richmond
+*Slides*: [https://docs.google.com/presentation/d/1NB5zuFLBupy9GPUos36UFCv3pyIN42HI0Ihu01STx9M/edit#slide=id.p](https://docs.google.com/presentation/d/1NB5zuFLBupy9GPUos36UFCv3pyIN42HI0Ihu01STx9M/edit#slide=id.p)
 
 
 
