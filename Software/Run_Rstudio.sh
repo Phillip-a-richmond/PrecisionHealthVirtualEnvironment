@@ -72,6 +72,7 @@ export SINGULARITYENV_LD_LIBRARY_PATH=$Lib_Dir:/usr/lib/x86_64-linux-gnu:$LD_LIB
 # Execute the rserver within the rocker/rstudio container
 # We bind path to our data, our home, and our lib, and then call the Rstudio.sif file, and execute the rserver command
 singularity exec --bind $TMPDIR:/var/run \
+ --bind $TMPDIR:/var/lib/rstudio-server \
  --home $Home_Dir \
  --bind $Data_Dir \
  --bind $Lib_Dir \
