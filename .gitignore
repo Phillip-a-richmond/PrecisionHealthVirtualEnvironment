@@ -13,6 +13,9 @@ OpenData/ThousandGenomes/Processed/*
 OpenData/Geuvadis/Raw/*
 OpenData/Geuvadis/Processed/*
 
+# Workshop data
+Workshops/IntroToEWAS/data/*
+
 # Software
 Software/miniconda3/*
 Software/CellRanger/cellranger*
