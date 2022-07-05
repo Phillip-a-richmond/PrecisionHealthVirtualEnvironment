@@ -17,6 +17,9 @@ OpenData/Geuvadis/Raw/*
 OpenData/Geuvadis/Processed/*
 OpenData/ThousandGenomes/HD_SNP_Chip/*
 
+# Workshop data
+Workshops/IntroToEWAS/data/*
+
 # Software
 Software/miniconda3/*
 Software/CellRanger/cellranger*

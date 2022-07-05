@@ -2,8 +2,7 @@
  
 #PBS -l walltime=03:00:00,select=1:ncpus=4:mem=16gb
 #PBS -N my_rstudio_server
-#PBS -A st-sturvey-1
-#PBS -m abe
+#PBS -A st-dennisjk-1
  
 ################################################################################
  
@@ -11,16 +10,17 @@
 cd $PBS_O_WORKDIR
  
 # Load software environment
+module load gcc
 module load singularity
 
 #####################
 ############### 
-# Modify this #
+# @TODO Change when given write access #
 ###############
-
-Rstudio_SIF=/scratch/st-sturvey-1/
-Home_Dir=/scratch/st-sturvey-1/Sandbox/BioconductorExample/ 
-Data_Dir=/scratch/st-sturvey-1/Workshops/
+Rstudio_SIF=/scratch/st-dennisjk-1/wcasazza/IntroToMWAS.sif
+Home_Dir=/scratch/st-dennisjk-1/wcasazza/ 
+Data_Dir=/scratch/st-dennisjk-1/wcasazza/
+WRITABLE=/scratch/st-dennisjk-1/wcasazza/rstudio-tmp/
 Lib_Dir=/scratch/st-sturvey-1/Sandbox/BioconductorExample/R_Libs_4.2.0/
 
 ######################
@@ -28,10 +28,6 @@ Lib_Dir=/scratch/st-sturvey-1/Sandbox/BioconductorExample/R_Libs_4.2.0/
 ##############################
 # Don't change anything else #
 ##############################
-
-# Set RANDFILE location to writeable dir
-export RANDFILE=$TMPDIR/.rnd
- 
 # Generate a unique password for RStudio Server
 export SINGULARITYENV_PASSWORD=$(openssl rand -base64 15)
  
@@ -39,8 +35,6 @@ export SINGULARITYENV_PASSWORD=$(openssl rand -base64 15)
 readonly PORT=$(python -c 'import socket; s=socket.socket(); s.bind(("", 0)); print(s.getsockname()[1]); s.close()')
  
 # Set per-job location for the rserver secure cookie
-export SECURE_COOKIE=$TMPDIR/secure-cookie-key
- 
 # Print connection details to file
 cat > connection_${PBS_JOBID}.txt <<END
  
@@ -66,13 +60,38 @@ END
 
 
 # This is where we pass the path to our library, and the libraries installed "in the container" (#zoolander)
-export SINGULARITYENV_LD_LIBRARY_PATH=$Lib_Dir:/usr/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH
- 
-# Execute the rserver within the rocker/rstudio container
-# We bind path to our data, our home, and our lib, and then call the Rstudio.sif file, and execute the rserver command
-singularity exec --bind $TMPDIR:/var/run \
- --home $Home_Dir \
- --bind $Data_Dir \
- --bind $Lib_Dir \
- $Rstudio_SIF \
- rserver --auth-none=0 --auth-pam-helper-path=pam-helper --secure-cookie-key-file ${SECURE_COOKIE} --www-port ${PORT} --server-user ${USER}
+export SINGULARITYENV_LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH
+
+export LANG="en_US.UTF-8"
+export LC_COLLATE="en_US.UTF-8"
+export LC_CTYPE="en_US.UTF-8"
+export LC_MESSAGES="en_US.UTF-8"
+export LC_MONETARY="en_US.UTF-8"
+export LC_NUMERIC="en_US.UTF-8"
+export LC_TIME="en_US.UTF-8"
+export LC_ALL="en_US.UTF-8"
+
+##NOTE##
+# This is a local drive location I can write, you should be able
+# to just set to a subfolder of your HPC home/scratch directory
+export TMPDIR="${PWD}/rstudio-tmp"
+
+mkdir -p "$TMPDIR/tmp/rstudio-server"
+uuidgen > "$TMPDIR/tmp/rstudio-server/secure-cookie-key"
+chmod 0600 "$TMPDIR/tmp/rstudio-server/secure-cookie-key"
+
+mkdir -p "$TMPDIR/var/lib"
+mkdir -p "$TMPDIR/var/run"
+
+# Also bind data directory on the host into the Singularity container.
+# By default the only host file systems mounted within the container are $HOME, /tmp, /proc, /sys, and /dev.
+##NOTE##
+# You may need here just to replace the fourth bind option, or drop
+singularity exec \
+  --bind="$TMPDIR/var/lib:/var/lib/rstudio-server" \
+  --bind="$TMPDIR/var/run:/var/run/rstudio-server" \
+  --bind="$TMPDIR/tmp:/tmp" \
+  --bind=/home/${USER} \
+  $Rstudio_SIF \
+  rserver --server-user ${USER} --www-port ${PORT} --auth-none=0 --auth-pam-helper-path=pam-helper --auth-timeout-minutes=0 --auth-stay-signed-in-days=30
+printf 'rserver exited' 1>&2
