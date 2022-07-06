@@ -1,6 +1,6 @@
 #!/bin/bash
  
-#PBS -l walltime=00:10:00,select=1:ncpus=1:mem=5gb
+#PBS -l walltime=01:00:00,select=1:ncpus=4:mem=16gb
 #PBS -N my_rstudio_server
 #PBS -A st-dennisjk-1
 #PBS -m abe
@@ -9,7 +9,8 @@
 ################################################################################
 # EDIT THE VARIABLES BELOW
 ################################################################################
-JOB_HOME=/scratch/st-dennisjk-1/wcasazza/my_rstudio/
+JOB_HOME=/scratch/st-dennisjk-1/wcasazza/
+RSTUDIO_SIF=/scratch/st-dennisjk-1/wcasazza/IntroToMWAS.sif
 ################################################################################
 # DO NOT CHANGE BELOW
 ################################################################################
@@ -57,6 +58,7 @@ END
  
 # Optional: You can modify this container by installing custom R pakcages/libraries in your local PC with root access. In this case, you have to set LD_LIBRARY_PATH to make Rstudio use the system dependencies built in the container, which are located in "/usr/lib/x86_64-linux-gnu".
 export SINGULARITYENV_LD_LIBRARY_PATH =/usr/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH
+export RSTUDIO_WHICH_R=/usr/local/bin/R
  
 # Execute the rserver within the rocker/rstudio container
-singularity exec --bind $TMPDIR:/var/run --home $JOB_HOME /scratch/st-sturvey-1/Workshops/Rstudio_Core/WillC_rstudio.sif rserver --auth-none=0 --auth-pam-helper-path=pam-helper --secure-cookie-key-file ${SECURE_COOKIE} --www-port ${PORT}
+singularity exec --bind $TMPDIR:/var/run/rstudio-server --bind $TMPDIR:/tmp --bind $TMPDIR:/var/lib/rstudio-server --home $JOB_HOME $RSTUDIO_SIF rserver --auth-none=0 --auth-pam-helper-path=pam-helper --secure-cookie-key-file ${SECURE_COOKIE} --www-port ${PORT} --server-user ${USER}
