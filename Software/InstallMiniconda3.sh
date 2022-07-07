@@ -1,5 +1,9 @@
 #!/bin/sh
 
+# Pulls miniconda3 install latest from web
+# Runs deployment to a directory called $PWD/miniconda3
+# Sources conda command to this miniconda3
+# cleans up install script
 function buildMiniConda3() 
 {
         DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
@@ -16,4 +20,24 @@ function buildMiniConda3()
 
 # Execute it
 buildMiniConda3
+
+###############################
+
+# Adds the libmamba-solver to the conda installation.
+# Mamba is King
+# RIP Kobe
+function libmamba_solver()
+{
+	DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+	MINI_CONDA_INSTALL_DIR=$DIR/miniconda3
+	conda install -y \
+		-c conda-forge \
+		conda-libmamba-solver
+}
+
+# Execute it
+libmamba_solver
+
+
+
 

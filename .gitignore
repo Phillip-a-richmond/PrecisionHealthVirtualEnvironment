@@ -1,6 +1,9 @@
 # Keep all READMEs
 !README.md
 
+# Keep shell scripts, they small and useful
+!*.sh
+
 # ignore contents inside
 # Databases
 Databases/References/GRCh37/*
@@ -12,6 +15,7 @@ OpenData/ThousandGenomes/Raw/*
 OpenData/ThousandGenomes/Processed/*
 OpenData/Geuvadis/Raw/*
 OpenData/Geuvadis/Processed/*
+OpenData/ThousandGenomes/HD_SNP_Chip/*
 
 # Software
 Software/miniconda3/*
@@ -26,8 +30,11 @@ Software/Rstudio/*
 # nohup stuff
 *nohup.out
 
-# Keep shell scripts, they small and useful
-!*.sh
 
+# Keep out SIF images
+*.sif
+*.simg
 
+# Will's workshop
+Workshops/IntroToEWAS/data/*
 
