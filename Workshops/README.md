@@ -13,6 +13,11 @@
 
 Learn more [here](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Workshops/Core_CommandLine)
 
+### Core\_HPCBasics
+> This workshop teaches how to use the PBSPro scheduler and design job scripts and job arrays.
+
+Learn more [here](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Workshops/Core_PBSPro)
+
 ### Core\_Conda
 > This workshop teaches how to use the conda framework for managing software packages and tools.
 
@@ -23,22 +28,12 @@ Learn more [here](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEn
 
 Learn more [here](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Workshops/Core_Rstudio)
 
-### Core\_PBSPro
-> This workshop teaches how to use the PBSPro scheduler and design job scripts and job arrays.
-
-Learn more [here](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Workshops/Core_PBSPro)
-
 ### Core\_Singularity
 > This workshop teaches how to use the Singularity tool for managing software in containers.
 
 Learn more [here](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Workshops/Core_Singularity)
 
 ## Applied Workshops
-
-### ShortReadWGS
-> This workshop teaches how to map short read whole genome sequencing data to the human genome.
-
-Learn more [here](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Workshops/ShortReadWGS)
 
 ### RNA Sequencing
 > This workshop goes through the basics of RNA sequencing read mapping and quanitification.
