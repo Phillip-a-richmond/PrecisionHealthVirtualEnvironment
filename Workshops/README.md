@@ -1,9 +1,13 @@
 # Workshops
 > This is the space for workshop development and deployment.
 
+## Prerequisites
+These prerequisites apply to anyone joining the workshop and coding along.
+- Access to Sockeye, see: [https://arc.ubc.ca/ubc-arc-sockeye](https://arc.ubc.ca/ubc-arc-sockeye)
+- Access to /scratch/st-sturvey-1/
 
-## Workshop Structure
-
+## Workshop Introduction
+Slides: [https://docs.google.com/presentation/d/1NB5zuFLBupy9GPUos36UFCv3pyIN42HI0Ihu01STx9M/edit#slide=id.g13ba8aeec7a_0_10](https://docs.google.com/presentation/d/1NB5zuFLBupy9GPUos36UFCv3pyIN42HI0Ihu01STx9M/edit#slide=id.g13ba8aeec7a_0_10)
 
 ## Core workshops
 > Core workshops are for skill sets generic to high performance computing.
