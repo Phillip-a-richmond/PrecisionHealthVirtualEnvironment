@@ -34,6 +34,17 @@ Software/Rstudio/*
 # Keep out SIF images
 *.sif
 *.simg
+*cache/*
+Software/cache/
+
+
+# Workshops
+
+# Core_CommandLine/
+Workshops/Core_CommandLine/Files/*gtf
+Workshops/Core_CommandLine/Files/*.gz
+
+
 
 # Will's workshop
 Workshops/IntroToEWAS/data/*
