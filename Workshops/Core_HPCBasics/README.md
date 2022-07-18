@@ -14,7 +14,7 @@ Contact: prichmond@bcchr.ca
 
 ## Slide Deck
 
-You can retrieve this slide deck at: 
+You can retrieve this slide deck at: [https://docs.google.com/presentation/d/1lJltAnO6dgznRgJi-KjV9UZL1SbB0gWe17xk_9SoNKc/edit#slide=id.g13d0dd4667e_0_2613](https://docs.google.com/presentation/d/1lJltAnO6dgznRgJi-KjV9UZL1SbB0gWe17xk_9SoNKc/edit#slide=id.g13d0dd4667e_0_2613)
 
 ## Problem Set
 
