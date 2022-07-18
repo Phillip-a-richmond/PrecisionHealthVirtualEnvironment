@@ -21,6 +21,7 @@ You can retrieve this slide deck at: [https://docs.google.com/presentation/d/1lJ
 
 ## Github Gist
 
+Gist available here: [https://gist.github.com/Phillip-a-richmond/838fdd07b7652669e50d4d38d4477212](https://gist.github.com/Phillip-a-richmond/838fdd07b7652669e50d4d38d4477212)
 
 
 
