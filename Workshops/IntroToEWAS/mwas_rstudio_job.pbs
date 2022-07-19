@@ -1,34 +1,25 @@
 #!/bin/bash
  
-#PBS -l walltime=03:00:00,select=1:ncpus=4:mem=16gb
+#PBS -l walltime=01:00:00,select=1:ncpus=4:mem=16gb
 #PBS -N my_rstudio_server
-#PBS -A st-sturvey-1
+#PBS -A st-dennisjk-1
 #PBS -m abe
  
 ################################################################################
- 
+# EDIT THE VARIABLES BELOW
+################################################################################
+JOB_HOME=/scratch/st-dennisjk-1/wcasazza/
+RSTUDIO_SIF=/scratch/st-dennisjk-1/wcasazza/IntroToMWAS.sif
+################################################################################
+# DO NOT CHANGE BELOW
+################################################################################
 # Change directory into the job dir
 cd $PBS_O_WORKDIR
  
 # Load software environment
+module load gcc
 module load singularity
-
-#####################
-############### 
-# Modify this #
-###############
-
-Rstudio_SIF=/scratch/st-sturvey-1/
-Home_Dir=/scratch/st-sturvey-1/Sandbox/BioconductorExample/ 
-Data_Dir=/scratch/st-sturvey-1/Workshops/
-Lib_Dir=/scratch/st-sturvey-1/Sandbox/BioconductorExample/R_Libs_4.2.0/
-
-######################
-
-##############################
-# Don't change anything else #
-##############################
-
+ 
 # Set RANDFILE location to writeable dir
 export RANDFILE=$TMPDIR/.rnd
  
@@ -63,16 +54,10 @@ When done using RStudio Server, terminate the job by:
 qdel ${PBS_JOBID}
  
 END
-
-
-# This is where we pass the path to our library, and the libraries installed "in the container" (#zoolander)
-export SINGULARITYENV_LD_LIBRARY_PATH=$Lib_Dir:/usr/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH
+ 
+# Optional: You can modify this container by installing custom R pakcages/libraries in your local PC with root access. In this case, you have to set LD_LIBRARY_PATH to make Rstudio use the system dependencies built in the container, which are located in "/usr/lib/x86_64-linux-gnu".
+export SINGULARITYENV_LD_LIBRARY_PATH =/usr/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH
+export RSTUDIO_WHICH_R=/usr/local/bin/R
  
 # Execute the rserver within the rocker/rstudio container
-# We bind path to our data, our home, and our lib, and then call the Rstudio.sif file, and execute the rserver command
-singularity exec --bind $TMPDIR:/var/run \
- --home $Home_Dir \
- --bind $Data_Dir \
- --bind $Lib_Dir \
- $Rstudio_SIF \
- rserver --auth-none=0 --auth-pam-helper-path=pam-helper --secure-cookie-key-file ${SECURE_COOKIE} --www-port ${PORT} --server-user ${USER}
+singularity exec --bind $TMPDIR:/var/run/rstudio-server --bind $TMPDIR:/tmp --bind $TMPDIR:/var/lib/rstudio-server --home $JOB_HOME $RSTUDIO_SIF rserver --auth-none=0 --auth-pam-helper-path=pam-helper --secure-cookie-key-file ${SECURE_COOKIE} --www-port ${PORT} --server-user ${USER}

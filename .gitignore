@@ -17,6 +17,12 @@ OpenData/Geuvadis/Raw/*
 OpenData/Geuvadis/Processed/*
 OpenData/ThousandGenomes/HD_SNP_Chip/*
 
+# Workshop data
+Workshops/IntroToEWAS/data/*
+
+# Workshop data
+Workshops/IntroToEWAS/data/*
+
 # Software
 Software/miniconda3/*
 Software/CellRanger/cellranger*
@@ -49,3 +55,4 @@ Workshops/Core_CommandLine/Files/*.gz
 # Will's workshop
 Workshops/IntroToEWAS/data/*
 
+.Rproj.user
