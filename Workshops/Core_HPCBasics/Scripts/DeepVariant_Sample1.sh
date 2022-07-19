@@ -1,24 +1,20 @@
 #!/bin/bash
-#SBATCH --partition=training_q
-#SBATCH --mail-user=prichmond@bcchr.ca
-#SBATCH --mail-type=ALL
+ 
+#PBS -l walltime=10:00:00,select=1:ncpus=2:mem=16gb
+#PBS -A st-sturvey-1
+#PBS -m abe
+#PBS -M prichmond@bcchr.ca
+ 
+################################################################################
 
-## CPU Usage
-#SBATCH --mem=80G
-#SBATCH --cpus-per-task=10
-#SBATCH --time=48:00:00
-#SBATCH --nodes=1
-
-## Output and Stderr
-#SBATCH --output=%x-%j.out
-#SBATCH --error=%x-%j.error
+cd $PBS_O_WORKDIR
 
 ##########
 # Set up #
 ##########
 
 # Change to your workshop directory
-WORKING_DIR=/mnt/scratch/Public/TRAINING/GenomeAnalysisModule/StudentSpaces/Sherlock/
+WorkingDir=/scratch/Public/TRAINING/GenomeAnalysisModule/StudentSpaces/Sherlock/
 cd $WORKING_DIR 
 
 # Load singularity
