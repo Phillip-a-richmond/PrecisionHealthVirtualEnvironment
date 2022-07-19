@@ -244,6 +244,26 @@ ggplot(metadata,aes(x=pathologygroup, fill=fetalsex)) +
 ggplot(metadata,aes(x=pathologygroup, y=gestationalage)) + 
   geom_boxplot() 
 ```
+### Visualizing DNAm and covariates using principal components analysis
+
+Principal components analysis is a nifty way of visualizing high-dimensional data, like DNAm array measurements, on a 2-dimensional X- vs Y-axis. In short, principal components are ordered from those that explain the MOST variation in our data, in this case DNAm, to the least. Collectively, all of the principle components explain all the variation in our dataset, the output of `prcomp` can be used to reconstruct our data exactly.
+
+Often, we can use the first few PCs of DNAm to pick out whether variation in DNAm at all CpG sites is explained by a particular variable. Let's first compute these PCs and then plot the first 2:
+
+```{r PCA computation}
+PCs <- prcomp(t(betas)) # t transposes the data so each PC refers to DNAm across samples instead of the other way around
+pc_data <- as.data.frame(PCs$x)
+ggplot(pc_data,aes(PC1,PC2)) + 
+  geom_point()
+```
+**Exercise:** Add in metadata to these PCs and see whether they separate samples along PC1 and PC2 by coloring points with one variable:
+
+```{r}
+pc_w_metadata <- cbind(metadata,pc_data)
+# FILL IN YOUR CODE BELOW
+```
+
+
 
 ## Step 4: Fit linear model and relevant contrasts
 
@@ -304,10 +324,10 @@ Here, we will contrast placentas from mothers with preterm infants against place
 
 ```{r contrast}
 contrasts <- makeContrasts(
-  preTEOPE=pathologygroupPreT-pathologygroupEOPE,
-  # preTLOPE=pathologygroupPreT-pathologygroupLOPE,
-  # preTIUGR=pathologygroupPreT-pathologygroupIUGR,
-  # termEOPE=pathologygroupTerm-pathologygroupEOPE,
+  # preTEOPE=pathologygroupPreT-pathologygroupEOPE, #pre-term vs EOPE
+  # preTLOPE=pathologygroupPreT-pathologygroupLOPE, #pre-term vs LOPE
+  # preTIUGR=pathologygroupPreT-pathologygroupIUGR, #pre-term vs IUGR
+  termEOPE=pathologygroupTerm-pathologygroupEOPE,
   termLOPE=pathologygroupTerm-pathologygroupLOPE,
   termIUGR=pathologygroupTerm-pathologygroupIUGR,
   sex=fetalsexMALE,levels=model)
@@ -315,6 +335,8 @@ head(contrasts)
 ```
 
 Each comparison is indicated in a column of the contrast matrix, with "1" indicating the reference group, and "-1" indicating the group we are comparing against the reference. For example, the column "preTEOPE" compares preterm placentas against early onset pre-eclampsia placentas, where preterm placentas are the reference group. Looking at the rows, the "pathologygroupPreT" has a value of "1", whereas the "pathologygroupEOPE" has a value of "-1". The "0" in the other rows indicates those groups are not part of this comparison.
+
+**Exercise:** Comment out one of the group comparisons above and follow through the tutorial to see of there is differential methylation between them.
 
 Next, we use the function *contrasts.fit()* to fit our methylation data to these comparisons, and run *eBayes()* again to derive statistics:
 
@@ -373,3 +395,15 @@ plot_stats <- function(cont){
 eope_all_stat <-plot_stats("preTEOPE")
 lope_all_stat<- plot_stats("sex")
 ```
+
+**Exercise:** Try plotting DNAm vs Fetal Sex in the MOST significant differentially methylated CpG site.
+
+```{r}
+
+```
+
+**Exercise:** Recreate the above plot for one of the pathology groups versus pre-term controls.
+```{r}
+
+```
+
