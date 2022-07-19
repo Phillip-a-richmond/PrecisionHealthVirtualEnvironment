@@ -21,7 +21,7 @@ The following packages will be required for this tutorial, if you have not alrea
 
 If you started R using a singularity image discussed by Will or Amy, these should already be installed for you!
 
-``` r
+```r
 install.packages("here")
 install.packages("BiocManager")
 BiocManager::install(c(
