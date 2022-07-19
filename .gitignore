@@ -52,3 +52,4 @@ Workshops/Core_CommandLine/Files/*.gz
 # Will's workshop
 Workshops/IntroToEWAS/data/*
 
+.Rproj.user

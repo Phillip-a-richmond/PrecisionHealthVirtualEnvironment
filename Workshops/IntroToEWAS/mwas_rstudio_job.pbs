@@ -4,7 +4,6 @@
 #PBS -N my_rstudio_server
 #PBS -A st-dennisjk-1
 #PBS -m abe
-#PBS -M wcasazza@cmmt.ubc.ca
  
 ################################################################################
 # EDIT THE VARIABLES BELOW
