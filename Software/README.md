@@ -161,7 +161,7 @@ cp /project/tr-precisionhealth-1/PrecisionHealthVirtualEnvironment/Software/Get_
 
 You can get more info from clicking on the individual release links. 
 
-The release I'm using here is 3\_15, which uses R version 4.2.0. 
+The release I'm using here is ```3_15```, which uses R version ```4.2.0```. 
 
 ----------
 
@@ -446,6 +446,17 @@ singularity exec --bind $TMPDIR:/var/run \
  --bind $Lib_Dir \
  $Rstudio_SIF \
  rserver --auth-none=0 --auth-pam-helper-path=pam-helper --secure-cookie-key-file ${SECURE_COOKIE} --www-port ${PORT} --server-user ${USER}
+```
+
+**NOTE: There is a difference in this script since the latest software update of Singularity. If this gives you problems, change this line:**
+```
+module load singularity
+```
+with this:
+```
+module load Software_Collection/2019
+module load gcc/5.4.0
+module load singularity/3.2.1
 ```
 
 --------
