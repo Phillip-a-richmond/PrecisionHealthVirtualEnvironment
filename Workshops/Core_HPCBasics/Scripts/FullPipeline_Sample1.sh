@@ -1,27 +1,13 @@
 #!/bin/bash
+ 
+#PBS -l walltime=10:00:00,select=1:ncpus=2:mem=16gb
+#PBS -A st-sturvey-1
+#PBS -m abe
+#PBS -M prichmond@bcchr.ca
+ 
+################################################################################
 
-#SBATCH --partition=defq
-
-## Change to be your email address
-#SBATCH --mail-user=prichmond@bcchr.ca
-#SBATCH --mail-type=ALL
-
-## CPU Usage
-## 60 Gb of RAM for the whole job
-#SBATCH --mem=160G
-
-## Using 16 CPUs
-#SBATCH --cpus-per-task=40
-
-## Running for a max time of 48 hours
-#SBATCH --time=48:00:00
-
-## Using only a single node
-#SBATCH --nodes=1
-
-## Output and Stderr
-#SBATCH --output=%x-%j.out
-#SBATCH --error=%x-%j.error
+cd $PBS_O_WORKDIR
 
 ##########
 # Set up #

@@ -1,1 +1,13 @@
-Placeholder
+In this problem set you will create your own environment!
+
+1. Choose a tool, or set of tools, to include in your environment.
+
+2. Create a config YML file with the tool versions you need.
+
+3. Create an environment with your YML file.
+
+4. Activate your environment and test the tool on the command line.
+
+5. Add your environment and tool to a job script and submit to scheduler to see if the environment works on the compute nodes.
+
+6. Done!

@@ -1,0 +1,9 @@
+name: GenomeAnalysis
+channels:
+  - bioconda
+dependencies:
+  - bwa
+  - samtools
+  - htslib
+  - picard
+prefix: /project/st-sturvey-1/PrecisionHealthVirtualEnvironment/Software/miniconda3/envs/GenomeAnalysis/
