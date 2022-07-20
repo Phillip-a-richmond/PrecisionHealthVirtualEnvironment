@@ -30,13 +30,33 @@ If you're open to sharing your user dir with others, please discuss with Phillip
 Miniconda is a great package manager with low overhead. Miniconda3 is installed here using the InstallMiniconda3.sh shell script.
 
 To use this package manager you need to do the following: 
-### Step 1 - Get Conda in your path
+### Step 1A - Do this if you want your own standalone miniconda deployment
+- Make a directory where you’ll deploy miniconda. Here, I set an arbitrary directory that I can store stuff in.
+```
+mkdir -p /scratch/tr-precisionhealth-1/Sandbox/$USER/
+cd /scratch/tr-precisionhealth-1/Sandbox/$USER/
+```
+- Fetch miniconda installer from internet:
+```
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+```
+- Run miniconda installer and deploy into a new directory where you currently are called miniconda3
+```
+bash Miniconda3-latest-Linux-x86_64.sh -b -p $PWD/miniconda3
+```
+- Check that you have conda installed correctly, we will source the conda bash file (adds conda to path)
+```
+source /scratch/tr-precisionhealth-1/Workshops/StudentSpaces/$USER/Core_Conda/miniconda3/etc/profile.d/conda.sh
+conda --help
+```
+
+### Step 1B - Get Conda in your path, if you can access ```/project/st-sturvey-1/PrecisionHealthVirtualEnvironment/Software/```
 Source this file to get 'conda' into your PATH:
 ```
 source /project/st-sturvey-1/PrecisionHealthVirtualEnvironment/Software/miniconda3/etc/profile.d/conda.sh
 ```
 
-### Step 2 - Create a new environment with a couple packages
+#### Step 2 - Create a new environment with a couple packages
 Now you can create a new environment with a few packages on the command line:
 ```
 conda create -y -n ShortReadTools -c bioconda -c conda-forge samtools bwa bcftools htslib
@@ -48,7 +68,7 @@ This creates a new environment called ShortReadTools, which will have the follow
 - htslib 
 
 
-### Step 2 modified - Create a new environment from a config.yml
+#### Step 2 modified - Create a new environment from a config.yml
 It's possible to create environments based on a config.yml file, which increases reproducibility and can enable the creation of some trickier conda environments.
 For this, you'll need some kind of config.yml in this format (I call this one Bedtools.yml):
 ```
