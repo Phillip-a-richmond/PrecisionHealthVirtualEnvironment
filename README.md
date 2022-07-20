@@ -37,13 +37,13 @@ This environment is launching in Fall 2021 as a pilot project to demonstrate eff
 
 The Precision Health Bootcamp will run from July 25th - August 10th, 2022.
 
-For the workshop advertisement, please click [here]().
+For the workshop advertisement, please click [here](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/blob/main/Workshops/PrecisionHealthAnalysisBootcampFlyer.png).
 
-For registration, please click [here]().
+For registration, please click [here](https://ubc.ca1.qualtrics.com/jfe/form/SV_4ORGzfKPeujbMq2).
 
-For detailed descriptions of the workshops, please click [here]().
+For detailed descriptions of the workshops, please click [here](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/blob/main/Workshops/PrecisionHealthBootcamp2022WorkshopDescriptions.md).
 
-
+![bootcamplogo](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/blob/main/Workshops/PrecisionHealthAnalysisBootcampLogo_1.png)
 
 ## Contributions
 > This space is made possible by contributions of researchers in the community. If you are interested in contributing to this space, contact Phil Richmond (prichmond@bcchr.ca). 
