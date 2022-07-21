@@ -1,10 +1,11 @@
-## 2-part RNA-seq Workshop 2021 
+## The UBC Precision Health Bootcamp 2-part RNA-seq Workshop 
 
 <br> 
 
-**Note**: This repo will contain the most updated and current version of this workshop  
+### Requirements: 
 
-### Requirements: Basic working-knowledge and experience with R.
+* Basic working-knowledge and experience with R  
+* Complete the [Pre-worshop To-Do's](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/blob/main/Workshops/Applied_RNA-seq/Pre_Workshop_ToDos.md) 
 
 <br>
 
