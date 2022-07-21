@@ -1,0 +1,7 @@
+\beamer@sectionintoc {1}{Housekeeping}{4}{0}{1}
+\beamer@sectionintoc {2}{fMRI Overview}{6}{0}{2}
+\beamer@sectionintoc {3}{MRI Physics}{9}{0}{3}
+\beamer@sectionintoc {4}{BOLD Effect}{29}{0}{4}
+\beamer@sectionintoc {5}{fMRI Acquisition}{38}{0}{5}
+\beamer@sectionintoc {6}{fMRI Analysis}{43}{0}{6}
+\beamer@sectionintoc {7}{Second Section}{48}{0}{7}
