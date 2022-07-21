@@ -50,8 +50,8 @@ source /scratch/tr-precisionhealth-1/Workshops/StudentSpaces/$USER/Core_Conda/mi
 conda --help
 ```
 
-### Step 1B - Get Conda in your path, if you can access ```/project/st-sturvey-1/PrecisionHealthVirtualEnvironment/Software/```
-Source this file to get 'conda' into your PATH:
+### Step 1B - Get Conda in your path
+Source this file to get 'conda' into your PATH, if you can access ```/project/st-sturvey-1/PrecisionHealthVirtualEnvironment/Software/```:  
 ```
 source /project/st-sturvey-1/PrecisionHealthVirtualEnvironment/Software/miniconda3/etc/profile.d/conda.sh
 ```
