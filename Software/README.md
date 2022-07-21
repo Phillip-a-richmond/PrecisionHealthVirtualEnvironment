@@ -567,13 +567,26 @@ END.
 
 ### Step 3B - Run R with the pre-installed library and docker image for Rstudio.
 
+You may be interested to run R with this same docker image, for example if you have an Rscript to use. 
+
+To Run an Rscript with the same configuration as our Rstudio image, we  need to submit a job that executes singularity to call Rscript from the container. 
+
+Yes. That sounds like a lot, but not when we break it down.  
+
+1. 
 
 
 
 
 
 
-Other examples for Rstudio. NOTE, use the above example first before trying these other methods.
+
+
+-------------
+-------------
+
+
+**Other examples for Rstudio. NOTE, use the above example first before trying these other methods.**
 
 ### Basic Setup Overview
 Using Rstudio on sockeye can be done using the guide here: 
