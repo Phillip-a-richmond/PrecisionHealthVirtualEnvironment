@@ -41,6 +41,12 @@ Then please notify me at prichmond@bcchr.ca.
 Slides: [https://docs.google.com/presentation/d/1NB5zuFLBupy9GPUos36UFCv3pyIN42HI0Ihu01STx9M/edit#slide=id.g13ba8aeec7a_0_10](https://docs.google.com/presentation/d/1NB5zuFLBupy9GPUos36UFCv3pyIN42HI0Ihu01STx9M/edit#slide=id.g13ba8aeec7a_0_10)
 
 
+## Per-workshop information
+Find information on each workshop here: [https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/blob/main/Workshops/PrecisionHealthBootcamp2022WorkshopDescriptions.md](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/blob/main/Workshops/PrecisionHealthBootcamp2022WorkshopDescriptions.md)
+
+
+
+## Precision Health Bootcamp Instructors
 
 | Team | Profile Image |
 | :-- |:-------------------------: |  
