@@ -3,8 +3,29 @@
 
 ## Prerequisites
 These prerequisites apply to anyone joining the workshop and coding along.
-- Access to Sockeye, see: [https://arc.ubc.ca/ubc-arc-sockeye](https://arc.ubc.ca/ubc-arc-sockeye)
-- Access to /scratch/st-sturvey-1/
+1. Check your access to Sockeye by logging in. Details: [https://confluence.it.ubc.ca/display/UARC/Quickstart+Guide](https://confluence.it.ubc.ca/display/UARC/Quickstart+Guide)
+- Activate VPN or be on ubc-secure wifi
+- Login with your CWL and 2-factor authentication
+```
+ssh <cwl>@sockeye.arc.ubc.ca
+```
+example (NOTE, don't include < >):
+```
+ssh richmonp@sockeye.arc.ubc.ca
+```
+
+2.  Check your access to /scratch/tr-precisionhealth-1/ and /project/tr-precisionhealth-1/. We will learn these commands Day 1 if you don't know them.
+```
+ls /scratch/tr-precisionhealth-1/
+ls /project/tr-precisionhealth-1/
+```
+If you receive a permissions denied error like this:
+```
+ls: cannot open directory /scratch/tr-precisionhealth-1/: Permission denied
+```
+then please notify me at prichmond@bcchr.ca.
+
+
 
 ## Workshop Introduction
 Slides: [https://docs.google.com/presentation/d/1NB5zuFLBupy9GPUos36UFCv3pyIN42HI0Ihu01STx9M/edit#slide=id.g13ba8aeec7a_0_10](https://docs.google.com/presentation/d/1NB5zuFLBupy9GPUos36UFCv3pyIN42HI0Ihu01STx9M/edit#slide=id.g13ba8aeec7a_0_10)
