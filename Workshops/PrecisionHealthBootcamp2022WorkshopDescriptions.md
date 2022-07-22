@@ -38,9 +38,6 @@ Applied:
 - Ability to log-in to the Sockeye cluster 
 - Access to /scratch/tr-precisionhealth-1/
 
-**Survey Questions**:
-1.
-
 ***  
 
 #### Workshop 3 and 4  
