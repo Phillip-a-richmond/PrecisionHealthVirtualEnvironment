@@ -20,12 +20,12 @@ module load singularity
 # Modify this #
 ###############
 
-Rstudio_SIF=/scratch/tr-precisionhealth-1/Sandbox/BioconductorExample/rstudio-bioconductor-Release_3_15.sif
-Home_Dir=/scratch/tr-precisionhealth-1/Sandbox/BioconductorExample/ 
+Rstudio_SIF=/scratch/tr-precisionhealth-1/Workshops/StudentSpaces/$USER/Core_Rstudio/rstudio-bioconductor-Release_3_15.sif
+Home_Dir=/scratch/tr-precisionhealth-1/Workshops/StudentSpaces/$USER/Core_Rstudio/
 Data_Dir=/scratch/tr-precisionhealth-1/Workshops/
-Lib_Dir=/scratch/tr-precisionhealth-1/Sandbox/BioconductorExample/R_Libs_4.2.0/
+Lib_Dir=/scratch/tr-precisionhealth-1/Workshops/StudentSpaces/$USER/Core_Rstudio/R_Libs_4.2.0/
 
-Rscript=/scratch/tr-precisionhealth-1/Workshops/StudentSpaces/$USER/
+Rscript=$Home_Dir/SmallRScript.R
 
 # This is where we pass the path to our library, and the libraries installed "in the container" (#zoolander)
 export SINGULARITYENV_LD_LIBRARY_PATH=$Lib_Dir:/usr/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH

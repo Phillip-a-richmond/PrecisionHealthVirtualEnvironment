@@ -29,6 +29,7 @@ Software/CellRanger/cellranger*
 Software/CellRanger/refdata*
 Software/UserDirs/*
 Software/Rstudio/*
+Software/nf_singularity_cache/*
 
 ## keep software install starters
 !Software/InstallMiniconda3.sh
@@ -49,6 +50,9 @@ Software/cache/
 # Core_CommandLine/
 Workshops/Core_CommandLine/Files/*gtf
 Workshops/Core_CommandLine/Files/*.gz
+
+# Nextflow
+Workshops/Nextflow/nextflow_toy_data/*
 
 
 

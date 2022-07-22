@@ -21,10 +21,13 @@ module load singularity/3.2.1
 # Modify this #
 ###############
 
-Rstudio_SIF=/scratch/tr-precisionhealth-1/Sandbox/BioconductorExample/rstudio-bioconductor-Release_3_15.sif
-Home_Dir=/scratch/tr-precisionhealth-1/Sandbox/BioconductorExample/ 
+Rstudio_SIF=/scratch/tr-precisionhealth-1/Workshops/StudentSpaces/$USER/Core_Rstudio/rstudio-bioconductor-Release_3_15.sif
+Home_Dir=/scratch/tr-precisionhealth-1/Workshops/StudentSpaces/$USER/Core_Rstudio/
 Data_Dir=/scratch/tr-precisionhealth-1/Workshops/
-Lib_Dir=/scratch/tr-precisionhealth-1/Sandbox/BioconductorExample/R_Libs_4.2.0/
+Lib_Dir=/scratch/tr-precisionhealth-1/Workshops/StudentSpaces/$USER/Core_Rstudio/R_Libs_4.2.0/
+
+mkdir -p $Home_Dir
+cd $Home_Dir
 
 ######################
 
@@ -74,7 +77,6 @@ export SINGULARITYENV_LD_LIBRARY_PATH=$Lib_Dir:/usr/lib/x86_64-linux-gnu:$LD_LIB
 # Execute the rserver within the rocker/rstudio container
 # We bind path to our data, our home, and our lib, and then call the Rstudio.sif file, and execute the rserver command
 singularity exec --bind $TMPDIR:/var/run \
- --bind $TMPDIR:/var/lib/rstudio-server \
  --home $Home_Dir \
  --bind $Data_Dir \
  --bind $Lib_Dir \
