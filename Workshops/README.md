@@ -18,6 +18,8 @@ example (NOTE, don't include < >):
 ssh richmonp@sockeye.arc.ubc.ca
 ```
 
+-------
+
 2.  Check your access to /scratch/tr-precisionhealth-1/ and /project/tr-precisionhealth-1/.  
 We will learn these commands Day 1 if you don't know them.
 ```
@@ -30,71 +32,13 @@ ls: cannot open directory /scratch/tr-precisionhealth-1/: Permission denied
 ```
 Then please notify me at prichmond@bcchr.ca.
 
+-------
+
 3. Take a moment to read about the instructors leading this workshop series at the bottom of the page! 
 
 
 ## Workshop Introduction
 Slides: [https://docs.google.com/presentation/d/1NB5zuFLBupy9GPUos36UFCv3pyIN42HI0Ihu01STx9M/edit#slide=id.g13ba8aeec7a_0_10](https://docs.google.com/presentation/d/1NB5zuFLBupy9GPUos36UFCv3pyIN42HI0Ihu01STx9M/edit#slide=id.g13ba8aeec7a_0_10)
-
-## Core workshops
-> Core workshops are for skill sets generic to high performance computing.
-
-### Core\_CommandLine
-> This workshop explores the basics of Linux/Unix command line navigation, file editing, and server organization.
-
-Learn more [here](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Workshops/Core_CommandLine)
-
-### Core\_HPCBasics
-> This workshop teaches how to use the PBSPro scheduler and design job scripts and job arrays.
-
-Learn more [here](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Workshops/Core_PBSPro)
-
-### Core\_Conda
-> This workshop teaches how to use the conda framework for managing software packages and tools.
-
-Learn more [here](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Workshops/Core_Conda)
-
-### Core\_Rstudio
-> This workshop teaches how to set up and launch interactive Rstudio from the Sockeye cluster, as well as R.
-
-Learn more [here](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Workshops/Core_Rstudio)
-
-### Core\_Singularity
-> This workshop teaches how to use the Singularity tool for managing software in containers.
-
-Learn more [here](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Workshops/Core_Singularity)
-
-## Applied Workshops
-
-### RNA Sequencing
-> This workshop goes through the basics of RNA sequencing read mapping and quanitification.
-
-Learn more [here]()
-
-### Single-cell RNA Sequencing (scRNA-seq)
-> This workshop covers the basics of going from raw data to count objects
-
-Learn more [here]()
-
-### Genetic Association Testing
-> This workshop explores genotype data processing basics, explores GWAS, and then creates Polygenic Risk Scores for a phenotype of interest.
-
-Learn more [here]()
-
-### Exploratory Data Analysis for Omics data, Biomarker Discovery, and Multi-omic integration
-> This workshop explores the ins-and-outs of data analysis for multi-omics data analysis and integration.
-
-Learn more [here]()
-
-### Functional Magnetic Resonance Imaging (fMRI) 
-> This workshop teaches the fundamentals and basics of pre-processing fMRI data, including data types and commonly used packages.
-
-Learn more [here]()
-
-### DeepLabCut
-> This workshop will show you how to use the movement tracking software called DeepLabCut on Sockeye GPU resources.
-
-Learn more [here]()
 
 
 
