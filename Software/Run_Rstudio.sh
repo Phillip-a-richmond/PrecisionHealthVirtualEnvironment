@@ -1,6 +1,6 @@
 #!/bin/bash
  
-#PBS -l walltime=03:00:00,select=1:ncpus=4:mem=32gb
+#PBS -l walltime=03:00:00,select=1:ncpus=4:mem=24gb
 #PBS -N my_rstudio_server
 #PBS -A st-sturvey-1
 #PBS -m abe
@@ -12,17 +12,19 @@
 cd $PBS_O_WORKDIR
  
 # Load software environment
-module load singularity
+module load Software_Collection/2019
+module load gcc/5.4.0
+module load singularity/3.2.1
 
 #####################
 ############### 
 # Modify this #
 ###############
 
-Rstudio_SIF=/scratch/st-sturvey-1/Sandbox/BioconductorExample/rstudio-bioconductor-Release_3_15.sif
-Home_Dir=/scratch/st-sturvey-1/Sandbox/BioconductorExample/ 
-Data_Dir=/scratch/st-sturvey-1/Workshops/
-Lib_Dir=/scratch/st-sturvey-1/Sandbox/BioconductorExample/R_Libs_4.2.0/
+Rstudio_SIF=/scratch/tr-precisionhealth-1/Sandbox/BioconductorExample/rstudio-bioconductor-Release_3_15.sif
+Home_Dir=/scratch/tr-precisionhealth-1/Sandbox/BioconductorExample/ 
+Data_Dir=/scratch/tr-precisionhealth-1/Workshops/
+Lib_Dir=/scratch/tr-precisionhealth-1/Sandbox/BioconductorExample/R_Libs_4.2.0/
 
 ######################
 

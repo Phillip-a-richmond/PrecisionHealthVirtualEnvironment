@@ -1,6 +1,6 @@
 #!/bin/bash
  
-#PBS -l walltime=03:00:00,select=1:ncpus=1:mem=64gb
+#PBS -l walltime=03:00:00,select=1:ncpus=4:mem=24gb
 #PBS -N my_rstudio_server
 #PBS -A st-sturvey-1
 #PBS -m abe
@@ -12,17 +12,19 @@
 cd $PBS_O_WORKDIR
  
 # Load software environment
-module load singularity
+module load Software_Collection/2019
+module load gcc/5.4.0
+module load singularity/3.2.1
 
 #####################
 ############### 
 # Modify this #
 ###############
 
-Rstudio_SIF=/scratch/st-sturvey-1/Workshops/Rstudio_Core/rstudio-bioconductor-Release_3_15.sif
-Home_Dir=/scratch/st-sturvey-1/Workshops/Rstudio_Core/
-Data_Dir=/scratch/st-sturvey-1/Workshops/
-Lib_Dir=/scratch/st-sturvey-1/Sandbox/BioconductorExample/R_Libs_4.2.0/
+Rstudio_SIF=/scratch/tr-precisionhealth-1/Sandbox/BioconductorExample/rstudio-bioconductor-Release_3_15.sif
+Home_Dir=/scratch/tr-precisionhealth-1/Sandbox/BioconductorExample/ 
+Data_Dir=/scratch/tr-precisionhealth-1/Workshops/
+Lib_Dir=/scratch/tr-precisionhealth-1/Sandbox/BioconductorExample/R_Libs_4.2.0/
 
 ######################
 
@@ -71,9 +73,10 @@ export SINGULARITYENV_LD_LIBRARY_PATH=$Lib_Dir:/usr/lib/x86_64-linux-gnu:$LD_LIB
  
 # Execute the rserver within the rocker/rstudio container
 # We bind path to our data, our home, and our lib, and then call the Rstudio.sif file, and execute the rserver command
-singularity exec \
+singularity exec --bind $TMPDIR:/var/run \
  --bind $TMPDIR:/var/lib/rstudio-server \
- --bind $TMPDIR:/var/run \
  --home $Home_Dir \
+ --bind $Data_Dir \
+ --bind $Lib_Dir \
  $Rstudio_SIF \
  rserver --auth-none=0 --auth-pam-helper-path=pam-helper --secure-cookie-key-file ${SECURE_COOKIE} --www-port ${PORT} --server-user ${USER}

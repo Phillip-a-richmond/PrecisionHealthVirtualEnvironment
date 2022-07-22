@@ -1,6 +1,7 @@
 #  load modules
-module load gcc
-module load singularity
+module load Software_Collection/2019
+module load gcc/5.4.0
+module load singularity/3.2.1
 
 # Change to your directory where you'll keep the SIF 
 mkdir -p /scratch/tr-precisionhealth-1/Sandbox/BioconductorExample/
