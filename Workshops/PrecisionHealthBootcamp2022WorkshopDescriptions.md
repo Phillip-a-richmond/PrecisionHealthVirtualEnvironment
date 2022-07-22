@@ -95,7 +95,8 @@ Applied:
 
 **Content Overview**: Nextflow is a powerful workflow language that is highly reproducible, scalable, and easy to use. Our goal in this workshop is to familiarize you with the capabilities of Nextflow pipelines and how they work at a high level, such that you will be able to deploy one for your own needs. In the first session of this workshop, you will learn how to set up and execute pre-built community workflows for analysing your data at scale on a high-performance computing cluster. For users who are interested in more granularity, in the second session we will explore a user-made workflow to understand the structure of a Nextflow pipeline and how a custom configuration can offer portability and flexibility.
 
-**Prerequisites:**  None  
+**Prerequisites:** 
+- Familiarity with the LINUX command line, PBS Pro scheduler, and Singularity or our Bootcamp’s Core Workshops: [Intro to Sockeye and HPC basics](#workshop-1-and-2) and [Conda and Singularity](#workshop-3-and-4)     
 
 ***  
 
@@ -108,7 +109,8 @@ Applied:
 
 **Content Overview**: This workshop will cover the download of DNA methylation microarray data from a public repository (the Gene Expression Omnibus, GEO). We will parse the metadata from this public dataset, process the DNA methylation data for analysis, and conduct a differential methylation analysis in R, using data from the Illumina HumanMethylation450 microarray.  
 
-**Prerequisites:**  None  
+**Prerequisites:**  
+- Familiarity with the R programming languge, LINUX command line, PBS Pro scheduler, and Singularity for Rstudio or our Bootcamp’s Core Workshops: [Intro to Sockeye and HPC basics](#workshop-1-and-2), [Conda and Singularity](#workshop-3-and-4), [Interactive Rstudio and package management](#workshop-5).     
   
 ***  
   
@@ -140,7 +142,8 @@ Applied:
 
 **Content Overview**: With the advancement of single cell RNA sequencing (scRNAseq) there is a cambrian explosion of associated packages and tools to help scientists analyze their data. However, data needs to be initially processed by  be properly analyzed, the task of removing outliers and cleaning up background noise to create a clean and unbiased dataset is a  data can be properly analyzed.
 
-**Prerequisites:** None
+**Prerequisites:** 
+- Familiarity with the R programming languge, LINUX command line, PBS Pro scheduler, and Singularity for Rstudio or our Bootcamp’s Core Workshops: [Intro to Sockeye and HPC basics](#workshop-1-and-2), [Conda and Singularity](#workshop-3-and-4), and [Interactive Rstudio and package management](#workshop-5).
 
 ***
 
@@ -156,7 +159,7 @@ Applied:
 **Content Overview**:  This workshop will cover first steps when doing any genetic association analysis. In receiving genetic sequencing and/or SNP microarray data, a number of quality control considerations must be considered prior to analyses. The morning session of this workshop will provide an overview of various SNP file types you may encounter, such as plink format (.bed/.bim/.fam), VCF file format, and summary statistics from GWAS. The afternoon session will run through three applied examples of association testing: Extracting individual-level allelic information (ie. 0, 1, 2 copies of an allele) into a standard row-by-column data frame format so as to compare with other non-genetic variables; conduct fine-mapping analyses to identify causal loci of a trait among associated SNPs; and create polygenic risk scores.  
 
 **Prerequisites:**
-- Basic familiarity with LINUX and HPC or our Bootcamp’s Core Workshops: [Intro to Sockeye and HPC basics](#workshop-1-and-2), [Conda and Singularity](#workshop-3-and-4), [Interactive Rstudio + Package management](#workshop-5)
+- Basic familiarity with LINUX and HPC or our Bootcamp’s Core Workshops: [Intro to Sockeye and HPC basics](#workshop-1-and-2), [Conda and Singularity](#workshop-3-and-4), [Interactive Rstudio + Package management](#workshop-5).
 
 ***
 
@@ -174,7 +177,8 @@ Applied:
 
 **Content Overview**:  These series of workshops will enable researchers to become comfortable using and interpreting commonly used methods for multiomics data integration through data visualizations and evaluation metrics.  
 
-**Prerequisites**: None
+**Prerequisites**: 
+- Basic familiarity with LINUX and HPC or our Bootcamp’s Core Workshops: [Intro to Sockeye and HPC basics](#workshop-1-and-2), [Conda and Singularity](#workshop-3-and-4), [Interactive Rstudio + Package management](#workshop-5).
 
 ***  
 
@@ -205,7 +209,7 @@ Applied:
 **Content Overview**:  DeepLabCut (DLC) is widely used for tracking animal body parts for behavioral analysis. In the morning we are going to have a brief overview of the tool, its applications and how to run it on Sockeye server using a Python based virtual environment. The afternoon session will entail labeling few frames of provided dataset, specifying some of the parameters and training a model for automated tracking of the labeled body parts - all on Sockeye server. The session will end with a common question and answer session.
 
 **Prerequisites:** 
-- Basic familiarity with navigation on HPC servers, or our Bootcamp’s Core Workshop: [Intro to Sockeye](#workshop-1-and-2). 
+- Basic familiarity with navigation on HPC servers, or our Bootcamp’s Core Workshop: [Intro to Sockeye](#workshop-1-and-2) and [Conda and Singularity](#workshop-3-and-4). 
 
 *** 
 
