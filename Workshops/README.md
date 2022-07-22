@@ -1,6 +1,9 @@
 # Workshops
 > This is the space for workshop development and deployment.
 
+Welcome to the Precision Health Bootcamp Summer 2022! Below you'll find workshop links, prerequisites, and links to the workshops. (NOTE: not all workshops will be available for viewing on July 25th!). 
+
+
 ## Prerequisites
 These prerequisites apply to anyone joining the workshop and coding along.  
 1. Check your access to Sockeye by logging in.  
@@ -69,24 +72,27 @@ Learn more [here](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEn
 Learn more [here]()
 
 ### Single-cell RNA Sequencing (scRNA-seq)
+> This workshop covers the basics of going from raw data to count objects
+
+Learn more [here]()
 
 ### Genetic Association Testing
 > This workshop explores genotype data processing basics, explores GWAS, and then creates Polygenic Risk Scores for a phenotype of interest.
 
 Learn more [here]()
 
-### Exploratory Data Analysis for Omics data and Biomarker Discovery
-> This workshop explores 
+### Exploratory Data Analysis for Omics data, Biomarker Discovery, and Multi-omic integration
+> This workshop explores the ins-and-outs of data analysis for multi-omics data analysis and integration.
 
 Learn more [here]()
 
 ### Functional Magnetic Resonance Imaging (fMRI) 
-> This workshop teaches the fundamentals and basics of processing fMRI data.
+> This workshop teaches the fundamentals and basics of pre-processing fMRI data, including data types and commonly used packages.
 
-Learn more [here](https://github.com/LJWilliams/MRIPreprocessingAnalysisModule/tree/c81670157d044ddf8d41e0b4ed55fa42c2308ca9)
+Learn more [here]()
 
-### Multi-omics
-> This workshop explores multi-omic data integration for both bulk and single cell datasets
+### DeepLabCut
+> This workshop will show you how to use the movement tracking software called DeepLabCut on Sockeye GPU resources.
 
 Learn more [here]()
 
