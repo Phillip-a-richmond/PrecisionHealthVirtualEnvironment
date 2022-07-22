@@ -2,8 +2,9 @@
 > This is the space for workshop development and deployment.
 
 ## Prerequisites
-These prerequisites apply to anyone joining the workshop and coding along.
-1. Check your access to Sockeye by logging in. Details: [https://confluence.it.ubc.ca/display/UARC/Quickstart+Guide](https://confluence.it.ubc.ca/display/UARC/Quickstart+Guide)
+These prerequisites apply to anyone joining the workshop and coding along.  
+1. Check your access to Sockeye by logging in.  
+Details: [https://confluence.it.ubc.ca/display/UARC/Quickstart+Guide](https://confluence.it.ubc.ca/display/UARC/Quickstart+Guide)
 - Activate VPN or be on ubc-secure wifi
 - Login with your CWL and 2-factor authentication
 ```
@@ -14,7 +15,8 @@ example (NOTE, don't include < >):
 ssh richmonp@sockeye.arc.ubc.ca
 ```
 
-2.  Check your access to /scratch/tr-precisionhealth-1/ and /project/tr-precisionhealth-1/. We will learn these commands Day 1 if you don't know them.
+2.  Check your access to /scratch/tr-precisionhealth-1/ and /project/tr-precisionhealth-1/.  
+We will learn these commands Day 1 if you don't know them.
 ```
 ls /scratch/tr-precisionhealth-1/
 ls /project/tr-precisionhealth-1/
@@ -23,8 +25,9 @@ If you receive a permissions denied error like this:
 ```
 ls: cannot open directory /scratch/tr-precisionhealth-1/: Permission denied
 ```
-then please notify me at prichmond@bcchr.ca.
+Then please notify me at prichmond@bcchr.ca.
 
+3. Take a moment to read about the instructors leading this workshop series at the bottom of the page! 
 
 
 ## Workshop Introduction
@@ -65,13 +68,15 @@ Learn more [here](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEn
 
 Learn more [here]()
 
+### Single-cell RNA Sequencing (scRNA-seq)
+
 ### Genetic Association Testing
 > This workshop explores genotype data processing basics, explores GWAS, and then creates Polygenic Risk Scores for a phenotype of interest.
 
 Learn more [here]()
 
 ### Exploratory Data Analysis for Omics data and Biomarker Discovery
-> This workshop explores  __________ @Will C to add more
+> This workshop explores 
 
 Learn more [here]()
 
