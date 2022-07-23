@@ -1,0 +1,387 @@
+---
+title: "Git(Hub)"
+author: "Amrit Singh, PhD<br><span style = 'font-size: 65%;'>Department of Anesthesiology, Pharmacology and Therapeutics, UBC<br> Centre for Heart Lung Innovation</span>"
+date: 'July 26, 2022 | 12:00-14:00<br><br>`r fontawesome::fa("link")` [lab](https://cbl-hli.github.io/)<br>`r fontawesome::fa("github")` [code](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Workshops)<br>`r fontawesome::fa("twitter")` [asingh_22g](https://twitter.com/asingh_22g)'
+output:
+  xaringan::moon_reader:
+    css: [default, middlebury-fonts, "theme.css"]
+    lib_dir: libs
+    nature:
+      titleSlideClass: ["center", "middle", "my-title"]
+      ratio: '16:9'
+      slideNumberFormat: '%current%' 
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+params:
+  name1: Alison
+  name2: Allison
+---
+
+background-image: url(img/la.svg)
+
+---
+background-image: url(img/cc.svg)
+
+---
+
+class: middle
+
+# Learning outcomes
+
+### 1. Differentiate between Git and GitHub and be able to setup the connection on sockeye
+### 2. Use git to copy open-source code and test the code locally
+### 3. Make changes and update codebase (including undo)
+### 4. Implement the basics of Git Flow
+
+---
+
+# Motivation
+
+.pull-left[
+```{r, out.width="60%", echo=FALSE}
+knitr::include_graphics("img/finaldoc.gif")
+```
+
+[version control](https://uidaholib.github.io/get-git/1why.html)
+]
+
+--
+
+.pull-right[
+
+.pull-left[
+```{r, out.width="100%", echo=FALSE}
+icons::icon_style(icons::fontawesome("git"), scale = 6)
+```
+
+* distributed version control system
+
+```{bash, eval=F}
+module load git
+git --version
+```
+
+[Git](https://git-scm.com/)
+]
+
+.pull-right[
+```{r, out.width="100%", echo=FALSE}
+icons::icon_style(icons::fontawesome("github"), scale = 6)
+```
+
+* code hosting and collaboration platform (website)
+* make a GitHub account
+
+[GitHub](https://github.com)
+]
+
+<br>
+* use ```module avail``` to check which software is installed.
+]
+
+---
+
+# People behind Git and GitHub
+
+.pull-left[
+
+## [Linus Torvalds](https://www.youtube.com/watch?v=o8NPllzkFhE)
+
+.center[<img src ="img/linus.jpeg" alt="Linus Torvalds", width="40%"/>]
+* main developer of the Linux kernel (released in 1991)
+* developed Git to maintain the Linux kernel (2005)
+
+]
+
+.pull-right[
+
+## [Microsoft acquires GitHub](https://news.microsoft.com/announcement/microsoft-acquires-github/)
+.center[<img src ="img/github_microsoft.webp" alt="GitHub_Microsoft", width="40%"/>]
+* GitHub: Chris Wanstrath and Tom Preston-Werner
+* Microsoft: Satya Nadella
+
+]
+
+---
+
+# Git configuration
+
+```{bash, eval=F}
+git config --global user.name GITHUB_USERNAME
+git config --global user.email GITHUB_EMAIL
+```
+
+## list credentials
+
+```{bash, eval=F}
+git config --list
+```
+
+## git config file location
+
+```{bash, eval=F}
+git config --show-origin --get credential.helper
+```
+
+---
+
+# [Git Flow](https://commons.wikimedia.org/wiki/File:Git_data_flow.png)
+
+```{r, echo=FALSE}
+knitr::include_graphics("img/Git_data_flow.png")
+```
+
+---
+
+# Create new or add existing repository (repo) to GitHub
+
+## Make remote repo
+
+![github_repo](img/github_repo.png)
+[Click here to create new repository.](https://github.com/new)
+
+---
+
+# Create new or add existing repo to GitHub
+
+### Make local repo
+* replace REPO_NAME and GITHUB_USERNAME
+
+```{bash, eval=F}
+mkdir test
+cd test
+echo "# test" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M 'main'
+git remote add origin https://github.com/singha53/test.git
+git push -u origin 'main'
+```
+
+Username for 'https://github.com': GITHUB_USERNAME
+Password for 'https://singha53@github.com': PERSONAL_ACCESS_TOKEN
+
+* get PERSONAL_ACCESS_TOKEN by going to Profile Pic --> Settings --> Developer Settings on left-side bar --> Personal access tokens --> Generate new token --> Enter name, select repo and hit the Generate token button at the bottom of the page
+
+---
+
+### Make local repo
+
+Save credentials for future use
+
+```{bash, eval=F}
+git config --global credential.helper store
+```
+
+### Add local repo
+
+```{bash, eval=F}
+mkdir REPO_NAME
+cd REPO_NAME
+git remote add origin https://github.com/GITHUB_USERNAME/REPO_NAME.git
+git branch -M 'main'
+git push -u origin 'main'
+```
+
+```{bash, eval=F}
+git command --help #<<
+```
+
+---
+
+## [Master --> Main](https://www.jumpingrivers.com/blog/git-moving-master-to-main/)
+
+
+![master_main](img/master_main.png)
+
+---
+
+# Scenario 1: Simplest project workflow
+
+.pull-left[
+## 1) add feature
+
+### create a script file
+
+```{bash, eval=F}
+touch script.R
+open script.R
+```
+
+### add contents
+
+```{r, eval=F}
+library(ggplot2)
+
+data(diamonds)
+write.csv(diamonds, here::here("slides", "test", "diamonds.csv"))
+object.size(diamonds)
+```
+
+]
+
+.pull-right[
+## 2) ignore large files
+
+### add data file to .gitignore
+
+```{bash, eval=F}
+git status
+
+touch .gitignore
+open .gitignore
+```
+
+### add file to ignore
+
+> diamonds.csv
+
+<br>
+[GitHub size limits](https://docs.github.com/en/repositories/working-with-files/managing-large-files/about-large-files-on-github)
+
+]
+
+---
+
+# Scenario 1: Simplest project workflow
+
+## 3) save local repo and update remote repo
+
+### save changes locally
+
+```{bash, eval=F}
+git status
+git add .
+git commit -m "add script and ignore output"
+```
+
+* [how to write a good commit message](https://www.freecodecamp.org/news/writing-good-commit-messages-a-practical-guide/)
+
+### save changes to remote
+
+```{bash, eval=F}
+git push origin main
+```
+
+* [undo a commit](https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git)
+* check remote repo (on GitHub)
+
+---
+
+# Scenario 2: Feature development (self/team)
+
+### 1) use GitHub to manage project
+.center[<img src ="img/github_project.png" alt="GitHub Project", width="80%"/>]
+
+* make a new project
+* make a new issue
+  - subject: make plot
+  - description: x=carat, y=price and color by clarity
+---
+
+## Create new branch and move between branches
+
+```{bash, eval=F}
+git branch
+git checkout -b BRANCH_NAME
+git branch
+```
+
+### 2) Move between branches
+
+```{bash, eval=F}
+git checkout main
+git checkout BRANCH_NAME
+```
+
+### 3) see log of changes
+
+```{bash, eval=F}
+git log
+```
+
+---
+
+## make changes
+
+.pull-left[
+
+```{bash, eval=F}
+open script.R
+```
+
+```{r, warning=F, message=F}
+library(ggplot2); library(dplyr)
+
+data(diamonds)
+write.csv(diamonds, here::here("slides", "test", "diamonds.csv"))
+
+p <- diamonds %>% 
+  ggplot(aes(x = carat, y = price, color=clarity)) +
+  geom_point() +
+  scale_x_log10()
+
+ggsave(here::here("slides", "test", "diamonds.png"))
+```
+]
+
+.pull-right[
+```{r, echo=F}
+p
+```
+
+]
+---
+
+## Code review prior to merging into main repo (Pull Request)
+
+### check which changes were made
+
+```{bash, eval=F}
+git diff
+
+git status
+```
+
+* if it says repo is up-to-date, make sure script.R is saved.
+
+### update local and remote repo
+
+```{bash, eval=F}
+git add .
+git commit -m "add plot"
+git push origin BRANCH_NAME
+```
+
+.center[<img src ="img/pr1.png" alt="PR1", width="80%"/>]
+
+
+
+---
+
+# Resources
+
+## Slides
+ - [xaringan](https://arm.rbind.io/slides/xaringan.html#137)
+
+## Git
+ - [Get Git!](https://uidaholib.github.io/get-git/6resources.html)
+ - [Let's Git started](https://happygitwithr.com/)
+ - [.gitignore](https://zellwk.com/blog/gitignore/)
+ - [GitHub Actions]()
+ 
+
+---
+
+## Problem Set
+
+1) Git-LFS
+2) GH-Pages
+3) use RStudio with Git(Hub)
+4) advanced git commands: stash, rebase, 
+
+---
+
+## Solutions
