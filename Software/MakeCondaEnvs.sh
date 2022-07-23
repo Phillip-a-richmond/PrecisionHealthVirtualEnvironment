@@ -8,5 +8,7 @@ source /project/tr-precisionhealth-1/PrecisionHealthVirtualEnvironment/Software/
 #conda env create -f /project/tr-precisionhealth-1/PrecisionHealthVirtualEnvironment/Software/Nextflow_core_RNAseq.yml
 
 # Genome Analysis
-conda create -c bioconda -n GenomeAnalysis bwa samtools htslib picard
+#conda create -c bioconda -n GenomeAnalysis bwa samtools htslib picard
 
+# Variant calling
+conda create -c bioconda -n VariantCalling glnexus bcftools vcftools htslib samtools 
