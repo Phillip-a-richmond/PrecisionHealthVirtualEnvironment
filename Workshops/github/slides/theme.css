@@ -1,0 +1,9 @@
+.inverse {
+  background-image: url(img/bkg.svg);
+  background-size: cover;
+}
+
+.title-slide {
+  background-image: url(img/bkg.svg);
+  background-size: cover;
+}
