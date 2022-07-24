@@ -6,6 +6,8 @@ This is content which was covered in the introductory sessions.
 
 Code for running the commands can be found in the earlier sessions, including Intro to Linux, HPCBasics, Conda, Singularity, and Rstudio.
 
+## The Exam
+
 1. Make a new directory here:
 
 ```
@@ -77,3 +79,7 @@ mkdir /scratch/tr-precisionhealth-1/Workshops/Practical/$USER/Core_Practical/Rst
 
 13. Email prichmond@bcchr.ca that you've finished the practical, and include your CWL, first and last name.
 
+
+## Extra credit
+
+Mount the filesystem with OSX-Fuse and/or sshfs, see more instructions here: 
