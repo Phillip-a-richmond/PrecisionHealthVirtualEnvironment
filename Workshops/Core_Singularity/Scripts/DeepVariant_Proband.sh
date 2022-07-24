@@ -45,8 +45,8 @@ singularity run -B /usr/lib/locale/:/usr/lib/locale/ \
   --model_type=WGS \
   --ref="/genomedir/$Fasta_File" \
   --reads="/bamdir/$Sample_BAM" \
-  --output_vcf="/output/${Sample_ID}_DeepVariant_way1.vcf.gz" \
-  --output_gvcf="/output/${Sample_ID}_DeepVariant_way1.gvcf.gz" \
+  --output_vcf="/tmp/${Sample_ID}_DeepVariant_way1.vcf.gz" \
+  --output_gvcf="/tmp/${Sample_ID}_DeepVariant_way1.gvcf.gz" \
   --num_shards=$NCPUS
 
 
@@ -61,7 +61,11 @@ singularity run -B /usr/lib/locale/:/usr/lib/locale/ \
   --model_type=WGS \
   --ref=$Fasta_Dir/$Fasta_File \
   --reads=$BAM_Dir/$Sample_BAM \
-  --output_vcf=$Working_Dir/${Sample_ID}_DeepVariant_way2.vcf.gz \
-  --output_gvcf=$Working_Dir/${Sample_ID}_DeepVariant_way2.gvcf.gz \
+  --output_vcf=$TMPDIR/${Sample_ID}_DeepVariant_way2.vcf.gz \
+  --output_gvcf=$TMPDIR/${Sample_ID}_DeepVariant_way2.gvcf.gz \
   --num_shards=$NCPUS
+
+
+# Copy data back
+cp $TMPDIR/*vcf.gz $Working_Dir
 
