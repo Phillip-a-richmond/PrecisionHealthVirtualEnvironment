@@ -290,11 +290,11 @@ less /scratch/tr-precisionhealth-1/Workshops/Studentspaces/richmonp/Core_Command
 ### Print top of file to standard out (head)
 ####Basic
 ```
-head /scratch/tr-precisionhealth-1/Workshops/Studentspaces/richmonp/Core_CommandLine/Files/gencode.v40.annotation.gtf
+head <filepath>
 ```
 Example:
 ```
-head <PHIL THIS IN>
+head /scratch/tr-precisionhealth-1/Workshops/Studentspaces/richmonp/Core_CommandLine/Files/gencode.v40.annotation.gtf
 ```
 
 #### Specify number of lines
@@ -303,7 +303,7 @@ head -n 100 <filepath>
 ```
 Example:
 ```
-head -n 100 <PHIL THIS IN>
+head -n 100 /scratch/tr-precisionhealth-1/Workshops/Studentspaces/richmonp/Core_CommandLine/Files/gencode.v40.annotation.gtf
 ```
 
 ### Print bottom of file to stdout (tail)
@@ -321,7 +321,7 @@ tail -n 100 <filepath>
 ```
 Example:
 ```
-tail -n 100 <PHIL THIS IN>
+tail -n 100 /scratch/tr-precisionhealth-1/Workshops/Studentspaces/richmonp/Core_CommandLine/Files/gencode.v40.annotation.gtf
 ```
 
 ### Print whole file to stdout (cat)
@@ -340,7 +340,7 @@ cat /global/scratch/EOT_Tutorials/IntroToLinux/RICHMOND/genes.gtf
 ```
 Example:
 ```
-head <PHIL THIS IN>  >  <PHIL THIS IN>
+head /scratch/tr-precisionhealth-1/Workshops/Studentspaces/richmonp/Core_CommandLine/Files/gencode.v40.annotation.gtf  >  /scratch/tr-precisionhealth-1/Workshops/Studentspaces/richmonp/Core_CommandLine/Files/somelines_gencode.v40.annotation.gtf
 ```
 
 ### Remove/Delete a file
@@ -350,7 +350,7 @@ rm <file>
 ```
 Example:
 ```
-rm <PHIL THIS IN>
+rm /scratch/tr-precisionhealth-1/Workshops/Studentspaces/richmonp/Core_CommandLine/Files/somelines_gencode.v40.annotation.gtf
 ```
 #### Everything in a directory (CAREFUL)
 ```
@@ -358,7 +358,7 @@ rm -r <filepath>
 ```
 Example:
 ```
-rm -r <PHIL THIS IN>
+rm -r /scratch/tr-precisionhealth-1/Workshops/Studentspaces/richmonp/Core_CommandLine/TestDir/
 ```
 
 
@@ -369,7 +369,7 @@ grep <pattern> <filepath>
 ```
 Example:
 ```
-grep "<PHIL THIS IN>" <PHIL THIS IN>
+grep "GLS" /scratch/tr-precisionhealth-1/Workshops/Studentspaces/richmonp/Core_CommandLine/Files/gencode.v40.annotation.gtf
 ```
 
 #### Basic with capture
@@ -378,16 +378,16 @@ grep <pattern> <filepath>   >  <filepath>
 ```
 Example:
 ```
-grep "<PHIL THIS IN>" <PHIL THIS IN> > <PHIL THIS IN>
+grep "GLS" /scratch/tr-precisionhealth-1/Workshops/Studentspaces/richmonp/Core_CommandLine/Files/gencode.v40.annotation.gtf > /scratch/tr-precisionhealth-1/Workshops/Studentspaces/richmonp/Core_CommandLine/Files/GLS.gtf
 ```
 
 #### Matching just the word
 ```
-grep -w "<PHIL THIS IN>" <PHIL THIS IN>
+grep -w "GLS" /scratch/tr-precisionhealth-1/Workshops/Studentspaces/richmonp/Core_CommandLine/Files/gencode.v40.annotation.gtf
 ```
 ## Inverted matching, return all non-matches
 ```
-grep -v "<PHIL THIS IN>" <PHIL THIS IN>
+grep -v "exon" /scratch/tr-precisionhealth-1/Workshops/Studentspaces/richmonp/Core_CommandLine/Files/GLS.gtf
 ```
 
 ### Word Count (wc)
@@ -397,15 +397,15 @@ wc <filepath>
 ```
 Example:
 ```
-wc <PHIL THIS IN>
+wc /scratch/tr-precisionhealth-1/Workshops/Studentspaces/richmonp/Core_CommandLine/Files/GLS.gtf
 ```
 #### Just lines
 ```
-wc -l <filepath>
+wc -l /scratch/tr-precisionhealth-1/Workshops/Studentspaces/richmonp/Core_CommandLine/Files/gencode.v40.annotation.gtf
 ```
 Example:
 ```
-wc -l <PHIL THIS IN>
+wc -l /scratch/tr-precisionhealth-1/Workshops/Studentspaces/richmonp/Core_CommandLine/Files/gencode.v40.annotation.gtf
 ```
 
 ### Manual (man)
@@ -433,9 +433,9 @@ wget ftp://ftp.ncbi.nlm.nih.gov/pub/clinvar/tab_delimited/variant_summary.txt.gz
 ```
 gunzip <filepath>
 ```
-Example:
+Example: 
 ```
-gunzip <PHIL THIS IN>
+gunzip variant_summary.txt.gz
 ```
 
 #### Keep compressed file
@@ -444,7 +444,7 @@ gunzip -c <filepath>  >  <outfilepath>
 ```
 Example:
 ```
-gunzip -c <PHIL THIS IN>  >  <PHIL THIS IN>
+gunzip -c variant_summary.txt.gz  >  variant_summary.txt
 ```
 
 ### Cut/Extract columns from a delimited file
