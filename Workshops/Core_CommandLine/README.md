@@ -10,12 +10,21 @@ Contact: prichmond@bcchr.ca
 - Access to /scratch/st-sturvey-1/
 
 ## Slide Deck
-
 You can retrieve this slide deck at: 
 [https://docs.google.com/presentation/d/1vl6V92WAsBwl5LjxgTGfv4RuucQtMkHP8UsBjmetJFw/edit#slide=id.p](https://docs.google.com/presentation/d/1vl6V92WAsBwl5LjxgTGfv4RuucQtMkHP8UsBjmetJFw/edit#slide=id.p) 
 
 ## Problem Set
 Problem set [here](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/blob/main/Workshops/Core_CommandLine/ProblemSet/LearningCommandLine_ProblemSet.txt)
+
+## Definitions used today
+
+1. Terminal - the application you use to access the command line
+2. Command line - the part of the terminal where you type in commands
+3. Login node - the Sockeye server that you log-in to from the command line. You access this via the command line with ```ssh username@sockeye.arc.ubc.ca```
+4. Command - A specific thing we type into the terminal that performs some task, like changing a directory or copying a file. 
+5. File - A digital object, like a document or set of data, kept on the data storage/disk.
+6. Data storage / disk - computer hardware that stores/holds the data we process/generate.
+
 
 ## Github Gist
 Github gist here: [https://gist.github.com/Phillip-a-richmond/803979d63fd859994f5b4e7ae0caeb13](https://gist.github.com/Phillip-a-richmond/803979d63fd859994f5b4e7ae0caeb13)
