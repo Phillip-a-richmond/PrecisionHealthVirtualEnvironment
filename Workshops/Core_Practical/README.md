@@ -75,5 +75,5 @@ mkdir /scratch/tr-precisionhealth-1/Workshops/Practical/$USER/Core_Practical/Rst
 /scratch/tr-precisionhealth-1/Workshops/Practical/$USER/Core_Practical/
 ```
 
-13. Email prichmond@bcchr.ca that you've finished the practical.
+13. Email prichmond@bcchr.ca that you've finished the practical, and include your CWL, first and last name.
 
