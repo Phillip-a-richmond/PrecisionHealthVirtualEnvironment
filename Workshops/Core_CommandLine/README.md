@@ -18,16 +18,17 @@ Problem set [here](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualE
 
 ## Definitions used today
 
-1. Terminal - the application you use to access the command line
-2. Command line - the part of the terminal where you type in commands
-3. Login node - the Sockeye server that you log-in to from the command line. You access this via the command line with ```ssh username@sockeye.arc.ubc.ca```
-4. Command - A specific thing we type into the terminal that performs some task, like changing a directory or copying a file. 
-5. File - A digital object, like a document or set of data, kept on the data storage/disk.
-6. Data storage / disk - computer hardware that stores/holds the data we process/generate.
-7. Bytes - unit of measurement for digital "objects", e.g. files.
-8. RAM - Random access memory, how much data can be sotred in memory for quick retrieval, measured in bytes.
-9. Processors/CPUs - The workhorses of the computer, that execute tasks. Example, mapping a sequencing read to the human genome is performed by a CPU.
-10. Disk - where data is stored, mreasured in bytes.
+1. Phil says, "Execute a command" - type it in, and hit Enter.
+2. Terminal - the application you use to access the command line
+3. Command line - the part of the terminal where you type in commands
+4. Login node - the Sockeye server that you log-in to from the command line. You access this via the command line with ```ssh username@sockeye.arc.ubc.ca```
+5. Command - A specific thing we type into the terminal that performs some task, like changing a directory or copying a file. 
+6. File - A digital object, like a document or set of data, kept on the data storage/disk.
+7. Data storage / disk - computer hardware that stores/holds the data we process/generate.
+8. Bytes - unit of measurement for digital "objects", e.g. files.
+9. RAM - Random access memory, how much data can be sotred in memory for quick retrieval, measured in bytes.
+10. Processors/CPUs - The workhorses of the computer, that execute tasks. Example, mapping a sequencing read to the human genome is performed by a CPU.
+11. Disk - where data is stored, mreasured in bytes.
 
 
 ## Github Gist
