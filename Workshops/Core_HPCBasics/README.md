@@ -10,7 +10,8 @@ Contact: prichmond@bcchr.ca
 
 
 ## Prerequisites
-
+- Log in to sockeye
+- Access to /scratch/tr-precisionhealth-1/
 
 ## Slide Deck
 
@@ -18,6 +19,15 @@ You can retrieve this slide deck at: [https://docs.google.com/presentation/d/1lJ
 
 ## Problem Set
 Problem set here: [https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/blob/main/Workshops/Core_HPCBasics/ProblemSet/HPCBasics_ProblemSet.txt](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/blob/main/Workshops/Core_HPCBasics/ProblemSet/HPCBasics_ProblemSet.txt)
+
+## Definitions
+1. Head node - where you log-in to the Sockeye cluster.
+2. Cluster - A group of high performance computers linked together by a network, with access to a shared filesystem.
+3. Compute node - The data-processing nodes of the Sockeye cluster.
+4. Bytes - unit of measurement for digital "objects", e.g. files.
+5. RAM - Random access memory, how much data can be sotred in memory for quick retrieval, measured in bytes.
+6. Processors/CPUs - The workhorses of the computer, that execute tasks. Example, mapping a sequencing read to the human genome is performed by a CPU.
+7. Disk - where data is stored, mreasured in bytes.
 
 ## Github Gist
 
