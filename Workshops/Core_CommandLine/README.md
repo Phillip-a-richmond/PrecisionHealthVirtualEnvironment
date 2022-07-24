@@ -24,6 +24,10 @@ Problem set [here](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualE
 4. Command - A specific thing we type into the terminal that performs some task, like changing a directory or copying a file. 
 5. File - A digital object, like a document or set of data, kept on the data storage/disk.
 6. Data storage / disk - computer hardware that stores/holds the data we process/generate.
+7. Bytes - unit of measurement for digital "objects", e.g. files.
+8. RAM - Random access memory, how much data can be sotred in memory for quick retrieval, measured in bytes.
+9. Processors/CPUs - The workhorses of the computer, that execute tasks. Example, mapping a sequencing read to the human genome is performed by a CPU.
+10. Disk - where data is stored, mreasured in bytes.
 
 
 ## Github Gist
