@@ -78,8 +78,8 @@ singularity run -B /usr/lib/locale/:/usr/lib/locale/ \
   --model_type=WGS \
   --ref=$Fasta_Dir/$Fasta_File \
   --reads=$BAM_Dir/$Sample_BAM \
-  --output_vcf=$TMPDIR${Sample_ID}_DeepVariant.vcf.gz \
-  --output_gvcf=$TMPDIR${Sample_ID}_DeepVariant.gvcf.gz \
+  --output_vcf=$TMPDIR/${Sample_ID}_DeepVariant.vcf.gz \
+  --output_gvcf=$TMPDIR/${Sample_ID}_DeepVariant.gvcf.gz \
   --regions "chrX:48300000-49300000" \
   --num_shards=$NCPUS
 
