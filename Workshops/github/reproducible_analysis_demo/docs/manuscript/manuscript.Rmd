@@ -1,0 +1,75 @@
+---
+title: Title of submission to PLOS journal
+author:
+  - name: Alice Anonymous
+    email: alice@example.com
+    affiliation: Some Institute of Technology
+    corresponding: alice@example.com
+  - name: Bob Security
+    email: bob@example.com
+    affiliation: 
+      - Another University
+      - Some Institute of Technology
+address:
+  - code: Some Institute of Technology
+    address: Department 1, Street, City, State, Zip
+  - code: Another University
+    address: Department 2, Street, City, State, Zip
+abstract: |
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eget porta erat. Morbi consectetur est vel gravida pretium. Suspendisse ut dui eu ante cursus gravida non sed sem. Nullam sapien tellus, commodo id velit id, eleifend volutpat quam. Phasellus mauris velit, dapibus finibus elementum vel, pulvinar non tellus. Nunc pellentesque pretium diam, quis maximus dolor faucibus id. Nunc convallis sodales ante, ut ullamcorper est egestas vitae. Nam sit amet enim ultrices, ultrices elit pulvinar, volutpat risus.
+  
+author_summary: |
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eget porta erat. Morbi consectetur est vel gravida pretium. Suspendisse ut dui eu ante cursus gravida non sed sem. Nullam sapien tellus, commodo id velit id, eleifend volutpat quam. Phasellus mauris velit, dapibus finibus elementum vel, pulvinar non tellus. Nunc pellentesque pretium diam, quis maximus dolor faucibus id. Nunc convallis sodales ante, ut ullamcorper est egestas vitae. Nam sit amet enim ultrices, ultrices elit pulvinar, volutpat risus.
+
+bibliography: demo.bib
+output: rticles::plos_article
+csl: plos-biology.csl
+header-includes:
+- \usepackage{booktabs}
+- \usepackage{longtable}
+
+---
+
+```{r setup, echo = FALSE, warning=FALSE, message=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning=FALSE, message=FALSE)
+library(knitr)
+library(dplyr)
+```
+
+
+# Introduction
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eget porta erat. Morbi consectetur est vel gravida pretium. Suspendisse ut dui eu ante cursus gravida non sed sem. Phasellus mauris velit, dapibus finibus elementum vel, pulvinar non tellus. Nunc pellentesque pretium diam, quis maximus dolor faucibus id. Nunc convallis sodales ante, ut ullamcorper est egestas vitae. Nam sit amet enim ultrices, ultrices elit pulvinar, volutpat risus.
+
+A list
+
+- Item 1
+- Item 2
+
+
+# Methods
+
+PHATE [@moon_visualizing_2019]
+
+# Results
+
+## result 1
+
+```{r}
+tbl <- read.delim("../../data/tasic_labels.tsv")
+
+kable(table(tbl$Astrocyte), caption = "Cell-types")
+
+```
+
+
+## result 2
+
+```{r, out.width="100%"}
+phate <- '../../results/phate_plot.png'
+knitr::include_graphics(phate)
+
+```
+
+
+# References {#references}
