@@ -6,4 +6,4 @@ dependencies:
   - samtools
   - htslib
   - picard
-prefix: /project/st-sturvey-1/PrecisionHealthVirtualEnvironment/Software/miniconda3/envs/GenomeAnalysis/
+prefix: /scratch/st-sturvey-1/Workshops/StudentSpaces/$USER/Core_Conda/miniconda3/envs/GenomeAnalysis/

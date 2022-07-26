@@ -2,7 +2,7 @@
 # If you haven't, first run InstallMiniconda3.sh
 
 # Set this to match your miniconda3
-MINICONDA3=/project/st-sturvey-1/PrecisionHealthVirtualEnvironment/Software/miniconda3/
+MINICONDA3=/scratch/st-sturvey-1/Workshops/StudentSpaces/$USER/Core_Conda/miniconda3/
 
 # Add conda to your path
 source $MINICONDA3/etc/profile.d/conda.sh
