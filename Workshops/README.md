@@ -6,6 +6,8 @@ Welcome to the Precision Health Bootcamp Summer 2022! Below you'll find workshop
 ## Location
 Workshops will be held in-person in Koerner Library at UBC, on the 5th floor, in the Research Commons Room 552.
 
+Workshops will also be broadcast online. For the zoom link, please email prichmond@bcchr.ca
+
 ## Prerequisites
 These prerequisites apply to anyone joining the workshop and coding along.  
 1. Check your access to Sockeye by logging in.  
