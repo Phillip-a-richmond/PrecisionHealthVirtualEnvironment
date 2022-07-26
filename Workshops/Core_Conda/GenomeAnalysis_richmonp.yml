@@ -1,0 +1,9 @@
+name: GenomeAnalysis
+channels:
+  - bioconda
+dependencies:
+  - bwa
+  - samtools
+  - htslib
+  - picard
+prefix: /scratch/st-sturvey-1/Workshops/StudentSpaces/richmonp/Core_Conda/miniconda3/envs/GenomeAnalysis/
