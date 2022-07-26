@@ -20,9 +20,6 @@ OpenData/ThousandGenomes/HD_SNP_Chip/*
 # Workshop data
 Workshops/IntroToEWAS/data/*
 
-# Workshop data
-Workshops/IntroToEWAS/data/*
-
 # Software
 Software/miniconda3/*
 Software/CellRanger/cellranger*

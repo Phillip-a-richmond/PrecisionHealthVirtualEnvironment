@@ -6,10 +6,8 @@ DBDIR=/project/st-sturvey-1/PrecisionHealthVirtualEnvironment/Databases/Referenc
 # Step 1 - Load the Conda environment from AnnotateVariants ##
 ##############################################################
 
-ANNOTATEVARIANTS_INSTALL_DIR=/project/st-sturvey-1/PrecisionHealthVirtualEnvironment/Software/UserDirs/prichmond/AnnotateVariants/
-source ${ANNOTATEVARIANTS_INSTALL_DIR}/opt/miniconda3/etc/profile.d/conda.sh
-conda activate ${ANNOTATEVARIANTS_INSTALL_DIR}/opt/AnnotateVariantsEnvironment
-
+source /project/tr-precisionhealth-1/PrecisionHealthVirtualEnvironment/Software/miniconda3/etc/profile.d/conda.sh
+conda  activate  GenomeAnalysis
 
 
 ###############################################################################
@@ -36,19 +34,19 @@ mkdir -p $DBDIR/GRCh38/Genome/
 cd $DBDIR/GRCh38/Genome/
 
 #### 1000 Genomes
-#mkdir -p 1000G/
-#cd 1000G/
-#
-##### Fetch fasta
-#wget -c -q http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/reference/GRCh38_reference_genome/GRCh38_full_analysis_set_plus_decoy_hla.fa
-#
-##### Samtools index
-#samtools faidx GRCh38_full_analysis_set_plus_decoy_hla.fa
-#
-##### BWA index
-#bwa index GRCh38_full_analysis_set_plus_decoy_hla.fa
-#
-#### Ensembl
+mkdir -p 1000G/
+cd 1000G/
+
+#### Fetch fasta
+wget -c -q http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/reference/GRCh38_reference_genome/GRCh38_full_analysis_set_plus_decoy_hla.fa
+
+#### Samtools index
+samtools faidx GRCh38_full_analysis_set_plus_decoy_hla.fa
+
+#### BWA index
+bwa index GRCh38_full_analysis_set_plus_decoy_hla.fa
+
+### Ensembl
 #cd $DBDIR/GRCh38/Genome/
 #mkdir -p Ensembl/
 #cd Ensembl

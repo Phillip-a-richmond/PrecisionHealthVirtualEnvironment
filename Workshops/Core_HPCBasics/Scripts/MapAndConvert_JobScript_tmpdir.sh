@@ -37,6 +37,7 @@ ls -l ./
 # BWA mem
 # bwa mem <genomeIndex> <fastqR1> <fastqR2> [options] > <output.sam>
 bwa mem $GenomeIndex \
+	-t $NCPUS \
 	$FastqR1 \
 	$FastqR2 \
 	-R "@RG\tID:$Sample\tSM:$Sample\tPL:illumina" \
@@ -46,12 +47,14 @@ bwa mem $GenomeIndex \
 ## Samtools view
 ## samtools view -b <in.sam> <out.bam>
 samtools view \
+	-@ $NCPUS \
 	-b ${Sample}.sam  \
 	-o ${Sample}.bam
 
 ## Samtools sort
 ## samtools sort <in.bam> -o <out.sorted.bam>
 samtools sort \
+	-@ $NCPUS \
 	${Sample}.bam \
 	-o ${Sample}.sorted.bam
 
