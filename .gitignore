@@ -60,3 +60,6 @@ Workshops/Nextflow/nextflow_toy_data/*
 Workshops/IntroToEWAS/data/*
 
 .Rproj.user
+
+# Amrit's workshop
+Workshops/github/slides/.DS_Store
