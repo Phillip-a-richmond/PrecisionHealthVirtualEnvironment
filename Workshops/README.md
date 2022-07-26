@@ -3,6 +3,8 @@
 
 Welcome to the Precision Health Bootcamp Summer 2022! Below you'll find workshop links, prerequisites, and links to the workshops. (NOTE: not all workshops will be available for viewing on July 25th!). 
 
+## Location
+Workshops will be held in-person in Koerner Library at UBC, on the 5th floor, in the Research Commons Room 552.
 
 ## Prerequisites
 These prerequisites apply to anyone joining the workshop and coding along.  
