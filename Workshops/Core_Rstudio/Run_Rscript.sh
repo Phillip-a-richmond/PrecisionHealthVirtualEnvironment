@@ -12,7 +12,7 @@
 cd $PBS_O_WORKDIR
  
 # Load software environment
-module load SoftwareCollection/2019
+module load Software_Collection/2019
 module load gcc/5.4.0
 module load singularity
 
@@ -22,10 +22,9 @@ module load singularity
 
 Rstudio_SIF=/scratch/tr-precisionhealth-1/Workshops/StudentSpaces/$USER/Core_Rstudio/rstudio-bioconductor-Release_3_15.sif
 Home_Dir=/scratch/tr-precisionhealth-1/Workshops/StudentSpaces/$USER/Core_Rstudio/
-Data_Dir=/scratch/tr-precisionhealth-1/Workshops/
 Lib_Dir=/scratch/tr-precisionhealth-1/Workshops/StudentSpaces/$USER/Core_Rstudio/R_Libs_4.2.0/
 
-Rscript=$Home_Dir/SmallRScript.R
+R_Script=$Home_Dir/SmallRScript.R
 
 # This is where we pass the path to our library, and the libraries installed "in the container" (#zoolander)
 export SINGULARITYENV_LD_LIBRARY_PATH=$Lib_Dir:/usr/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH
@@ -34,7 +33,6 @@ export SINGULARITYENV_LD_LIBRARY_PATH=$Lib_Dir:/usr/lib/x86_64-linux-gnu:$LD_LIB
 # We bind path to our data, our home, and our lib, and then call the Rstudio.sif file, and execute the rserver command
 singularity exec --bind $TMPDIR:/var/run \
  --home $Home_Dir \
- --bind $Data_Dir \
  --bind $Lib_Dir \
  $Rstudio_SIF \
  Rscript $R_Script 

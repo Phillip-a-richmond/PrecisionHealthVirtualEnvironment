@@ -5,6 +5,7 @@ module load singularity/3.2.1
 
 # Change to your directory where you'll keep the SIF 
 Home_Dir=/scratch/tr-precisionhealth-1/Workshops/StudentSpaces/$USER/Core_Rstudio/
+
 mkdir -p $Home_Dir
 cd $Home_Dir
 
