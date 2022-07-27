@@ -83,3 +83,17 @@ mkdir /scratch/tr-precisionhealth-1/Workshops/Practical/$USER/Core_Practical/Rst
 ## Extra credit
 
 Mount the filesystem with OSX-Fuse and/or sshfs, see more instructions here: 
+[https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/blob/main/Workshops/MountFilesystem.md](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/blob/main/Workshops/MountFilesystem.md)
+
+Download IGV - https://software.broadinstitute.org/software/igv/download
+
+Open IGV
+
+Add the GRCh38/hg38 genome if it's not already your genome (top left, click More if you don't see it)
+
+Go File > Load from File > select the bam files and the VCF files.
+
+Zoom in on the WAS Gene
+
+Take a snapshot.
+

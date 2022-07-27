@@ -21,7 +21,7 @@ cd $Working_Dir
 module load singularity
 
 # Where is your SIF file
-SIF=$Working_Dir/deepvariant_1.4.0.sif
+SIF=/project/tr-precisionhealth-1/PrecisionHealthVirtualEnvironment/Software/DeepVariant/deepvariant_1.4.0.sif
 
 # Then, I set up the reference genome location
 Fasta_Dir=/project/tr-precisionhealth-1/PrecisionHealthVirtualEnvironment/Databases/References/GRCh38/Genome/1000G/
@@ -43,6 +43,7 @@ Sample_BAM=${Sample_ID}.sorted.bam
 singularity run -B /usr/lib/locale/:/usr/lib/locale/ \
 	-B ${Working_Dir} \
 	-B ${Fasta_Dir} \
+	--home $Working_Dir \
 	-B $TMPDIR \
 	$SIF \
   /opt/deepvariant/bin/run_deepvariant \
