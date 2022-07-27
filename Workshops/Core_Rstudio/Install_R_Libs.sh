@@ -1,7 +1,7 @@
 # To install packages, we need to launch the container interactively
 
 # First load singularity
-module load SoftwareCollection/2019
+module load Software_Collection/2019
 module load gcc/5.4.0
 module load singularity/3.2.1
 
