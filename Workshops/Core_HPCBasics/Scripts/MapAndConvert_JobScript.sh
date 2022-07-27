@@ -14,7 +14,7 @@ source /project/tr-precisionhealth-1/PrecisionHealthVirtualEnvironment/Software/
 conda  activate  GenomeAnalysis
 
 # Variables are first defined (no spaces allowed!)
-WorkingDir= /scratch/tr-precisionhealth-1/Workshops/Practical/$USER/Core_Practical/Files/
+WorkingDir=/scratch/tr-precisionhealth-1/Workshops/Practical/$USER/Core_Practical/Files/
 Sample=Proband
 GenomeIndex=/project/st-sturvey-1/PrecisionHealthVirtualEnvironment/Databases/References/GRCh38/Genome/1000G/GRCh38_full_analysis_set_plus_decoy_hla.fa
 FastqDir=$WorkingDir/Files/
