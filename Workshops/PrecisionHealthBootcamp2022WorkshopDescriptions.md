@@ -176,6 +176,7 @@ Applied:
 
 **Prerequisites**: 
 - Basic familiarity with LINUX and HPC or our Bootcamp’s Core Workshops: [Intro to Sockeye and HPC basics](#workshop-1-and-2), [Conda and Singularity](#workshop-3-and-4), [Interactive Rstudio + Package management](#workshop-5).
+- 
 
 ***  
 
@@ -186,11 +187,14 @@ Applied:
 **Part 1**: 9:00 - 11:00 AM    
 **Part 2**: 12:00 - 2:00 PM  
 
-**Workshop Type**: This is an applied workshop for beginner users.  
+**Workshop Type**: This is an applied workshop for beginner/intermediate users.  
 
 **Content Overview**:  
+In this session there will be a basic description of MRI, fMRI, and the core data types involved in fMRI-based statistical analyses. There will be a walk-through of the commands used in the fmriprep data preprocessing pipeline, shared via slide deck and markdown. This is not intended to be a code-along style workshop.
 
 **Prerequisites:**
+- If you want to execute the commands, then the following:
+  -  Basic familiarity with LINUX and HPC or our Bootcamp’s Core Workshops: [Intro to Sockeye and HPC basics](#workshop-1-and-2), [Conda and Singularity](#workshop-3-and-4), [Interactive Rstudio + Package management](#workshop-5).
 
 *** 
 
