@@ -165,7 +165,7 @@ Applied:
 
 **Workshop Dates**: Thursday, August 5 2022 and Monday, August 8 2022  
 
-**Multi-omics Data Exploration Data**: Friday, August 5 2022: 9:00 - 11:00 AM    
+**Multi-omics Data Exploration**: Friday, August 5 2022: 9:00 - 11:00 AM    
 **Biomarker Discovery and Evaluation Techniques**: Friday, August 5 2022: 12:00 - 2:00 PM  
 **Unsupervised Multi-omics Data Integration**: Monday, August 8 2022: 9:00 - 11:00 AM  
 **Supervised Multi-omics Data Integration**: Monday, August 8 2022: 12:00 - 2:00 PM  
