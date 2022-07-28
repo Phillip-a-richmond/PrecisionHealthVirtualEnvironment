@@ -54,6 +54,11 @@ For detailed descriptions of the workshops, please click [here](https://github.c
 - [Nikita Telkar](https://github.com/nikita-telkar)
 - [Will Casazza](https://github.com/wilcas)
 - [Lynne Williams](https://github.com/LJWilliams)
+- [Amrit Singh](https://github.com/singha53)
+- [Alex Weber](https://github.com/weberam2)
+- [Hayley Sowards]()
+- [Amy Inkster](https://github.com/amy-inkster)
+
 
 ### UBC ARC Sockeye Collaborators
 - Elizabeth Kinney
