@@ -13,7 +13,6 @@ source $MINICONDA3/etc/profile.d/conda.sh
 conda create \
 	-y \
 	-n AWScli \
-	--experimental-solver=libmamba \
 	-c conda-forge \
 	awscli=1.22.63
 

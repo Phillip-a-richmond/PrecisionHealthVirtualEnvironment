@@ -1,0 +1,13 @@
+# Rstudio Problem Set
+
+1. Set up a directory to Run Rstudio in. You may have already accomplished this if you followed along today in class.
+
+2. Deploy Rstudio, and install the package "Seurat".
+
+3. Launch Rstudio, and load the Seurat Library.
+
+4. Take a snapshot.
+
+5. Shut down your Rstudio job.
+
+6. Success! You're done! If you want to continue play around in Rstudio, I encourage you to get more comfortable. 
