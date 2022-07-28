@@ -59,4 +59,7 @@ Workshops/IntroToEWAS/data/*
 .Rproj.user
 
 # Amrit's workshop
+Workshops/github/.DS_Store
+Workshops/github/.Rhistory
+Workshops/github/.Rproj.user
 Workshops/github/slides/.DS_Store

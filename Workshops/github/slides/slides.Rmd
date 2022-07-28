@@ -1,7 +1,7 @@
 ---
 title: "Git(Hub)"
 author: "Amrit Singh, PhD<br><span style = 'font-size: 65%;'>Department of Anesthesiology, Pharmacology and Therapeutics, UBC<br> Centre for Heart Lung Innovation</span>"
-date: 'July 26, 2022 | 12:00-13:30<br><br>`r fontawesome::fa("link")` [lab](https://cbl-hli.github.io/) (I am hiring!)<br>`r fontawesome::fa("github")` [workshop material](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Workshops/github)<br>`r fontawesome::fa("twitter")` [asingh_22g](https://twitter.com/asingh_22g)'
+date: 'July 26, 2022 | 12:00-14:00<br><br>`r fontawesome::fa("link")` [lab](https://cbl-hli.github.io/) (I am hiring!)<br>`r fontawesome::fa("github")` [workshop material](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Workshops/github)<br>`r fontawesome::fa("twitter")` [asingh_22g](https://twitter.com/asingh_22g)'
 output: 
   xaringan::moon_reader:
     css: [default, middlebury-fonts, "theme.css"]
@@ -23,9 +23,7 @@ background-image: url(img/cc.svg)
 
 class: middle, center
 
-## [Why are you attending this workshop? https://www.slido.com/ - 1140678 ](https://app.sli.do/event/qHi6stRxK5D5W5LQTY762W/embed/polls/523cc387-8543-4f20-a1a6-0f70adb8d792)
-
-.center[<img src ="img/slido_qr.png" alt="Slido_q1", width="50%"/>]
+.center[<img src ="img/poll1.png" alt="First Poll results", width="80%"/>]
 
 ---
 
@@ -185,8 +183,9 @@ git command --help #<<
 ---
 
 # [Git Flow](https://commons.wikimedia.org/wiki/File:Git_data_flow.png)
+* Git data flow, Lbhtw, and CC-BY-SA-3.0.
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, out.width="90%"}
 knitr::include_graphics("img/Git_data_flow.png")
 ```
 
@@ -224,6 +223,7 @@ Username for 'https://github.com': GITHUB_USERNAME
 Password for 'https://GITHUB_USERNAME@github.com': PERSONAL_ACCESS_TOKEN
 
 * get PERSONAL_ACCESS_TOKEN by going to Profile Pic --> Settings --> Developer Settings on left-side bar --> Personal access tokens --> Generate new token --> Enter name, select repo and hit the Generate token button at the bottom of the page
+* Note: Replace remote origin using: [git remote set-url origin git://new.url.here](https://stackoverflow.com/questions/16330404/how-to-remove-remote-origin-from-a-git-repository)
 *  [Try Problem Set 0](#problem-set)
 ---
 
@@ -288,9 +288,7 @@ class: middle, center
 
 # Pulse check
 
-## [How is the pace of this workshop? https://www.slido.com/ - 1140678 ](https://app.sli.do/event/qHi6stRxK5D5W5LQTY762W/embed/polls/523cc387-8543-4f20-a1a6-0f70adb8d792)
-
-.center[<img src ="img/slido_qr.png" alt="Slido_q1", width="40%"/>]
+.center[<img src ="img/poll2.png" alt="Second Poll results", width="80%"/>]
 
 
 ---
@@ -376,7 +374,7 @@ git push origin main
   - description: change GITHUB_USERNAME and GITHUB_ACCOUNT_NAME
 * make a new project board
 
-.center[<img src ="img/github_project.png" alt="GitHub Project", width="80%"/>]
+.center[<img src ="img/github_project.png" alt="GitHub Project", width="70%"/>]
 
 ---
 
@@ -712,4 +710,4 @@ background-image: url(img/bkg.svg)
 
 # THANK YOU!
 
-July 26, 2022 | 12:00-13:30<br><br>`r fontawesome::fa("link")` [lab](https://cbl-hli.github.io/) (I am hiring!)<br>`r fontawesome::fa("github")` [workshop material](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Workshops/github)<br>`r fontawesome::fa("twitter")` [asingh_22g](https://twitter.com/asingh_22g)
+July 26, 2022 | 12:00-14:00<br><br>`r fontawesome::fa("link")` [lab](https://cbl-hli.github.io/) (I am hiring!)<br>`r fontawesome::fa("github")` [workshop material](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Workshops/github)<br>`r fontawesome::fa("twitter")` [asingh_22g](https://twitter.com/asingh_22g)
