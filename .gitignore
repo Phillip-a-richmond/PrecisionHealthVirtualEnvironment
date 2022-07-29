@@ -28,6 +28,7 @@ Software/CellRanger/refdata*
 Software/UserDirs/*
 Software/Rstudio/*
 Software/nf_singularity_cache/*
+Software/SRATools/sratoolkit*
 
 ## keep software install starters
 !Software/InstallMiniconda3.sh
