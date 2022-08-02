@@ -165,6 +165,17 @@ ggarrange(g3, g4, ncol = 1, nrow = 2)
 
 ```{r pca-plots}
 
+# by COVID status
+
+
+# by ICU status
+
+
+# by Mechanical_Ventilation status
+
+
+# by APACHEII_Score as a categorical variable
+
 
 ```  
 

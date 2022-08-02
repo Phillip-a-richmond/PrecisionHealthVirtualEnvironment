@@ -18,7 +18,7 @@ output:
 
 So, in Part 1 of the workshop, we worked through our raw data to make it fit for downstream analysis. *This type of data is called as processed/clean data - and is the most common data type made available through GEO.*  
 
-**However, when submitting/releasing your data publicly, it is *always* good practice to make sure that you release both your raw and processed data, as researchers might want to apply their own analysis methods right from the start to the raw dataset. When only processed data is available, it is difficult to use it for any comparisons (e.g., with your own data or as part of a meta-analysis) as some of the upstream data cleanup steps that have already been applied might differ.**    
+**However, when submitting/releasing your data publicly, it is w*always* good practice to make sure that you release both your raw and processed data, as researchers might want to apply their own analysis methods right from the start to the raw dataset. When only processed data is available, it is difficult to use it for any comparisons (e.g., with your own data or as part of a meta-analysis) as some of the upstream data cleanup steps that have already been applied might differ.**    
 
 ***  
 
@@ -1185,8 +1185,19 @@ Let's now select all of the DEG that we got when we included lactate measurement
 
 
 ```r
-# BiocManager::install("biomaRt")
+ BiocManager::install("biomaRt")
+```
 
+```
+## Bioconductor version 3.15 (BiocManager 1.30.18), R 4.2.0 (2022-04-22)
+```
+
+```
+## Warning: package(s) not installed when version(s) same as current; use `force = TRUE` to
+##   re-install: 'biomaRt'
+```
+
+```r
 library(biomaRt)
 
 # listMarts() #gives us the list of databases available
