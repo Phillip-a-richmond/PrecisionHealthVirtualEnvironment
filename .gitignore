@@ -8,6 +8,7 @@
 # Databases
 Databases/References/GRCh37/*
 Databases/References/GRCh38/*
+Databases/References/mm10/*
 Databases/Generic/*
 
 # Open data
@@ -20,15 +21,14 @@ OpenData/ThousandGenomes/HD_SNP_Chip/*
 # Workshop data
 Workshops/IntroToEWAS/data/*
 
-# Workshop data
-Workshops/IntroToEWAS/data/*
-
 # Software
 Software/miniconda3/*
 Software/CellRanger/cellranger*
 Software/CellRanger/refdata*
 Software/UserDirs/*
 Software/Rstudio/*
+Software/nf_singularity_cache/*
+Software/SRATools/sratoolkit*
 
 ## keep software install starters
 !Software/InstallMiniconda3.sh
@@ -50,9 +50,26 @@ Software/cache/
 Workshops/Core_CommandLine/Files/*gtf
 Workshops/Core_CommandLine/Files/*.gz
 
+# Nextflow
+Workshops/Nextflow/nextflow_toy_data/*
+Workshops/Nextflow/lib/*
+Workshops/Nextflow/bin/*
+Workshops/Nextflow/nfcore_rnaseq_out/*
+
+
 
 
 # Will's workshop
 Workshops/IntroToEWAS/data/*
 
 .Rproj.user
+
+# Amrit's workshop
+# <<<<<<< github
+Workshops/github/.DS_Store
+Workshops/github/.Rhistory
+Workshops/github/.Rproj.user
+Workshops/github/slides/.DS_Store
+=======
+Workshops/github/slides/.DS_Store
+# >>>>>>> main

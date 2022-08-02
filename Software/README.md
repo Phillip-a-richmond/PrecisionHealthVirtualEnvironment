@@ -56,7 +56,7 @@ Source this file to get 'conda' into your PATH, if you can access ```/project/st
 source /project/st-sturvey-1/PrecisionHealthVirtualEnvironment/Software/miniconda3/etc/profile.d/conda.sh
 ```
 
-#### Step 2 - Create a new environment with a couple packages
+### Step 2 - Create a new environment with a couple packages
 Now you can create a new environment with a few packages on the command line:
 ```
 conda create -y -n ShortReadTools -c bioconda -c conda-forge samtools bwa bcftools htslib
@@ -68,7 +68,7 @@ This creates a new environment called ShortReadTools, which will have the follow
 - htslib 
 
 
-#### Step 2 modified - Create a new environment from a config.yml
+### Step 2 modified - Create a new environment from a config.yml
 It's possible to create environments based on a config.yml file, which increases reproducibility and can enable the creation of some trickier conda environments.
 For this, you'll need some kind of config.yml in this format (I call this one Bedtools.yml):
 ```

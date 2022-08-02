@@ -1,10 +1,10 @@
 #!/bin/bash
- 
+
 #PBS -l walltime=03:00:00,select=1:ncpus=1:mem=64gb
 #PBS -N my_rstudio_server
 #PBS -A st-sturvey-1
 #PBS -m abe
-#PBS -M prichmond@bcchr.ca
+#PBS -M jfvelghe@student.ubc.ca
  
 ################################################################################
  
@@ -13,6 +13,8 @@ cd $PBS_O_WORKDIR
  
 # Load software environment
 module load singularity
+module load gcc/5.4.0
+module load Software_Collection/2019
 
 #####################
 ############### 

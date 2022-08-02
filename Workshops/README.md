@@ -1,70 +1,56 @@
 # Workshops
 > This is the space for workshop development and deployment.
 
+Welcome to the Precision Health Bootcamp Summer 2022! Below you'll find workshop links, prerequisites, and links to the workshops. (NOTE: not all workshops will be available for viewing on July 25th!). 
+
+## Location
+Workshops will be held in-person in Koerner Library at UBC, on the 5th floor, in the Research Commons Room 552.
+
+Workshops will also be broadcast online. For the zoom link, please email prichmond@bcchr.ca
+
 ## Prerequisites
-These prerequisites apply to anyone joining the workshop and coding along.
-- Access to Sockeye, see: [https://arc.ubc.ca/ubc-arc-sockeye](https://arc.ubc.ca/ubc-arc-sockeye)
-- Access to /scratch/st-sturvey-1/
+These prerequisites apply to anyone joining the workshop and coding along.  
+1. Check your access to Sockeye by logging in.  
+Details: [https://confluence.it.ubc.ca/display/UARC/Quickstart+Guide](https://confluence.it.ubc.ca/display/UARC/Quickstart+Guide)
+- Activate VPN or be on ubc-secure wifi
+- Login with your CWL and 2-factor authentication
+```
+ssh <cwl>@sockeye.arc.ubc.ca
+```
+example (NOTE, don't include < >):
+```
+ssh richmonp@sockeye.arc.ubc.ca
+```
+
+-------
+
+2.  Check your access to /scratch/tr-precisionhealth-1/ and /project/tr-precisionhealth-1/.  
+We will learn these commands Day 1 if you don't know them.
+```
+ls /scratch/tr-precisionhealth-1/
+ls /project/tr-precisionhealth-1/
+```
+If you receive a permissions denied error like this:
+```
+ls: cannot open directory /scratch/tr-precisionhealth-1/: Permission denied
+```
+Then please notify me at prichmond@bcchr.ca.
+
+-------
+
+3. Take a moment to read about the instructors leading this workshop series at the bottom of the page! 
+
 
 ## Workshop Introduction
 Slides: [https://docs.google.com/presentation/d/1NB5zuFLBupy9GPUos36UFCv3pyIN42HI0Ihu01STx9M/edit#slide=id.g13ba8aeec7a_0_10](https://docs.google.com/presentation/d/1NB5zuFLBupy9GPUos36UFCv3pyIN42HI0Ihu01STx9M/edit#slide=id.g13ba8aeec7a_0_10)
 
-## Core workshops
-> Core workshops are for skill sets generic to high performance computing.
 
-### Core\_CommandLine
-> This workshop explores the basics of Linux/Unix command line navigation, file editing, and server organization.
-
-Learn more [here](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Workshops/Core_CommandLine)
-
-### Core\_HPCBasics
-> This workshop teaches how to use the PBSPro scheduler and design job scripts and job arrays.
-
-Learn more [here](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Workshops/Core_PBSPro)
-
-### Core\_Conda
-> This workshop teaches how to use the conda framework for managing software packages and tools.
-
-Learn more [here](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Workshops/Core_Conda)
-
-### Core\_Rstudio
-> This workshop teaches how to set up and launch interactive Rstudio from the Sockeye cluster, as well as R.
-
-Learn more [here](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Workshops/Core_Rstudio)
-
-### Core\_Singularity
-> This workshop teaches how to use the Singularity tool for managing software in containers.
-
-Learn more [here](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Workshops/Core_Singularity)
-
-## Applied Workshops
-
-### RNA Sequencing
-> This workshop goes through the basics of RNA sequencing read mapping and quanitification.
-
-Learn more [here]()
-
-### Genetic Association Testing
-> This workshop explores genotype data processing basics, explores GWAS, and then creates Polygenic Risk Scores for a phenotype of interest.
-
-Learn more [here]()
-
-### Exploratory Data Analysis for Omics data and Biomarker Discovery
-> This workshop explores  __________ @Will C to add more
-
-Learn more [here]()
-
-### Functional Magnetic Resonance Imaging (fMRI) 
-> This workshop teaches the fundamentals and basics of processing fMRI data.
-
-Learn more [here](https://github.com/LJWilliams/MRIPreprocessingAnalysisModule/tree/c81670157d044ddf8d41e0b4ed55fa42c2308ca9)
-
-### Multi-omics
-> This workshop explores multi-omic data integration for both bulk and single cell datasets
-
-Learn more [here]()
+## Per-workshop information
+Find information on each workshop here: [https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/blob/main/Workshops/PrecisionHealthBootcamp2022WorkshopDescriptions.md](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/blob/main/Workshops/PrecisionHealthBootcamp2022WorkshopDescriptions.md)
 
 
+
+## Precision Health Bootcamp Instructors
 
 | Team | Profile Image |
 | :-- |:-------------------------: |  

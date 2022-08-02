@@ -3,7 +3,7 @@
 #PBS -l walltime=10:00:00,select=1:ncpus=2:mem=16gb
 #PBS -A st-sturvey-1
 #PBS -m abe
-#PBS -M prichmond@bcchr.ca
+#PBS -M YourEmail@bcchr.ca
  
 ################################################################################
 
@@ -14,7 +14,7 @@ source /project/tr-precisionhealth-1/PrecisionHealthVirtualEnvironment/Software/
 conda  activate  GenomeAnalysis
 
 # Variables are first defined (no spaces allowed!)
-WorkingDir=/scratch/tr-precisionhealth-1/Workshops/StudentSpaces/$USER/Core_HPCBasics/
+WorkingDir=/scratch/tr-precisionhealth-1/Workshops/Practical/$USER/Core_Practical/Files/
 Sample=Proband
 GenomeIndex=/project/st-sturvey-1/PrecisionHealthVirtualEnvironment/Databases/References/GRCh38/Genome/1000G/GRCh38_full_analysis_set_plus_decoy_hla.fa
 FastqDir=$WorkingDir/Files/
