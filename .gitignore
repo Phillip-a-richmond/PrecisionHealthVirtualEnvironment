@@ -8,6 +8,7 @@
 # Databases
 Databases/References/GRCh37/*
 Databases/References/GRCh38/*
+Databases/References/mm10/*
 Databases/Generic/*
 
 # Open data
@@ -27,6 +28,7 @@ Software/CellRanger/refdata*
 Software/UserDirs/*
 Software/Rstudio/*
 Software/nf_singularity_cache/*
+Software/SRATools/sratoolkit*
 
 ## keep software install starters
 !Software/InstallMiniconda3.sh
@@ -50,6 +52,10 @@ Workshops/Core_CommandLine/Files/*.gz
 
 # Nextflow
 Workshops/Nextflow/nextflow_toy_data/*
+Workshops/Nextflow/lib/*
+Workshops/Nextflow/bin/*
+Workshops/Nextflow/nfcore_rnaseq_out/*
+
 
 
 
@@ -59,7 +65,11 @@ Workshops/IntroToEWAS/data/*
 .Rproj.user
 
 # Amrit's workshop
+# <<<<<<< github
 Workshops/github/.DS_Store
 Workshops/github/.Rhistory
 Workshops/github/.Rproj.user
 Workshops/github/slides/.DS_Store
+=======
+Workshops/github/slides/.DS_Store
+# >>>>>>> main

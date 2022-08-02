@@ -1,0 +1,5 @@
+sample,fastq_1,fastq_2,strandedness
+HG00110,/arc/project/st-sturvey-1/PrecisionHealthVirtualEnvironment/Workshops/Nextflow/data/HG00110_r1_chr2_20M_to_30M.fq.gz,/arc/project/st-sturvey-1/PrecisionHealthVirtualEnvironment/Workshops/Nextflow/data/HG00110_r2_chr2_20M_to_30M.fq.gz,unstranded
+HG00117,/arc/project/st-sturvey-1/PrecisionHealthVirtualEnvironment/Workshops/Nextflow/data/HG00117_r1_chr2_20M_to_30M.fq.gz,/arc/project/st-sturvey-1/PrecisionHealthVirtualEnvironment/Workshops/Nextflow/data/HG00117_r2_chr2_20M_to_30M.fq.gz,unstranded
+HG00126,/arc/project/st-sturvey-1/PrecisionHealthVirtualEnvironment/Workshops/Nextflow/data/HG00126_r1_chr2_20M_to_30M.fq.gz,/arc/project/st-sturvey-1/PrecisionHealthVirtualEnvironment/Workshops/Nextflow/data/HG00126_r2_chr2_20M_to_30M.fq.gz,unstranded
+HG00178,/arc/project/st-sturvey-1/PrecisionHealthVirtualEnvironment/Workshops/Nextflow/data/HG00178_r1_chr2_20M_to_30M.fq.gz,/arc/project/st-sturvey-1/PrecisionHealthVirtualEnvironment/Workshops/Nextflow/data/HG00178_r2_chr2_20M_to_30M.fq.gz,unstranded

@@ -14,7 +14,7 @@ Mounting the file system:
 	- Run sshfs
 	```
 	mkdir -p ~/Sockeye_Portal/
-	sshfs <username>@dtn.sockeye.arc.ca:</path/to/folder/> ~/Sockeye_Portal/
+	sshfs <username>@dtn.sockeye.arc.ubc.ca:</path/to/folder/> ~/Sockeye_Portal/
 	```
 	example
 	```

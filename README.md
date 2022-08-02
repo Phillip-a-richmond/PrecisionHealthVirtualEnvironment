@@ -58,6 +58,8 @@ For detailed descriptions of the workshops, please click [here](https://github.c
 - [Alex Weber](https://github.com/weberam2)
 - [Hayley Sowards]()
 - [Amy Inkster](https://github.com/amy-inkster)
+- [Derek Tam](https://github.com/ddtam)
+- [Jane Velghe]()
 
 
 ### UBC ARC Sockeye Collaborators
