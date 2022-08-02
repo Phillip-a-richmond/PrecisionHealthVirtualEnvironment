@@ -13,6 +13,10 @@ Contact: prichmond@bcchr.ca
 - Log in to sockeye
 - Access to /scratch/tr-precisionhealth-1/
 
+## Recording
+- Link [https://ubc.zoom.us/rec/share/YSLNCkCYxL2SBaS2X8-iP2glJySy6D-ZoPeF1Z9Q8HnteNmHax0J9HXgkvS7PzAQ.ntU3Zi1iWO6-LRcH?startTime=1658775860000](https://ubc.zoom.us/rec/share/YSLNCkCYxL2SBaS2X8-iP2glJySy6D-ZoPeF1Z9Q8HnteNmHax0J9HXgkvS7PzAQ.ntU3Zi1iWO6-LRcH?startTime=1658775860000)
+- Password: XH!7D$cT
+
 ## Slide Deck
 
 You can retrieve this slide deck at: [https://docs.google.com/presentation/d/1lJltAnO6dgznRgJi-KjV9UZL1SbB0gWe17xk_9SoNKc/edit#slide=id.g13d0dd4667e_0_2613](https://docs.google.com/presentation/d/1lJltAnO6dgznRgJi-KjV9UZL1SbB0gWe17xk_9SoNKc/edit#slide=id.g13d0dd4667e_0_2613)

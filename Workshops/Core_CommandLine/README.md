@@ -9,6 +9,11 @@ Contact: prichmond@bcchr.ca
 - Login to Sockeye
 - Access to /scratch/st-sturvey-1/
 
+## Recording
+- Link[https://ubc.zoom.us/rec/share/UDehJOhR4RNqG1k_wqcJCZaTGnMKhaGwSJkpnjG8Xrqx-Miw0NCRjudv5GeEMuhY.n3py34W7svv6u-u2](https://ubc.zoom.us/rec/share/UDehJOhR4RNqG1k_wqcJCZaTGnMKhaGwSJkpnjG8Xrqx-Miw0NCRjudv5GeEMuhY.n3py34W7svv6u-u2)
+- Passcode: XH!7D$cT
+- Note: Linux content starts ~18:30
+
 ## Slide Deck
 You can retrieve this slide deck at: 
 [https://docs.google.com/presentation/d/1vl6V92WAsBwl5LjxgTGfv4RuucQtMkHP8UsBjmetJFw/edit#slide=id.p](https://docs.google.com/presentation/d/1vl6V92WAsBwl5LjxgTGfv4RuucQtMkHP8UsBjmetJFw/edit#slide=id.p) 

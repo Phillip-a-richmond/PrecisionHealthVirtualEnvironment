@@ -8,6 +8,10 @@ Contact: prichmond@bcchr.ca
 
 ## Outline
 
+## Recording
+- Link: [https://ubc.zoom.us/rec/share/-6-hBLivnkJ3ha9Ecebp0nFKTAgNxoYAjy1705cW_4nHVZRrxwmMw-kXcYTH5P0j.72L6lCZL4CIKIA2D?startTime=1658937925000](https://ubc.zoom.us/rec/share/-6-hBLivnkJ3ha9Ecebp0nFKTAgNxoYAjy1705cW_4nHVZRrxwmMw-kXcYTH5P0j.72L6lCZL4CIKIA2D?startTime=1658937925000)
+- Password:  cNA%37mj
+
 
 ## Prerequisites
 - Singularity
