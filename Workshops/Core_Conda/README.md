@@ -13,7 +13,7 @@ Contact: prichmond@bcchr.ca
 
 ## Recording
 - Link: [https://ubc.zoom.us/rec/share/TjLDt_4angzmWFSCYU74MH7lYHILbR3BZaxxDQreTGEbkAC4xGwjsz3_5t3NjKEa.GbDn3ng28suIVF6y?startTime=1658851535000](https://ubc.zoom.us/rec/share/TjLDt_4angzmWFSCYU74MH7lYHILbR3BZaxxDQreTGEbkAC4xGwjsz3_5t3NjKEa.GbDn3ng28suIVF6y?startTime=1658851535000)
-- Password: 3^#GG$^d
+- Password: ```3^#GG$^d```
 
 ## Slide Deck
 

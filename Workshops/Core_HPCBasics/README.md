@@ -15,7 +15,7 @@ Contact: prichmond@bcchr.ca
 
 ## Recording
 - Link [https://ubc.zoom.us/rec/share/YSLNCkCYxL2SBaS2X8-iP2glJySy6D-ZoPeF1Z9Q8HnteNmHax0J9HXgkvS7PzAQ.ntU3Zi1iWO6-LRcH?startTime=1658775860000](https://ubc.zoom.us/rec/share/YSLNCkCYxL2SBaS2X8-iP2glJySy6D-ZoPeF1Z9Q8HnteNmHax0J9HXgkvS7PzAQ.ntU3Zi1iWO6-LRcH?startTime=1658775860000)
-- Password: XH!7D$cT
+- Password: ```XH!7D$cT```
 
 ## Slide Deck
 

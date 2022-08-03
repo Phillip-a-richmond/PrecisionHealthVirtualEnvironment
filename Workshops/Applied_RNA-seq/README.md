@@ -3,6 +3,17 @@
 
 <br> 
 
+## Recording
+
+RNA-seq recording part 1:
+- Link: [https://ubc.zoom.us/rec/share/YmVh07iemJqvMZ_Rq-ozxcRneLFB5w4e5fVQSVnAepZOR52YW_htQIZwF1U_lIr8.-j0NNiTUD_VzVlO-?startTime=1659456514000](https://ubc.zoom.us/rec/share/YmVh07iemJqvMZ_Rq-ozxcRneLFB5w4e5fVQSVnAepZOR52YW_htQIZwF1U_lIr8.-j0NNiTUD_VzVlO-?startTime=1659456514000)
+Passcode: ```XS6z2*wb```
+
+RNA-seq recording part 2:
+- Link: [https://ubc.zoom.us/rec/share/YmVh07iemJqvMZ_Rq-ozxcRneLFB5w4e5fVQSVnAepZOR52YW_htQIZwF1U_lIr8.-j0NNiTUD_VzVlO-?startTime=1659467169000](https://ubc.zoom.us/rec/share/YmVh07iemJqvMZ_Rq-ozxcRneLFB5w4e5fVQSVnAepZOR52YW_htQIZwF1U_lIr8.-j0NNiTUD_VzVlO-?startTime=1659467169000)
+- Passcode: ```XS6z2*wb```
+
+
 ### Requirements: 
 
 * Basic working-knowledge and experience with R  

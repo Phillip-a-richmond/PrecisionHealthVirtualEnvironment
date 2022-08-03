@@ -11,7 +11,7 @@ Contact: prichmond@bcchr.ca
 
 ## Recording
 - Link[https://ubc.zoom.us/rec/share/UDehJOhR4RNqG1k_wqcJCZaTGnMKhaGwSJkpnjG8Xrqx-Miw0NCRjudv5GeEMuhY.n3py34W7svv6u-u2](https://ubc.zoom.us/rec/share/UDehJOhR4RNqG1k_wqcJCZaTGnMKhaGwSJkpnjG8Xrqx-Miw0NCRjudv5GeEMuhY.n3py34W7svv6u-u2)
-- Passcode: XH!7D$cT
+- Passcode: ```XH!7D$cT```
 - Note: Linux content starts ~18:30
 
 ## Slide Deck
