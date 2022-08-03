@@ -1,0 +1,238 @@
+---
+format:
+  revealjs: 
+    incremental: true 
+    smaller: true
+    theme: simple
+editor: visual
+---
+
+##  {#slide-id background-image="https://github.com/nikita-telkar/PHB/blob/main/static/title_slide.png?raw=true" background-size="contain" data-menu-title="Title Slide"}
+
+------------------------------------------------------------------------
+
+##  {background-image="https://github.com/nikita-telkar/PHB/blob/main/static/land_slide.png?raw=true" background-size="contain" data-menu-title="Land Acknowledgment"}
+
+------------------------------------------------------------------------
+
+### Hello and welcome to The Precision Health Bootcamp's `RNA-seq Workshop` `r emo::ji("partying_face")` {.smaller}
+
+<br>
+
+::: {.fragment .fade-up}
+Workshop Lead: [**Nikita Telkar**](https://nikita-telkar.github.io/)\
+Workshop TAs: [Nairuz Elazzabi](https://www.linkedin.com/in/nairuze/) & [Alejandro Aguirre](https://www.linkedin.com/in/alejoaa)
+:::
+
+<br>
+
+::: fragment
+`r emo::ji("dna")` Part 1: 9:00 - 11:00 AM\
+Raw expression data --\> Exploratory Data Analysis --\> Filtering --\> Processed/Normalized data
+:::
+
+<br>
+
+::: fragment
+`r emo::ji("bar_chart")` Part 2 : 12 noon - 2:00 PM\
+Normalized data --\> Differential Expression + Dimensionality Reduction (PCA) + GO Analysis + Pathway Enrichment
+:::
+
+<br>
+
+::: {.fragment .fade-up}
+This workshop will be an *introduction* to RNA-seq analysis, working through a *standard workflow* `r emo::ji("card_index_dividers")`
+:::
+
+------------------------------------------------------------------------
+
+### Housekeeping {.smaller}
+
+-   This is my first time running this workshop in-person `r emo::ji("scream")` (I've only ever run it on Zoom!)
+-   This is a welcoming space - so please do not hesitate to ask questions!
+    -   **In-person**: directly speak up or raise your hand
+    -   **Online:** directly speak up, use the raise hand `r emo::ji("hand")` option, or type in the chat
+-   You can either `code-along` with me or *not*, the choice is yours. Please use whichever method suits your learning needs best
+-   Nairuz will be helping me out in-person, Alejandro is monitoring the Zoom chat
+-   We will be using the `tidyverse` way of writing code throughout this workshop. I'm assuming that you all have working knowledge of R, so I'll only be explaining specific functions and arguments
+-   All of the workshop material will be updated after this workshop and made available on the [PHB GitHub under the `Applied_RNA-seq` workshop]((https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Workshops/Applied_RNA-seq)), including the empty worksheets and completed scripts
+
+------------------------------------------------------------------------
+
+##  {data-menu-title="Stickers!"}
+
+> I *enthusiastically* encourage participation - and to tempt you, I have some incentive + positive reinforcement ...
+
+. . .
+
+![I have 5x RStudio; 2x: ggplot2, dplyr, tidyverse; 1x rmarkdown; 1x Shiny <br> that I snagged *especially* for this workshop from `rstudio::conf(2022)`](static/stickers.JPG){fig-align="center" style="text-align: center" width="420"}
+
+<!-- ::: {style="text-align: center"}  -->
+
+<!-- I have 4x RStudio; 2x: ggplot2, dplyr, tidyverse; 1x rmarkdown  -->
+
+<!-- ::: -->
+
+::: {.fragment .fade-up}
+**Answer a question, get a sticker!**
+:::
+
+------------------------------------------------------------------------
+
+### Poll Time!
+
+<br>
+
+<!-- https://admin.sli.do/event/iSECTnbsKMZw687QogkFBJ/polls -->
+
+![](static/slido.png){fig-align="center" width="590"}
+
+------------------------------------------------------------------------
+
+### Raw Sequencing Data
+
+<br>
+
+::: fragment
+**Q. In what format/extension do you obtain sequencing data?**
+:::
+
+::: {.fragment .fade-up}
+**A. `.fastq`** ! [![](static/fastq_raw.png){fig-align="center"}](https://compgenomr.github.io/book/fasta-and-fastq-formats.html)
+:::
+
+::: fragment
+**Q. We've received the raw files from the sequencing centre - what do we do next?**
+:::
+
+::: {.fragment .fade-up}
+**A. Trimming + Quality Control + Alignment to the genome**
+:::
+
+------------------------------------------------------------------------
+
+### FASTQ --\>
+
+<br>
+
+**A. Trimming + Quality Control + Alignment to the genome**
+
+**Trimming** of adaptors+ primers\
+Optional **Quality Control**: Removing sequences below a certain Phred Score\
+Downloading the **reference genome file** (`.fasta`) + a **reference annotation file** which contains the sequence and start/stop sites of your desired genes/sequences
+
+. . .
+
+<br>
+
+**Q. What is an aligned FASTQ file called? *Bonus sticker for whoever knows the full form of the extension of the file!***
+
+------------------------------------------------------------------------
+
+### FASTQ --\> BAM
+
+<br>
+
+**A. Trimming + Quality Control + Alignment to the genome**
+
+**Trimming** of adaptors+ primers\
+Optional **Quality Control**: Removing sequences below a certain Phred Score\
+Downloading the **reference genome file** (`.fasta`) + a **reference annotation file** which contains the sequence and start/stop sites of your desired genes/sequences
+
+<br>
+
+**Q. What is an aligned FASTQ file called? *Bonus sticker for whoever knows the full form of the extension of the file!***
+
+**A. BAM - Binary Alignment Map**
+
+BAM is a `computer-readable` `r emo::ji("alien_monster")` file, *but* it can be converted to human readable format (there's usually no need to)
+
+. . .
+
+**Q. Name of the human-readable format of a BAM file?**
+
+::: {.fragment .fade-up}
+**A. SAM - Sequence Alignment Map**
+:::
+
+------------------------------------------------------------------------
+
+### BAM --\> Counts/Reads File \[1\]
+
+::: columns
+::: {.column width="50%"}
+```{r rsubread, eval=FALSE, echo=TRUE}
+#| code-line-numbers: "|1|2-5|7-11"
+
+library(here)
+# if the path doesn't start at the root of your
+# project folder, set using the below
+# here::here("full_folder_path")
+here::here("/Users/nikitatelkar/Applied_RNA-seq")
+
+library(Rsubread)
+aligned <- featureCounts(here::here
+                         ("data", "bam_file.bam"), 
+                         annot.inbuilt = "hg19", 
+                         isPairedEnd = TRUE)  
+```
+:::
+
+::: {.column width="50%"}
+```{r rsubread-image}
+
+here::here("/Users/nikitatelkar/Github/Applied_RNAseq")
+knitr::include_graphics(here::here("static", "featurecounts_output.png"), error = FALSE)
+
+```
+:::
+:::
+
+------------------------------------------------------------------------
+
+### BAM --\> Counts/Reads File \[2\]
+
+::: columns
+::: {.column width="50%"}
+```{r, eval=FALSE, echo=TRUE}
+#| code-line-numbers: "|13|15"
+
+library(here)
+# if the path doesn't start at the root of your
+# project folder, set using the below
+# here::here("full_folder_path")
+here::here("/Users/nikitatelkar/Applied_RNA-seq")
+
+library(Rsubread)
+aligned <- featureCounts(here::here
+                         ("data", "bam_file.bam"), 
+                         annot.inbuilt = "hg19", 
+                         isPairedEnd = TRUE)  
+
+expression_counts <- aligned$counts
+
+head(counts)
+
+```
+:::
+
+::: {.column width="50%"}
+```{r, echo=FALSE}
+
+library(tidyverse)
+
+# setwd("~/Github/Applied_RNAseq")
+# aligned <- readRDS("data/BAM_R_obj.RDS")
+
+aligned <- readRDS(here::here("data", "BAM_R_obj.RDS"))
+expression_counts <- aligned$counts
+
+colnames(expression_counts) <- "HG00097_counts"
+
+expression_counts %>% 
+  head() %>% 
+  as_tibble()
+
+```
+:::
+:::

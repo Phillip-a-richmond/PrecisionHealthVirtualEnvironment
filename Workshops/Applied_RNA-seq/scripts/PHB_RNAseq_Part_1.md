@@ -149,7 +149,7 @@ here::here()
 ```
 
 ```
-## [1] "/Users/nikitatelkar/GitHub/RNAseq_Workshop"
+## [1] "/Volumes/GoogleDrive/My Drive/UBC Docs/Volunteer/TOG/PrecisionHealth_Bootcamp/Applied_RNA-seq"
 ```
 
 ```r
@@ -1226,7 +1226,7 @@ row.names(random_sample)
 ```
 
 ```
-## [1] "CABS1"
+## [1] "TMEM252"
 ```
 
 ```r
