@@ -73,3 +73,17 @@ Workshops/github/slides/.DS_Store
 =======
 Workshops/github/slides/.DS_Store
 # >>>>>>> main
+
+# scRNAseq
+Workshops/scRNAseq/oci/*
+Workshops/scRNAseq/*sif
+
+# SNP associations
+Workshops/SNP_associations/*
+Workshops/SNP_associations/logs/*
+Workshops/SNP_associations/oci/*
+Workshops/SNP_associations/R_Libs_4.2.0/*
+Workshops/SNP_associations/gwas_software/*
+Workshops/SNP_associations/software/*
+Workshops/SNP_associations/shared/*
+

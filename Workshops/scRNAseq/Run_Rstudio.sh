@@ -1,5 +1,5 @@
 #!/bin/bash
-
+ 
 #PBS -l walltime=03:00:00,select=1:ncpus=1:mem=64gb
 #PBS -N my_rstudio_server
 #PBS -A st-sturvey-1
@@ -13,18 +13,15 @@ cd $PBS_O_WORKDIR
  
 # Load software environment
 module load singularity
-module load gcc/5.4.0
-module load Software_Collection/2019
 
 #####################
 ############### 
 # Modify this #
 ###############
 
-Rstudio_SIF=/scratch/st-sturvey-1/Workshops/scRNAseq/rstudio-bioconductor-Release_3_15.sif
-Home_Dir=/scratch/st-sturvey-1/Workshops/scRNAseq/
-Data_Dir=/scratch/st-sturvey-1/Workshops/
-Lib_Dir=/scratch/st-sturvey-1/Sandbox/BioconductorExample/R_Libs_4.2.0/
+Rstudio_SIF=/scratch/st-sturvey-1/Workshops/StudentSpaces/$USER/scRNAseq/rstudio-bioconductor-Release_3_15.sif
+Home_Dir=/scratch/st-sturvey-1/Workshops/StudentSpaces/$USER/scRNAseq/
+Lib_Dir=/scratch/st-sturvey-1/Workshops/scRNAseq/R_Libs_4.2.0/
 
 ######################
 
@@ -76,6 +73,7 @@ export SINGULARITYENV_LD_LIBRARY_PATH=$Lib_Dir:/usr/lib/x86_64-linux-gnu:$LD_LIB
 singularity exec \
  --bind $TMPDIR:/var/lib/rstudio-server \
  --bind $TMPDIR:/var/run \
+ --bind $Lib_Dir \
  --home $Home_Dir \
  $Rstudio_SIF \
  rserver --auth-none=0 --auth-pam-helper-path=pam-helper --secure-cookie-key-file ${SECURE_COOKIE} --www-port ${PORT} --server-user ${USER}

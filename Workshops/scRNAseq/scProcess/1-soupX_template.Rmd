@@ -1,0 +1,100 @@
+---
+title: "SoupX on PBMC Data"
+author: "Jane Velghe"
+date: '2022-08-03'
+output: pdf_document
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
+
+```{r} 
+library(dplyr)
+library(Seurat)
+library(ggplot2)
+library(patchwork)
+library(SoupX)
+library(DoubletFinder)
+library(Matrix)
+library(DropletUtils)
+```
+
+Let's get organized before we start
+```{r}
+#path for soupX outputs
+dir.create(paste0('~/scProcess',name,'/SoupX/'))
+soupX_path <- paste0('~/scProcess',name,'/SoupX/')
+
+#path to data folder
+data_path <- paste0('~/Data')
+```
+
+If you ran cell ranger count, use these file paths for your output!
+```{r}
+data_dir_filt <- '~/Data/PBMCs_C/PMBCs_C_outs/outs/filtered_feature_bc_matrix'
+list.files(data_dir_filt) # Should show barcodes.tsv.gz, features.tsv.gz, and matrix.mtx.gz
+
+data_dir_raw <- '~/Data/PBMCs_C/PMBCs_C_outs/outs/raw_feature_bc_matrix'
+list.files(data_dir_raw) # Should show barcodes.tsv.gz, features.tsv.gz, and matrix.mtx.gz
+```
+
+otherwise, use these for now
+```{r}
+# first name the sample
+#What's the name of the folder for this sample?
+name <- '/PBMCs_C' # you can change between PBMCs_C and PBMCs_X here
+
+data_dir_filt <- paste0(data_path,name,'/Output_Files/filtered_feature_bc_matrix')
+list.files(data_dir_filt) # Should show barcodes.tsv.gz, features.tsv.gz, and matrix.mtx.gz
+
+data_dir_raw <- paste0(data_path,name,'/Output_Files/raw_feature_bc_matrix')
+list.files(data_dir_raw) # Should show barcodes.tsv.gz, features.tsv.gz, and matrix.mtx.gz
+```
+
+Now that the variables are assigned, hit run for this chunk below
+```{r}
+# toc - table of counts
+# tod = table of droplets
+
+toc = Read10X(data.dir = data_dir_filt) #36601 x 40048 sparse Matrix of class "dgCMatrix"
+tod = Read10X(data.dir = data_dir_raw) #36601 x 3247536
+sc = SoupChannel(tod, toc)
+sc #Channel with 36601 genes and 40048 cells
+
+sample_prefilt <- CreateSeuratObject(toc, min.cells = 0, min.features = 0)
+sample_prefilt #36601 features across 29484 samples within 1 assay 
+
+sample_prefilt    <- SCTransform(sample_prefilt, verbose = F)
+sample_prefilt    <- RunPCA(sample_prefilt, verbose = F)
+ElbowPlot(sample_prefilt)
+sample_prefilt    <- RunUMAP(sample_prefilt, dims = 1:15, verbose = F)
+sample_prefilt    <- FindNeighbors(sample_prefilt, dims = 1:15, verbose = F)
+sample_prefilt    <- FindClusters(sample_prefilt, verbose = T)
+
+meta <- sample_prefilt@meta.data
+umap  <- sample_prefilt@reductions$umap@cell.embeddings
+
+#set clusters by adding in clusters from full object metadata
+sc = setClusters(sc, setNames(meta$seurat_clusters, rownames(meta)))
+umap  <- sample_prefilt@reductions$umap@cell.embeddings
+
+#set data reduction
+sc  <- setDR(sc, umap)
+
+#run soup!
+sc  <- autoEstCont(sc)
+# 9195 genes passed tf-idf cut-off and 2196 soup quantile filter.  Taking the top 100.
+# Using 1398 independent estimates of rho.
+# Estimated global rho of 0.01
+
+ggsave(paste0(soupX_path,"soup_autoEstCont.pdf"), plot = last_plot(), height = 8, width = 10)
+
+head(sc$soupProfile[order(sc$soupProfile$est, decreasing = T), ], n = 20)
+
+#We will use roundToInt option to make sure we output integer matrix.
+adj.matrix  <- adjustCounts(sc, roundToInt = T)
+
+#Finally, let’s write the directory with corrected read counts.
+DropletUtils:::write10xCounts(paste0(soupX_path,"soupX_filt"), adj.matrix)
+```

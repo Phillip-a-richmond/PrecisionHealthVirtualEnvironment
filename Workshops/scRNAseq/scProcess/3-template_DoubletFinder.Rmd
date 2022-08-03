@@ -1,0 +1,163 @@
+---
+title: "R441 DoubletFinder"
+author: "Jane Velghe"
+date: '2022-08-03'
+output: pdf_document
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
+
+Find Doublets for a given object
+```{r}
+library(dplyr)
+library(Seurat)
+library(ggplot2)
+library(patchwork)
+library(DropletUtils)
+library(DoubletFinder)
+```
+
+Let's get organized
+```{r}
+name <- "/PBMCs_C"
+
+#make a folder for plots after we filter and name a filepath for this
+dir.create(paste0("~/scProcess",name,"/df_outs"))
+df_outs <- paste0("~/scProcess",name,"/df_outs")
+
+#make a folder for doubletfinder plots and name a filepath for this
+#dir.create(paste0("~/scProcess",name,"/objects")) #we already did this
+objects <- paste0("~/scProcess",name,"/objects")
+```
+
+load object
+```{r}
+#load object
+obj_predf <- obj_filt
+# or
+obj_predf <- readRDS(paste0(objects,name,"_filtered_so.rds"))
+```
+
+```{r}
+obj_df<- FindDoublets(obj_predf, remove_doublets = T, reprocess = F, res = 0.5, x = 0.035, save.as = df_outs)
+# x = the doublet formation rate for the numebr of cells we have in our data
+```
+
+```{r}
+saveRDS(obj_df, paste0(objects,name,"_DF_so.rds"))
+```
+
+load function
+```{r}
+FindDoublets <- function(obj = obj, vars.to.regress = "percent.mt", dims = 1:15, x = 0.08, PCs = 1:15, ground_truth = F, save.as = getwd(), remove_doublets = FALSE, reprocess = FALSE, res = 0.1){
+  #Function Written by Jane Velghe in May, 2022
+  # takes a list (or single) seurat object and runs doublet finder on it
+  # x = doublet formation rate - default is 7.5%, tailor for your dataset
+  # run SCTtransform and identify variable features for each dataset independently
+  # Note that the SCTransform command replaces NormalizeData(), ScaleData(), and FindVariableFeatures()
+  
+    print("Preprocessing sample...")
+    levels(obj@meta.data$orig.ident)
+    
+    obj <- SCTransform(obj, verbose = FALSE) #2
+    obj <- RunPCA(obj, verbose = FALSE) #3
+    obj <- RunUMAP(obj, dims = 1:15, verbose = FALSE) #4
+    
+    print("Starting DoubletFinder")
+    
+    if (ground_truth == TRUE){
+      ## pK Identification (ground-truth) ----------------------------------
+      print("identifying pK with gound truth")
+      sweep.res.list <- paramSweep_v3(obj, PCs = 1:15, sct = TRUE)
+      
+      gt.calls <- obj@meta.data[rownames(sweep.res.list[[1]]), "GT"]
+      ## GT is a vector containing "Singlet" and "Doublet" calls recorded using sample multiplexing classification and/or in silico geneotyping results 
+      
+      sweep.stats <- summarizeSweep(sweep.res.list, GT = TRUE, GT.calls = gt.calls)
+      bcmvn <- find.pK(sweep.stats)
+      find.pK(sweep.stats)
+      ggsave(paste(save.as,"/",obj@meta.data$orig.ident,"_pK_plot.pdf",sep=""), device = "pdf", plot = last_plot(), height = 8, width = 10)      
+      pk_val <- bcmvn$pK[which.max(bcmvn$BCmetric)]
+      pk_val
+      bcmvn.num <- transform(bcmvn, pK = as.numeric(pK))
+      pk_val <- bcmvn.num$pK[which.max(bcmvn.num$BCmetric)]
+      pk_val <- pk_val /100
+      pk_val
+      print("pK Identification Complete - with ground truth")
+    } 
+    
+    else {
+      ## pK Identification (no ground-truth) ------------------------------
+      print("identifying pK with gound truth")
+      sweep.res.list <- paramSweep_v3(obj, PCs = 1:15, sct = TRUE)
+      
+      sweep.stats <- summarizeSweep(sweep.res.list, GT = FALSE)
+      bcmvn <- find.pK(sweep.stats)
+      find.pK(sweep.stats)
+      ggsave(paste(save.as,"/",obj@meta.data$orig.ident,"_pK_plot.pdf",sep=""), device = "pdf", plot = last_plot(), height = 8, width = 10)
+      pk_val <- bcmvn$pK[which.max(bcmvn$BCmetric)]
+      pk_val
+      bcmvn.num <- transform(bcmvn, pK = as.numeric(pK))
+      pk_val <- bcmvn.num$pK[which.max(bcmvn.num$BCmetric)]
+      pk_val <- pk_val /100
+      pk_val
+      print("pK Identification Complete - no ground truth")
+    }
+    
+    ## Homotypic Doublet Proportion Estimate -------------------------------
+    annotations <- obj@meta.data$seurat_clusters
+    homotypic.prop <- modelHomotypic(obj@meta.data$seurat_clusters) ## ex: annotations <- object.list[i]@meta.data$ClusteringResults
+    
+    print("Estimating Homotypic Doublet Proportion")
+    
+    nExp_poi <- round(x*nrow(obj@meta.data)) ## x = doublet formation rate - Assuming 8%, tailor for your dataset
+    nExp_poi.adj <- round(nExp_poi*(1-homotypic.prop))
+    
+    
+    ## Run DoubletFinder with varying classification stringencies -----------------
+    print("Runing DoubletFinder")
+    pk_val
+    obj <- doubletFinder_v3(obj, PCs = 1:15, pN = 0.25, pK = pk_val, nExp = nExp_poi, reuse.pANN = FALSE, sct = TRUE)
+    
+    print("Generating and saving UMAP...")
+    pN = 0.25 #0.25
+    pK = pk_val #0.01
+    nExp = nExp_poi #94
+    #i.e. DF.classifications_0.25_0.01_94
+    
+    Idents(obj) <- paste("DF.classifications",pN,pK,nExp,sep="_")
+    UMAPPlot(obj)
+    paste(obj@meta.data$orig.ident,"DF.pdf",sep="_")
+    ggsave(paste(save.as,"/",obj@meta.data$orig.ident,"_DF.pdf",sep=""), device = "pdf", plot = last_plot(), height = 8, width = 10)
+    if (remove_doublets == TRUE){
+      print("removing doublets...")
+      obj <- subset(obj, idents = "Singlet")
+      print("doublets removed!")
+      
+      } 
+    else {
+      print("no doublets removed")
+    }
+    
+    # if (reprocess == TRUE){
+    #   print("reprocessing object")
+    #   obj <- SCTransform(obj, verbose = FALSE) #2
+    #   obj <- RunPCA(obj, verbose = FALSE) #3
+    #   obj <- RunUMAP(obj, dims = 1:15, verbose = FALSE) 
+    #   #obj <- RunTSNE(obj, dims = 1:15, verbose = F)
+    #   obj <- FindNeighbors(obj, dims = 1:15, verbose = F)
+    #   obj <- FindClusters(obj, verbose = F, resolution = res)
+    #   } 
+    # else {
+    #   print("not reprocessing")
+    # }
+    
+    UMAPPlot(obj)
+    
+    return(obj)
+}
+```
+
+

@@ -1,0 +1,118 @@
+---
+title: "Final Processing"
+author: "Jane Velghe"
+date: '2022-08-03'
+output: pdf_document
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
+```{r}
+library(Seurat)
+library(sctransform)
+library(ggplot2)
+```
+
+prep for integration
+```{r}
+name <- "/PBMCs_C"
+objects <- paste0("~/scProcess",name,"/objects")
+PBMCs_C <- readRDS(paste0(objects,"/PBMCs_C_DF_so.rds"))
+#PBMCs_C <- readRDS("~/scProcess/PBMCs_C/objects/PBMCs_C_DF_so.rds")
+PBMCs_C
+
+name <- "/PBMCs_X"
+objects <- paste0("~/scProcess",name,"/objects")
+PBMCs_X <- readRDS(paste0(objects,"/PBMCs_X_DF_so.rds"))
+#PBMCs_X <- readRDS("~/Student_Stuff/scProcess/PBMCs_X/objects/PBMCs_X_DF_so.rds")
+PBMCs_X
+
+dir.create("~/scProcess/integrated")
+int_path <- "~/scProcess/integrated"
+obj_int_name <- "/PBMCs_int"
+```
+
+prep for integration, swap in to merge the objects you want to integrate
+```{r}
+objects.combined <- merge(PBMCs_C, y = PBMCs_X, add.cell.ids = c("PBMCs_C", "PBMCs_X"), project = "PBMC_Machines")
+```
+
+
+```{r}
+int_list <- SplitObject(objects.combined, split.by = "orig.ident")
+int_list <- lapply(X = int_list, FUN = SCTransform) #runs SCTransform on each object in the list
+
+features <- SelectIntegrationFeatures(object.list = int_list, nfeatures = 3000)
+int_list <- PrepSCTIntegration(object.list = int_list, anchor.features = features)
+
+# integrate
+int.anchors <- FindIntegrationAnchors(object.list = int_list, normalization.method = "SCT", anchor.features = features)
+obj_int <- IntegrateData(anchorset = int.anchors, normalization.method = "SCT")
+
+# specify that we will perform downstream analysis on the corrected data note that the
+# original unmodified data still resides in the 'RNA' assay
+DefaultAssay(obj_int) <- "integrated"
+
+# Run the standard workflow for visualization and clustering
+obj_int <- ScaleData(obj_int, verbose = FALSE)
+obj_int <- RunPCA(obj_int, npcs = 30, verbose = FALSE)
+obj_int <- RunUMAP(obj_int, reduction = "pca", dims = 1:30)
+obj_int <- FindNeighbors(obj_int, reduction = "pca", dims = 1:30)
+obj_int <- FindClusters(obj_int, resolution = 0.4, graph.name = "integrated_nn") 
+# You will have to adjust this cluster resolution based on your data and what make biological sense, you may need to do this a few times to get the proper number of clusters. My mentality is it's better to over-cluster than under-cluster as you can always group clusters together that you think are the same cell type. 
+
+#obj_int <- ReclusterCells(obj_int, resolution = 0.15, graph.name = "integrated_nn")
+# use this function to recluster a cluster into smaller clusters (so many clusters...)
+
+UMAPPlot(obj_int)
+ggsave(plot=last_plot(), file = paste0(int_path,obj_int_name,"_origID_UMAP.pdf"), height = 8, width = 10)
+
+UMAPPlot(obj_int, split.by = "orig.ident")
+ggsave(plot=last_plot(), file = paste0(int_path,obj_int_name,"_split_origID_UMAP.pdf"), height = 8, width = 30)
+
+saveRDS(obj_int, file = paste0(int_path,obj_int_name,".rds"))
+```
+
+Pull up the UMAP plot of the clusters
+```{r}
+UMAPPlot(obj_int)
+```
+
+Easy access to change assay types. For differential gene expression down the line, use SCT or RNA assays, never use integrated
+```{r}
+DefaultAssay(obj_int) <- "RNA"
+DefaultAssay(obj_int) <- "SCT"
+DefaultAssay(obj_int) <- "integrated"
+```
+
+Find cluster markers
+```{r}
+# find markers for every cluster compared to all remaining cells, report only the positive
+# ones
+cluster.markers <- FindAllMarkers(obj_int, only.pos = TRUE, min.pct = 0.25, logfc.threshold = 0.25)
+cluster.markers %>%
+    group_by(cluster) %>%
+    slice_max(n = 2, order_by = avg_log2FC)
+write.csv(cluster.markers, file = paste0(int_path,obj_int_name,"_cluster_markers.csv"))
+```
+
+Get information on cluster markers and show it as a heatmap
+```{r}
+cluster.markers %>%
+    group_by(cluster) %>%
+    top_n(n = 10, wt = avg_log2FC) -> top10
+DoHeatmap(obj_int, features = top10$gene) + NoLegend()
+ggsave(plot=last_plot(), file = paste0(int_path,obj_int_name,"_cluster_marker_heatmap.pdf"), height = 20, width = 30)
+```
+
+Label cell types
+```{r}
+levels(obj_int)
+cell_type <- c("Naive T", "Classical monocyte", "Intermediate monocyte", "CD8+ T", "B", "Non-classical monocytes", "gdT-cell", "NK", "DC")
+names(cell_type) <- levels(obj_int)
+obj_int <- RenameIdents(obj_int, cell_type)
+DimPlot(obj_int, reduction = "umap", label = TRUE, pt.size = 0.5) + NoLegend()
+ggsave(plot=last_plot(), file = paste0(int_path,obj_int_name,"_celltype_UMAP.pdf"), height = 20, width = 30)
+```
+
