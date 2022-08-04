@@ -25,6 +25,8 @@ We strongly suggest you familiarize yourself with the content from these worksho
 - Unix/bash
 - R
 
+Download `Genio` package in R following the InstallPackagesCode.sh (in this directory)
+
 ## Workshop Schedule
 
 9-11am: Handling SNP Data (Part 1)
