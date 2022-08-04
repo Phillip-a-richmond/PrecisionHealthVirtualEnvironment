@@ -2,13 +2,8 @@
 title: "prsice_migraines"
 author: "Emilie Theberge"
 date: "05/07/2022"
-output: md_document
+output: html_document
 ---
-
-```{r}
-knitr::opts_chunk$set(echo=FALSE,eval=FALSE)
-```
-
 
 Goal: Using cleaned and properly formatted GWAS summary statistics data + target individual-level data, create and implement polygenic risk scores using PRSice-2.
 
@@ -39,11 +34,11 @@ This workshop will show only a very brief overview of some of the options.
 #3. PBS scripts for output
 
 Target: `QCed_1000G` (do not enter .bed/fam/bim)
-Base: `migraines_F_clean.txt`
+Base: `migraines_F_clean_2.txt`
 Pheno: `pheno.txt`
 
 Create a next pbs script and label as you want. For this example, will be "migraines_F".  Change the -M to your email. 
-From your metadata, generate a txt file (like `phenot.txt`) below that has column 1 being the individual ID (`id`) and column 2 being the phenotype 0/1 (or continuous, if a non-binary variable) (`pheno`). For this workshop, I randomly generated 0s and 1s of the metadata. Use `--ignore-fid` 
+From your metadata, generate a txt file (like `pheno.txt`) below that has column 1 being the individual ID (`id`) and column 2 being the phenotype 0/1 (or continuous, if a non-binary variable) (`pheno`). For this workshop, I randomly generated 0s and 1s of the metadata. Use `--ignore-fid` 
 
 **For you to experiment, without having your own metadata yet, keep the `pheno.txt` and `QCed1000g` target.**
 
@@ -55,7 +50,7 @@ From your metadata, generate a txt file (like `phenot.txt`) below that has colum
 #PBS -N migraines_f
 #PBS -A st-sturvey-1
 #PBS -m abe
-#PBS -M emilie.theberge@bcchr.ca
+#PBS -M <your_email>
 #PBS -o output.txt
 #PBS -e error.txt
 ################################################################################
@@ -96,7 +91,7 @@ Rscript PRSice.R --dir . \
 #PBS -N migraines_f
 #PBS -A st-sturvey-1
 #PBS -m abe
-#PBS -M emilie.theberge@bcchr.ca
+#PBS -M <your_email>
 #PBS -o output.txt
 #PBS -e error.txt
 ################################################################################
