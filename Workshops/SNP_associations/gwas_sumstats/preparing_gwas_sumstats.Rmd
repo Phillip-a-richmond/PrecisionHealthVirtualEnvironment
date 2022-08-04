@@ -1,0 +1,600 @@
+---
+title: "Cleaning GWAS Summary Statistics - Migraine"
+author: "Emilie Theberge"
+output: html_document
+---
+
+Goal of document: 
+- Download and conduct quality control (qc) steps on GWAS summary statistics downloaded from public resource
+- Retain/reorder data required for PRSice-2, FUMA/MAGMA or other applications
+
+# 0.Set up libraries/path:
+(this is required each session - do IN R)
+
+```{r}
+# in command line: (in ./SNP_associations)
+# sh InstallPackagesCode.sh
+
+.libPaths('/scratch/tr-precisionhealth-1/Workshops/SNP_associations/R_Libs_4.2.0') # When downloading new packages prior to starting RStudio session, make sure to always enter this!!
+
+# install.packages() of these, then load in rstudio later with library()
+library(R.utils)
+library(tidyverse)
+library(gwaRs)
+
+q() # to quit the sandbox and return to command line
+```
+
+Execute RStudio in Singularity
+```{bash}
+qsub Run_Rstudio.sh
+```
+
+Script for ^: https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/blob/main/Software/Run_Rstudio.sh
+
+### Run_Rstudio.sh
+
+Modified from Phil's script:
+
+```{bash}
+#!/bin/bash
+
+#PBS -l walltime=03:00:00,select=1:ncpus=4:mem=50gb
+#PBS -N my_rstudio_server
+#PBS -A st-sturvey-1
+#PBS -m abe
+#PBS -M emilie.theberge@bcchr.ca
+
+################################################################################
+
+# Change directory into the job dir
+cd $PBS_O_WORKDIR
+
+# Load software environment
+module load singularity
+
+#####################
+###############
+# Modify this #
+###############
+
+Rstudio_SIF=/scratch/tr-precisionhealth-1/Workshops/SNP_associations/rstudio-bioconductor-Release_3_15.sif
+Home_Dir=/scratch/tr-precisionhealth-1/Workshops/SNP_associations/
+Data_Dir=/scratch/tr-precisionhealth-1/Workshops/SNP_associations/
+Lib_Dir=/scratch/tr-precisionhealth-1/Workshops/SNP_associations/R_Libs_4.2.0/
+
+######################
+
+##############################
+# Don't change anything else #
+##############################
+
+# Set RANDFILE location to writeable dir
+export RANDFILE=$TMPDIR/.rnd
+
+# Generate a unique password for RStudio Server
+export SINGULARITYENV_PASSWORD=$(openssl rand -base64 15)
+
+# Find a unique port for RStudio Server to listen on
+readonly PORT=$(python -c 'import socket; s=socket.socket(); s.bind(("", 0)); print(s.getsockname()[1]); s.close()')
+
+# Set per-job location for the rserver secure cookie
+export SECURE_COOKIE=$TMPDIR/secure-cookie-key
+
+# Print connection details to file
+cat > connection_${PBS_JOBID}.txt <<END
+
+1. Create an SSH tunnel to RStudio Server from your local workstation using the following command:
+
+ssh -N -L 8787:${HOSTNAME}:${PORT} ${USER}@sockeye.arc.ubc.ca
+
+2. Point your web browser to http://localhost:8787
+
+3. Login to RStudio Server using the following credentials:
+
+Username: ${USER}
+Password: ${SINGULARITYENV_PASSWORD}
+
+When done using RStudio Server, terminate the job by:
+
+1. Sign out of RStudio (Left of the "power" button in the top right corner of the RStudio window)
+2. Issue the following command on the login node:
+
+qdel ${PBS_JOBID}
+
+END
+
+# This is where we pass the path to our library, and the libraries installed "in the container" (#zoolander)
+export SINGULARITYENV_LD_LIBRARY_PATH=$Lib_Dir:/usr/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH
+ 
+# Execute the rserver within the rocker/rstudio container
+# We bind path to our data, our home, and our lib, and then call the Rstudio.sif file, and execute the rserver command
+singularity exec --bind $TMPDIR:/var/run \
+ --bind $TMPDIR:/var/lib/rstudio-server \
+ --home $Home_Dir \
+ --bind $Data_Dir \
+ --bind $Lib_Dir \
+ $Rstudio_SIF \
+ rserver --auth-none=0 --auth-pam-helper-path=pam-helper --secure-cookie-key-file ${SECURE_COOKIE} --www-port ${PORT} --server-user ${USER}
+```
+
+
+# 1. Download GWAS summary statistics data 
+
+- Find your trait of interest
+http://www.nealelab.is/uk-biobank
+
+- Make sure to check that the Neale Lab confirmed it had ample sample size so as to not provide erroneous results:
+https://nealelab.github.io/UKBB_ldsc/
+
+This tutorial will use the migraine data, which shows pronounced sex differences in prevalence and, therefore, potentially different genetic loci.
+
+Neale lab flagged the ICD-10 migraines and recommended against using those stats: ("Warning: Lack of confidence")
+https://nealelab.github.io/UKBB_ldsc/h2_summary_G43.html 
+
+However, self-reported migraine (20002_1265) was sufficient:
+
+https://nealelab.github.io/UKBB_ldsc/h2_summary_20002_1265.html
+Estimated SNP heritability: 0.1022 (se=0.0154, p=1.6e-11) (this is from sex-pooled data (sex regressed out); as they flag sex bias in the data, recommend downloaded the female- and male-specific GWASs to investigate them separately!)
+
+- identify rows for trait of interest (self-reported migraine: 20002_1265) in: https://docs.google.com/spreadsheets/d/1kvPoupSzsSFBNSztMzl04xMoSC3Kcx3CrjVf4yBmESU/edit#gid=178908679
+
+- Download one of your choosing relevant to your subject area using `wget` link
+- rename using `mv`
+
+```{bash}
+wget https://broad-ukb-sumstats-us-east-1.s3.amazonaws.com/round2/additive-tsvs/20002_1265.gwas.imputed_v3.female.tsv.bgz -O 20002_1265.gwas.imputed_v3.female.tsv.bgz
+
+wget https://broad-ukb-sumstats-us-east-1.s3.amazonaws.com/round2/additive-tsvs/20002_1265.gwas.imputed_v3.male.tsv.bgz -O 20002_1265.gwas.imputed_v3.male.tsv.bgz
+
+mv 20002_1265.gwas.imputed_v3.female.tsv.bgz migraine_female_raw.tsv.bgz
+mv 20002_1265.gwas.imputed_v3.male.tsv.bgz migraine_male_raw.tsv.bgz
+```
+
+## Some background on migraine
+
+Excerpts from: https://www.ncbi.nlm.nih.gov/books/NBK560787/
+
+...Migraine is a genetically influenced complex disorder characterized by episodes of moderate-to-severe headache, most often unilateral and generally associated with nausea and increased sensitivity to light and sound. The word migraine is derived from the Greek word "hemikrania," which later was converted into Latin as "hemigranea." The French translation of such a term is "migraine."[1] Migraine is a common cause of disability and loss of work. Migraine attacks are a complex brain event that unfolds over hours to days, in a recurrent matter. The most common type of migraine is without aura (75% of cases)...
+
+...Migraine has a strong genetic component. The risk of migraines in ill relatives is three times greater than that of relatives of non-ill subjects, but there has not been any pattern of inheritance identified.[3][4] The genetic basis of migraine is complex, and it is uncertain which loci and genes are the ones implicated in the pathogenesis; it may be based on more than one genetic source at different genomic locations acting in tandem with environmental factors to bring susceptibility and the characteristics of the disease in such individuals.[5] The identification of these genes in an individual with migraines could predict the targeted prophylactic treatment...
+
+...Migraine is highly prevalent, affecting 12% of the population, attacking up to 17% of women and 6% of men each year.[17][18][19] The adjusted prevalence of migraine is highest in North America, followed by South America, Central America, Europe, Asia, and Africa. It is ranked as the second leading cause of disability worldwide.[20] Migraine tends to run in families.[17] It is consistently the fourth or fifth most common reason for emergency visits accounting for an annual 3% of all emergency visits.[21] Its prevalence increases in puberty but continues to increase until 35 to 39 years of age, decreasing later in life, especially after menopause.[18]...
+
+# 2. Standardizing GWAS summary stats 
+
+## 2.1 Inspect the downloaded sum stats (in RStudio)
+
+Create an .Rproj and make sure all these files are in the directory:
+- this rmd
+- file `gwas_launch_script.sh` from ^ github
+- the sum stats (raw and processed)
+
+```{r}
+gunzip("migraine_female_raw.tsv.bgz", "migraine_female_raw.tsv")
+gunzip("migraine_male_raw.tsv.bgz", "migraine_male_raw.tsv")
+
+migraine_females_raw <- read_tsv("migraine_female_raw.tsv")
+migraine_males_raw <- read_tsv("migraine_male_raw.tsv")
+```
+
+13,791,467 rows (=variants) in each folder!
+
+See how the sum stats are presented the frame:
+```{r}
+head(migraine_females_raw)
+head(migraine_males_raw)
+```
+Things to note from `head`:
+
+- Record sample size differences (`n_complete_samples`) between females (n=194,153) and males (n=166,988). Need that for the .json file below.
+
+- Notice how column 1 'Variant' is in a character format, with chromosome:basepair:major allele:minor allele information all contained in one cell. We need to employ a pipeline to separate out these values into their own columns (four columns: chromosome #, base pair, major allele, minor allele). 
+
+Terminology varies by sum stats. These are what are synonymous:
+A1 = minor allele = effect allele
+A2 = major allele = other allele
+
+Note that different GWAS studies may save their data in different ways - this pipeline can be used across these different sources!
+
+### 2 examples of other GWAS sum stat formats
+
+If you download GWAS summary statistics from papers or from resources like the GWAS catalog (https://www.ebi.ac.uk/gwas/), you'll notice a wide variety of formats and labeling done by different authors. 
+
+Below are examples of two "heads" of other summary statistics I investigated during my thesis from different authors:
+
+```{r}
+howard_2019 <- read.csv("howard2019mdd_head.csv")
+head(howard_2019)
+```
+The Howard data is all already nicely parsed out and not too many columns. Since N cases and N controls aren't listed here, that information will have to be found in the original paper/supplementary. This is common across many summary statistics, to have incomplete info per row. Also notice they have logOR instead of BETA as the effect measurement.
+
+```{r}
+blokland_2021 <- read.csv("blokland2021fmddr_head.csv")
+head(blokland_2021)
+```
+The Blokland data is also parsed out, but has LOTS of extra columns. Details of each sum stats' column meanings should come with accompanying README documents unique to the study. This is an example of how weedy it can get.
+
+
+## 2.2. Creating unique .json files for each sum stats file (in command line)
+
+For the migraines files, the first column has multiple data fields combined into one cell (chromosome #, base pair, major allele, minor allele). To parse these data out, using a script to extract these - but this script can be adapted to any gwas summary statistics!
+
+Following an in-house pipeline made by Daniil Belikau: https://github.com/daniil-belikau/gwas_clean_script
+
+Key files:
+- gwas_launch_script.sh
+- args.json
+
+Read the README for more information about the QC and arguments details for each of these files. 
+
+Create.json files in the same directory as the raw GWAS sum stats (.txt).
+
+```{bash}
+# use any text editor, I like nano
+nano migraines_females.json #change this to desired output name for the cleaned stats directory
+nano migraines_males.json
+```
+
+In json, edit these fields accordingly to the corresponding columns from the gwas sum stats file. Every GWAS sum stats is formatting differently, but this pipeline is meant to standardize all of these varieties!
+
+Details on each field: 
+
+### migraine_female.json 
+
+To the right of the colon, if your sum stats file has that column, label it as such (ie. "beta" : "beta" below). If note, put false. 
+
+For parsing a column:
+- indicate how the information is divided ("sep")
+- indicate the respective position after the separator (ie. "chr": 1, indicates that the chromosome value is the first value before the first :, "bp":2 indicates that the base pair value is the second value before the second :, etc.)
+- "required" is what the final column should be named (in this case, rsid, will remain after the parsing, hence )
+
+```{bash}
+{
+"chr" : false,
+"bp" : false,
+"rsid" : false,
+"effect" : false,
+"other" : false,
+"beta" : "beta",
+"odds" : false,
+"uci" : false,
+"lci" : false,
+"eaf" : "minor_AF",
+"p" : "pval",
+"parse_cols" : {
+                "required" : "variant",
+                "full" : false,
+                "sep" : ":",
+                "chr" : 1,
+                "bp" : 2,
+                "rsid" : false,
+                "effect" : 4,
+                "other" : 3
+        },
+"bld_in" : "HG19",
+"bld_out" : "HG19",
+"initials" : "<your_initials>",
+"trait" : "migraines_female",
+"sep" : "\t",
+"input_path" : "/scratch/tr-precisionhealth-1/Workshops/SNP_associations/GWAS_preparation/migraine_female_raw.tsv",
+"output_path" : "/scratch/tr-precisionhealth-1/Workshops/SNP_associations/GWAS_preparation",
+"harmonize" : true,
+"palindromic" : 0.4,
+"keep_X" : true,
+"keep_Y" : true,
+"keep_M" : true,
+"pop_code" : "EUR",
+"overwrite" : true,
+"array" : "unknown",
+"N" : "194153",
+"pubid" : "unknown",
+"dbSNP" : "dbSNP_154"
+}
+```
+
+### migraine_male.json
+
+```{bash}
+{
+"chr" : false,
+"bp" : false,
+"rsid" : false,
+"effect" : false,
+"other" : false,
+"beta" : "beta",
+"odds" : false,
+"uci" : false,
+"lci" : false,
+"eaf" : "minor_AF",
+"p" : "pval",
+"parse_cols" : {
+                "required" : "variant",
+                "full" : false,
+                "sep" : ":",
+                "chr" : 1,
+                "bp" : 2,
+                "rsid" : false,
+                "effect" : 4,
+                "other" : 3
+        },
+"bld_in" : "HG19",
+"bld_out" : "HG19",
+"initials" : "<your_initials>",
+"trait" : "migraines_males",
+"sep" : "\t",
+"input_path" : "/scratch/tr-precisionhealth-1/Workshops/SNP_associations/GWAS_preparation/migraine_male_raw.tsv",
+"output_path" : "/scratch/tr-precisionhealth-1/Workshops/SNP_associations/GWAS_preparation/",
+"harmonize" : true,
+"palindromic" : 0.4,
+"keep_X" : true,
+"keep_Y" : true,
+"keep_M" : true,
+"pop_code" : "EUR",
+"overwrite" : true,
+"array" : "unknown",
+"N" : "166988",
+"pubid" : "unknown",
+"dbSNP" : "dbSNP_154"
+}
+```
+
+
+## 2.3 Download and launch DB GWAS QC pipeline (in command line)
+
+*not to be done in workshop itself, but walk through it*
+
+- Download and store the docker file (.sif) somewhere in the working directory (specified below by `<path>:/work`)
+(can copy from this workshop's scratch directory, or pull the .sif docker file as detailed in https://github.com/daniil-belikau/gwas_clean_script)
+
+- In the .sif file (uneditable) there are commands that require `:/work/shared/data/vcf_variant_data` and `:/work/shared/data/liftover_chains`. Make sure the `liftover_chains` and `vcf_variant_data` files are in this working directory as the .sif file has commands that go to this path. (Can't edit the .sif.) 
+
+For this workshop, are in: `/scratch/tr-precisionhealth-1/Workshops/SNP_associations/shared/data/vcf_variant_data` 
+
+Edit `gwas_launch_script.sh` into the directory where you want the output.
+For this workshop, is /scratch/tr-precisionhealth-1/Workshops/SNP_associations/GWAS_preparation
+
+```{bash}
+#!/bin/bash
+
+TIME='00:40:00'
+MEM='64'
+
+if (( $(echo "$3 > 1" | bc -l) )) 
+	then
+	TIME='02:00:00'
+	MEM='128'
+fi
+
+if (( $(echo "$3 < 0.1" | bc -l) )) 
+	then
+	TIME='00:30:00'
+	MEM='32'
+fi
+
+read -r -d '' SCRIPT << EOM 
+#!/bin/bash
+#PBS -l walltime=${TIME},select=1:ncpus=32:mem=${MEM}gb
+#PBS -N $gwas_pipeline
+#PBS -A st-sturvey-1
+#PBS -o /scratch/tr-precisionhealth-1/Workshops/SNP_associations/logs/pipeline_$1.log
+#PBS -e /scratch/tr-precisionhealth-1/Workshops/SNP_associations/logs/pipeline_$1.err
+ 
+################################################################################
+ 
+module load gcc
+module load singularity
+
+singularity run --bind /scratch/tr-precisionhealth-1:/work  /scratch/tr-precisionhealth-1/Workshops/SNP_associations/db_gwas_software/gwas_pipeline.sif $2 
+
+EOM
+
+echo "$SCRIPT" > /scratch/tr-precisionhealth-1/Workshops/SNP_associations/jobs/pipeline_$1.pbs
+
+qsub /scratch/tr-precisionhealth-1/Workshops/SNP_associations/jobs/pipeline_$1.pbs
+```
+
+In this script, we're passing different variables from the command line that get stored as $1, $2, $3. 
+
+For example, below, migraine_female is stored as $1, the .json is $2, and $3 is the .json file size 
+
+Then, launch:
+
+```{bash}
+# gwas_launch_script.sh {trait_name} {path_to_args.json_file} {approximate_size_of_summ_stat_file_in_Gb}
+
+sh ./gwas_launch_script.sh migraine_female /scratch/tr-precisionhealth-1/Workshops/SNP_associations/GWAS_preparation/migraine_female.json 1.8
+
+sh ./gwas_launch_script.sh migraine_male /scratch/tr-precisionhealth-1/Workshops/SNP_associations/GWAS_preparation/migraine_male.json 1.8
+```
+
+Will be assigned a job; check status with `qstat -u <cwl>`
+
+Output in `/scratch/tr-precisionhealth-1/Workshops/SNP_associations/GWAS_preparation/migraines_female`
+
+Copy and rename `migraines_female_HG19_unknown_ET_clean_data_standardized_20220614.tsv` to `migraines_female_standardized.tsv` into /GWAS_preparation (so it's in the same directory as the .rmd for work in RStudio). Do the same for `migraines_male_standardized.tsv`.
+
+You can read more details of which variants were removed, and why, in the other accompanying output files (_dropped_) 
+
+# 3. Cleaning summary statistics data for various applications 
+
+This workshop is going to go over using GWAS summary statistic data for:
+- Making polygenic risk scores
+- Graphical output of manhattan plots and summary statistics (fastman, ldsc)
+- Brief intro to FUMA/MAGMA
+- Fine mapping
+
+Required libraries/packages:
+- R.utils to read tsvs
+- Tidyverse library
+- gwaRs (https://cran.r-project.org/web/packages/gwaRs/index.html)
+
+```{r}
+.libPaths('/scratch/tr-precisionhealth-1/Workshops/SNP_associations/R_Libs_4.2.0')
+library(R.utils)
+library(tidyverse)
+library(gwaRs)
+```
+
+## 3.1 Filtering to just columns of interest
+
+What we want to keep in final output
+- SNP ID, chromosome #, base pair #, A1, A2, OR or BETA (test statistic), SE, P
+
+Select for & reorder columns needed for the base data input into PRSice.
+
+```{r}
+# read in
+migraine_females_standardized <- read_tsv("migraines_females_standardized.tsv")
+migraine_males_standardized <- read_tsv("migraines_males_standardized.tsv")
+
+# investigate column contents
+head(migraine_females_standardized) 
+
+migraine_females_selected <- migraine_females_standardized  %>%
+  select(rsid, chr, bp, effect, other, beta, se, p) #automatically reorders to this. also, these sum stats used beta values as the statistic - other sum stats may use odds ratio (OR), so make sure to check that
+
+migraine_males_selected <- migraine_males_standardized  %>%
+  select(rsid, chr, bp, effect, other, beta, se, p) 
+
+# raw -> post-QC SNP count: 
+# females: 13,791,467 -> 11,935,605
+# males: 13,791,467 -> 11,934,922
+```
+
+Rename the columns to fit the PRSice conventions.
+
+```{r}
+migraine_females_selected <- migraine_females_selected %>%
+  rename(
+    SNP = rsid, # new = old
+    CHR = chr,
+    BP = bp,
+    A1 = effect,
+    A2 = other,
+    BETA = beta,
+    SE = se,
+    P = p
+  )
+
+migraine_males_selected <- migraine_males_selected %>%
+  rename(
+    SNP = rsid,
+    CHR = chr,
+    BP = bp,
+    A1 = effect,
+    A2 = other,
+    BETA = beta,
+    SE = se,
+    P = p
+  )
+
+# Remove duplicates, otherwise it'll screw up downstream applications.
+
+migraine_females_selected <- migraine_females_selected %>%
+  distinct(SNP, .keep_all= TRUE) # -> 
+
+migraine_males_selected <- migraine_males_selected %>%
+  distinct(SNP, .keep_all= TRUE) # -> 
+
+# Replace X with "23" in all: 
+
+migraine_females_selected <- migraine_females_selected %>%
+  mutate(CHR=replace(CHR, CHR=="X", 23))
+  
+migraine_males_selected <- migraine_males_selected %>%
+  mutate(CHR=replace(CHR, CHR=="X", 23))
+
+# How many SNPs on X in each?
+
+table(migraine_females_selected$CHR) 
+table(migraine_males_selected$CHR) 
+
+# Save X-data as separate data frame (sex-specific considerations re: dosage in downstream applications)
+
+migraine_females_X_only <- migraine_females_selected %>%
+  filter(CHR==23) # 325,360
+
+migraine_males_X_only <- migraine_males_selected %>%
+  filter(CHR==23) # 325,326
+```
+
+
+Save if you want.
+
+```{r}
+write.table(migraine_females_selected, file = "migraines_F_clean.txt", sep = " ", row.names = FALSE, quote=FALSE, col.names = TRUE)
+write.table(migraine_males_selected, file = "migraines_M_clean.txt", sep = " ", row.names = FALSE, quote=FALSE, col.names = TRUE)
+
+write.table(migraine_females_X_only, file = "migrains_F_X_clean.txt", sep = " ", row.names = FALSE, quote=FALSE, col.names = TRUE)
+write.table(migraine_males_X_only, file = "migraines_M_X_clean.txt", sep = " ", row.names = FALSE, quote=FALSE, col.names = TRUE)
+```
+
+## 3.2 Manhattan plots & QQ Plots
+
+Many packages out there to visualized GWAS data. Manhattan plots and quantile-quantile (QQ) plots are conducted to visualize the data.
+
+https://cran.r-project.org/web/packages/gwaRs/gwaRs.pdf
+https://www.biorxiv.org/content/10.1101/2020.04.17.044784v1.full
+
+
+```{r}
+#Filter out points below a certain threshold (0.05 below) to make it faster to graph:
+migraine_females_selected_sub <- migraine_females_selected %>%
+  filter(-log10(P)>1)
+
+migraine_males_selected_sub <- migraine_males_selected %>%
+  filter(-log10(P)>1)
+
+# Make character string of just the genome-wide significant SNPs to highlight in a different colour:
+migraine_females_selected_sub_highlight <- migraine_females_selected_sub %>%
+ filter(P<5*(10^-8)) 
+
+migraine_males_selected_sub_highlight <- migraine_males_selected_sub %>%
+ filter(P<5*(10^-8))
+
+migraine_females_selected_sub_highlight_SNPs <- migraine_females_selected_sub_highlight$SNP # 869 SNPs
+migraine_males_selected_sub_highlight_SNPs <- migraine_males_selected_sub_highlight$SNP # 1297 SNPs
+```
+
+Defaults:
+
+man_plot(
+data,
+chromCol = c("gray44", "black"),
+genomewideline = -log10(5e-08),
+suggestiveline = -log10(1e-05),
+chromosome = "ALL",
+annotatePval = FALSE,
+annotateSNP = NULL,
+annotateCol = "red",
+highlight = NULL,
+highlightCol = "green3",
+title = NULL
+)
+
+```{R}
+# tiff("migraine_f_manhattan.tiff", units="in", width=7, height=4, res=300)
+man_plot(migraine_females_selected_sub, title = "Female migraine Manhattan Plot", 
+         chromCol = c("#315771", "#c7d0da"),
+         genomewideline = -log10(5e-08),
+         suggestiveline = F,
+         highlight = migraine_females_selected_sub_highlight_SNPs, 
+         highlightCol = "red",
+         )
+# dev.off()
+```
+
+```{R}
+# tiff("migraine_m_manhattan.tiff", units="in", width=7, height=4, res=300)
+man_plot(migraine_males_selected_sub, title = "Male migraine Manhattan Plot", 
+         chromCol = c("#315771", "#c7d0da"),
+         genomewideline = -log10(5e-08),
+         suggestiveline = F,
+         highlight = migraine_males_selected_sub_highlight_SNPs, 
+         highlightCol = "red",
+         )
+# dev.off()
+```
+
+The female plot is good quality, reliable. Male one is not - likely due to too few samples (although Neale lab doesn't report exact breakdown of how many females to males were in the cases:controls of 10,647 cases and 350,494 controls (https://nealelab.github.io/UKBB_ldsc/h2_summary_20002_1265.html) we can assume the majority are females
