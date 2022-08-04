@@ -1,0 +1,130 @@
+---
+title: "prsice_migraines"
+author: "Emilie Theberge"
+date: "05/07/2022"
+output: md_document
+---
+
+```{r}
+knitr::opts_chunk$set(echo=FALSE,eval=FALSE)
+```
+
+
+Goal: Using cleaned and properly formatted GWAS summary statistics data + target individual-level data, create and implement polygenic risk scores using PRSice-2.
+
+Quick paths:
+
+```{bash}
+/scratch/tr-precisionhealth-1/Workshops/SNP_associations/prsice/
+```
+
+# 1. Correct formatting & setting up the environment
+
+Make sure the input data are both in correct format.
+- Target data: plink binary (.bed/.bim/.fam)
+- Base data: .txt with column headers: SNP, CHR, BP, A1, A2, BETA*, SE, P
+(*: BETA or OR, depending on which value is used in your sum stats.)
+- Pheno data: .txt file with column headers: IID, FID and Pheno column
+
+Software:
+- PRSice.R : Executable file .R file downloaded from www.prsice.info
+- PRSice_linux
+
+#2. Tour of PRSice-2 website
+
+https://www.prsice.info/
+
+This workshop will show only a very brief overview of some of the options. 
+
+#3. PBS scripts for output
+
+Target: `QCed_1000G` (do not enter .bed/fam/bim)
+Base: `migraines_F_clean.txt`
+Pheno: `pheno.txt`
+
+Create a next pbs script and label as you want. For this example, will be "migraines_F".  Change the -M to your email. 
+From your metadata, generate a txt file (like `phenot.txt`) below that has column 1 being the individual ID (`id`) and column 2 being the phenotype 0/1 (or continuous, if a non-binary variable) (`pheno`). For this workshop, I randomly generated 0s and 1s of the metadata. Use `--ignore-fid` 
+
+**For you to experiment, without having your own metadata yet, keep the `pheno.txt` and `QCed1000g` target.**
+
+## 3.1: p<0.01 output
+
+```{bash}
+#!/bin/bash
+#PBS -l walltime=00:30:00,select=1:ncpus=1:mem=10gb
+#PBS -N migraines_f
+#PBS -A st-sturvey-1
+#PBS -m abe
+#PBS -M emilie.theberge@bcchr.ca
+#PBS -o output.txt
+#PBS -e error.txt
+################################################################################
+
+# Change directory into the job dir
+cd $PBS_O_WORKDIR
+
+# Load software environment
+module load Software_Collection/2019
+module load gcc/9.1.0
+module load r-data-table/1.11.8-py3.7.3
+
+# PRSice settings:
+Rscript PRSice.R --dir . \
+    --prsice PRSice_linux \
+    --base migraines_F_clean_2.txt \
+    --target QCed_1000G \
+    --pheno pheno.txt \
+    --pheno-col pheno \
+    --ignore-fid \
+    --chr-id id \
+    --binary-target T \
+    --bar-levels \
+    --no-full \
+    --quantile 99 \
+    --quant-break 10,20,30,40,50,60,70,80,90,99 \
+    --quant-ref 10 \
+    --fastscore \
+    --print-snp \
+    --out migraine_prs \
+```
+
+## 3.2: multiple p-threshold output
+
+```{bash}
+#!/bin/bash
+#PBS -l walltime=00:30:00,select=1:ncpus=1:mem=10gb
+#PBS -N migraines_f
+#PBS -A st-sturvey-1
+#PBS -m abe
+#PBS -M emilie.theberge@bcchr.ca
+#PBS -o output.txt
+#PBS -e error.txt
+################################################################################
+
+# Change directory into the job dir
+cd $PBS_O_WORKDIR
+
+# Load software environment
+module load Software_Collection/2019
+module load gcc/9.1.0
+module load r-data-table/1.11.8-py3.7.3
+
+# PRSice settings:
+Rscript PRSice.R --dir . \
+    --prsice PRSice_linux \
+    --base migraines_F_clean_2.txt \
+    --target QCed_1000G \
+    --pheno pheno.txt \
+    --pheno-col pheno \
+    --ignore-fid \
+    --chr-id id \
+    --binary-target T \
+    --bar-levels 0.001,0.05,0.01,0.1,0.5,1 \
+    --quantile 99 \
+    --quant-break 10,20,30,40,50,60,70,80,90,99 \
+    --quant-ref 10 \
+    --fastscore \
+    --print-snp \
+    --out migraine_prs 
+```
+
