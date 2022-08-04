@@ -1,0 +1,16 @@
+PLINK v1.90b6.26 64-bit (2 Apr 2022)
+Options in effect:
+  --out 1000G
+  --vcf ALL.chip.omni_broad_sanger_combined.20140818.snps.genotypes.vcf.gz
+
+Hostname: login02
+Working directory: /scratch/st-dennisjk-1/hsowards
+Start time: Tue Jul 19 13:04:42 2022
+
+Random number seed: 1658261082
+192033 MB RAM detected; reserving 96016 MB for main workspace.
+
+Error: Invalid chromosome code 'GL000202.1' on line 2458957 of .vcf file.
+(Use --allow-extra-chr to force it to be accepted.)
+
+End time: Tue Jul 19 13:06:24 2022

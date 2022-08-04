@@ -1,0 +1,24 @@
+#!/bin/bash
+#PBS -l walltime=00:30:00,select=1:ncpus=1:mem=10gb
+#PBS -N snp_qc
+#PBS -A st-sturvey-1
+#PBS -m abe
+#PBS -M <your email>
+#PBS -o output.txt
+#PBS -e error.txt
+
+################################################################################
+
+# Change directory into the job dir
+cd $PBS_O_WORKDIR
+source /project/tr-precisionhealth-1/PrecisionHealthVirtualEnvironment/software/miniconda3/etc/profile.d/conda.sh
+conda activate Plink
+
+plink \
+--bfile 1000G \
+--mind 0.1 \
+--geno 0.1 \
+--maf 0.05 \
+--hwe 0.001 \
+--make-bed \
+--out QCed_1000G
