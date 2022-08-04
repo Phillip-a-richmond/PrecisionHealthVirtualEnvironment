@@ -10,20 +10,16 @@ Zoom link for both sessions: https://ubc.zoom.us/j/67274653046?pwd=SjJZKzR3M0tYM
 
 In-person: Room 552 (Koerner Library)
 
-See all of the workshop material under /scratch/tr-precisionhealth-1/Workshops/SNP_associations 
+See all of the workshop material under `/scratch/tr-precisionhealth-1/Workshops/SNP_associations`
 
 ## Prerequisites 
 
 We strongly suggest you familiarize yourself with the content from these workshops as some familiarity with R, the Command Line, and submitting jobs in Sockeye is assumed throughout this workshop
 
-- Previous Bootcamp Workshops Attended
--- Intro to sockeye and HPC basics
--- Conda and singularity
-
-- Interactive Rstudio + Package management
-- Programming Language (for follow-along)
-- Unix/bash
-- R
+- R and RStudio: https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Workshops/Core_Rstudio
+- Intro to Sockeye and HPC basics: https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Workshops/Core_HPCBasics
+- Conda: https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Workshops/Core_Conda
+- Singularity: https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Workshops/Core_Singularity
 
 Download `Genio` package in R following the InstallPackagesCode.sh (in this directory)
 
