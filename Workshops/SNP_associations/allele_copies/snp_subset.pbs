@@ -1,0 +1,22 @@
+#!/bin/bash
+#PBS -l walltime=00:30:00,select=1:ncpus=1:mem=10gb
+#PBS -N allele_copies
+#PBS -A st-sturvey-1
+#PBS -m abe
+#PBS -M <your_email>
+#PBS -o output.txt
+#PBS -e error.txt
+
+################################################################################
+
+# Change directory into the job dir
+cd $PBS_O_WORKDIR
+
+source /project/tr-precisionhealth-1/PrecisionHealthVirtualEnvironment/software/miniconda3/etc/profile.d/conda.sh
+conda activate Plink
+
+plink \
+--bfile QCed_1000G \
+--snps rs17051917 \
+--make-bed \
+--out allele_copies_1kg 

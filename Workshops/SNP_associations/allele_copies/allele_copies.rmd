@@ -1,0 +1,143 @@
+---
+title: "Allele_copies"
+author: "Emilie Theberge"
+output: html_document
+---
+
+Aim: To identify how many samples in your individual-level data have 0, 1 or 2 copies of an allele, and extract that information into a dataframe that can be merged with other metadata for downstream analyses (ie. modelling).
+
+# 1. Preparing the workspace & data
+
+- Copy files from `/scratch/tr-precisionhealth-1/Workshops/SNP_associations/allele_copies` into your Scratch workshops allocation space
+- extracting the SNP of interest (below)
+- have plink (bed/bim/fam) files post-QC on the individual-level data (morning session) (ie. 1000G --> QCed_1000G)
+
+#2. Confirm that your SNP of interest is in this list of individual-level data
+
+Not all genotyped data have the same SNPs (ie. because of different SNP chips used)
+
+```{bash}
+grep rs17051917 QCed_1000G.bim
+```
+
+If it's there, a row like the following will be returned: 
+13	rs17051917	0	35768789	T	C
+
+Copy and adapt the script below.
+
+Isolate just the SNP of interest: (`nano` then `qsub` `snp_subset.pbs`):
+
+```{bash}
+#!/bin/bash
+#PBS -l walltime=00:30:00,select=1:ncpus=1:mem=10gb
+#PBS -N snp_subset
+#PBS -A st-sturvey-1
+#PBS -m abe
+#PBS -M <your_email>
+#PBS -o output.txt
+#PBS -e error.txt
+
+################################################################################
+
+# Change directory into the job dir
+cd $PBS_O_WORKDIR
+
+source /project/tr-precisionhealth-1/PrecisionHealthVirtualEnvironment/software/miniconda3/etc/profile.d/conda.sh
+conda activate Plink
+
+plink \
+--bfile QCed_1000G \
+--snps rs17051917 \
+--make-bed \
+--out allele_copies_1kg 
+```
+
+Confirm things worked by looking into the .log (via `cat`) or .bim file (ie. `head`)
+
+#3. Genio in R
+
+Genio:
+https://rdrr.io/cran/genio/f/vignettes/genio.Rmd
+https://cran.r-project.org/web/packages/genio/genio.pdf
+
+Launch `Run_Rstudio.sh`.
+
+```{r}
+# in rstudio, singularity
+.libPaths("/scratch/tr-precisionhealth-1/Workshops/SNP_associations/R_Libs_4.2.0")
+
+library(genio)
+library(tidyverse)
+```
+
+Make sure you're reading in your subsetted plink files, not the full dataset. The full one will be too much for R to handle (crashes easily, lots of memory required).
+
+```{r}
+data <- read_plink("allele_copies_1kg")
+X <- data$X
+bim <- data$bim
+fam <- data$fam
+```
+
+Extract:
+```{r}
+geno_char <- geno_to_char(X, bim)
+
+#make df
+geno_char_df <- as.data.frame(geno_char) # output: snp is row, each sample is a column. want to switch this! 
+
+geno_char_2 <- pivot_longer(geno_char_df, 
+                            cols=1:2141, 
+                            names_to = "ID", 
+                            values_to = "rs17051917") # change cols # to the # of observations (samples, people) you have!
+
+head(geno_char_2)
+```
+
+Looks like:
+  ID      rs17051917
+  <chr>   <chr>     
+1 HG00096 C/C       
+2 HG00097 C/C       
+3 HG00098 C/C       
+4 HG00099 C/C       
+5 HG00100 C/C       
+6 HG00101 C/C  
+
+How many unique values of the SNP are there?
+
+```{r}
+unique(geno_char_2$rs17051917)
+```
+
+[1] "C/C" "C/T" "T/T" NA   
+
+Interpreting these alleles:
+https://www.snpedia.com/index.php/rs17051917
+
+Say we're interested in the # of T alleles (as it's the minor allele).
+
+Make a new column "Number_T" to specify how many copies of the T allele the individual carries:
+
+```{r}
+geno_char_3 <- geno_char_2 %>%
+  mutate(Number_T = case_when(
+    rs17051917 == "T/T" ~ "2",
+    rs17051917 == "C/T" ~ "1",
+    rs17051917 == "C/C" ~ "0",
+    rs17051917 == "NA" ~ "NA"
+)) 
+```
+
+How many people have a copy of the T allele?
+
+```{r}
+table(geno_char_3$Number_T)
+```
+
+
+Save if you want to merge these data with other metadata (ie. clinical data) for modelling or other applications.
+```{r}
+write.csv(geno_char_3, "allele_copies.csv", na="", row.names=FALSE)
+```
+
