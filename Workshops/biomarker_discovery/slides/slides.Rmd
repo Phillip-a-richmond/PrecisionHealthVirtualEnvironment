@@ -1,0 +1,597 @@
+---
+title: "Biomarker discovery and evaluation techniques"
+author: "Amrit Singh, PhD<br><span style = 'font-size: 65%;'>Department of Anesthesiology, Pharmacology and Therapeutics, UBC<br> Centre for Heart Lung Innovation</span>"
+date: 'August 05, 2022 | 12:00-14:00<br><br>`r fontawesome::fa("link")` [lab](https://cbl-hli.github.io/)<br>`r fontawesome::fa("github")` [code](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Workshops)<br>`r fontawesome::fa("twitter")` [asingh_22g](https://twitter.com/asingh_22g)'
+output:
+  xaringan::moon_reader:
+    css: [default, middlebury-fonts, "theme.css"]
+    lib_dir: libs
+    nature:
+      titleSlideClass: ["center", "middle", "my-title"]
+      ratio: '16:9'
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+```{r, echo=F, message=F, warning=F}
+## load libraries
+knitr::opts_chunk$set(python.reticulate = FALSE)
+
+library(dplyr)
+library(ggplot2)
+library(mixOmics)
+
+# helper functions
+make_heatmap = function(X, y, panel){
+  X = scale(X[, panel])
+  X[which(X < -2)] <- -2
+  X[which(X > 2)] <- 2
+  NMF::aheatmap(X, annRow = list(subtype = y))
+}
+```
+
+
+background-image: url(img/la.svg)
+
+---
+background-image: url(img/cc.svg)
+
+---
+
+class: middle
+
+# Learning outcomes
+
+### 1. Differentiate between Git and GitHub and be able to setup the connection on sockeye
+### 2. Use git to copy open-source code and test the code locally
+### 3. Make changes and update codebase (including undo)
+### 4. Implement the basics of Git Flow
+
+---
+
+# What is a biomarker?
+
+*A defined characteristic that is measured as an indicator of normal biologial processes, pathogenic processes, or biological responses to an exposure or intervention, including therapeutic interventions.*
+
+.pull-left[
+#### Types
+- molecular
+- histologic
+- radiographic
+- physiologic
+]
+
+.pull-right[
+#### Categories
+- susceptibility/risk biomarker
+- diagnostic biomarker
+- monitoring biomarker
+- prognostic biomarker
+- predictive biomarker
+- response biomarker
+- safety biomarker
+]
+
+<br>
+
+[FDA-NIH Biomarker Working Group. BEST (Biomarkers, EndpointS, and other Tools) Resource [Internet]. Silver Spring (MD): Food and Drug Administration (US); 2016-. Available from: https://www.ncbi.nlm.nih.gov/books/NBK326791/ Co-published by National Institutes of Health (US), Bethesda (MD).](https://www.ncbi.nlm.nih.gov/books/NBK326791/)
+]
+
+---
+
+## Diagnostic biomarker: 
+
+
+---
+
+# Magic bullet biomarkers: do they exist?
+
+.pull-left[
+<img src ="img/ntbnp.png" alt="NTpBNP", width="85%"/>
+]
+
+.pull-right[
+**N terminal probrain natriuretic peptide (NTproBNP)**
+is a rule-out test for acute heart failure
+
+serum NTpBNP <= 300ng/L :
+- sensitivity: 0.95 (0.93-0.96)
+- negative predictive value: 0.98 (0.89-1)
+- specificity: 0.43 (0.26-0.62)
+- positive predictive value: 0.64 (0.57-0.73)
+
+cardic imaging is required to confirm diagnosis if positive for heart failure.
+]
+
+[Roberts E et al., BMJ. 2015 Mar 4;350:h910.](https://pubmed.ncbi.nlm.nih.gov/24650281/)
+
+
+---
+
+# Why use a multimarker approach?
+
+.center[<img src ="img/characteristic_direction.png" alt="Characteristic Direction", width="55%"/>]
+
+[BMC Bioinformatics
+. 2014 Mar 21;15:79. doi: 10.1186/1471-2105-15-79.](https://pubmed.ncbi.nlm.nih.gov/24650281/)
+
+
+---
+
+.center[<img src ="img/multimarker.png" alt="Multimarker", width="100%"/>]
+
+[Singh A et al., AJRCCM 2018, 15:79-93.
+](https://pubmed.ncbi.nlm.nih.gov/24650281/)
+[Portt L. et al. Biochimica et Biophysica Acta 2011, 238-259]()
+
+
+---
+
+
+## Clinical utlity?
+
+---
+
+
+# Terminology review
+
+| Term      | Synonym | Description
+| ----------- | ----------- |
+| Technical replication      |        | confirmation of findings using the same samples, (e.g. measuring the same protein using different technologies in the same set of samples)
+| validation   |  | confirmation of findings using samples from the original discovery cohort
+| biomarker panel | biomarker signature, multimarker panel | combination of multimarker panels
+
+
+
+---
+
+# How to identify biomarkers?
+
+choose your process:
+* differential expression
+* machine learning methods
+* combination of approaches
+
+---
+
+### Method 1
+ - Step 1: Differential expression (50 gene panel)
+ - Step 2: train machine learning model
+
+.pull-left[
+```{r, out.width="80%", echo=F}
+data("breast.TCGA")
+
+pvals <- apply(breast.TCGA$data.train$mrna, 2, function(mrna){
+  result <- aov(mrna ~ breast.TCGA$data.train$subtype)
+  summary(result)[[1]][1, "Pr(>F)"]
+})
+fdrs <- p.adjust(pvals, "BH")
+biomarker_diff_panel <- fdrs[order(fdrs, decreasing = FALSE)][1:50]
+
+diff_model <- plsda(X=breast.TCGA$data.train$mrna[, names(biomarker_diff_panel)], Y=breast.TCGA$data.train$subtype, ncomp=2)
+plotIndiv(diff_model, legend = TRUE)
+```
+]
+
+.pull-right[
+```{r, out.width="80%", echo=F}
+make_heatmap(X = breast.TCGA$data.train$mrna,
+             y = breast.TCGA$data.train$subtype,
+             panel = names(biomarker_diff_panel))
+```
+
+]
+
+> `r names(biomarker_diff_panel)`
+
+---
+
+## Method 2
+- using a machine learning model with variable selection (select 50 genes): sPLS-DA
+
+.pull-left[
+```{r, out.width="80%", echo=F}
+splsda_model <- splsda(X = breast.TCGA$data.train$mrna, 
+                 Y = breast.TCGA$data.train$subtype,
+                 ncomp = 2,
+                 keepX = c(25, 25))
+
+plotIndiv(splsda_model)
+
+biomarker_splsda_panel <- c(selectVar(splsda_model, 1)$name,
+                                selectVar(splsda_model, 2)$name)
+```
+]
+
+.pull-right[
+```{r, out.width="80%", echo=F}
+make_heatmap(X = breast.TCGA$data.train$mrna, 
+             y = breast.TCGA$data.train$subtype, 
+             panel = biomarker_splsda_panel)
+
+```
+]
+
+> `r biomarker_splsda_panel`
+
+---
+
+class: center
+
+## Overlap between biomarkers between the two approaches
+
+```{r, echo=F, fig.width=9}
+#devtools::install_github("yanlinlin82/ggvenn")
+
+library(ggvenn)
+p <- ggvenn(
+  list(biomarker_diff_panel = names(biomarker_diff_panel),
+       biomarker_splsda_panel = biomarker_splsda_panel), 
+  fill_color = c("#0073C2FF", "#EFC000FF"),
+  stroke_size = 0.5, set_name_size = 2
+  )
+p
+```
+
+---
+
+# How to determine the performance of biomarkers?
+
+| Metric      | Description |
+| :---        |    :----   |
+| Area under the receiver <br> operating characteristic curve (AUROC)     | <ul><li> binary classification</li> <li>true vs. false positive rate</li></ui> | 
+| Mean Square Error (MSE)   | <ul><li> regression </li> <li>difference between actual vs. observed squared</li></ui>         |
+| Accuracy   |    <ul><li> classification </li> <li>proportion of correctly classified </li></ui>      | 
+| F1 Score   | <ul><li> classification </li> <li>combines precision and recall</li></ui>        | 
+
+[See formulas here](https://en.wikipedia.org/wiki/Receiver_operating_characteristic)
+
+[J Natl Cancer Inst. 2015 Jun 24;107(8):djv153.](https://pubmed.ncbi.nlm.nih.gov/26109105/)
+
+---
+
+## Apply biomarker panels to test cohorts
+
+.pull-left[
+
+### Diff_plsda_biomarker_panel
+
+#### Train (model built using this data)
+
+```{r, echo=F}
+## train
+diff_predictions <- predict(diff_model, breast.TCGA$data.train$mrna[, names(biomarker_diff_panel)])
+diff_train <- table(diff_predictions$class$centroids.dist[, "comp2"], breast.TCGA$data.train$subtype)
+diff_train
+```
+
+Accuracy: `r sum(diag(diff_train))/sum(diff_train)` and Balanced Accuracy: `r round(mean(diag(diff_train)/colSums(diff_train)), 2)`
+
+
+#### Test (apply model to independent cohort)
+
+```{r, echo=F}
+## test
+diff_predictions <- predict(diff_model, breast.TCGA$data.test$mrna[, names(biomarker_diff_panel)])
+diff_test <- table(diff_predictions$class$centroids.dist[, "comp2"], breast.TCGA$data.test$subtype)
+diff_test
+```
+
+Accuracy: `r round(sum(diag(diff_test))/sum(diff_test), 2)` and Balanced Accuracy: `r round(mean(diag(diff_test)/colSums(diff_test)), 2)`
+
+]
+
+.pull-right[
+
+### splsda_biomarker_panel
+
+#### Train (model built using this data)
+
+```{r, echo=F}
+## train
+splsda_predictions <- predict(splsda_model, breast.TCGA$data.train$mrna)
+splsda_train <- table(splsda_predictions$class$centroids.dist[, "comp2"], breast.TCGA$data.train$subtype)
+splsda_train
+```
+
+Accuracy: `r sum(diag(splsda_train))/sum(splsda_train)` and Balanced Accuracy: `r round(mean(diag(splsda_train)/colSums(splsda_train)), 2)`
+
+
+#### Test (apply model to independent cohort)
+
+```{r, echo=F}
+## test
+splsda_predictions <- predict(splsda_model, breast.TCGA$data.test$mrna)
+splsda_test <- table(splsda_predictions$class$centroids.dist[, "comp2"], breast.TCGA$data.test$subtype)
+splsda_test
+```
+
+Accuracy: `r round(sum(diag(splsda_test))/sum(splsda_test), 2)` and Balanced Accuracy: `r round(mean(diag(splsda_test)/colSums(splsda_test)), 2)`
+
+
+]
+
+---
+
+## Q: What if you don't have a test cohort?
+
+### Anwers: split data and pretend you do have test cohorts:
+
+#### Resampling strategies
+
+| Type      | Description
+| ----------- | ----------- |
+| K-fold cross validation  (CV)    |  <ul><li> split data into K folds of equal size (can also be stratified across disease groups) </li></ul>   
+| repeated K-fold cross-validation   |  <ul><li>repeat K-fold CV multiple times until metric values convergences </li></ul>
+| nested cross-validation if hyperparameter tuning is required | <ul><li>repeat K-fold CV with each fold and select the best model to apply to test data </li></ul>
+
+- bias: how are far is the model away from the true model (K=N has the lowest biased but high variance whereas lower values of K have higher bias but lower variance); K of 5 or 10 offer a good compromise.
+---
+
+## K-fold cross validation  (CV)
+
+.center[<img src ="img/cv/Slide1.png" alt="cv_slide1", width="100%"/>]
+
+---
+
+## K-fold cross validation  (4-fold CV)
+
+.center[<img src ="img/cv/Slide2.png" alt="cv_slide2", width="100%"/>]
+
+---
+
+## K-fold cross validation  (4-fold CV)
+
+.center[<img src ="img/cv/Slide3.png" alt="cv_slide3", width="100%"/>]
+
+---
+
+## K-fold cross validation  (4-fold CV)
+* Note: many approaches can be used to create the final model
+.center[<img src ="img/cv/Slide4.png" alt="cv_slide4", width="100%"/>]
+
+---
+
+## K-fold cross validation  (4-fold CV)
+* Note: many approaches can be used to create the final model
+.center[<img src ="img/cv/Slide5.png" alt="cv_slide5", width="100%"/>]
+
+
+---
+
+## K-fold cross validation  (4-fold CV)
+* Note: many approaches can be used to create the final model
+.center[<img src ="img/cv/Slide6.png" alt="cv_slide6", width="100%"/>]
+
+
+---
+
+## K-fold cross validation  (4-fold CV)
+* Note: many approaches can be used to create the final model
+.center[<img src ="img/cv/Slide7.png" alt="cv_slide7", width="100%"/>]
+
+
+---
+
+## K-fold cross validation  (4-fold CV)
+* Note: many approaches can be used to create the final model
+.center[<img src ="img/cv/Slide8.png" alt="cv_slide8", width="100%"/>]
+
+
+---
+
+## K-fold cross validation  (4-fold CV)
+* Note: many approaches can be used to create the final model
+.center[<img src ="img/cv/Slide9.png" alt="cv_slide9", width="100%"/>]
+
+---
+
+## K-fold cross validation  (4-fold CV)
+* Note: many approaches can be used to create the final model
+.center[<img src ="img/cv/Slide10.png" alt="cv_slide10", width="100%"/>]
+
+---
+
+## K-fold cross validation  (4-fold CV)
+* Note: many approaches can be used to create the final model
+.center[<img src ="img/cv/Slide11.png" alt="cv_slide11", width="100%"/>]
+
+---
+
+## Simulation scenerio (true error rate = 50%)
+
+.pull-left[
+```{r}
+n <- 100; p <- 1000
+group <- rep(c("group1", "group2"), each = n/2)
+eset <- matrix(rnorm(n * p), nr = n)
+colnames(eset) <- paste0("gene", 1:p)
+
+pvals <- apply(eset, 2, function(i){
+  t.test(i~group)$p.value
+})
+
+biomarkers <- pvals[order(pvals)][1:10]
+as_tibble(data.frame(names = names(biomarkers),
+           pvalues = biomarkers))
+```
+]
+
+.pull-right[
+```{r, out.width="90%"}
+hist(pvals)
+```
+
+]
+
+---
+
+# How to cross-validate?
+
+.pull-left[
+## Wrong way to do cross-validation
+ - subset dataset to selected biomarkers than apply cross-validation
+ 
+```{r}
+wrong_way_model <- plsda(X = eset[, names(biomarkers)], Y = group, ncomp=1)
+
+cv <- perf(wrong_way_model, validation = "Mfold", folds = 5, auc=TRUE)
+cv$auc
+```
+
+]
+
+.pull-right[
+
+## Right-way to do cross-validation
+- DO NOT subset dataset and repeat the same model building process during each cross-validation train/test fold.
+
+```{r}
+right_way_model <- splsda(X = eset, keepX = 10, Y = group, ncomp=1)
+
+cv <- perf(right_way_model, validation = "Mfold", folds = 5, auc=TRUE)
+cv$auc
+```
+
+]
+
+---
+
+# I want to include differential expression in my approach
+- within each cross-validation fold, start with **ALL** the data and perform differential expression, then use the top features to build the model and apply to the held out/test set.
+
+.pull-left[
+```{r}
+cvIndex <- caret::createFolds(factor(group), k = 5)  ## dont load the caret package as it requires the pls packages which clashes with the mixOmics pls()
+
+predictions <- lapply(cvIndex, function(fold){
+  ## Create train and test dataests
+  Xtrain <- eset[-fold, ]
+  Xtest <- eset[fold, ]
+  ytrain <- group[-fold]
+  
+  ## differential expression
+  pvals <- apply(Xtrain, 2, function(i){
+    t.test(i~ytrain)$p.value
+  })
+  biomarkers <- pvals[order(pvals)][1:10]
+  
+  ## plsda model
+  model <- mixOmics::plsda(X = Xtrain[, names(biomarkers)], Y = ytrain, ncomp=1)
+  as.numeric(predict(model, Xtest[, names(biomarkers)])$predict[, , "dim1"][, "group2"])
+})
+```
+]
+
+.pull-right[
+```{r, out.width="60%"}
+pROC::auc(group[unlist(cvIndex)], unlist(predictions), plot = TRUE)
+```
+]
+
+---
+
+## Nested cross-validation
+ - apply cross-validation within each cross-validation fold (*e.g.* hyperparamter tuning)
+ 
+.center[<img src ="img/ncv.png" alt="Nested Cross-validation", width="60%"/>]
+[Bioinformatics
+. 2020 May 1;36(10):3093-3098](https://pubmed.ncbi.nlm.nih.gov/31985777/)
+
+---
+
+## Hyperparameter tuning (tune the number of variables to select)
+
+### use a grid of values to find the biomarker panel with the least error rate
+
+.pull-left[
+```{r}
+set.seed(1)
+test.keepX = c(5, 10, 15, 50, 100, 200)
+tune= tune(method = "splsda", 
+           X = breast.TCGA$data.train$mrna, 
+           Y = breast.TCGA$data.train$subtype, 
+           ncomp=1,
+           test.keepX = test.keepX, 
+           folds=5, dist="centroids.dist", progressBar = FALSE)
+
+final_model <- splsda(X = breast.TCGA$data.train$mrna, 
+           Y = breast.TCGA$data.train$subtype, 
+           ncomp=1,
+           keepX = test.keepX[which.min(tune$error.rate)])
+selectVar(final_model, ncomp=1)$name
+```
+
+> the optimal biomarker panel has `r test.keepX[which.min(tune$error.rate)]` genes.
+
+]
+
+.pull-right[
+```{r, out.width="80%"}
+plot(tune$error.rate ~ test.keepX, type="l", log="x", ylab = "Error rate")
+```
+
+
+]
+
+---
+
+## The correct way of determining performance.
+
+```{r}
+right_model <- plsda(X = eset, Y = group, ncomp=1)
+
+cv <- perf(right_model, validation = "Mfold", folds = 5, nrepeat = 5, auc=TRUE)
+cv$auc
+```
+
+
+---
+
+
+### Stability of variables in the model
+
+* frequency of variable across folds.
+
+---
+
+### Esimate uncertainty of model parameter estimates
+
+* bootstrap
+
+---
+
+# Should you biomarker? yes
+
+.center[<img src ="img/biomarker_process.png" alt="Biomarker process", width="90%"/>]
+
+
+---
+
+# Resources
+
+## Models
+ - [Tidymodels](https://www.tidymodels.org/)
+
+## Slides
+ - [xaringan](https://arm.rbind.io/slides/xaringan.html#137)
+
+## Git
+ - [Get Git!](https://uidaholib.github.io/get-git/6resources.html)
+ - [Let's Git started](https://happygitwithr.com/)
+ - [.gitignore](https://zellwk.com/blog/gitignore/)
+ - [GitHub Actions]()
+
+## Cross-validation
+- [Resamplign techniques](https://hastie.su.domains/MOOC-Slides/cv_boot.pdf)
+ 
+## Problem Set
+
+1) Git-LFS
+2) GH-Pages
+3) use RStudio with Git(Hub)
+4) advanced git commands: stash, rebase, 
+
+## Solutions
