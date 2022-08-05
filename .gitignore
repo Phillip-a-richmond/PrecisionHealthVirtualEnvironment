@@ -65,14 +65,10 @@ Workshops/IntroToEWAS/data/*
 .Rproj.user
 
 # Amrit's workshop
-# <<<<<<< github
 Workshops/github/.DS_Store
 Workshops/github/.Rhistory
 Workshops/github/.Rproj.user
 Workshops/github/slides/.DS_Store
-=======
-Workshops/github/slides/.DS_Store
-# >>>>>>> main
 
 # scRNAseq
 Workshops/scRNAseq/oci/*
