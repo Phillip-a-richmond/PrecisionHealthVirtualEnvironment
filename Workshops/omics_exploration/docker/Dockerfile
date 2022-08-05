@@ -26,7 +26,7 @@ RUN apt-get clean all && \
 RUN ./install_python.sh
 
 # Install Python modules
-RUN pip install -r code/install_python_packages.txt
+RUN pip install -r ./install_python_packages.txt
 
 # Install R packages
-RUN Rscript code/install_r_packages.r
+RUN Rscript ./install_r_packages.r
