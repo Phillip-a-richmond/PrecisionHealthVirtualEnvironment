@@ -43,10 +43,10 @@ class: middle
 
 # Learning outcomes
 
-### 1. Differentiate between Git and GitHub and be able to setup the connection on sockeye
-### 2. Use git to copy open-source code and test the code locally
-### 3. Make changes and update codebase (including undo)
-### 4. Implement the basics of Git Flow
+### 1. Describe what a biomarker is and give an example of one
+### 2. Analyze simluated and breast cancer data to identify biomarkers
+### 3. Discrimiminate the right and wrong to estimate the test error of a biomarker panel
+### 4. Appreciate how easy it is to cherry-pick the data.
 
 ---
 
@@ -80,8 +80,16 @@ class: middle
 
 ---
 
-## Diagnostic biomarker: 
+## Examples of biomarkers
 
+| Metric      | Description |
+| :---        |    :----   |
+| Diagnostic     | <ul><li> GFR for kidney disease</li> <li>sweat chloride for Cystic Fibrosis</li></ui> | 
+| Monitoring  | <ul><li> Prostate-specific antigen (PSA) to assess cancer recurrence</li></ui>         |
+| Response   |    <ul><li> Pharmacodynamic: CRP levels and tobacco use </li></ui>      | 
+| Prognostic   | <ul><li> BRCA1/2 to assess the likelihood of breast cancer</li></ui>        | 
+[FDA-NIH Biomarker Working Group. BEST (Biomarkers, EndpointS, and other Tools) Resource [Internet]. Silver Spring (MD): Food and Drug Administration (US); 2016-. Available from: https://www.ncbi.nlm.nih.gov/books/NBK326791/ Co-published by National Institutes of Health (US), Bethesda (MD).](https://www.ncbi.nlm.nih.gov/books/NBK326791/)
+]
 
 ---
 
@@ -128,9 +136,21 @@ cardic imaging is required to confirm diagnosis if positive for heart failure.
 
 ---
 
-
 ## Clinical utlity?
 
+.pull-left[
+### Single biomarker
+| Pros      | Cons |
+| :---        |    :----   |
+| <ul><li> many real-world biomarkers</li> <li>easier to develop into a clinical test</li> <li>results are easier interpret</li></ui>     | <ul><li> not perfect</li> <li>can be generic (CRP)</li></ui> | 
+]
+
+.pull-right[
+### Panel of biomarkers
+| Pros      | Cons |
+| :---        |    :----   |
+| <ul><li> increasing real-world biomarkers (PROSIGNA)</li> <li>better at capturing the heterogeneity of the disease</li></ui>     | <ul><li> not perfect</li> <li>results are harder interpret</li></ui> | 
+]
 ---
 
 
@@ -138,24 +158,46 @@ cardic imaging is required to confirm diagnosis if positive for heart failure.
 
 | Term      | Synonym | Description
 | ----------- | ----------- |
+| biomarker panel | biomarker signatures, multimarker panels, models, algorithms, equations | two or more biomarkers that an algorithm or equation is based on
+| training set | discovery cohort | dataset used to develop biomarker panels
+| test set | validation cohort | an independent dataset not used when developing biomarker panels
 | Technical replication      |        | confirmation of findings using the same samples, (e.g. measuring the same protein using different technologies in the same set of samples)
 | validation   |  | confirmation of findings using samples from the original discovery cohort
-| biomarker panel | biomarker signature, multimarker panel | combination of multimarker panels
 
-
+Contrast with Deep Learning (DL) common practice:
+- DL pipeline use a separate cohort for train, validation and test
+- Biomarker literature there is discovery and validation cohort; the discovery cohort can be divided into train and validation set however cross-validation is used instead to tune-hyperparameters.
 
 ---
 
 # How to identify biomarkers?
 
-choose your process:
+## A panel of biomarkers can be developed from any of the following approaches:
 * differential expression
 * machine learning methods
+* *a prior* list of biomarkers
 * combination of approaches
+
+--
+
+## THATS EASY! 
+
+### The hard part is trying to estimate the test error in the absence of additional data!
 
 ---
 
-### Method 1
+## Case Studies 
+
+## Case Study 1: Two cohorts (discovery + validation) - real data
+### Data: Breast Cancer multi omics data from TCGA (part of mixOmics R-package)
+
+*This data set is a small subset of the full data set from The Cancer Genome Atlas that can be analysed with the DIABLO framework. It contains the expression or abundance of three matching omics data sets: mRNA, miRNA and proteomics for 150 breast cancer samples (Basal, Her2, Luminal A) in the training set, and 70 samples in the test set. The test set is missing the proteomics data set.
+[Bioinformatics. 2019 Sep 1;35(17):3055-3062](https://pubmed.ncbi.nlm.nih.gov/30657866/)
+
+## Case Study 2: One cohort - simulated data
+---
+
+### Case Study 1: Method 1
  - Step 1: Differential expression (50 gene panel)
  - Step 2: train machine learning model
 
@@ -188,7 +230,7 @@ make_heatmap(X = breast.TCGA$data.train$mrna,
 
 ---
 
-## Method 2
+## Case Study 1: Method 2
 - using a machine learning model with variable selection (select 50 genes): sPLS-DA
 
 .pull-left[
@@ -252,11 +294,11 @@ p
 
 ---
 
-## Apply biomarker panels to test cohorts
+## Case Study 1: Apply biomarker panels to test cohorts
 
 .pull-left[
 
-### Diff_plsda_biomarker_panel
+### Method 1: Diff_plsda_biomarker_panel
 
 #### Train (model built using this data)
 
@@ -285,7 +327,7 @@ Accuracy: `r round(sum(diag(diff_test))/sum(diff_test), 2)` and Balanced Accurac
 
 .pull-right[
 
-### splsda_biomarker_panel
+### Method 2: splsda_biomarker_panel
 
 #### Train (model built using this data)
 
@@ -309,7 +351,6 @@ splsda_test
 ```
 
 Accuracy: `r round(sum(diag(splsda_test))/sum(splsda_test), 2)` and Balanced Accuracy: `r round(mean(diag(splsda_test)/colSums(splsda_test)), 2)`
-
 
 ]
 
@@ -400,7 +441,7 @@ Accuracy: `r round(sum(diag(splsda_test))/sum(splsda_test), 2)` and Balanced Acc
 
 ---
 
-## Simulation scenerio (true error rate = 50%)
+## Case Study 2: Simulation scenerio (true error rate = 50%)
 
 .pull-left[
 ```{r}
@@ -486,7 +527,7 @@ predictions <- lapply(cvIndex, function(fold){
 ]
 
 .pull-right[
-```{r, out.width="60%"}
+```{r, out.width="60%", warning=F, message=F}
 pROC::auc(group[unlist(cvIndex)], unlist(predictions), plot = TRUE)
 ```
 ]
@@ -510,7 +551,7 @@ pROC::auc(group[unlist(cvIndex)], unlist(predictions), plot = TRUE)
 ```{r}
 set.seed(1)
 test.keepX = c(5, 10, 15, 50, 100, 200)
-tune= tune(method = "splsda", 
+tune <- tune(method = "splsda", 
            X = breast.TCGA$data.train$mrna, 
            Y = breast.TCGA$data.train$subtype, 
            ncomp=1,
@@ -521,7 +562,7 @@ final_model <- splsda(X = breast.TCGA$data.train$mrna,
            Y = breast.TCGA$data.train$subtype, 
            ncomp=1,
            keepX = test.keepX[which.min(tune$error.rate)])
-selectVar(final_model, ncomp=1)$name
+# selectVar(final_model, ncomp=1)$name
 ```
 
 > the optimal biomarker panel has `r test.keepX[which.min(tune$error.rate)]` genes.
@@ -529,7 +570,7 @@ selectVar(final_model, ncomp=1)$name
 ]
 
 .pull-right[
-```{r, out.width="80%"}
+```{r, out.width="70%"}
 plot(tune$error.rate ~ test.keepX, type="l", log="x", ylab = "Error rate")
 ```
 
@@ -538,28 +579,80 @@ plot(tune$error.rate ~ test.keepX, type="l", log="x", ylab = "Error rate")
 
 ---
 
-## The correct way of determining performance.
+## Estimate test error using only the TRAINING data
+
+.pull-left[
+```{r}
+cvIndex <- caret::createFolds(factor(breast.TCGA$data.train$subtype), k = 5)  ## dont load the caret package as it requires the pls packages which clashes with the mixOmics pls()
+
+predictions <- lapply(cvIndex, function(fold){
+  ## Create train and test dataests
+  Xtrain <- breast.TCGA$data.train$mrna[-fold, ]
+  Xtest <- breast.TCGA$data.train$mrna[fold, ]
+  ytrain <- breast.TCGA$data.train$subtype[-fold]
+  
+  ## find optimal panel
+  test.keepX = c(5, 10, 15, 50, 100, 200)
+  tune <- tune(method = "splsda", 
+             X = Xtrain, 
+             Y = ytrain, 
+             ncomp=1,
+             test.keepX = test.keepX, 
+             folds=5, dist="centroids.dist", progressBar = FALSE)
+  
+  print(test.keepX[which.min(tune$error.rate)])
+  
+  final_model <- splsda(X = Xtrain, 
+             Y = ytrain, 
+             ncomp=1,
+             keepX = test.keepX[which.min(tune$error.rate)])
+  
+  ## plsda model
+  predict(final_model, Xtest)$class$centroids.dist
+})
+```
+]
+
+.pull-right[
+
+### Accuracy
 
 ```{r}
-right_model <- plsda(X = eset, Y = group, ncomp=1)
-
-cv <- perf(right_model, validation = "Mfold", folds = 5, nrepeat = 5, auc=TRUE)
-cv$auc
+conf_matrix <- table(unlist(predictions), breast.TCGA$data.train$subtype[unlist(cvIndex)])
+sum(diag(conf_matrix))/sum(conf_matrix)
 ```
 
 
+### Balanced Accuracy
+
+```{r}
+mean(diag(conf_matrix)/colSums(conf_matrix))
+```
+
+]
+
 ---
 
+## Estimate test error using only the TEST (independent) data
 
-### Stability of variables in the model
+```{r, message=F, warning=F}
+predicted_labels <- predict(final_model, breast.TCGA$data.test$mrna)$class$centroids.dist
 
-* frequency of variable across folds.
+conf_matrix <- table(predicted_labels, breast.TCGA$data.test$subtype)
+```
 
----
+### Accuracy
 
-### Esimate uncertainty of model parameter estimates
+```{r}
+sum(diag(conf_matrix))/sum(conf_matrix)
+```
 
-* bootstrap
+
+### Balanced Accuracy
+
+```{r}
+mean(diag(conf_matrix)/colSums(conf_matrix))
+```
 
 ---
 
@@ -572,26 +665,31 @@ cv$auc
 
 # Resources
 
-## Models
+.pull-left[
+## Code
  - [Tidymodels](https://www.tidymodels.org/)
+ - [mixOmics](https://mixomicsteam.github.io/Activities/)
 
 ## Slides
  - [xaringan](https://arm.rbind.io/slides/xaringan.html#137)
+]
 
-## Git
- - [Get Git!](https://uidaholib.github.io/get-git/6resources.html)
- - [Let's Git started](https://happygitwithr.com/)
- - [.gitignore](https://zellwk.com/blog/gitignore/)
- - [GitHub Actions]()
+.pull-right[
+## Biomarkers
+- [Biomarker Discovery and Validation: Statistical Considerations](https://pubmed.ncbi.nlm.nih.gov/33545385/)
+- [BEST (Biomarkers, EndpointS, and other Tools) Resource](https://www.ncbi.nlm.nih.gov/books/NBK326791/)
 
 ## Cross-validation
-- [Resamplign techniques](https://hastie.su.domains/MOOC-Slides/cv_boot.pdf)
- 
-## Problem Set
+- [Resampling techniques](https://hastie.su.domains/MOOC-Slides/cv_boot.pdf)
+]
 
-1) Git-LFS
-2) GH-Pages
-3) use RStudio with Git(Hub)
-4) advanced git commands: stash, rebase, 
 
-## Solutions
+---
+
+class: middle, center
+
+background-image: url(img/bkg.svg)
+
+# THANK YOU!
+
+August 05, 2022 | 12:00-14:00<br><br>`r fontawesome::fa("link")` [lab](https://cbl-hli.github.io/)<br>`r fontawesome::fa("github")` [code](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Workshops)<br>`r fontawesome::fa("twitter")` [asingh_22g](https://twitter.com/asingh_22g)
