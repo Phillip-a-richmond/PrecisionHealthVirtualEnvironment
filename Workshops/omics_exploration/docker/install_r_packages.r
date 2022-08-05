@@ -12,6 +12,7 @@ devtools::install_version("knitr", version = "1.33", repos = "http://cran.us.r-p
 devtools:::install_version("xaringan", version = "0.25", repos = "http://cran.us.r-project.org")
 devtools:::install_version("miniUI", version = "0.1.1", repos = "http://cran.us.r-project.org")
 devtools:::install_version("tsne", version = "0.1-3.1", repos = "http://cran.us.r-project.org")
+devtools:::install_version("factoextra", version = "1.0.7", repos = "http://cran.us.r-project.org")
 devtools:::install_version("gt", version = "0.6.0", repos = "http://cran.us.r-project.org")
 devtools:::install_version("ggsignif", version = "0.6.3", repos = "http://cran.us.r-project.org")
 devtools:::install_version("broom", version = "1.0.0", repos = "http://cran.us.r-project.org")
