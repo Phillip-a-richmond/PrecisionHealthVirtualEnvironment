@@ -429,18 +429,18 @@ as_tibble(data.frame(names = names(biomarkers),
 
 ```
 ## # A tibble: 10 × 2
-##    names    pvalues
-##    &lt;chr&gt;      &lt;dbl&gt;
-##  1 gene646 0.000225
-##  2 gene345 0.000709
-##  3 gene649 0.00121 
-##  4 gene407 0.00146 
-##  5 gene128 0.00254 
-##  6 gene308 0.00885 
-##  7 gene291 0.00931 
-##  8 gene140 0.0105  
-##  9 gene873 0.0110  
-## 10 gene920 0.0118
+##    names     pvalues
+##    &lt;chr&gt;       &lt;dbl&gt;
+##  1 gene765 0.0000167
+##  2 gene762 0.000885 
+##  3 gene498 0.00211  
+##  4 gene965 0.00371  
+##  5 gene84  0.00377  
+##  6 gene75  0.00552  
+##  7 gene796 0.00593  
+##  8 gene961 0.00764  
+##  9 gene294 0.00958  
+## 10 gene536 0.00996
 ```
 ]
 
@@ -473,7 +473,7 @@ cv$auc
 ```
 ## $comp1
 ## AUC.mean   AUC.sd 
-##   0.8888       NA
+##    0.902       NA
 ```
 
 ]
@@ -494,7 +494,7 @@ cv$auc
 ```
 ## $comp1
 ## AUC.mean   AUC.sd 
-##   0.5456       NA
+##   0.6504       NA
 ```
 
 ]
@@ -537,7 +537,7 @@ pROC::auc(group[unlist(cvIndex)], unlist(predictions), plot = TRUE)
 &lt;img src="slides_files/figure-html/unnamed-chunk-16-1.png" width="60%" /&gt;
 
 ```
-## Area under the curve: 0.5096
+## Area under the curve: 0.5036
 ```
 ]
 
