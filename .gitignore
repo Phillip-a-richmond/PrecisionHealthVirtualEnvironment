@@ -88,13 +88,6 @@ Workshops/omics_exploration/.DS_Store
 Workshops/omics_exploration/.Rhistory
 Workshops/omics_exploration/.Rproj.user
 Workshops/omics_exploration/slides/.DS_Store
-<<<<<<< HEAD
-
-# Biomarker discovery
-Workshops/biomarker_discovery/.DS_Store
-Workshops/biomarker_discovery/.Rhistory
-Workshops/biomarker_discovery/.Rproj.user
-Workshops/biomarker_discovery/slides/.DS_Store
 Workshops/omics_exploration/.cache/
 Workshops/omics_exploration/.config/
 Workshops/omics_exploration/.local/
@@ -104,3 +97,13 @@ Workshops/omics_exploration/output.txt
 Workshops/omics_exploration/slides/iris.txt
 Workshops/omics_exploration/slides/libs/header-attrs-2.14/
 Workshops/omics_exploration/slides/phate.csv
+Workshops/omics_exploration/R_Libs_4.1.0/
+Workshops/omics_exploration/cache/
+
+# Biomarker discovery
+Workshops/biomarker_discovery/.config/
+Workshops/biomarker_discovery/.local/
+Workshops/biomarker_discovery/R_Libs_4.1.0/
+Workshops/biomarker_discovery/cache/
+Workshops/biomarker_discovery/connection_3977362.pbsha.ib.sockeye.txt
+Workshops/biomarker_discovery/slides/libs/header-attrs-2.14/

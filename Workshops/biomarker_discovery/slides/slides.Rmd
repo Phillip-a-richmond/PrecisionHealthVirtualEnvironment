@@ -21,13 +21,14 @@ knitr::opts_chunk$set(python.reticulate = FALSE)
 library(dplyr)
 library(ggplot2)
 library(mixOmics)
+library(ggvenn)
 
 # helper functions
 make_heatmap = function(X, y, panel){
   X = scale(X[, panel])
   X[which(X < -2)] <- -2
   X[which(X > 2)] <- 2
-  NMF::aheatmap(X, annRow = list(subtype = y))
+  gplots::heatmap.2(X, RowSideColors=mixOmics::color.mixo(factor(y)), key=TRUE)
 }
 ```
 
@@ -270,11 +271,12 @@ class: center
 library(ggvenn)
 p <- ggvenn(
   list(biomarker_diff_panel = names(biomarker_diff_panel),
-       biomarker_splsda_panel = biomarker_splsda_panel), 
+       biomarker_splsda_panel = biomarker_splsda_panel),
   fill_color = c("#0073C2FF", "#EFC000FF"),
   stroke_size = 0.5, set_name_size = 2
   )
 p
+
 ```
 
 ---
@@ -373,71 +375,71 @@ Accuracy: `r round(sum(diag(splsda_test))/sum(splsda_test), 2)` and Balanced Acc
 
 ## K-fold cross validation  (CV)
 
-.center[<img src ="img/cv/Slide1.png" alt="cv_slide1", width="100%"/>]
+.center[<img src ="img/cv/Slide1.png" alt="cv_slide1", width="90%"/>]
 
 ---
 
 ## K-fold cross validation  (4-fold CV)
 
-.center[<img src ="img/cv/Slide2.png" alt="cv_slide2", width="100%"/>]
+.center[<img src ="img/cv/Slide2.png" alt="cv_slide2", width="90%"/>]
 
 ---
 
 ## K-fold cross validation  (4-fold CV)
 
-.center[<img src ="img/cv/Slide3.png" alt="cv_slide3", width="100%"/>]
-
----
-
-## K-fold cross validation  (4-fold CV)
-* Note: many approaches can be used to create the final model
-.center[<img src ="img/cv/Slide4.png" alt="cv_slide4", width="100%"/>]
+.center[<img src ="img/cv/Slide3.png" alt="cv_slide3", width="90%"/>]
 
 ---
 
 ## K-fold cross validation  (4-fold CV)
 * Note: many approaches can be used to create the final model
-.center[<img src ="img/cv/Slide5.png" alt="cv_slide5", width="100%"/>]
-
+.center[<img src ="img/cv/Slide4.png" alt="cv_slide4", width="90%"/>]
 
 ---
 
 ## K-fold cross validation  (4-fold CV)
 * Note: many approaches can be used to create the final model
-.center[<img src ="img/cv/Slide6.png" alt="cv_slide6", width="100%"/>]
+.center[<img src ="img/cv/Slide5.png" alt="cv_slide5", width="90%"/>]
 
 
 ---
 
 ## K-fold cross validation  (4-fold CV)
 * Note: many approaches can be used to create the final model
-.center[<img src ="img/cv/Slide7.png" alt="cv_slide7", width="100%"/>]
+.center[<img src ="img/cv/Slide6.png" alt="cv_slide6", width="90%"/>]
 
 
 ---
 
 ## K-fold cross validation  (4-fold CV)
 * Note: many approaches can be used to create the final model
-.center[<img src ="img/cv/Slide8.png" alt="cv_slide8", width="100%"/>]
+.center[<img src ="img/cv/Slide7.png" alt="cv_slide7", width="90%"/>]
 
 
 ---
 
 ## K-fold cross validation  (4-fold CV)
 * Note: many approaches can be used to create the final model
-.center[<img src ="img/cv/Slide9.png" alt="cv_slide9", width="100%"/>]
+.center[<img src ="img/cv/Slide8.png" alt="cv_slide8", width="90%"/>]
+
 
 ---
 
 ## K-fold cross validation  (4-fold CV)
 * Note: many approaches can be used to create the final model
-.center[<img src ="img/cv/Slide10.png" alt="cv_slide10", width="100%"/>]
+.center[<img src ="img/cv/Slide9.png" alt="cv_slide9", width="90%"/>]
 
 ---
 
 ## K-fold cross validation  (4-fold CV)
 * Note: many approaches can be used to create the final model
-.center[<img src ="img/cv/Slide11.png" alt="cv_slide11", width="100%"/>]
+.center[<img src ="img/cv/Slide10.png" alt="cv_slide10", width="90%"/>]
+
+---
+
+## K-fold cross validation  (4-fold CV)
+* Note: many approaches can be used to create the final model
+.center[<img src ="img/cv/Slide11.png" alt="cv_slide11", width="90%"/>]
 
 ---
 
