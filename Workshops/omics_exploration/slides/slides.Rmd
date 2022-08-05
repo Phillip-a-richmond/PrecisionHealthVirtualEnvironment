@@ -16,17 +16,13 @@ output:
 
 ```{r, echo=F, message=F, warning=F}
 ## load libraries
-# knitr::opts_chunk$set(python.reticulate = FALSE)
-
 library(dplyr)
 library(ggplot2)
-# library(mixOmics)
-
 library(factoextra)
 library(tsne)
 library(GGally)
 library(gt)
-library(emo)  #install.packages("devtools"); devtools::install_github("hadley/emo")
+library(emo)
 ```
 
 
@@ -365,7 +361,7 @@ class: center
 
 ```{r, echo=FALSE, message=F, warning=F, out.width="40%"}
 p <- ggpairs(iris, mapping = aes(color = Species), columns = c("Sepal.Length", "Sepal.Width", "Petal.Length", "Petal.Width" ))
-print(p, progress = F)
+print(p)
 ```
 
 ---
@@ -408,7 +404,8 @@ fviz_pca_var(pca.res, labelsize = 7) +
 
 ```{r, out.width="40%", fig.align="center"}
 fviz_pca_biplot(pointsize = 2.5,
-  pca.res, geom = "point", col.ind = y,
+  pca.res, col.ind = y,
+  repel = TRUE,  label="all",
   labelsize = 8, col.var = "#c07d44") +
   coord_fixed() + ggtitle("") +
   ylim(-4.5, 4.5) + xlim(-5, 5) +
@@ -472,7 +469,7 @@ Key takeaways
 ## Apply tSNE to IRIS
 
 .pull-left[
-```{r, message=F, warning=F, eval=F}
+```{r, message=F, warning=F}
 neighbours <- c(5, 25, 35, 50)
 
 tsne_all <- lapply(neighbours, function(i){
@@ -496,7 +493,7 @@ p <- tsne_all %>%
 ]
 
 .pull-right[
-```{r, echo=F, eval=F}
+```{r, echo=F}
 p
 ```
 ]
@@ -542,14 +539,12 @@ GLM-PCA dimension reduction is not affected by unwanted fraction of zeros variab
 ## PHATE
 
 .pull-left[
-```{r, echo=F}
+```{r}
 write.table(iris, "iris.txt", sep="\t", row.names = F)
-# library(reticulate)
-# use_python('/usr/local/bin/python3')
 ```
 
 
-```{python, eval=F}
+```{python}
 import os
 import pandas as pd
 import numpy as np
@@ -557,8 +552,6 @@ import phate # https://github.com/KrishnaswamyLab/PHATE
 
 # import data
 data = pd.read_csv("iris.txt", sep="\t")
-print(data.head())
-print("dims: ", data.shape)
 
 # run PHATE
 phate_op = phate.PHATE()
@@ -566,7 +559,7 @@ data_phate = phate_op.fit_transform(data.iloc[:,1:4])
 np.savetxt("phate.csv", data_phate, delimiter=",")
 ```
 
-```{r, eval=F}
+```{r}
 library(dplyr)
 library(ggplot2)
 
@@ -578,7 +571,7 @@ phate <- read.csv("phate.csv", header = FALSE)
 
 
 .pull-right[
-```{r, out.width="70%", eval=F}
+```{r, out.width="70%"}
 phate %>% 
   mutate(Species = iris$Species) %>% 
   ggplot(aes(x = V1, y = V2, color = Species)) +

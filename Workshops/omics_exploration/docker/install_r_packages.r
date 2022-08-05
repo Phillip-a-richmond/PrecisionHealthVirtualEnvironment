@@ -2,8 +2,9 @@
 install.packages("devtools")
 require("devtools")
 
-
+devtools:::install_version("caret", version = "6.0-92", repos = "http://cran.us.r-project.org")
 devtools:::install_version("fontawesome", version = "0.2.2", repos = "http://cran.us.r-project.org")
+devtools:::install_version("factoextra", version = "1.0.7", repos = "http://cran.us.r-project.org")
 devtools:::install_version("gplots", version = "3.1.1", repos = "http://cran.us.r-project.org")
 devtools::install_version("ggplot2", version = "3.3.1", repos = "http://cran.us.r-project.org")
 devtools::install_version("dplyr", version = "1.0.0", repos = "http://cran.us.r-project.org")
@@ -12,6 +13,11 @@ devtools:::install_version("xaringan", version = "0.25", repos = "http://cran.us
 devtools:::install_version("miniUI", version = "0.1.1", repos = "http://cran.us.r-project.org")
 devtools:::install_version("tsne", version = "0.1-3.1", repos = "http://cran.us.r-project.org")
 devtools:::install_version("gt", version = "0.6.0", repos = "http://cran.us.r-project.org")
+devtools:::install_version("ggsignif", version = "0.6.3", repos = "http://cran.us.r-project.org")
+devtools:::install_version("broom", version = "1.0.0", repos = "http://cran.us.r-project.org")
+devtools:::install_version("data.table", version = "1.14.2", repos = "http://cran.us.r-project.org")
+devtools:::install_version("carData", version = "3.0-5", repos = "http://cran.us.r-project.org")
+devtools:::install_version("abind", version = "1.4-5", repos = "http://cran.us.r-project.org")
 devtools::install_github("hadley/emo")
 devtools::install_github("ggobi/ggally")
 
