@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Omics data exploration</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Amrit Singh, PhD Department of Anesthesiology, Pharmacology and Therapeutics, UBC  Centre for Heart Lung Innovation" />
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/middlebury-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="theme.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, my-title, title-slide
+
+.title[
+# Omics data exploration
+]
+.author[
+### Amrit Singh, PhD<br><span style="font-size: 65%;">Department of Anesthesiology, Pharmacology and Therapeutics, UBC<br> Centre for Heart Lung Innovation</span>
+]
+.date[
+### August 05, 2022 | 09:00-11:00<br><br><svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg> <a href="https://cbl-hli.github.io/">lab</a><br><svg aria-hidden="true" role="img" viewBox="0 0 496 512" style="height:1em;width:0.97em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg> <a href="https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Workshops">code</a><br><svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg> <a href="https://twitter.com/asingh_22g">asingh_22g</a>
+]
+
+---
+
+
+
+
+
+background-image: url(img/la.svg)
+
+---
+background-image: url(img/cc.svg)
+
+---
+
+class: middle
+
+# Learning outcomes
+
+### 1. Appreciate the importance exploratory data analysis (EDA) of omics data as a pre-requiste for any research study
+### 2. Use R/Python to apply standard EDA techniques to omics data to find biological or technical factors that may affect omics data
+### 3. Differentiate between clustering and dimension reduction techniques and know when to use what.
+
+---
+
+# Create singularity image with RStudio and Python
+
+.pull-left[
+## install [docker](https://docs.docker.com/get-docker/)
+
+
+```bash
+*docker --version
+```
+
+## install [Go compiler](https://go.dev/doc/install)
+
+
+```bash
+*go --version
+```
+
+Note:
+
+**instructions are for Mac**
+]
+
+.pull-right[
+## install [singularity](https://github.com/apptainer/singularity/blob/master/INSTALL.md)
+
+```bash
+## clone git repo
+git clone https://github.com/hpcng/singularity.git
+cd singularity
+
+## checkout specific commit
+git checkout v3.8.4
+
+## configure, build and install Singularity
+./mconfig
+cd ./builddir
+make
+sudo make install
+
+## check singularity version
+*singularity --version
+```
+]
+
+---
+
+class: center, top
+
+&lt;img src="img/motivation_papers1.png" width="80%" /&gt;
+
+---
+
+class: center, top
+
+&lt;img src="img/motivation_papers2.png" width="80%" /&gt;
+
+???
+
+An integrated genomic-based approach to individualized treatment of patients with advanced-stage ovarian cancer.
+identified a set of genes that could differentiate between patients who did (CR) and did not (NR) respond to primary platinum-based chemotherapy.Then, following Bild et al,2 they scored each tumor for the levels of five different oncogenic pathways. They reported that three pathways (Src, E2F3, and Myc) stratify the NRs into subgroups with significantly different survival characteristics, suggesting how further therapies might be targeted for these patients.
+
+Some Problems: 1) response and survival are confounded by run date (when samples were ran), 2) changes in survival status found (patients shifted from alive to dead, vice-versa).
+Why does date matter? Change in reagents, technicians, freezers may have changed etc.
+
+Common genetic variants account for differences in gene expression among ethnic groups (found 78% of the genes were differentially expression between ethnic groups (European/Asians)) confounded with run date
+
+Genetic signatures of exceptional longevity in humans: found snps predictive of old (100 years) age. Younger and older people were run on different genotyping platforms.
+
+---
+
+&lt;img src="img/human_mouse_tissues.png" width="80%" /&gt;
+
+???
+
+The original paper, published in the Proceedings of the National Academy of Sciences (PNAS) by members of the Mouse ENCODE (Encyclopedia of DNA Elements) consortium, compared gene-expression profiles from selected tissues in mice and humans. The authors concluded that specific tissues in mice had more in common with other mouse tissues than with the same tissue in humans.
+
+Dr. Gilad shows this what confounded with batch (run date). After correcting for batch the tissues (mouse/human) clustered together.
+
+---
+
+## Gene names
+
+.pull-left[
+&lt;img src="img/gene_name_errors.png" width="960" /&gt;
+]
+.pull-right[
+![](img/omics_data.gif)&lt;!-- --&gt;
+
+* [source](https://robaboukhalil.medium.com/how-to-fix-excels-gene-to-date-conversion-5c98d0072450)
+]
+???
+
+Details:
+Looked in the 35,175 supplementary files of18 journals (2005-2015) across many species (drosophila, h.sapeins, mouse) – 7,467 associated with 3,597 published papers
+Problem is getting worse
+Gene name errors increased at an annual rate of 15% whereas the increase in the publication rate is 3.8%/year (but does Figure b above have equal number of papers per year?)
+
+---
+
+# What does processed omics data look like?
+
+&lt;img src="img/omics_data.png" width="2952" /&gt;
+
+* data pre-processing is specific for each omics data modality and is beyond the scope of this workshop.
+
+---
+
+# What are the characteristics of omics data?
+
+.center[&lt;img src ="img/omics_data_class.png" alt="Omics data class", width="90%"/&gt;]
+???
+
+obsm: metadata for observations
+
+obsp: pariwise annotation of observations
+
+varm: metadata for observations
+
+varp: pariwise annotation of observations
+
+variables = features
+
+observations = samples
+
+
+---
+
+# Terminology review
+
+| Term      | Synonym | Description
+| ----------- | ----------- |
+| Variable      | feature, dimension       | a measurable quantity that describes an observation's attributes. *e.g.* age, sex, gene, protein abundance, single nucleotide variants, operational taxonomic units, pixels etc. 
+| Observation   | sample, observation, assay, array | A single entity belonging to a larger grouping. *e.g.* patients, subjects, participants, cells, mice. 
+| component | factors, latent variable | 
+
+---
+
+# Make a fake dataset with some outliers
+
+* 100 samples (observations), 1000 genes (variables)
+* add 5 outlier samples
+
+
+```r
+n_total &lt;- 100; p_total &lt;- 1000; 
+
+set.seed(1)
+n_pcs=2
+sigma &lt;- matrix(c(1, 0.6, 0.6, 1), nr = n_pcs)
+pcs &lt;- matrix(rnorm(n_pcs * n_total), nc = n_pcs)
+pcs &lt;- (pcs %*% chol(sigma)) 
+pcs[1:5,] &lt;- pcs[1:5,]+5
+X &lt;- pcs %*% matrix(rnorm(n_pcs * p_total), nr = n_pcs)
+# X[1:5, ] &lt;- scale(X[1:5, ] + rnorm(p_total, mean=2, sd=3))
+rownames(X) &lt;- paste0("Sample", 1:nrow(X)) 
+colnames(X) &lt;- paste0("Gene", 1:ncol(X))
+X &lt;- data.frame(X)
+
+X[1:5,1:5]
+```
+
+```
+##             Gene1    Gene2      Gene3    Gene4    Gene5
+## Sample1  8.761927 5.573085  0.3153502 5.151954 2.047040
+## Sample2 10.809552 6.522159  1.0018223 6.242355 2.554477
+## Sample3  8.071760 5.359659 -0.1006712 4.818653 1.867250
+## Sample4 12.974535 8.450888  0.1229828 7.692703 3.014918
+## Sample5 10.075766 6.909060 -0.5050180 6.085318 2.312853
+```
+* [Cholesky Decomposition](https://towardsdatascience.com/behind-the-models-cholesky-decomposition-b61ef17a65fb)
+
+---
+
+# How can we identify which samples/variables are outliers?
+
+.pull-left[
+## boxplots
+
+```r
+boxplot(t(X))
+```
+
+&lt;img src="slides_files/figure-html/unnamed-chunk-12-1.png" width="70%" /&gt;
+
+]
+
+.pull-right[
+## SPLOM plots (Scatter plot matrix)
+
+```r
+pairs(X[,sample(ncol(X), 5)])
+```
+
+&lt;img src="slides_files/figure-html/unnamed-chunk-13-1.png" width="70%" /&gt;
+]
+
+---
+
+# How can we identify which samples/variables are outliers?
+
+## correlation matrix
+.pull-left[
+
+```r
+par(mar=c(1,1,1,1))
+gplots::heatmap.2(cor(t(X)), margins = c(1,1), trace = "none")
+```
+
+&lt;img src="slides_files/figure-html/unnamed-chunk-14-1.png" width="70%" /&gt;
+]
+
+.pull-right[
+
+## other heatmap functions
+* [ComplexHeatmap](https://jokergoo.github.io/ComplexHeatmap-reference/book/)
+* [NMF::aheatmap()](https://jokergoo.github.io/ComplexHeatmap-reference/book/)
+* [mixOmics::cim()](https://rdrr.io/cran/mixOmics/man/cim.html)
+* [seaborn.heatmap()](https://seaborn.pydata.org/generated/seaborn.heatmap.html)
+* [scanpy.pl.heatmap()](https://scanpy.readthedocs.io/en/stable/generated/scanpy.pl.heatmap.html)
+
+]
+
+---
+
+class: center, middle
+
+# How to get something like this?
+
+![](slides_files/figure-html/unnamed-chunk-15-1.png)&lt;!-- --&gt;
+
+---
+
+# Dimension reduction (DR) methods
+
+.center[&lt;img src ="img/dm.png" alt="Omics data class", width="90%"/&gt;]
+
+* [Ten quick tips for effective dimensionality reduction](https://journals.plos.org/ploscompbiol/article/comment?id=10.1371/annotation/894302e5-1622-41bd-af48-c3aa27bff7d5)
+
+---
+
+.right[&lt;img src ="img/susan_holmes.png" alt="Susan Holmes", width="10%"/&gt;]
+.center[&lt;img src ="img/dm_tips.png" alt="dm paper", width="100%"/&gt;]
+
+---
+
+## 1) Choose an appropriate DM method
+&lt;!-- * depends on nature of data --&gt;
+&lt;!-- * linear methods model global structure whereas non-linear are focused on modelling local structure --&gt;
+
+.center[&lt;img src ="img/pca_tsne_phate.png" alt="pca_tsne_phate", width="100%"/&gt;]
+- **PCA**: linear method, reduces noise by transforming data, fits ellipsoid to data (models global structure) - can apply to any data
+- **tSNE**: non-linear method, models local structure (distance between clusters is meaningless) - commonly used for single cell data
+- **PHATE**: non-linear method: models both local and global structure; useful to model differentiation trajectories
+
+---
+
+## Principal Component Analysis (PCA): PC&lt;sub&gt;*nxk*&lt;/sub&gt; = X&lt;sub&gt;*nxp*&lt;/sub&gt;V&lt;sub&gt;*pxk*&lt;/sub&gt;
+
+.center[&lt;img src ="img/pca.png" alt="PCA", width="90%"/&gt;]
+
+- transform X which contains 3 variables (Gene 1-3) into PC which contain 2 variables (PC1-2)
+
+[Genius blog](https://kindsonthegenius.com/blog/dimensionality-reduction-and-principal-component-analysis-pca/)
+
+---
+
+## Principal Component Analysis (PCA): PC&lt;sub&gt;*nxk*&lt;/sub&gt; = X&lt;sub&gt;*nxp*&lt;/sub&gt;V&lt;sub&gt;*pxk*&lt;/sub&gt;
+
+.center[&lt;img src ="img/pca_eset.png" alt="pca_eset", width="65%"/&gt;]
+[Nature Methods volume 14, pages 641–642 (2017)](https://www.nature.com/articles/nmeth.4346)
+
+---
+
+## Singular Value Decomposition: X&lt;sub&gt;*nxn*&lt;/sub&gt; = U&lt;sub&gt;*nxk*&lt;/sub&gt;D&lt;sub&gt;*kxk*&lt;/sub&gt;V&lt;sup&gt;T&lt;/sup&gt;&lt;sub&gt;*kxp*&lt;/sub&gt;
+
+
+```r
+?prcomp
+methods(prcomp)
+```
+
+```
+## [1] prcomp.default* prcomp.formula*
+## see '?methods' for accessing help and source code
+```
+
+
+```r
+getAnywhere(prcomp.default)
+```
+
+&gt; s &lt;- svd(x, nu = 0, nv = k)
+
+&gt; r$x &lt;- x %*% s$v
+
+### Properties
+
+- D is a diagnoal matrix containing the variances associated with each PC.
+- the proportion of variation explained is a useful measure of how well PCA summarizes your data.
+- assumes that data is centered (subtract the mean value of each variable from all values of that variable)
+- PCs are uncorrelated
+
+---
+
+class: center
+
+## Edgar Anderson's Iris Data
+
+.left[?iris: This famous (Fisher's or Anderson's) iris data set gives the measurements in centimeters of the variables sepal length and width and petal length and width, respectively, for 50 flowers from each of 3 species of iris. The species are Iris setosa, versicolor, and virginica.]
+
+&lt;img src="slides_files/figure-html/unnamed-chunk-18-1.png" width="40%" /&gt;
+
+---
+
+## Apply PCA to IRIS
+
+
+```r
+X &lt;- iris[, setdiff(colnames(iris), "Species")]
+y &lt;- iris$Species
+
+pca.res &lt;- pca(X, ncomp = 2, scale = TRUE)
+pca.res
+```
+
+```
+##   Eigenvalues for the first 2 principal components, see object$sdev^2: 
+##       PC1       PC2 
+## 2.9184978 0.9140305 
+##   
+##   Proportion of  explained variance for the first 2 principal components, see object$prop_expl_var: 
+##       PC1            PC2      
+## 0.7296245      0.2285076      
+##   
+##   Cumulative proportion of  explained variance for the first 2 principal components, see object$cum.var: 
+##       PC1            PC2      
+## 0.7296245      0.9581321      
+##   
+##   Other available components: 
+##  -------------------- 
+##   loading vectors: see object$rotation 
+##   Other functions: 
+##  -------------------- 
+##   plotIndiv, plot, plotVar, selectVar, biplot
+```
+
+? first 2 PCs explain 95% of the variation in the data. 😮
+
+---
+
+## Plot samples: Component plot
+
+
+```r
+plotIndiv(pca.res, group=y, legend=TRUE)
+```
+
+&lt;img src="slides_files/figure-html/unnamed-chunk-20-1.png" width="40%" style="display: block; margin: auto;" /&gt;
+---
+
+## Plot variables: Correlation circle
+
+
+```r
+plotVar(pca.res)
+```
+
+&lt;img src="slides_files/figure-html/unnamed-chunk-21-1.png" width="40%" style="display: block; margin: auto;" /&gt;
+
+[BioData Min. 2012 Nov 13;5(1):19.](https://pubmed.ncbi.nlm.nih.gov/23148523/)
+
+---
+
+## biplot: plot observations and variables
+
+
+```r
+biplot(pca.res)
+```
+
+```
+## Warning: ggrepel: 2 unlabeled data points (too many overlaps). Consider
+## increasing max.overlaps
+```
+
+&lt;img src="slides_files/figure-html/unnamed-chunk-22-1.png" width="40%" style="display: block; margin: auto;" /&gt;
+---
+
+## Sanity check
+
+### Sepal length is great for flower 132 as compared to flower 42
+
+
+```r
+rbind(iris[42,], iris[132,]) %&gt;% 
+  mutate(flower = rownames(.)) %&gt;% 
+  gt() %&gt;% 
+  tab_style(
+    style = list(
+      cell_fill(color = "lightcyan"),
+      "font-variant: small-caps;"
+    ),
+    locations = cells_body(columns = Sepal.Length)
+  )
+```
+
+<div id="ctwaypvtzk" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#ctwaypvtzk .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#ctwaypvtzk .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#ctwaypvtzk .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#ctwaypvtzk .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#ctwaypvtzk .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ctwaypvtzk .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#ctwaypvtzk .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#ctwaypvtzk .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#ctwaypvtzk .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#ctwaypvtzk .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#ctwaypvtzk .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#ctwaypvtzk .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#ctwaypvtzk .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#ctwaypvtzk .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#ctwaypvtzk .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#ctwaypvtzk .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#ctwaypvtzk .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ctwaypvtzk .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#ctwaypvtzk .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#ctwaypvtzk .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ctwaypvtzk .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#ctwaypvtzk .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#ctwaypvtzk .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ctwaypvtzk .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ctwaypvtzk .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#ctwaypvtzk .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#ctwaypvtzk .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ctwaypvtzk .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#ctwaypvtzk .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ctwaypvtzk .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#ctwaypvtzk .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ctwaypvtzk .gt_left {
+  text-align: left;
+}
+
+#ctwaypvtzk .gt_center {
+  text-align: center;
+}
+
+#ctwaypvtzk .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#ctwaypvtzk .gt_font_normal {
+  font-weight: normal;
+}
+
+#ctwaypvtzk .gt_font_bold {
+  font-weight: bold;
+}
+
+#ctwaypvtzk .gt_font_italic {
+  font-style: italic;
+}
+
+#ctwaypvtzk .gt_super {
+  font-size: 65%;
+}
+
+#ctwaypvtzk .gt_two_val_uncert {
+  display: inline-block;
+  line-height: 1em;
+  text-align: right;
+  font-size: 60%;
+  vertical-align: -0.25em;
+  margin-left: 0.1em;
+}
+
+#ctwaypvtzk .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 75%;
+  vertical-align: 0.4em;
+}
+
+#ctwaypvtzk .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#ctwaypvtzk .gt_slash_mark {
+  font-size: 0.7em;
+  line-height: 0.7em;
+  vertical-align: 0.15em;
+}
+
+#ctwaypvtzk .gt_fraction_numerator {
+  font-size: 0.6em;
+  line-height: 0.6em;
+  vertical-align: 0.45em;
+}
+
+#ctwaypvtzk .gt_fraction_denominator {
+  font-size: 0.6em;
+  line-height: 0.6em;
+  vertical-align: -0.05em;
+}
+</style>
+<table class="gt_table">
+  
+  <thead class="gt_col_headings">
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">Sepal.Length</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">Sepal.Width</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">Petal.Length</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">Petal.Width</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1">Species</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">flower</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td class="gt_row gt_right" style="background-color: #E0FFFF; font-variant:  small-caps;">4.5</td>
+<td class="gt_row gt_right">2.3</td>
+<td class="gt_row gt_right">1.3</td>
+<td class="gt_row gt_right">0.3</td>
+<td class="gt_row gt_center">setosa</td>
+<td class="gt_row gt_left">42</td></tr>
+    <tr><td class="gt_row gt_right" style="background-color: #E0FFFF; font-variant:  small-caps;">7.9</td>
+<td class="gt_row gt_right">3.8</td>
+<td class="gt_row gt_right">6.4</td>
+<td class="gt_row gt_right">2.0</td>
+<td class="gt_row gt_center">virginica</td>
+<td class="gt_row gt_left">132</td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+
+
+---
+
+## PCA fails in non-linear settings: *eg.* single cell omics
+
+.center[&lt;img src ="img/pca_assumptions.png" alt="pca_assumptions", width="85%"/&gt;]
+
+[Nature Methods volume 14, pages 641–642 (2017)](https://www.nature.com/articles/nmeth.4346)
+
+---
+
+## t-SNE (t-distributed Stochastic Neighbourhood Embedding)
+
+Goal: preserve distances between points in a neighbourhood (controlled by the perplexity) in a lower dimensional space.
+
+
+```r
+?tsne
+```
+
+- P = pairwise probabilities between observations given expected number of neighbours using a Gaussian distribution
+- Q = pairwise probabilities of randomly generated observations in lower dimensions using a t-distribution with 1 degree of freedom
+- use Kullback-Leibler (KL) divergence loss to minimize loss and update lower bound (Q)
+- update randomly generated point using gradient descent using derivative of KL loss
+
+Key takeaways
+1. Value of perplexity affects clustering (recommended range between 5-50)
+2. cluster size (spread of points in a cluster) CANNOT be interpreted
+3. distance between clusters CANNOT be interpreted
+
+[How to use t-SNE effectively](https://distill.pub/2016/misread-tsne/)
+[StatQuest: t-SNE, Clearly Explained](https://www.youtube.com/watch?v=NEaUSP4YerM)
+[tSNE math explained](https://towardsdatascience.com/t-sne-clearly-explained-d84c537f53a)
+
+---
+
+## Apply tSNE to IRIS
+
+.pull-left[
+
+```r
+neighbours &lt;- c(5, 25, 35, 50)
+
+tsne_all &lt;- lapply(neighbours, function(i){
+  dims &lt;- as.data.frame(tsne(iris[, setdiff(colnames(iris), "Species")], k = 2, perplexity = i))
+  dims$perplexity &lt;- factor(i)
+  dims$Species &lt;- iris$Species
+  dims
+}) %&gt;% 
+  do.call(rbind, .)
+
+p &lt;- tsne_all %&gt;% 
+  ggplot(aes(x = V1, y = V2, color = Species)) +
+  geom_point()+
+  facet_wrap(~perplexity, scales = "free") +
+  xlab("Dim 1") +
+  ylab("Dim 2") +
+  theme_classic()
+```
+]
+
+.pull-right[
+
+
+]
+
+---
+
+## Apply PCA+tSNE to single cell data
+
+.center[&lt;img src ="img/glmpca1.png" alt="GLM-PCA1", width="55%"/&gt;]
+
+[Genome Biol. 2019 Dec 23;20(1):295.](https://pubmed.ncbi.nlm.nih.gov/31870412/)
+
+???
+Current approaches to normalization and transformation induce variability in the fraction of zeros across cells to become the largest source of variability which in turn biases clustering algorithms to produce false-positive results based on distorted latent factors. a First principal component (PC) from the technical replicates dataset plotted against fraction of zeros for each cell. A red to blue color scale represents total UMIs per cell. b As a but for the monocytes biological replicates data. c Using the technical replicates, we applied t-distributed stochastic neighbor embedding (tSNE) with perplexity 30 to the top 50 PCs computed from log-CPM. The first 2 tSNE dimensions are shown with a blue to red color scale representing the fraction of zeros. d As c but for the biological replicates data. Here, we do not expect to find differences, yet we see distorted latent factors being driven by the total UMIs. PCA was applied to 5000 random genes
+
+---
+
+## GLM-PCA
+
+.pull-left[
+.center[&lt;img src ="img/glmpca2.png" alt="GLM-PCA2", width="100%"/&gt;]
+
+[Genome Biol. 2019 Dec 23;20(1):295.](https://pubmed.ncbi.nlm.nih.gov/31870412/)
+]
+
+.pull-right[
+SCTransform in Seurat:
+
+*In particular, two recent studies proposed to use generalized linear models (GLMs), where cellular sequencing depth was included as a covariate, as part of scRNA-seq preprocessing workflows. Our **sctransform** approach utilizes the Pearson residuals from negative binomial regression as input to standard dimensional reduction techniques, while **GLM-PCA** focuses on a generalized version of principal component analysis (PCA) for data with Poisson-distributed errors.*
+
+[Genome Biol. 2019;20(1):296.](https://pubmed.ncbi.nlm.nih.gov/31870423/)
+
+[Genome Biol. 2022; 23: 27.](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8764781/#CR9)
+
+]
+
+
+???
+GLM-PCA dimension reduction is not affected by unwanted fraction of zeros variability and avoids false-positive results. a First GLM-PCA dimension (analogous to the first principal component) plotted against the fraction of zeros for the technical replicates with colors representing the total UMIs. b As a but using monocytes biological replicates. c Using the technical replicates, we applied t-distributed stochastic neighbor embedding (tSNE) with perplexity 30 to the top 50 GLM-PCA dimensions. The first 2 tSNE dimensions are shown with a blue to red color scale representing the fraction of zeros. d As c but for the biological replicates data. GLM-PCA using the Poisson approximation to the multinomial was applied to the same 5000 random genes as in Fig. 3
+
+---
+
+## PHATE
+
+
+```r
+write.table(iris, "iris.txt", sep="\t", row.names = F)
+```
+
+
+
+```python3
+import os
+import pandas as pd
+import numpy as np
+import phate # https://github.com/KrishnaswamyLab/PHATE
+
+# import data
+data = pd.read_csv("slides/iris.txt", sep="\t")
+print(data.head())
+print("dims: ", data.shape)
+
+# run PHATE
+phate_op = phate.PHATE()
+data_phate = phate_op.fit_transform(data.iloc[:,1:4].T)
+np.savetxt("slides/phate.csv", data_phate, delimiter=",")
+```
+
+
+
+---
+
+## 10 Tips for effective DR
+
+.pull-left[
+### 1) Choose an appropriate DM method
+&lt;!-- * depends on nature of data --&gt;
+&lt;!-- * linear methods model global structure whereas non-linear are focused on modelling local structure --&gt;
+
+### 2) Preprocess input data
+&lt;!-- * center each variable: center of the data cloud is the new origin --&gt;
+&lt;!-- * scaling: makes the standard deviation of each variable equal to 1 such that each variable contributes equally when using DR methods that maximize variance --&gt;
+
+### 3) Handle categorical input data 
+&lt;!-- * CA/MCA for data with categorical variables --&gt;
+&lt;!-- * think of MCA as converting categorical data to numeric and using similar factorization methods (SVD) with eigenvalue correction; see details (https://personal.utdallas.edu/~herve/Abdi-MCA2007-pretty.pdf) and ade4::mcoa(). --&gt;
+&lt;!-- * or apply variable transformation before PCA (binary variables, optimal scaling) --&gt;
+
+### 4) Use DR methods for similiarity/dissimilarity matrices
+&lt;!-- * DR methods are also recommend when data on original variables is not present --&gt;
+
+### 5) Decide on number of dimensions to retain
+&lt;!-- * PCA: use eigenvalues to guide # of dimensions to keep --&gt;
+&lt;!-- * t-SNE: use # of dims that minimizes the KL divergence loss --&gt;
+
+]
+
+.pull-right[
+### 6) Apply the correct aspect ratio to plots
+&lt;!-- * PCA: resize axes based on proportion of variability explained --&gt;
+&lt;!-- * t-SNE: each dimension has an equal weight so therefore square plots will suffice --&gt;
+
+### 7) What do the new dimensions mean?
+&lt;!-- * some DR methods such as PCA produce interpretable visualizations (component plots, correlation circle, biplots) --&gt;
+
+### 8) Find the hidden signal
+&lt;!-- * DR methods such as PCA can be used reduce noise, e.g. use top 50 PCs and apply t-SNE as in the case for single cell data. --&gt;
+&lt;!-- * t-SNE should not be used for clustering as it does not preserve distances nor densities --&gt;
+&lt;!-- * observations need not cluster into groups but along a gradient --&gt;
+
+### 9) Favor multidomain data
+&lt;!-- * STATIS and DISTATIS are generalization of PCA to multiple data matrices (more on the on unsupervised data integration) --&gt;
+
+### 10) Robustness of results and quantify uncertainties
+&lt;!-- * test different parameters to see how clustering changes --&gt;
+&lt;!-- * outliers can affect DR methods; robust variants are available (e.g. robust PCA) --&gt;
+
+
+]
+
+---
+
+
+# Biplot
+
+
+---
+
+
+
+# Resources
+
+## Other slide resources
+ - [10x RNASeq Dimension Reduction](https://www.bioinformatics.babraham.ac.uk/training/10XRNASeq/Dimension%20Reduction.pdf)
+
+
+ - [xaringan](https://arm.rbind.io/slides/xaringan.html#137)
+
+## Git
+ - [Get Git!](https://uidaholib.github.io/get-git/6resources.html)
+ - [Let's Git started](https://happygitwithr.com/)
+ - [.gitignore](https://zellwk.com/blog/gitignore/)
+ - [GitHub Actions]()
+ 
+ 
+## Problem Set
+
+1) Git-LFS
+2) GH-Pages
+3) use RStudio with Git(Hub)
+4) advanced git commands: stash, rebase, 
+
+## Solutions
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "16:9",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

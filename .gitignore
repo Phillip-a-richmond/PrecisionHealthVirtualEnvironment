@@ -64,7 +64,7 @@ Workshops/IntroToEWAS/data/*
 
 .Rproj.user
 
-# Amrit's workshop
+# Github workshop
 Workshops/github/.DS_Store
 Workshops/github/.Rhistory
 Workshops/github/.Rproj.user
@@ -83,3 +83,8 @@ Workshops/SNP_associations/gwas_software/*
 Workshops/SNP_associations/software/*
 Workshops/SNP_associations/shared/*
 
+# Omics exploration
+Workshops/omics_exploration/.DS_Store
+Workshops/omics_exploration/.Rhistory
+Workshops/omics_exploration/.Rproj.user
+Workshops/omics_exploration/slides/.DS_Store
