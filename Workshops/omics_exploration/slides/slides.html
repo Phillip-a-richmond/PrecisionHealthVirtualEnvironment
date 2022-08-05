@@ -4,6 +4,7 @@
     <title>Omics data exploration</title>
     <meta charset="utf-8" />
     <meta name="author" content="Amrit Singh, PhD Department of Anesthesiology, Pharmacology and Therapeutics, UBC  Centre for Heart Lung Innovation" />
+    <script src="libs/header-attrs-2.14/header-attrs.js"></script>
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="libs/remark-css-0.0.1/middlebury-fonts.css" rel="stylesheet" />
     <link rel="stylesheet" href="theme.css" type="text/css" />
@@ -45,48 +46,54 @@ class: middle
 
 ---
 
-# Create singularity image with RStudio and Python
+## RStudio setup
 
 .pull-left[
-## install [docker](https://docs.docker.com/get-docker/)
+### on local machine
+* install [docker](https://docs.docker.com/get-docker/)
 
 
 ```bash
 *docker --version
+docker login
 ```
 
-## install [Go compiler](https://go.dev/doc/install)
+### build docker image and push to DockerHub
+* update DockerHub username in Makefile
 
 
 ```bash
-*go --version
+git clone https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment.git
+cd Workshops/eda
+make build
+make push
 ```
-
-Note:
 
 **instructions are for Mac**
 ]
 
 .pull-right[
-## install [singularity](https://github.com/apptainer/singularity/blob/master/INSTALL.md)
+### on sockeye
+
 
 ```bash
-## clone git repo
-git clone https://github.com/hpcng/singularity.git
-cd singularity
+ssh &lt;cwl&gt;@sockeye.arc.ubc.ca
+mkdir -p /scratch/tr-precisionhealth-1/Workshops/StudentSpaces/$USER/ &amp;&amp; cd "$_"
+cp -R /project/tr-precisionhealth-1/PrecisionHealthVirtualEnvironment/Workshops/eda/ ./
 
-## checkout specific commit
-git checkout v3.8.4
-
-## configure, build and install Singularity
-./mconfig
-cd ./builddir
-make
-sudo make install
-
-## check singularity version
-*singularity --version
+## if on own allocation
+git clone https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment.git
+cd Workshops/eda
 ```
+
+### pull docker image
+
+
+```r
+sh get_rstudio.sh
+```
+
+
 ]
 
 ---
@@ -227,7 +234,7 @@ X[1:5,1:5]
 boxplot(t(X))
 ```
 
-&lt;img src="slides_files/figure-html/unnamed-chunk-12-1.png" width="70%" /&gt;
+&lt;img src="slides_files/figure-html/unnamed-chunk-13-1.png" width="70%" /&gt;
 
 ]
 
@@ -238,7 +245,7 @@ boxplot(t(X))
 pairs(X[,sample(ncol(X), 5)])
 ```
 
-&lt;img src="slides_files/figure-html/unnamed-chunk-13-1.png" width="70%" /&gt;
+&lt;img src="slides_files/figure-html/unnamed-chunk-14-1.png" width="70%" /&gt;
 ]
 
 ---
@@ -252,8 +259,6 @@ pairs(X[,sample(ncol(X), 5)])
 par(mar=c(1,1,1,1))
 gplots::heatmap.2(cor(t(X)), margins = c(1,1), trace = "none")
 ```
-
-&lt;img src="slides_files/figure-html/unnamed-chunk-14-1.png" width="70%" /&gt;
 ]
 
 .pull-right[
@@ -273,7 +278,7 @@ class: center, middle
 
 # How to get something like this?
 
-![](slides_files/figure-html/unnamed-chunk-15-1.png)&lt;!-- --&gt;
+![](slides_files/figure-html/unnamed-chunk-16-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -355,7 +360,7 @@ class: center
 
 .left[?iris: This famous (Fisher's or Anderson's) iris data set gives the measurements in centimeters of the variables sepal length and width and petal length and width, respectively, for 50 flowers from each of 3 species of iris. The species are Iris setosa, versicolor, and virginica.]
 
-&lt;img src="slides_files/figure-html/unnamed-chunk-18-1.png" width="40%" /&gt;
+&lt;img src="slides_files/figure-html/unnamed-chunk-19-1.png" width="40%" /&gt;
 
 ---
 
@@ -402,7 +407,7 @@ pca.res
 plotIndiv(pca.res, group=y, legend=TRUE)
 ```
 
-&lt;img src="slides_files/figure-html/unnamed-chunk-20-1.png" width="40%" style="display: block; margin: auto;" /&gt;
+&lt;img src="slides_files/figure-html/unnamed-chunk-21-1.png" width="40%" style="display: block; margin: auto;" /&gt;
 ---
 
 ## Plot variables: Correlation circle
@@ -412,7 +417,7 @@ plotIndiv(pca.res, group=y, legend=TRUE)
 plotVar(pca.res)
 ```
 
-&lt;img src="slides_files/figure-html/unnamed-chunk-21-1.png" width="40%" style="display: block; margin: auto;" /&gt;
+&lt;img src="slides_files/figure-html/unnamed-chunk-22-1.png" width="40%" style="display: block; margin: auto;" /&gt;
 
 [BioData Min. 2012 Nov 13;5(1):19.](https://pubmed.ncbi.nlm.nih.gov/23148523/)
 
@@ -426,11 +431,11 @@ biplot(pca.res)
 ```
 
 ```
-## Warning: ggrepel: 2 unlabeled data points (too many overlaps). Consider
+## Warning: ggrepel: 7 unlabeled data points (too many overlaps). Consider
 ## increasing max.overlaps
 ```
 
-&lt;img src="slides_files/figure-html/unnamed-chunk-22-1.png" width="40%" style="display: block; margin: auto;" /&gt;
+&lt;img src="slides_files/figure-html/unnamed-chunk-23-1.png" width="40%" style="display: block; margin: auto;" /&gt;
 ---
 
 ## Sanity check
@@ -1000,9 +1005,12 @@ GLM-PCA dimension reduction is not affected by unwanted fraction of zeros variab
 
 ## PHATE
 
+.pull-left[
 
 ```r
 write.table(iris, "iris.txt", sep="\t", row.names = F)
+# library(reticulate)
+# use_python('/usr/local/bin/python3')
 ```
 
 
@@ -1014,16 +1022,45 @@ import numpy as np
 import phate # https://github.com/KrishnaswamyLab/PHATE
 
 # import data
-data = pd.read_csv("slides/iris.txt", sep="\t")
+data = pd.read_csv("iris.txt", sep="\t")
 print(data.head())
 print("dims: ", data.shape)
 
 # run PHATE
 phate_op = phate.PHATE()
-data_phate = phate_op.fit_transform(data.iloc[:,1:4].T)
-np.savetxt("slides/phate.csv", data_phate, delimiter=",")
+data_phate = phate_op.fit_transform(data.iloc[:,1:4])
+np.savetxt("phate.csv", data_phate, delimiter=",")
+```
+]
+
+
+.pull-right[
+
+```r
+library(dplyr)
+library(ggplot2)
+
+## import data
+phate &lt;- read.csv("phate.csv", header = FALSE)
+dim(phate)
 ```
 
+```
+## [1] 150   2
+```
+
+```r
+## plot
+phate %&gt;% 
+  mutate(Species = iris$Species) %&gt;% 
+  ggplot(aes(x = V1, y = V2, color = Species)) +
+  geom_point() +
+  theme_classic() +
+  xlab("Dim 1") +
+  ylab("Dim 2")
+```
+
+![](slides_files/figure-html/unnamed-chunk-30-1.png)&lt;!-- --&gt;
 
 
 ---
