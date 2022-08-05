@@ -373,9 +373,10 @@ X <- iris[, setdiff(colnames(iris), "Species")]
 y <- iris$Species
 
 pca.res <- prcomp(X, rank. = 2, scale. = TRUE, center = TRUE)
+100*(pca.res$sdev^2)/sum(pca.res$sdev^2)
 ```
 
-? first 2 PCs explain 95% of the variation in the data. `r emo::ji("wow")`
+> first 2 PCs explain 95% of the variation in the data. `r emo::ji("wow")`
 
 ---
 
@@ -384,7 +385,8 @@ pca.res <- prcomp(X, rank. = 2, scale. = TRUE, center = TRUE)
 ```{r, out.width="40%", fig.align="center"}
 fviz_pca_ind(pca.res, geom = "point", col.ind = y)  +
   ggtitle("") + 
-  theme(text = element_text(size = 30))
+  theme(text = element_text(size = 30)) +
+  theme(legend.position = c(0.9, 0.9))
 ```
 
 ---
@@ -402,8 +404,9 @@ fviz_pca_var(pca.res, labelsize = 7) +
 
 ## biplot: plot observations and variables
 
-```{r, out.width="40%", fig.align="center"}
-fviz_pca_biplot(pointsize = 2.5,
+.pull-left[
+```{r, out.width="40%", fig.align="center", warning=F, message=F}
+p <- fviz_pca_biplot(pointsize = 2.5,
   pca.res, col.ind = y,
   repel = TRUE,  label="all",
   labelsize = 8, col.var = "#c07d44") +
@@ -411,7 +414,14 @@ fviz_pca_biplot(pointsize = 2.5,
   ylim(-4.5, 4.5) + xlim(-5, 5) +
   theme(text = element_text(size = 25))
 ```
+]
 
+.pull-right[
+```{r, warning=F, message=F, echo=F}
+p
+```
+
+]
 ---
 
 ## Sanity check
