@@ -13,4 +13,8 @@ source /project/tr-precisionhealth-1/PrecisionHealthVirtualEnvironment/Software/
 # Variant calling
 #conda create -c bioconda -n VariantCalling glnexus bcftools vcftools htslib samtools 
 
-conda create -c bioconda -n SRATools sra-tools
+# SRA Tools
+#conda create -c bioconda -n SRATools sra-tools
+
+# Plink
+conda create -c bioconda -n Plink plink bcftools vcftools htslib

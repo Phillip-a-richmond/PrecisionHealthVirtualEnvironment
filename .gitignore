@@ -118,3 +118,7 @@ Workshops/biomarker_discovery/R_Libs_4.1.0/
 Workshops/biomarker_discovery/cache/
 Workshops/biomarker_discovery/connection_3977362.pbsha.ib.sockeye.txt
 Workshops/biomarker_discovery/slides/libs/header-attrs-2.14/
+
+# DLC
+Workshops/DLC_intro/data/*
+
