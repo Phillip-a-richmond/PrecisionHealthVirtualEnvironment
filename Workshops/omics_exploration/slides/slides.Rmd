@@ -20,7 +20,9 @@ output:
 
 library(dplyr)
 library(ggplot2)
-library(mixOmics)
+# library(mixOmics)
+
+library(factoextra)
 library(tsne)
 library(GGally)
 library(gt)
@@ -40,15 +42,16 @@ class: middle
 # Learning outcomes
 
 ### 1. Appreciate the importance exploratory data analysis (EDA) of omics data as a pre-requiste for any research study
-### 2. Use R/Python to apply standard EDA techniques to omics data to find biological or technical factors that may affect omics data
-### 3. Differentiate between clustering and dimension reduction techniques and know when to use what.
+### 2. Use R/Python to apply standard EDA techniques to omics data to explain patterns in data
+### 3. Differentiate between dimension reduction techniques and know when to use what.
 
 ---
 
-## RStudio setup
+## RStudio setup 
 
 .pull-left[
 ### on local machine
+
 * install [docker](https://docs.docker.com/get-docker/)
 
 ```{bash, eval=F}
@@ -61,7 +64,7 @@ docker login
 
 ```{bash, eval=F}
 git clone https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment.git
-cd Workshops/eda
+cd Workshops/omics_exploration
 make build
 make push
 ```
@@ -75,11 +78,7 @@ make push
 ```{bash, eval=F}
 ssh <cwl>@sockeye.arc.ubc.ca
 mkdir -p /scratch/tr-precisionhealth-1/Workshops/StudentSpaces/$USER/ && cd "$_"
-cp -R /project/tr-precisionhealth-1/PrecisionHealthVirtualEnvironment/Workshops/eda/ ./
-
-## if on own allocation
-git clone https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment.git
-cd Workshops/eda
+cp -R /project/tr-precisionhealth-1/PrecisionHealthVirtualEnvironment/Workshops/omics_exploration/ ./
 ```
 
 ### pull docker image
@@ -88,6 +87,11 @@ cd Workshops/eda
 sh get_rstudio.sh
 ```
 
+* update email in job script
+
+```{r, eval=F}
+qsub run_rstudio.sh
+```
 
 ]
 
@@ -192,7 +196,7 @@ observations = samples
 | ----------- | ----------- |
 | Variable      | feature, dimension       | a measurable quantity that describes an observation's attributes. *e.g.* age, sex, gene, protein abundance, single nucleotide variants, operational taxonomic units, pixels etc. 
 | Observation   | sample, observation, assay, array | A single entity belonging to a larger grouping. *e.g.* patients, subjects, participants, cells, mice. 
-| component | factors, latent variable | 
+| component | factors, latent variable | variables that are not directly observed but computed from mathematical models
 
 ---
 
@@ -201,7 +205,7 @@ observations = samples
 * 100 samples (observations), 1000 genes (variables)
 * add 5 outlier samples
 
-```{r, warning=F}
+```{r, warning=F, echo=F}
 n_total <- 100; p_total <- 1000; 
 
 set.seed(1)
@@ -216,7 +220,7 @@ rownames(X) <- paste0("Sample", 1:nrow(X))
 colnames(X) <- paste0("Gene", 1:ncol(X))
 X <- data.frame(X)
 
-X[1:5,1:5]
+X[1:10,1:5]
 ```
 * [Cholesky Decomposition](https://towardsdatascience.com/behind-the-models-cholesky-decomposition-b61ef17a65fb)
 
@@ -243,9 +247,9 @@ pairs(X[,sample(ncol(X), 5)])
 
 # How can we identify which samples/variables are outliers?
 
-## correlation matrix
+## Sample correlation matrix
 .pull-left[
-```{r, out.width="70%", eval=F}
+```{r, out.width="70%"}
 par(mar=c(1,1,1,1))
 gplots::heatmap.2(cor(t(X)), margins = c(1,1), trace = "none")
 ```
@@ -306,9 +310,9 @@ dat$x %>%
 <!-- * linear methods model global structure whereas non-linear are focused on modelling local structure -->
 
 .center[<img src ="img/pca_tsne_phate.png" alt="pca_tsne_phate", width="100%"/>]
-- **PCA**: linear method, reduces noise by transforming data, fits ellipsoid to data (models global structure) - can apply to any data
-- **tSNE**: non-linear method, models local structure (distance between clusters is meaningless) - commonly used for single cell data
-- **PHATE**: non-linear method: models both local and global structure; useful to model differentiation trajectories
+
+[Nature Biotechnology volume 37, pages1482–1492 (2019)](https://www.nature.com/articles/s41587-019-0336-3)
+
 
 ---
 
@@ -372,8 +376,7 @@ print(p, progress = F)
 X <- iris[, setdiff(colnames(iris), "Species")]
 y <- iris$Species
 
-pca.res <- pca(X, ncomp = 2, scale = TRUE)
-pca.res
+pca.res <- prcomp(X, rank. = 2, scale. = TRUE, center = TRUE)
 ```
 
 ? first 2 PCs explain 95% of the variation in the data. `r emo::ji("wow")`
@@ -383,14 +386,18 @@ pca.res
 ## Plot samples: Component plot
 
 ```{r, out.width="40%", fig.align="center"}
-plotIndiv(pca.res, group=y, legend=TRUE)
+fviz_pca_ind(pca.res, geom = "point", col.ind = y)  +
+  ggtitle("") + 
+  theme(text = element_text(size = 30))
 ```
+
 ---
 
 ## Plot variables: Correlation circle
 
 ```{r, out.width="40%", fig.align="center"}
-plotVar(pca.res)
+fviz_pca_var(pca.res, labelsize = 7) +
+  ggtitle("") + theme(text = element_text(size = 25))
 ```
 
 [BioData Min. 2012 Nov 13;5(1):19.](https://pubmed.ncbi.nlm.nih.gov/23148523/)
@@ -400,8 +407,14 @@ plotVar(pca.res)
 ## biplot: plot observations and variables
 
 ```{r, out.width="40%", fig.align="center"}
-biplot(pca.res)
+fviz_pca_biplot(pointsize = 2.5,
+  pca.res, geom = "point", col.ind = y,
+  labelsize = 8, col.var = "#c07d44") +
+  coord_fixed() + ggtitle("") +
+  ylim(-4.5, 4.5) + xlim(-5, 5) +
+  theme(text = element_text(size = 25))
 ```
+
 ---
 
 ## Sanity check
@@ -486,7 +499,6 @@ p <- tsne_all %>%
 ```{r, echo=F, eval=F}
 p
 ```
-
 ]
 
 ---
@@ -530,14 +542,14 @@ GLM-PCA dimension reduction is not affected by unwanted fraction of zeros variab
 ## PHATE
 
 .pull-left[
-```{r}
+```{r, echo=F}
 write.table(iris, "iris.txt", sep="\t", row.names = F)
 # library(reticulate)
 # use_python('/usr/local/bin/python3')
 ```
 
 
-```{python3}
+```{python, eval=F}
 import os
 import pandas as pd
 import numpy as np
@@ -553,28 +565,120 @@ phate_op = phate.PHATE()
 data_phate = phate_op.fit_transform(data.iloc[:,1:4])
 np.savetxt("phate.csv", data_phate, delimiter=",")
 ```
-]
 
-
-.pull-right[
-```{r}
+```{r, eval=F}
 library(dplyr)
 library(ggplot2)
 
 ## import data
 phate <- read.csv("phate.csv", header = FALSE)
-dim(phate)
+```
 
-## plot
+]
+
+
+.pull-right[
+```{r, out.width="70%", eval=F}
 phate %>% 
   mutate(Species = iris$Species) %>% 
   ggplot(aes(x = V1, y = V2, color = Species)) +
   geom_point() +
-  theme_classic() +
-  xlab("Dim 1") +
-  ylab("Dim 2")
+  theme_classic()
+```
+]
+
+
+[Nature Biotechnology volume 37, pages1482–1492 (2019)](https://www.nature.com/articles/s41587-019-0336-3)
+
+---
+
+## 2) Preprocess input data
+<!-- * center each variable: center of the data cloud is the new origin -->
+<!-- * scaling: makes the standard deviation of each variable equal to 1 such that each variable contributes equally when using DR methods that maximize variance -->
+
+.center[<img src ="img/input_data.jpeg" alt="input data", width="90%"/>]
+
+PCA:
+- data must be centered for applying PCA (shifts origin to center of the data cloud)
+- scale variable if they have different units
+
+PHATE: Also works with counts
+
+[Front Genet. 2021 Mar 23;12:646936.](https://pubmed.ncbi.nlm.nih.gov/33833778/)
+
+---
+
+## 3) Handle categorical input data 
+<!-- * CA/MCA for data with categorical variables -->
+<!-- * think of MCA as converting categorical data to numeric and using similar factorization methods (SVD) with eigenvalue correction; see details (https://personal.utdallas.edu/~herve/Abdi-MCA2007-pretty.pdf) and ade4::mcoa(). -->
+<!-- * or apply variable transformation before PCA (binary variables, optimal scaling) -->
+
+### Categorical data: Multiple Correspondence Analysis (MCA) (ade4::mcoa())
+ - code the data are 0s and 1s; one variable (with multiple categoies) can be coded with multiple columns (this results in an inflation of the variance) --> eigenvalue correction is applied
+ 
+[Multiple Correspondence Analysis](https://personal.utdallas.edu/~herve/Abdi-MCA2007-pretty.pdf)
+ 
+### Mixed data: Multiple Factor Analysis (MFA) (FactoMineR::MFA())
+- applies PCA to numerical data, and MCA to categorical data and combines the resulting components
+- optimal scaling
+
+[FactoMineR](http://factominer.free.fr/factomethods/multiple-factor-analysis.html)
+
+---
+
+.pull-left[
+## 4) Use DR methods for similiarity/dissimilarity matrices
+- choose metric that is appropriate for your data [vegan](https://www.rdocumentation.org/packages/vegan/versions/2.4-2/topics/vegdist): 
+  - binary: Manhattan
+  - sparse: Jaccard 
+  - other distances: Euclidean, gower
+
+## 5) Decide on number of dimensions to retain
+
+### PCA: scree plot (elbow point)
+### Other
+- t-SNE: use # of dims that minimizes the KL divergence loss
+]
+
+.pull-right[
+```{r}
+fviz_eig(pca.res) + ggtitle("") +
+  theme(text = element_text(size = 20))
 ```
 
+]
+
+---
+
+## 6) Apply the correct aspect ratio to plots
+<!-- * PCA: resize axes based on proportion of variability explained -->
+<!-- * t-SNE: each dimension has an equal weight so therefore square plots will suffice -->
+
+```{r, fig.align="center"}
+fviz_pca_ind(pca.res, geom = "point") + coord_fixed() +
+  ggtitle("") + xlim(NA, 5) +
+  theme(text = element_text(size = 30))
+```
+
+## 7) What do the new dimensions mean?
+<!-- * some DR methods such as PCA produce interpretable visualizations (component plots, correlation circle, biplots) -->
+
+[BioData Min. 2012 Nov 13;5(1):19.](https://pubmed.ncbi.nlm.nih.gov/23148523/)
+
+---
+
+## 8) Find the hidden signal
+
+- **PCA**: linear method, reduces noise by transforming data, fits ellipsoid to data (models global structure) - can apply to any data
+- **tSNE**: non-linear method, models local structure (distance between clusters is meaningless) - commonly used for single cell data
+- **PHATE**: non-linear method: models both local and global structure; useful to model differentiation trajectories
+
+## 9) Favor multidomain data
+ - STATIS and DISTATIS are generalization of PCA to multiple data matrices (more on the on unsupervised data integration)
+
+## 10) Robustness of results and quantify uncertainties
+ - test different parameters to see how clustering changes (*e.g.* perplexity in t-SNE)
+ - outliers can affect DR methods; robust variants are available (*e.g.* [robust PCA](https://rdrr.io/cran/rospca/man/robpca.html)) 
 
 ---
 
@@ -625,37 +729,13 @@ phate %>%
 
 
 ]
-
+ 
 ---
 
+class: middle, center
 
-# Biplot
+background-image: url(img/bkg.svg)
 
+# THANK YOU!
 
----
-
-
-
-# Resources
-
-## Other slide resources
- - [10x RNASeq Dimension Reduction](https://www.bioinformatics.babraham.ac.uk/training/10XRNASeq/Dimension%20Reduction.pdf)
-
-
- - [xaringan](https://arm.rbind.io/slides/xaringan.html#137)
-
-## Git
- - [Get Git!](https://uidaholib.github.io/get-git/6resources.html)
- - [Let's Git started](https://happygitwithr.com/)
- - [.gitignore](https://zellwk.com/blog/gitignore/)
- - [GitHub Actions]()
- 
- 
-## Problem Set
-
-1) Git-LFS
-2) GH-Pages
-3) use RStudio with Git(Hub)
-4) advanced git commands: stash, rebase, 
-
-## Solutions
+August 05, 2022 | 09:00-11:00<br><br>`r fontawesome::fa("link")` [lab](https://cbl-hli.github.io/)<br>`r fontawesome::fa("github")` [code](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Workshops)<br>`r fontawesome::fa("twitter")` [asingh_22g](https://twitter.com/asingh_22g)
