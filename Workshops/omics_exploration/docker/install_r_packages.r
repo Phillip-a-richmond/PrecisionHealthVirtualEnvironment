@@ -9,6 +9,7 @@ devtools::install_version("ggplot2", version = "3.3.1", repos = "http://cran.us.
 devtools::install_version("dplyr", version = "1.0.0", repos = "http://cran.us.r-project.org")
 devtools::install_version("knitr", version = "1.33", repos = "http://cran.us.r-project.org")
 devtools:::install_version("xaringan", version = "0.25", repos = "http://cran.us.r-project.org")
+devtools:::install_version("miniUI", version = "0.1.1", repos = "http://cran.us.r-project.org")
 devtools:::install_version("tsne", version = "0.1-3.1", repos = "http://cran.us.r-project.org")
 devtools:::install_version("gt", version = "0.6.0", repos = "http://cran.us.r-project.org")
 devtools::install_github("hadley/emo")
