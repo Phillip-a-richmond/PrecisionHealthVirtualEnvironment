@@ -1,5 +1,8 @@
 \beamer@sectionintoc {1}{Housekeeping}{4}{0}{1}
 \beamer@sectionintoc {2}{Freesurfer and DTI Overview}{6}{0}{2}
-\beamer@sectionintoc {3}{Freesurfer Tutorial}{8}{0}{3}
-\beamer@sectionintoc {4}{MRI Physics: DTI}{8}{0}{4}
-\beamer@sectionintoc {5}{Second Section}{10}{0}{5}
+\beamer@sectionintoc {3}{Learning Objectives}{8}{0}{3}
+\beamer@sectionintoc {4}{MRI Physics: T$_{1}$ and T$_{2}$ Weighted Imaging}{9}{0}{4}
+\beamer@sectionintoc {5}{Freesurfer Analysis}{15}{0}{5}
+\beamer@sectionintoc {6}{Freesurfer Tutorial}{16}{0}{6}
+\beamer@sectionintoc {7}{MRI Physics: DWI}{17}{0}{7}
+\beamer@sectionintoc {8}{DWI Tutorial}{25}{0}{8}
