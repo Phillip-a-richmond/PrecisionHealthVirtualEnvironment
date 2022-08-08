@@ -1,0 +1,9 @@
+#!/bin/bash
+#PBS -l walltime=3:00:00,select=1:ncpus=4:ngpus=1:mem=16gb
+#PBS -I
+#PBS -X
+#PBS -q interactive_gpu
+#PBS -N interactivegpu
+#PBS -A st-sturvey-1-gpu
+ 
+################################################################################

@@ -4,7 +4,7 @@ IMAGE_VERSION=v0.1
 module load gcc singularity
 
 # Change to your directory where you'll keep the SIF 
-Home_Dir=/scratch/st-sturvey-1/Workshops/StudentSpaces/singha53/PrecisionHealthVirtualEnvironment/Workshops/biomarker_discovery/
+Home_Dir=/scratch/tr-precisionhealth-1/Workshops/StudentSpaces/$USER/biomarker_discovery/
 
 mkdir -p $Home_Dir
 cd $Home_Dir

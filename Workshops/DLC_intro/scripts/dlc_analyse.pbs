@@ -1,0 +1,18 @@
+#!/bin/bash
+ 
+#PBS -l walltime=48:00:00,select=1:ncpus=4:ngpus=1:mem=8gb
+#PBS -q sockeye
+#PBS -N dlc_analyse
+#PBS -A st-thmurphy-1-gpu
+#PBS -m abe
+#PBS -j oe
+ 
+################################################################################
+
+cd $PBS_O_WORKDIR
+source /project/st-sturvey-1/PrecisionHealthVirtualEnvironment/Software/miniconda3/etc/profile.d/conda.sh
+conda activate DLC-GPU-Environment
+
+echo "Dir. Name: $dir_name"
+
+python /scratch/st-sturvey-1/pgupta02/codebase/water_reaching/reaching_task_analysis/dlc_analyse.py -d $dir_name &> out_"$dir_name"_dlc_analyse.txt

@@ -21,10 +21,10 @@ module load singularity
 # Modify this #
 ###############
 
-Rstudio_SIF=/scratch/st-sturvey-1/Workshops/StudentSpaces/singha53/PrecisionHealthVirtualEnvironment/Workshops/biomarker_discovery/rpystudio.sif
-Home_Dir=/scratch/st-sturvey-1/Workshops/StudentSpaces/singha53/PrecisionHealthVirtualEnvironment/Workshops/biomarker_discovery
-Data_Dir=/scratch/st-sturvey-1/Workshops/StudentSpaces/singha53/PrecisionHealthVirtualEnvironment/Workshops/biomarker_discovery
-Lib_Dir=/scratch/st-sturvey-1/Workshops/StudentSpaces/singha53/PrecisionHealthVirtualEnvironment/Workshops/biomarker_discovery/R_Libs_4.1.0/
+Rstudio_SIF=/scratch/tr-precisionhealth-1/Workshops/StudentSpaces/$USER/biomarker_discovery/rpystudio.sif
+Home_Dir=/scratch/tr-precisionhealth-1/Workshops/StudentSpaces/$USER/biomarker_discovery/
+Data_Dir=/scratch/tr-precisionhealth-1/Workshops/StudentSpaces/$USER/biomarker_discovery/
+Lib_Dir=/scratch/tr-precisionhealth-1/Workshops/StudentSpaces/$USER/biomarker_discovery/R_Libs_4.1.0/
 
 ######################
 

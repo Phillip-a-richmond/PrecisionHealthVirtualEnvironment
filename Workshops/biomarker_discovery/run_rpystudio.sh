@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #PBS -l walltime=03:00:00,select=1:ncpus=1:mem=64gb
-#PBS -N rpystudio
+#PBS -N biomarkers
 #PBS -A st-alloc-1
 #PBS -m abe
 #PBS -M your@email.com
@@ -21,10 +21,10 @@ module load singularity
 # Modify this #
 ###############
 
-Rstudio_SIF=/scratch/st-singha53-1/singha53/biomarker_discovery/rpystudio.sif
-Home_Dir=/scratch/st-singha53-1/singha53/biomarker_discovery/
-Data_Dir=/scratch/st-singha53-1/singha53/biomarker_discovery/
-Lib_Dir=/scratch/st-singha53-1/singha53/biomarker_discovery/R_Libs_4.1.0/
+Rstudio_SIF=/scratch/tr-precisionhealth-1/Workshops/StudentSpaces/$USER/biomarker_discovery/rpystudio.sif
+Home_Dir=/scratch/tr-precisionhealth-1/Workshops/StudentSpaces/$USER/biomarker_discovery/
+Data_Dir=/scratch/tr-precisionhealth-1/Workshops/StudentSpaces/$USER/biomarker_discovery/
+Lib_Dir=/scratch/tr-precisionhealth-1/Workshops/StudentSpaces/$USER/biomarker_discovery/R_Libs_4.1.0/
 
 ######################
 

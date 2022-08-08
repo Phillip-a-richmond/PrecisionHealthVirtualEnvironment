@@ -21,10 +21,10 @@ module load singularity
 # Modify this #
 ###############
 
-Rstudio_SIF=/scratch/st-singha53-1/singha53/omics_exploration/rpystudio.sif
-Home_Dir=/scratch/st-singha53-1/singha53/omics_exploration/
-Data_Dir=/scratch/st-singha53-1/singha53/omics_exploration/
-Lib_Dir=/scratch/st-singha53-1/singha53/omics_exploration/R_Libs_4.2.0/
+Rstudio_SIF=/scratch/tr-precisionhealth-1/Workshops/StudentSpaces/$USER/omics_exploration/rpystudio.sif
+Home_Dir=/scratch/tr-precisionhealth-1/Workshops/StudentSpaces/$USER/omics_exploration/
+Data_Dir=/scratch/tr-precisionhealth-1/Workshops/StudentSpaces/$USER/omics_exploration/
+Lib_Dir=/scratch/tr-precisionhealth-1/Workshops/StudentSpaces/$USER/omics_exploration/R_Libs_4.1.0/
 
 ######################
 
