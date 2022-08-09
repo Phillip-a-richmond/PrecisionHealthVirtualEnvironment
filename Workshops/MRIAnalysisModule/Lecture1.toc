@@ -1,7 +1,8 @@
 \beamer@sectionintoc {1}{Housekeeping}{4}{0}{1}
 \beamer@sectionintoc {2}{fMRI Overview}{6}{0}{2}
-\beamer@sectionintoc {3}{MRI Physics}{9}{0}{3}
-\beamer@sectionintoc {4}{BOLD Effect}{29}{0}{4}
-\beamer@sectionintoc {5}{fMRI Acquisition}{38}{0}{5}
-\beamer@sectionintoc {6}{fMRI Analysis}{43}{0}{6}
-\beamer@sectionintoc {7}{Second Section}{48}{0}{7}
+\beamer@sectionintoc {3}{Learning Objectives}{9}{0}{3}
+\beamer@sectionintoc {4}{MRI Physics}{10}{0}{4}
+\beamer@sectionintoc {5}{BOLD Effect}{30}{0}{5}
+\beamer@sectionintoc {6}{fMRI Acquisition}{39}{0}{6}
+\beamer@sectionintoc {7}{fMRI Analysis}{44}{0}{7}
+\beamer@sectionintoc {8}{Sockeye Tutorial and fmriprep}{46}{0}{8}
