@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.10.21)  20 JUL 2022 16:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.10.21)  8 AUG 2022 16:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -864,123 +864,398 @@ Dictionary: translator-numbers-dictionary, Language: English
 (/usr/share/texlive/texmf-dist/tex/latex/translator/translator-theorem-dictiona
 ry-English.dict
 Dictionary: translator-theorem-dictionary, Language: English 
-) (./Lecture2.nav) [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
+) (./Lecture2.nav)
+LaTeX Font Info:    Trying to load font information for U+msa on input line 44.
 
-]
-<imgs/Lynne.jpeg, id=75, 803.0pt x 803.0pt>
-File: imgs/Lynne.jpeg Graphic file (type jpg)
-<use imgs/Lynne.jpeg>
-Package pdftex.def Info: imgs/Lynne.jpeg  used on input line 64.
-(pdftex.def)             Requested size: 106.89948pt x 106.89322pt.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 64.
 
- (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 64.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 44.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Trying to load font information for OT1+mathkerncmss on inp
-ut line 64.
+ut line 44.
 
 (/usr/share/texlive/texmf-dist/tex/latex/sansmathaccent/ot1mathkerncmss.fd
 File: ot1mathkerncmss.fd 2020/01/31 Fontinst v1.933 font definitions for OT1/ma
 thkerncmss.
 )
-<imgs/lit6.png, id=76, 692.5875pt x 333.245pt>
+Overfull \vbox (1.09224pt too high) has occurred while \output is active []
+
+
+[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
+
+]
+<imgs/Lynne.jpeg, id=93, 803.0pt x 803.0pt>
+File: imgs/Lynne.jpeg Graphic file (type jpg)
+<use imgs/Lynne.jpeg>
+Package pdftex.def Info: imgs/Lynne.jpeg  used on input line 64.
+(pdftex.def)             Requested size: 106.89948pt x 106.89322pt.
+<imgs/lit6.png, id=94, 692.5875pt x 333.245pt>
 File: imgs/lit6.png Graphic file (type png)
 <use imgs/lit6.png>
 Package pdftex.def Info: imgs/lit6.png  used on input line 64.
 (pdftex.def)             Requested size: 206.16801pt x 99.19627pt.
-<imgs/lit7.png, id=78, 1307.88625pt x 540.0175pt>
+<imgs/lit7.png, id=96, 1307.88625pt x 540.0175pt>
 File: imgs/lit7.png Graphic file (type png)
 <use imgs/lit7.png>
 Package pdftex.def Info: imgs/lit7.png  used on input line 64.
 (pdftex.def)             Requested size: 206.16801pt x 85.11913pt.
 
+Overfull \vbox (1.09224pt too high) has occurred while \output is active []
+
+
 [2
 
  <./imgs/Lynne.jpeg> <./imgs/lit6.png> <./imgs/lit7.png>] (./Lecture2.toc)
+Overfull \vbox (1.09224pt too high) has occurred while \output is active []
+
+
 [3
 
 ]
-<imgs/musqueam.png, id=147, 1192.455pt x 527.9725pt>
+<imgs/musqueam.png, id=174, 1192.455pt x 527.9725pt>
 File: imgs/musqueam.png Graphic file (type png)
 <use imgs/musqueam.png>
 Package pdftex.def Info: imgs/musqueam.png  used on input line 84.
 (pdftex.def)             Requested size: 343.60988pt x 152.1333pt.
- [4
+
+Overfull \vbox (1.09224pt too high) has occurred while \output is active []
+
+
+[4
 
  <./imgs/musqueam.png>]
-<imgs/cc.png, id=180, 966.61125pt x 680.5425pt>
+<imgs/cc.png, id=210, 966.61125pt x 680.5425pt>
 File: imgs/cc.png Graphic file (type png)
 <use imgs/cc.png>
 Package pdftex.def Info: imgs/cc.png  used on input line 100.
 (pdftex.def)             Requested size: 190.89568pt x 134.39268pt.
-<imgs/cc2.png, id=181, 970.62625pt x 521.95pt>
+<imgs/cc2.png, id=211, 970.62625pt x 521.95pt>
 File: imgs/cc2.png Graphic file (type png)
 <use imgs/cc2.png>
 Package pdftex.def Info: imgs/cc2.png  used on input line 100.
 (pdftex.def)             Requested size: 190.89568pt x 102.65192pt.
- [5
+
+Overfull \vbox (1.09224pt too high) has occurred while \output is active []
+
+
+[5
 
  <./imgs/cc.png> <./imgs/cc2.png>]
-<imgs/FSanalysisPipelineFig4.jpg, id=216, 455.52pt x 183.6248pt>
+<imgs/FSanalysisPipelineFig4.jpg, id=249, 455.52pt x 183.6248pt>
 File: imgs/FSanalysisPipelineFig4.jpg Graphic file (type jpg)
 <use imgs/FSanalysisPipelineFig4.jpg>
-Package pdftex.def Info: imgs/FSanalysisPipelineFig4.jpg  used on input line 13
-5.
+Package pdftex.def Info: imgs/FSanalysisPipelineFig4.jpg  used on input line 14
+0.
 (pdftex.def)             Requested size: 85.90247pt x 34.62569pt.
-<imgs/qsiprep_workflow_full.png, id=217, 2470.73062pt x 2364.58406pt>
+<imgs/qsiprep_workflow_full.png, id=250, 2470.73062pt x 2364.58406pt>
 File: imgs/qsiprep_workflow_full.png Graphic file (type png)
 <use imgs/qsiprep_workflow_full.png>
-Package pdftex.def Info: imgs/qsiprep_workflow_full.png  used on input line 135
+Package pdftex.def Info: imgs/qsiprep_workflow_full.png  used on input line 140
 .
 (pdftex.def)             Requested size: 171.80493pt x 164.4193pt.
 
-Overfull \vbox (3.82677pt too high) detected at line 135
+Overfull \vbox (3.82677pt too high) detected at line 140
  []
+
+
+Overfull \vbox (1.09224pt too high) has occurred while \output is active []
+
 
 [6
 
  <./imgs/FSanalysisPipelineFig4.jpg> <./imgs/qsiprep_workflow_full.png>]
 File: imgs/FSanalysisPipelineFig4.jpg Graphic file (type jpg)
 <use imgs/FSanalysisPipelineFig4.jpg>
-Package pdftex.def Info: imgs/FSanalysisPipelineFig4.jpg  used on input line 13
-5.
+Package pdftex.def Info: imgs/FSanalysisPipelineFig4.jpg  used on input line 14
+0.
 (pdftex.def)             Requested size: 85.90247pt x 34.62569pt.
 File: imgs/qsiprep_workflow_full.png Graphic file (type png)
 <use imgs/qsiprep_workflow_full.png>
-Package pdftex.def Info: imgs/qsiprep_workflow_full.png  used on input line 135
+Package pdftex.def Info: imgs/qsiprep_workflow_full.png  used on input line 140
 .
 (pdftex.def)             Requested size: 171.80493pt x 164.4193pt.
 
-Overfull \vbox (3.82677pt too high) detected at line 135
+Overfull \vbox (3.82677pt too high) detected at line 140
  []
+
+
+Overfull \vbox (1.09224pt too high) has occurred while \output is active []
+
 
 [7
 
-] [8
+]
+Overfull \vbox (1.09224pt too high) has occurred while \output is active []
 
-] [9
 
-] [10
-
-] [11
-
-] [12
+[8
 
 ]
-\openout4 = `Lecture2.vrb'.
 
- (./Lecture2.vrb) [13
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 158.
 
-] [14
 
- </usr/share/texlive/texmf-dist/tex/latex/beamer/beamericonarticle.pdf>] [15
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `subscript' on input line 158.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 158.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 158.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `subscript' on input line 158.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 158.
+
+<imgs/t2brain.jpeg, id=354, 332.74312pt x 332.74312pt>
+File: imgs/t2brain.jpeg Graphic file (type jpg)
+<use imgs/t2brain.jpeg>
+Package pdftex.def Info: imgs/t2brain.jpeg  used on input line 174.
+(pdftex.def)             Requested size: 190.89568pt x 190.8993pt.
+
+Overfull \vbox (1.09224pt too high) has occurred while \output is active []
+
+
+[9
+
+ <./imgs/t2brain.jpeg>]
+<imgs/t1brain.png, id=391, 482.80376pt x 559.08875pt>
+File: imgs/t1brain.png Graphic file (type png)
+<use imgs/t1brain.png>
+Package pdftex.def Info: imgs/t1brain.png  used on input line 194.
+(pdftex.def)             Requested size: 152.71712pt x 176.84755pt.
+
+Overfull \vbox (1.09224pt too high) has occurred while \output is active []
+
+
+[10
+
+ <./imgs/t1brain.png>]
+<imgs/longrelax.png, id=427, 964.60374pt x 631.35875pt>
+File: imgs/longrelax.png Graphic file (type png)
+<use imgs/longrelax.png>
+Package pdftex.def Info: imgs/longrelax.png  used on input line 206.
+(pdftex.def)             Requested size: 190.89568pt x 124.94005pt.
+<imgs/longrelax2.png, id=428, 972.63374pt x 630.355pt>
+File: imgs/longrelax2.png Graphic file (type png)
+<use imgs/longrelax2.png>
+Package pdftex.def Info: imgs/longrelax2.png  used on input line 206.
+(pdftex.def)             Requested size: 190.89568pt x 123.71225pt.
+
+Overfull \vbox (1.09224pt too high) has occurred while \output is active []
+
+
+[11
+
+ <./imgs/longrelax.png> <./imgs/longrelax2.png>]
+<imgs/T1recoverycurve.png, id=465, 896.34875pt x 569.12625pt>
+File: imgs/T1recoverycurve.png Graphic file (type png)
+<use imgs/T1recoverycurve.png>
+Package pdftex.def Info: imgs/T1recoverycurve.png  used on input line 218.
+(pdftex.def)             Requested size: 286.3435pt x 181.80281pt.
+
+Overfull \vbox (38.84879pt too high) detected at line 218
+ []
+
+
+Overfull \vbox (1.09224pt too high) has occurred while \output is active []
+
+
+[12
+
+ <./imgs/t1recoverycurve.png>]
+<imgs/t1t2.png, id=502, 788.9475pt x 457.71pt>
+File: imgs/t1t2.png Graphic file (type png)
+<use imgs/t1t2.png>
+Package pdftex.def Info: imgs/t1t2.png  used on input line 235.
+(pdftex.def)             Requested size: 229.07713pt x 132.90012pt.
+
+Overfull \vbox (1.09224pt too high) has occurred while \output is active []
+
+
+[13
+
+ <./imgs/t1t2.png>]
+File: imgs/t1t2.png Graphic file (type png)
+<use imgs/t1t2.png>
+Package pdftex.def Info: imgs/t1t2.png  used on input line 235.
+(pdftex.def)             Requested size: 229.07713pt x 132.90012pt.
+File: imgs/t1brain.png Graphic file (type png)
+<use imgs/t1brain.png>
+Package pdftex.def Info: imgs/t1brain.png  used on input line 235.
+(pdftex.def)             Requested size: 122.17181pt x 141.4695pt.
+
+Overfull \vbox (1.09224pt too high) has occurred while \output is active []
+
+
+[14
+
+]
+<imgs/fspipeline.png, id=571, 853.1875pt x 639.38875pt>
+File: imgs/fspipeline.png Graphic file (type png)
+<use imgs/fspipeline.png>
+Package pdftex.def Info: imgs/fspipeline.png  used on input line 247.
+(pdftex.def)             Requested size: 267.25278pt x 200.28654pt.
+
+Overfull \vbox (4.94925pt too high) detected at line 247
+ []
+
+
+Overfull \vbox (1.09224pt too high) has occurred while \output is active []
+
+
+[15
+
+ <./imgs/fspipeline.png>]
+Overfull \vbox (1.09224pt too high) has occurred while \output is active []
+
+
+[16
+
+]
+Overfull \vbox (1.09224pt too high) has occurred while \output is active []
+
+
+[17
+
+]
+Overfull \vbox (1.09224pt too high) has occurred while \output is active []
+
+
+[18
+
+]
+<imgs/diffusion.png, id=712, 625.33624pt x 455.7025pt>
+File: imgs/diffusion.png Graphic file (type png)
+<use imgs/diffusion.png>
+Package pdftex.def Info: imgs/diffusion.png  used on input line 280.
+(pdftex.def)             Requested size: 190.89568pt x 139.11073pt.
+
+Overfull \vbox (1.09224pt too high) has occurred while \output is active []
+
+
+[19
+
+ <./imgs/diffusion.png>]
+<imgs/mri-physics-diagrams-1.jpg, id=748, 1606.0pt x 1606.0pt>
+File: imgs/mri-physics-diagrams-1.jpg Graphic file (type jpg)
+<use imgs/mri-physics-diagrams-1.jpg>
+Package pdftex.def Info: imgs/mri-physics-diagrams-1.jpg  used on input line 29
+1.
+(pdftex.def)             Requested size: 190.89568pt x 190.87376pt.
+
+Overfull \vbox (3.70313pt too high) detected at line 291
+ []
+
+
+Overfull \vbox (1.09224pt too high) has occurred while \output is active []
+
+
+[20
+
+ <./imgs/mri-physics-diagrams-1.jpg>]
+<imgs/threedirectionsdiffusion.png, id=783, 1188.44pt x 392.46625pt>
+File: imgs/threedirectionsdiffusion.png Graphic file (type png)
+<use imgs/threedirectionsdiffusion.png>
+Package pdftex.def Info: imgs/threedirectionsdiffusion.png  used on input line 
+299.
+(pdftex.def)             Requested size: 381.79135pt x 126.08281pt.
+
+Overfull \vbox (1.09224pt too high) has occurred while \output is active []
+
+
+[21
+
+ <./imgs/threedirectionsdiffusion.png>]
+<imgs/diffusionprinciple.png, id=820, 1006.76125pt x 586.19pt>
+File: imgs/diffusionprinciple.png Graphic file (type png)
+<use imgs/diffusionprinciple.png>
+Package pdftex.def Info: imgs/diffusionprinciple.png  used on input line 321.
+(pdftex.def)             Requested size: 190.89568pt x 111.1447pt.
+<imgs/tensor.png, id=821, 602.25pt x 521.95pt>
+File: imgs/tensor.png Graphic file (type png)
+<use imgs/tensor.png>
+Package pdftex.def Info: imgs/tensor.png  used on input line 321.
+(pdftex.def)             Requested size: 95.44783pt x 82.71727pt.
+<imgs/FA.jpg, id=822, 301.125pt x 355.3275pt>
+File: imgs/FA.jpg Graphic file (type jpg)
+<use imgs/FA.jpg>
+Package pdftex.def Info: imgs/FA.jpg  used on input line 321.
+(pdftex.def)             Requested size: 76.3571pt x 90.10036pt.
+<imgs/colorFA.png, id=823, 186.6975pt x 220.825pt>
+File: imgs/colorFA.png Graphic file (type png)
+<use imgs/colorFA.png>
+Package pdftex.def Info: imgs/colorFA.png  used on input line 321.
+(pdftex.def)             Requested size: 76.3571pt x 90.31306pt.
+<imgs/colormap.png, id=824, 301.125pt x 232.87pt>
+File: imgs/colormap.png Graphic file (type png)
+<use imgs/colormap.png>
+Package pdftex.def Info: imgs/colormap.png  used on input line 321.
+(pdftex.def)             Requested size: 38.17854pt x 29.5244pt.
+<imgs/FAtensors.jpeg, id=825, 99.7326pt x 52.7571pt>
+File: imgs/FAtensors.jpeg Graphic file (type jpg)
+<use imgs/FAtensors.jpeg>
+Package pdftex.def Info: imgs/FAtensors.jpeg  used on input line 321.
+(pdftex.def)             Requested size: 152.71712pt x 80.79535pt.
+
+Overfull \vbox (1.52467pt too high) detected at line 321
+ []
+
+
+Overfull \vbox (1.09224pt too high) has occurred while \output is active []
+
+
+[22
+
+ <./imgs/diffusionprinciple.png> <./imgs/tensor.png> <./imgs/FA.jpg> <./imgs/co
+lorFA.png> <./imgs/colormap.png> <./imgs/FAtensors.jpeg>]
+<imgs/eigvec.jpg, id=864, 102.8643pt x 68.4156pt>
+File: imgs/eigvec.jpg Graphic file (type jpg)
+<use imgs/eigvec.jpg>
+Package pdftex.def Info: imgs/eigvec.jpg  used on input line 338.
+(pdftex.def)             Requested size: 190.89568pt x 126.97086pt.
+<imgs/fibretracking.jpg, id=865, 563.10374pt x 462.72874pt>
+File: imgs/fibretracking.jpg Graphic file (type jpg)
+<use imgs/fibretracking.jpg>
+Package pdftex.def Info: imgs/fibretracking.jpg  used on input line 338.
+(pdftex.def)             Requested size: 190.89568pt x 156.86674pt.
+
+Overfull \vbox (1.09224pt too high) has occurred while \output is active []
+
+
+[23
+
+ <./imgs/eigvec.jpg> <./imgs/fibretracking.jpg>]
+File: imgs/qsiprep_workflow_full.png Graphic file (type png)
+<use imgs/qsiprep_workflow_full.png>
+Package pdftex.def Info: imgs/qsiprep_workflow_full.png  used on input line 360
+.
+(pdftex.def)             Requested size: 190.89568pt x 182.67607pt.
+
+Overfull \vbox (1.09224pt too high) has occurred while \output is active []
+
+
+[24
+
+]
+Overfull \vbox (1.09224pt too high) has occurred while \output is active []
+
+
+[25
 
 ]
 \tf@nav=\write6
@@ -992,35 +1267,31 @@ Overfull \vbox (3.82677pt too high) detected at line 135
 \tf@snm=\write8
 \openout8 = `Lecture2.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 251.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 251.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 371.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 371.
  (./Lecture2.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 251.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 251.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 371.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 371.
 Package rerunfilecheck Info: File `Lecture2.out' has not changed.
-(rerunfilecheck)             Checksum: 7172E61AA9787F58B4657B54B386C850;263.
+(rerunfilecheck)             Checksum: BABA63B870008524E0AED06F3083656E;443.
  ) 
 Here is how much of TeX's memory you used:
- 18361 strings out of 481239
- 353533 string characters out of 5920376
- 595892 words of memory out of 5000000
- 33119 multiletter control sequences out of 15000+600000
- 541180 words of font info for 55 fonts, out of 8000000 for 9000
+ 18452 strings out of 481239
+ 353550 string characters out of 5920376
+ 597863 words of memory out of 5000000
+ 33173 multiletter control sequences out of 15000+600000
+ 544994 words of font info for 70 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 58i,16n,67p,775b,646s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 58i,18n,67p,775b,731s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/texlive/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmssi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmtt10.pfb>
-Output written on Lecture2.pdf (15 pages, 4783271 bytes).
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on Lecture2.pdf (25 pages, 8146573 bytes).
 PDF statistics:
- 587 PDF objects out of 1000 (max. 8388607)
- 532 compressed objects within 6 object streams
- 37 named destinations out of 1000 (max. 500000)
- 123 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1001 PDF objects out of 1200 (max. 8388607)
+ 909 compressed objects within 10 object streams
+ 59 named destinations out of 1000 (max. 500000)
+ 237 words of extra memory for PDF output out of 10000 (max. 10000000)
 

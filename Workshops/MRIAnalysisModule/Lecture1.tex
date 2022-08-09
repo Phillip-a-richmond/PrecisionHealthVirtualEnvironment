@@ -151,13 +151,30 @@ Lecture:
 
 Tutorial:
 \begin{itemize}
-\item Get data from PACS; Copy over to Sockeye
-\item Conversion and preprocessing (two ways)
+\item Get data from PACS; Copy over to Sockeye; Conversion
+\item BIDS
+\item Preprocessing using \texttt{fmriprep}
 \item Nuisance regression (two ways)
 \end{itemize}
 \end{columns}
 
 \end{frame}
+
+%------------------------------------------------
+\section{Learning Objectives}
+%------------------------------------------------
+
+\begin{frame}
+At the end of this session, students will be able to:
+\begin{itemize}
+\item Describe how MRIs produce and detect signal from the body
+\item Describe how brain activity can alter fMRI signals
+\item Describe the difference between task and resting state fMRI
+\item How to download data from open resources online to Sockeye
+\item How to run \texttt{fmriprep} on Sockeye to preprocess your fMRI data
+\end{itemize}
+\end{frame}
+
 
 %------------------------------------------------
 \section{MRI Physics}
@@ -422,7 +439,7 @@ T$_{2}$-weighted scan
 
 %------------------------------------------------
 
-\begin{frame}{fMRI Acquisition: Task-based}
+\begin{frame}{fMRI Acquisition: Resting state}
 \includegraphics[width=.7\textwidth]{imgs/restingfmri}
 
 \tiny{Fox and Greicius. (2010). Front Syst Neurosci, 4(19)}
@@ -453,118 +470,22 @@ T$_{2}$-weighted scan
 \end{frame}
 
 %------------------------------------------------
-
-\begin{frame}{fMRI Analysis: Preprocessing}
-
-\url{https://openneuro.org/}
-
-\vspace{0.2cm}
-\includegraphics[width=1\textwidth]{imgs/openneuro}
-
-\end{frame}
-
-%------------------------------------------------
-
-
-
-
-\begin{frame}{Blocks of Highlighted Text}
-    In this slide, some important text will be \alert{highlighted} because it's important. Please, don't abuse it.
-
-    \begin{block}{Block}
-        Sample text
-    \end{block}
-
-    \begin{alertblock}{Alertblock}
-        Sample text in red box
-    \end{alertblock}
-
-    \begin{examples}
-        Sample text in green box. The title of the block is ``Examples".
-    \end{examples}
-\end{frame}
+%
+%\begin{frame}{fMRI Analysis: Preprocessing}
+%
+%\url{https://openneuro.org/}
+%
+%\vspace{0.2cm}
+%\includegraphics[width=1\textwidth]{imgs/openneuro}
+%
+%\end{frame}
 
 %------------------------------------------------
 
-\begin{frame}{Multiple Columns}
-    \begin{columns}[c] % The "c" option specifies centered vertical alignment while the "t" option is used for top vertical alignment
+\section{Sockeye Tutorial and fmriprep}
 
-        \column{.45\textwidth} % Left column and width
-        \textbf{Heading}
-        \begin{enumerate}
-            \item Statement
-            \item Explanation
-            \item Example
-        \end{enumerate}
+\begin{frame}{Sockeye}
 
-        \column{.5\textwidth} % Right column and width
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lectus nisl, ultricies in feugiat rutrum, porttitor sit amet augue. Aliquam ut tortor mauris. Sed volutpat ante purus, quis accumsan dolor.
-
-    \end{columns}
-\end{frame}
-
-%------------------------------------------------
-\section{Second Section}
-%------------------------------------------------
-
-\begin{frame}{Table}
-    \begin{table}
-        \begin{tabular}{l l l}
-            \toprule
-            \textbf{Treatments} & \textbf{Response 1} & \textbf{Response 2} \\
-            \midrule
-            Treatment 1         & 0.0003262           & 0.562               \\
-            Treatment 2         & 0.0015681           & 0.910               \\
-            Treatment 3         & 0.0009271           & 0.296               \\
-            \bottomrule
-        \end{tabular}
-        \caption{Table caption}
-    \end{table}
-\end{frame}
-
-%------------------------------------------------
-
-\begin{frame}{Theorem}
-    \begin{theorem}[Mass--energy equivalence]
-        $E = mc^2$
-    \end{theorem}
-\end{frame}
-
-%------------------------------------------------
-
-\begin{frame}{Figure}
-    Uncomment the code on this slide to include your own image from the same directory as the template .TeX file.
-    %\begin{figure}
-    %\includegraphics[width=0.8\linewidth]{test}
-    %\end{figure}
-\end{frame}
-
-%------------------------------------------------
-
-\begin{frame}[fragile] % Need to use the fragile option when verbatim is used in the slide
-    \frametitle{Citation}
-    An example of the \verb|\cite| command to cite within the presentation:\\~
-
-    This statement requires citation \cite{p1}.
-\end{frame}
-
-%------------------------------------------------
-
-\begin{frame}{References}
-    % Beamer does not support BibTeX so references must be inserted manually as below
-    \footnotesize{
-        \begin{thebibliography}{99}
-            \bibitem[Smith, 2012]{p1} John Smith (2012)
-            \newblock Title of the publication
-            \newblock \emph{Journal Name} 12(3), 45 -- 678.
-        \end{thebibliography}
-    }
-\end{frame}
-
-%------------------------------------------------
-
-\begin{frame}
-    \Huge{\centerline{The End}}
 \end{frame}
 
 %----------------------------------------------------------------------------------------
