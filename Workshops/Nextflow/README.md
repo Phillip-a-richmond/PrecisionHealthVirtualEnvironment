@@ -1,4 +1,4 @@
-# Command Line Workshop
+# A Hitchhiker's guide to NextFlow
 
 > The purpose of this workshop is to explore the basics of the workflow manager known as nextflow. This includes setting up an nf-core pipeline, and exploring basics of building your own nextflow pipeline.
 
