@@ -84,21 +84,6 @@ Workshops/SNP_associations/software/*
 Workshops/SNP_associations/shared/*
 
 # Omics exploration
-Workshops/omics_exploration/.DS_Store
-Workshops/omics_exploration/.Rhistory
-Workshops/omics_exploration/.Rproj.user
-Workshops/omics_exploration/slides/.DS_Store
-# <<<<<<< omics_exploration
-Workshops/omics_exploration/R_Libs_4.1.0/
-Workshops/omics_exploration/cache/
-
-# Biomarker discovery
-Workshops/biomarker_discovery/.DS_Store
-Workshops/biomarker_discovery/.Rhistory
-Workshops/biomarker_discovery/.Rproj.user
-Workshops/biomarker_discovery/slides/.DS_Store
-=======
-# >>>>>>> main
 Workshops/omics_exploration/.cache/
 Workshops/omics_exploration/.config/
 Workshops/omics_exploration/.local/
@@ -110,14 +95,52 @@ Workshops/omics_exploration/slides/libs/header-attrs-2.14/
 Workshops/omics_exploration/slides/phate.csv
 Workshops/omics_exploration/R_Libs_4.1.0/
 Workshops/omics_exploration/cache/
+Workshops/omics_exploration/rpystudio.sif
 
 # Biomarker discovery
+Workshops/biomarker_discovery/.DS_Store
+Workshops/biomarker_discovery/.Rhistory
+Workshops/biomarker_discovery/.Rproj.user
+Workshops/biomarker_discovery/slides/.DS_Store
 Workshops/biomarker_discovery/.config/
 Workshops/biomarker_discovery/.local/
 Workshops/biomarker_discovery/R_Libs_4.1.0/
 Workshops/biomarker_discovery/cache/
 Workshops/biomarker_discovery/connection_3977362.pbsha.ib.sockeye.txt
-Workshops/biomarker_discovery/slides/libs/header-attrs-2.14/
+Workshops/biomarker_discovery/slides/libs/*
+Workshops/omics_exploration/rpystudio.sif
+
+# unsupervised data integration
+Workshops/unsupervised_data_integration/.cache/
+Workshops/unsupervised_data_integration/.config/
+Workshops/unsupervised_data_integration/.local/
+Workshops/unsupervised_data_integration/connection*
+Workshops/unsupervised_data_integration/error.txt
+Workshops/unsupervised_data_integration/output.txt
+Workshops/unsupervised_data_integration/slides/iris.txt
+Workshops/unsupervised_data_integration/slides/libs/*
+Workshops/unsupervised_data_integration/R_Libs_4.1.0/
+Workshops/unsupervised_data_integration/cache/
+Workshops/unsupervised_data_integration/rpystudio.sif
+Workshops/unsupervised_data_integration/model.hdf5
+Workshops/unsupervised_data_integration/.Rproj.user
+Workshops/unsupervised_data_integration/.bash_history
+Workshops/unsupervised_data_integration/.python_history*
+
+# supervised data integration
+Workshops/supervised_data_integration/.cache/
+Workshops/supervised_data_integration/.config/
+Workshops/supervised_data_integration/.local/
+Workshops/supervised_data_integration/connection*
+Workshops/supervised_data_integration/error.txt
+Workshops/supervised_data_integration/output.txt
+Workshops/supervised_data_integration/slides/iris.txt
+Workshops/supervised_data_integration/slides/libs/*
+Workshops/supervised_data_integration/R_Libs_4.1.0/
+Workshops/supervised_data_integration/cache/
+Workshops/unsupervised_data_integration/rpystudio.sif
+Workshops/unsupervised_data_integration/.Rproj.user
+Workshops/unsupervised_data_integration/.Rhistory
 
 # DLC
 Workshops/DLC_intro/data/*
