@@ -4,13 +4,25 @@ This workshop will cover first steps when doing any genetic association analysis
 
 ## Information
 
-Workshop slides are available here: https://docs.google.com/presentation/d/1ZaP_xxDOKHKRDLxerSta0eseyGfkpUVNWJlik2kwnmI/edit#slide=id.p
+### Slides
+Workshop slides are available here: [https://docs.google.com/presentation/d/1ZaP_xxDOKHKRDLxerSta0eseyGfkpUVNWJlik2kwnmI/edit#slide=id.p](https://docs.google.com/presentation/d/1ZaP_xxDOKHKRDLxerSta0eseyGfkpUVNWJlik2kwnmI/edit#slide=id.p)
 
+### Recordings
+Part 1: 
+- Link: [https://ubc.zoom.us/rec/share/Y4t2CGU4OlaLPmAiV2RrFixFxxD8gvftD1k90pQkQaEZfzcBdlKaNftO05Ezh7zs.e-u9M_QezV8s-Uu3?startTime=1659629138000](https://ubc.zoom.us/rec/share/Y4t2CGU4OlaLPmAiV2RrFixFxxD8gvftD1k90pQkQaEZfzcBdlKaNftO05Ezh7zs.e-u9M_QezV8s-Uu3?startTime=1659629138000)
+- Passcode: ```&x8%BFx?```
+
+Part 2:
+- Link: [https://ubc.zoom.us/rec/share/Y4t2CGU4OlaLPmAiV2RrFixFxxD8gvftD1k90pQkQaEZfzcBdlKaNftO05Ezh7zs.e-u9M_QezV8s-Uu3?startTime=1659639919000](https://ubc.zoom.us/rec/share/Y4t2CGU4OlaLPmAiV2RrFixFxxD8gvftD1k90pQkQaEZfzcBdlKaNftO05Ezh7zs.e-u9M_QezV8s-Uu3?startTime=1659639919000)
+- Passcode: ```&x8%BFx?```
+
+### Details
 Zoom link for both sessions: https://ubc.zoom.us/j/67274653046?pwd=SjJZKzR3M0tYM3B5ckFib0FRZW14Zz09
 
 In-person: Room 552 (Koerner Library)
 
-See all of the workshop material under `/scratch/tr-precisionhealth-1/Workshops/SNP_associations`
+See all of the workshop material under ```/scratch/tr-precisionhealth-1/Workshops/SNP_associations```
+
 
 ## Prerequisites 
 

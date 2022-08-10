@@ -23,10 +23,3 @@ dlc.label_frames(config_path)
 
 dlc.create_training_dataset(config_path)
 
-dlc.train_network(config_path, saveiters = 250, maxiters = 1000, displayiters = 100)
-
-dlc.evaluate_network(config_path)
-
-dlc.analyze_videos(config_path, ['/scratch/tr-precisionhealth-1/Workshops/StudentSpaces/$CWL/DLC_intro/data/'], save_as_csv = True)
-
-dlc.create_labeled_video(config_path, ['/scratch/tr-precisionhealth-1/Workshops/StudentSpaces/$CWL/DLC_intro/data/'])

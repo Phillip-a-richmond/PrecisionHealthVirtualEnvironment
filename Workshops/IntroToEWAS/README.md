@@ -2,8 +2,11 @@
 
 Based on a workshop provided by the BC Children's Research Institute's [Trainee 'Omics Group (TOG)](ihttps://bcchr.ca/tog). You can check it out [here](https://github.com/BCCHR-trainee-omics-group/StudyGroup/tree/master/workshops/2020-10-29_intro_to_ewas), and see their other workshops on their [GitHub Page](https://github.com/BCCHR-trainee-omics-group/StudyGroup).
 
+## Slides
+- Link: [https://docs.google.com/presentation/d/1J-yii-91nH6KAsNqLUELakKhLAMwGvT864Qwwsz7ug0/edit#slide=id.g13dea8c6159_5_0](https://docs.google.com/presentation/d/1J-yii-91nH6KAsNqLUELakKhLAMwGvT864Qwwsz7ug0/edit#slide=id.g13dea8c6159_5_0)  
+
 ## Recording:
-- Link link: [https://ubc.zoom.us/rec/share/eGyb0tl3C18JfX2Hgq8hvuY2bEwFr-Pe8Nsw3NrNQKpBBsP0fuAy5d4NcFjZEQAU.6MryFBX8__zDxUbO?startTime=1659110897000](https://ubc.zoom.us/rec/share/eGyb0tl3C18JfX2Hgq8hvuY2bEwFr-Pe8Nsw3NrNQKpBBsP0fuAy5d4NcFjZEQAU.6MryFBX8__zDxUbO?startTime=1659110897000)
+- Link:  [https://ubc.zoom.us/rec/share/eGyb0tl3C18JfX2Hgq8hvuY2bEwFr-Pe8Nsw3NrNQKpBBsP0fuAy5d4NcFjZEQAU.6MryFBX8__zDxUbO?startTime=1659110897000](https://ubc.zoom.us/rec/share/eGyb0tl3C18JfX2Hgq8hvuY2bEwFr-Pe8Nsw3NrNQKpBBsP0fuAy5d4NcFjZEQAU.6MryFBX8__zDxUbO?startTime=1659110897000)  
 - Passcode: ```vEh%^s8Q```
 
 

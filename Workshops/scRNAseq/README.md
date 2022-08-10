@@ -2,6 +2,7 @@
 
 <br>
 
+
 ### Part 1 - CellRanger: From Raw to Preprocessed Data
 
 Part 1 of the workshop starts with a mile-high overview of generating droplet-based single cell RNA sequences (scRNAseq). From there, we will look at what raw Illumina sequencing files look like and introduce the CellRanger software. We will focus on two main pipelines: mkfastq and count. Participants will learn how to use these funcitons on UBC ARC Sockeye to convert BCL files to FASTQ files with mkfastq, then align those files to a reference genome using count. From there, data can be used by third party applications for further processing and analysis. 
@@ -10,7 +11,14 @@ Learning objectives:
 * Understand the key steps of single cell RNA sequencing, from bench to bioinformatics
 * Set up and run the CellRanger mkfastq and count pipelines on Sockeye
 
-Slides: https://docs.google.com/presentation/d/1Q9I5efRXDfej3QDVP1fAlHPftsJ7INLs-B7O9BqnAOY/edit?usp=sharing
+#### Slides
+[https://docs.google.com/presentation/d/1Q9I5efRXDfej3QDVP1fAlHPftsJ7INLs-B7O9BqnAOY/edit?usp=sharing](https://docs.google.com/presentation/d/1Q9I5efRXDfej3QDVP1fAlHPftsJ7INLs-B7O9BqnAOY/edit?usp=sharing)  
+
+#### Recording
+
+- Link: [https://ubc.zoom.us/rec/share/ILFSCA4QHVXwrHQURn2KVQpDvRXw97ncpyxmJEQSSnlM5oRPUrzyXKFb9vQl_Xad.KQhLN0aTXtylIC5Q?startTime=1659542755000](https://ubc.zoom.us/rec/share/ILFSCA4QHVXwrHQURn2KVQpDvRXw97ncpyxmJEQSSnlM5oRPUrzyXKFb9vQl_Xad.KQhLN0aTXtylIC5Q?startTime=1659542755000)  
+- Passcode: ```n!GZ@89t```
+
 
 **Requirements: ** 
 * Basic working-knowledge and experience with Linux
@@ -28,7 +36,15 @@ Learning objectives:
 * Apply two packages (SoupX and DoubletFinder) to help process scRNAseq data
 * Perform SCTransform on multiple samples objects at once and integrate them for downstream analysis
 
-Slides: https://docs.google.com/presentation/d/1t3B_PYF-Noxfll-nYXzj0bobimKiDgg3QwEksh-6kPo/edit?usp=sharing
+#### Slides 
+
+[https://docs.google.com/presentation/d/1t3B_PYF-Noxfll-nYXzj0bobimKiDgg3QwEksh-6kPo/edit?usp=sharing](https://docs.google.com/presentation/d/1t3B_PYF-Noxfll-nYXzj0bobimKiDgg3QwEksh-6kPo/edit?usp=sharing)
+
+#### Recording
+
+- Link: [https://ubc.zoom.us/rec/share/JP0ST2VvcaTqqmgD7Ht2vVngUzBBzQ2tCXVInTxKHrv-rDWhGiZPzxokbXQgq2H4.-rbRuphxFSp86LOr?startTime=1659553973000](https://ubc.zoom.us/rec/share/JP0ST2VvcaTqqmgD7Ht2vVngUzBBzQ2tCXVInTxKHrv-rDWhGiZPzxokbXQgq2H4.-rbRuphxFSp86LOr?startTime=1659553973000)
+- Passcode: ```+t*8bKe@```
+
 **Requirements: ** 
 * Basic working-knowledge and experience with R
 * Access to Sockeye
