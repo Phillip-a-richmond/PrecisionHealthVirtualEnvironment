@@ -13,4 +13,4 @@ cd $PBS_O_WORKDIR
 source /project/st-sturvey-1/PrecisionHealthVirtualEnvironment/Software/miniconda3/etc/profile.d/conda.sh
 conda activate DLC-GPU-Environment
 
-python dlc_analyse.py &> out_dlc_analyse.txt
+python dlc_train.py &> out_dlc_train.txt

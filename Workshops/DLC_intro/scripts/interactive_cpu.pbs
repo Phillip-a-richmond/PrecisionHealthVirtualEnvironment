@@ -1,9 +1,0 @@
-#!/bin/bash
-#PBS -l walltime=3:00:00,select=1:ncpus=4:mem=16gb
-#PBS -I
-#PBS -X
-#PBS -q interactive_cpu
-#PBS -N interactivecpu
-#PBS -A st-sturvey-1
- 
-################################################################################
