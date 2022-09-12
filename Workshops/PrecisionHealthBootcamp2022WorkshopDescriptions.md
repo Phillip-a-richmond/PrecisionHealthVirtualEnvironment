@@ -39,16 +39,16 @@ Applied:
 - Access to /scratch/tr-precisionhealth-1/
 
 **Recordings**:
-- Part 1: [https://www.youtube.com/watch?v=TtumysCCy7I&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2](https://www.youtube.com/watch?v=TtumysCCy7I&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2). 
-- Part 2: [https://www.youtube.com/watch?v=ic48MCaPIwM&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=2](https://www.youtube.com/watch?v=ic48MCaPIwM&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=2). 
+- Command Line Intro: [https://www.youtube.com/watch?v=TtumysCCy7I&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2](https://www.youtube.com/watch?v=TtumysCCy7I&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2). 
+- HPC Basics: [https://www.youtube.com/watch?v=ic48MCaPIwM&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=2](https://www.youtube.com/watch?v=ic48MCaPIwM&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=2). 
 
 **Slides**:
-- Part 1: [https://docs.google.com/presentation/d/1vl6V92WAsBwl5LjxgTGfv4RuucQtMkHP8UsBjmetJFw/edit#slide=id.p](https://docs.google.com/presentation/d/1vl6V92WAsBwl5LjxgTGfv4RuucQtMkHP8UsBjmetJFw/edit#slide=id.p)
-- Part 2: [https://docs.google.com/presentation/d/1lJltAnO6dgznRgJi-KjV9UZL1SbB0gWe17xk_9SoNKc/edit#slide=id.g13d0dd4667e_0_2613](https://docs.google.com/presentation/d/1lJltAnO6dgznRgJi-KjV9UZL1SbB0gWe17xk_9SoNKc/edit#slide=id.g13d0dd4667e_0_2613)
+- Command Line Intro: [https://docs.google.com/presentation/d/1vl6V92WAsBwl5LjxgTGfv4RuucQtMkHP8UsBjmetJFw/edit#slide=id.p](https://docs.google.com/presentation/d/1vl6V92WAsBwl5LjxgTGfv4RuucQtMkHP8UsBjmetJFw/edit#slide=id.p)
+- HPC Basics: [https://docs.google.com/presentation/d/1lJltAnO6dgznRgJi-KjV9UZL1SbB0gWe17xk_9SoNKc/edit#slide=id.g13d0dd4667e_0_2613](https://docs.google.com/presentation/d/1lJltAnO6dgznRgJi-KjV9UZL1SbB0gWe17xk_9SoNKc/edit#slide=id.g13d0dd4667e_0_2613)
 
 **Workshop Folder**:
-- Part 1: [https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Workshops/Core_CommandLine](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Workshops/Core_CommandLine)
-- Part 2: [https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Workshops/Core_HPCBasics](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Workshops/Core_HPCBasics)
+- Command Line Intro: [https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Workshops/Core_CommandLine](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Workshops/Core_CommandLine)
+- HPC Basics: [https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Workshops/Core_HPCBasics](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Workshops/Core_HPCBasics)
 
 
 ***  
@@ -70,7 +70,7 @@ Applied:
 **Recordings**:
 - Conda and Singularity: [https://www.youtube.com/watch?v=093Iq2n5kMM&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=3](https://www.youtube.com/watch?v=093Iq2n5kMM&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=3). 
 - Git/GitHub: [https://www.youtube.com/watch?v=ZtC1qmM_CHA&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=4](https://www.youtube.com/watch?v=ZtC1qmM_CHA&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=4). 
-- Chinook: 
+- Chinook: []()
 
 **Slides**:
 - Conda and Singularity: [https://docs.google.com/presentation/d/1twzjIsN1u4BtKXWFuOCVOpaIz-1mv93TSippl8rJTvI/edit#slide=id.g13b8381d6ce_0_0](https://docs.google.com/presentation/d/1twzjIsN1u4BtKXWFuOCVOpaIz-1mv93TSippl8rJTvI/edit#slide=id.g13b8381d6ce_0_0)
@@ -136,12 +136,12 @@ Applied:
 - Familiarity with the LINUX command line, PBS Pro scheduler, and Singularity or our Bootcamp’s Core Workshops: [Intro to Sockeye and HPC basics](#workshop-1-and-2) and [Conda and Singularity](#workshop-3-and-4)     
 
 **Recordings**:
-- Part 1: [https://www.youtube.com/watch?v=rgBPNxuYkFk&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=6](https://www.youtube.com/watch?v=rgBPNxuYkFk&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=6)
-- Part 2: [https://www.youtube.com/watch?v=bxEWSzeOLdE&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=7](https://www.youtube.com/watch?v=bxEWSzeOLdE&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=7)
+- Nextflow Part 1: [https://www.youtube.com/watch?v=rgBPNxuYkFk&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=6](https://www.youtube.com/watch?v=rgBPNxuYkFk&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=6)
+- Nextflow Part 2: [https://www.youtube.com/watch?v=bxEWSzeOLdE&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=7](https://www.youtube.com/watch?v=bxEWSzeOLdE&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=7)
 
 **Slides**:
-- Part 1: [https://docs.google.com/presentation/d/1U1NlXyaeUz2rgpO6ahNb19mLRFxf3fE8UVvbIRUcD7E/edit#slide=id.g13d11b74600_1_331](https://docs.google.com/presentation/d/1U1NlXyaeUz2rgpO6ahNb19mLRFxf3fE8UVvbIRUcD7E/edit#slide=id.g13d11b74600_1_331)
-- Part 2: [https://docs.google.com/presentation/d/1G0j21Hjk-fpL5y-q-DZQBypVNlsII8HZsYxaXx6GF0Y/edit?usp=sharing](https://docs.google.com/presentation/d/1G0j21Hjk-fpL5y-q-DZQBypVNlsII8HZsYxaXx6GF0Y/edit?usp=sharing)
+- Nextflow Part 1: [https://docs.google.com/presentation/d/1U1NlXyaeUz2rgpO6ahNb19mLRFxf3fE8UVvbIRUcD7E/edit#slide=id.g13d11b74600_1_331](https://docs.google.com/presentation/d/1U1NlXyaeUz2rgpO6ahNb19mLRFxf3fE8UVvbIRUcD7E/edit#slide=id.g13d11b74600_1_331)
+- Nextflow Part 2: [https://docs.google.com/presentation/d/1G0j21Hjk-fpL5y-q-DZQBypVNlsII8HZsYxaXx6GF0Y/edit?usp=sharing](https://docs.google.com/presentation/d/1G0j21Hjk-fpL5y-q-DZQBypVNlsII8HZsYxaXx6GF0Y/edit?usp=sharing)
 
 **Workshop Folder**:
 - NextFlow: [https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Workshops/Nextflow](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Workshops/Nextflow)
@@ -165,11 +165,11 @@ Applied:
 **Recording**:
 - Intro to EWAS: [https://www.youtube.com/watch?v=CnEGKXufarw&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=10](https://www.youtube.com/watch?v=CnEGKXufarw&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=10)
 
-
 **Slides**:
-
+- Intro to EWAS: [https://docs.google.com/presentation/d/1J-yii-91nH6KAsNqLUELakKhLAMwGvT864Qwwsz7ug0/edit#slide=id.g13dea8c6159_5_0](https://docs.google.com/presentation/d/1J-yii-91nH6KAsNqLUELakKhLAMwGvT864Qwwsz7ug0/edit#slide=id.g13dea8c6159_5_0)
 
 **Workshop Folder**:
+- Intro to EWAS: [https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Workshops/IntroToEWAS](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Workshops/IntroToEWAS)
 
 
 ***  
@@ -190,10 +190,13 @@ Applied:
 - Ensure that RStudio is installed on, and works, on your Sockeye allocation. 
 
 **Recordings**:
-- Part 1: [https://www.youtube.com/watch?v=T-YUK46J3AE&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=8](https://www.youtube.com/watch?v=T-YUK46J3AE&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=8)
-- Part 2: [https://www.youtube.com/watch?v=L3WiDr4hnhU&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=9](https://www.youtube.com/watch?v=L3WiDr4hnhU&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=9)
+- RNAseq Part 1: [https://www.youtube.com/watch?v=T-YUK46J3AE&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=8](https://www.youtube.com/watch?v=T-YUK46J3AE&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=8)
+- RNAseq Part 2: [https://www.youtube.com/watch?v=L3WiDr4hnhU&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=9](https://www.youtube.com/watch?v=L3WiDr4hnhU&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=9)
 
 **Slides**:
+- RNAseq Part 1: 
+- RNAseq Part 2: 
+
 
 **Workshop Folder**:
 
