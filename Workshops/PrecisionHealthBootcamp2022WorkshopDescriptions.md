@@ -263,7 +263,16 @@ Applied:
 
 **Prerequisites**: 
 - Basic familiarity with LINUX and HPC or our Bootcamp’s Core Workshops: [Intro to Sockeye and HPC basics](#workshop-1-and-2), [Conda and Singularity](#workshop-3-and-4), [Interactive Rstudio + Package management](#workshop-5).
-- 
+
+**Recordings**:
+- Multi-omics Data Exploration: [https://www.youtube.com/watch?v=IGPuS_367Dw&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=15](https://www.youtube.com/watch?v=IGPuS_367Dw&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=15)
+- Biomarker Discovery and Evaluation Techniques [https://www.youtube.com/watch?v=YQUhila3VI4&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=16](https://www.youtube.com/watch?v=YQUhila3VI4&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=16)
+
+**Slides**:
+
+
+
+
 
 ***  
 
@@ -283,6 +292,17 @@ In this session there will be a basic description of MRI, fMRI, and the core dat
 - If you want to execute the commands, then the following:
   -  Basic familiarity with LINUX and HPC or our Bootcamp’s Core Workshops: [Intro to Sockeye and HPC basics](#workshop-1-and-2), [Conda and Singularity](#workshop-3-and-4), [Interactive Rstudio + Package management](#workshop-5).
 
+**Recordings**:
+- Part 1: [https://www.youtube.com/watch?v=5faYirHpn6w&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=17](https://www.youtube.com/watch?v=5faYirHpn6w&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=17)
+- Part 2: [https://www.youtube.com/watch?v=6i6TVHM7CoY&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=18](https://www.youtube.com/watch?v=6i6TVHM7CoY&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=18)
+
+**Slides**:
+
+**Workshop Folder**:
+
+
+
+
 *** 
 
 #### Workshop 21 and 22 
@@ -299,7 +319,14 @@ In this session there will be a basic description of MRI, fMRI, and the core dat
 **Prerequisites:** 
 - Basic familiarity with navigation on HPC servers, or our Bootcamp’s Core Workshop: [Intro to Sockeye](#workshop-1-and-2) and [Conda and Singularity](#workshop-3-and-4). 
 
-*** 
+**Recordings**:
 
+
+**Slides**:
+
+**Workshop Folder**:
+
+
+*** 
 
 
