@@ -38,6 +38,17 @@ Applied:
 - Ability to log-in to the Sockeye cluster 
 - Access to /scratch/tr-precisionhealth-1/
 
+**Recordings**:
+**Part 1**: [https://www.youtube.com/watch?v=TtumysCCy7I&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2](https://www.youtube.com/watch?v=TtumysCCy7I&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2)
+**Part 2**: [https://www.youtube.com/watch?v=ic48MCaPIwM&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=2](https://www.youtube.com/watch?v=ic48MCaPIwM&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=2)
+
+**Slides**:
+
+
+**Workshop Folder**:
+
+
+
 ***  
 
 #### Workshop 3 and 4  
@@ -54,6 +65,16 @@ Applied:
 **Prerequisites**: 
 - Familiarity with LINUX command line and PBS Pro scheduler or our Bootcamp’s Core Workshop: [Intro to Sockeye and HPC basics](#workshop-1-and-2) 
 
+**Recordings**:
+**Conda and Singularity**: [https://www.youtube.com/watch?v=093Iq2n5kMM&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=3](https://www.youtube.com/watch?v=093Iq2n5kMM&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=3). 
+**Git/GitHub**: [https://www.youtube.com/watch?v=ZtC1qmM_CHA&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=4](https://www.youtube.com/watch?v=ZtC1qmM_CHA&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=4). 
+**Chinook**:
+
+**Slides**:
+
+
+**Workshop Folder**:
+
 ***  
 
 #### Workshop 5 
@@ -67,6 +88,14 @@ Applied:
 
 **Prerequisites**
 - Familiarity with the LINUX command line, PBS Pro scheduler, and Singularity or our Bootcamp’s Core Workshops: [Intro to Sockeye and HPC basics](#workshop-1-and-2) and [Conda and Singularity](#workshop-3-and-4)   
+
+**Recordings**:
+**Rstudio and R Library Management**: [https://www.youtube.com/watch?v=AkbeDw8Ksuk&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=5](https://www.youtube.com/watch?v=AkbeDw8Ksuk&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=5)
+
+**Slides**:
+
+**Workshop Folder**:
+
 
 ***  
 
@@ -95,6 +124,17 @@ Applied:
 **Prerequisites:** 
 - Familiarity with the LINUX command line, PBS Pro scheduler, and Singularity or our Bootcamp’s Core Workshops: [Intro to Sockeye and HPC basics](#workshop-1-and-2) and [Conda and Singularity](#workshop-3-and-4)     
 
+**Recordings**:
+- Part 1: [https://www.youtube.com/watch?v=rgBPNxuYkFk&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=6](https://www.youtube.com/watch?v=rgBPNxuYkFk&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=6)
+- Part 2: [https://www.youtube.com/watch?v=bxEWSzeOLdE&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=7](https://www.youtube.com/watch?v=bxEWSzeOLdE&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=7)
+
+**Slides**:
+
+
+**Workshop Folder**:
+
+
+
 ***  
 
 #### Workshop 8  
@@ -109,6 +149,17 @@ Applied:
 **Prerequisites:**  
 - Familiarity with the R programming languge, LINUX command line, PBS Pro scheduler, and Singularity for Rstudio or our Bootcamp’s Core Workshops: [Intro to Sockeye and HPC basics](#workshop-1-and-2), [Conda and Singularity](#workshop-3-and-4), [Interactive Rstudio and package management](#workshop-5).     
   
+  
+**Recording**:
+- Intro to EWAS: [https://www.youtube.com/watch?v=CnEGKXufarw&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=10](https://www.youtube.com/watch?v=CnEGKXufarw&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=10)
+
+
+**Slides**:
+
+
+**Workshop Folder**:
+
+
 ***  
   
 #### Workshop 9 and 10     
@@ -126,6 +177,19 @@ Applied:
 - If you haven’t ever used R/RStudio before, complete our Bootcamp’s Core Workshop: [Interactive RStudio + Package Management](#workshop-5)    
 - Ensure that RStudio is installed on, and works, on your Sockeye allocation. 
 
+**Recordings**:
+- Part 1: [https://www.youtube.com/watch?v=T-YUK46J3AE&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=8](https://www.youtube.com/watch?v=T-YUK46J3AE&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=8)
+- Part 2: [https://www.youtube.com/watch?v=L3WiDr4hnhU&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=9](https://www.youtube.com/watch?v=L3WiDr4hnhU&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=9)
+
+**Slides**:
+
+**Workshop Folder**:
+
+
+
+**
+
+
 ***  
 
 #### Workshop 11 and 12 
@@ -142,6 +206,18 @@ Applied:
 **Prerequisites:** 
 - Familiarity with the R programming languge, LINUX command line, PBS Pro scheduler, and Singularity for Rstudio or our Bootcamp’s Core Workshops: [Intro to Sockeye and HPC basics](#workshop-1-and-2), [Conda and Singularity](#workshop-3-and-4), and [Interactive Rstudio and package management](#workshop-5).
 
+**Recordings**:
+- Part 1: [https://www.youtube.com/watch?v=_IonfgJ-y-s&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=11](https://www.youtube.com/watch?v=_IonfgJ-y-s&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=11)
+- Part 2: [https://www.youtube.com/watch?v=VcQ8UcHzfn0&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=12](https://www.youtube.com/watch?v=VcQ8UcHzfn0&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=12)
+
+**Slides**:
+
+
+**Workshop Folder**:
+
+
+
+
 ***
 
 #### Workshop 13 and 14 
@@ -157,6 +233,17 @@ Applied:
 
 **Prerequisites:**
 - Basic familiarity with LINUX and HPC or our Bootcamp’s Core Workshops: [Intro to Sockeye and HPC basics](#workshop-1-and-2), [Conda and Singularity](#workshop-3-and-4), [Interactive Rstudio + Package management](#workshop-5).
+
+**Recordings**:
+- Part 1: [https://www.youtube.com/watch?v=vAKWjePf8LE&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=13](https://www.youtube.com/watch?v=vAKWjePf8LE&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=13)
+- Part 2: [https://www.youtube.com/watch?v=F7xSFVb2gb0&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=14](https://www.youtube.com/watch?v=F7xSFVb2gb0&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=14)
+
+**Slides**:
+
+
+**Workshop Folder**:
+
+
 
 ***
 
