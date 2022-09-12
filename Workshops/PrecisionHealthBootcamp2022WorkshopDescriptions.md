@@ -194,16 +194,10 @@ Applied:
 - RNAseq Part 2: [https://www.youtube.com/watch?v=L3WiDr4hnhU&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=9](https://www.youtube.com/watch?v=L3WiDr4hnhU&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=9)
 
 **Slides**:
-- RNAseq Part 1: 
-- RNAseq Part 2: 
-
+- RNAseq (Note: Download HTML file, open in web browser): [https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/blob/main/Workshops/Applied_RNA-seq/Slides.html](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/blob/main/Workshops/Applied_RNA-seq/Slides.html)
 
 **Workshop Folder**:
-
-
-
-**
-
+- RNAseq: [https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Workshops/Applied_RNA-seq](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Workshops/Applied_RNA-seq)
 
 ***  
 
@@ -222,16 +216,15 @@ Applied:
 - Familiarity with the R programming languge, LINUX command line, PBS Pro scheduler, and Singularity for Rstudio or our Bootcamp’s Core Workshops: [Intro to Sockeye and HPC basics](#workshop-1-and-2), [Conda and Singularity](#workshop-3-and-4), and [Interactive Rstudio and package management](#workshop-5).
 
 **Recordings**:
-- Part 1: [https://www.youtube.com/watch?v=_IonfgJ-y-s&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=11](https://www.youtube.com/watch?v=_IonfgJ-y-s&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=11)
-- Part 2: [https://www.youtube.com/watch?v=VcQ8UcHzfn0&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=12](https://www.youtube.com/watch?v=VcQ8UcHzfn0&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=12)
+- scRNAseq Part 1: [https://www.youtube.com/watch?v=_IonfgJ-y-s&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=11](https://www.youtube.com/watch?v=_IonfgJ-y-s&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=11)
+- scRNAseq Part 2: [https://www.youtube.com/watch?v=VcQ8UcHzfn0&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=12](https://www.youtube.com/watch?v=VcQ8UcHzfn0&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=12)
 
 **Slides**:
-
+- scRNAseq Part 1: [https://docs.google.com/presentation/d/1Q9I5efRXDfej3QDVP1fAlHPftsJ7INLs-B7O9BqnAOY/edit?usp=sharing](https://docs.google.com/presentation/d/1Q9I5efRXDfej3QDVP1fAlHPftsJ7INLs-B7O9BqnAOY/edit?usp=sharing)
+- scRNAseq Part 2: [https://docs.google.com/presentation/d/1t3B_PYF-Noxfll-nYXzj0bobimKiDgg3QwEksh-6kPo/edit?usp=sharing](https://docs.google.com/presentation/d/1t3B_PYF-Noxfll-nYXzj0bobimKiDgg3QwEksh-6kPo/edit?usp=sharing)
 
 **Workshop Folder**:
-
-
-
+- scRNAseq: [https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Workshops/scRNAseq](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Workshops/scRNAseq)
 
 ***
 
@@ -250,15 +243,14 @@ Applied:
 - Basic familiarity with LINUX and HPC or our Bootcamp’s Core Workshops: [Intro to Sockeye and HPC basics](#workshop-1-and-2), [Conda and Singularity](#workshop-3-and-4), [Interactive Rstudio + Package management](#workshop-5).
 
 **Recordings**:
-- Part 1: [https://www.youtube.com/watch?v=vAKWjePf8LE&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=13](https://www.youtube.com/watch?v=vAKWjePf8LE&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=13)
-- Part 2: [https://www.youtube.com/watch?v=F7xSFVb2gb0&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=14](https://www.youtube.com/watch?v=F7xSFVb2gb0&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=14)
+- GWAS Part 1: [https://www.youtube.com/watch?v=vAKWjePf8LE&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=13](https://www.youtube.com/watch?v=vAKWjePf8LE&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=13)
+- GWAS Part 2: [https://www.youtube.com/watch?v=F7xSFVb2gb0&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=14](https://www.youtube.com/watch?v=F7xSFVb2gb0&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=14)
 
 **Slides**:
-
+- GWAS: [https://docs.google.com/presentation/d/1ZaP_xxDOKHKRDLxerSta0eseyGfkpUVNWJlik2kwnmI/edit#slide=id.p](https://docs.google.com/presentation/d/1ZaP_xxDOKHKRDLxerSta0eseyGfkpUVNWJlik2kwnmI/edit#slide=id.p)
 
 **Workshop Folder**:
-
-
+- GWAS: [https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Workshops/SNP_associations](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Workshops/SNP_associations)
 
 ***
 
@@ -281,12 +273,19 @@ Applied:
 
 **Recordings**:
 - Multi-omics Data Exploration: [https://www.youtube.com/watch?v=IGPuS_367Dw&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=15](https://www.youtube.com/watch?v=IGPuS_367Dw&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=15)
-- Biomarker Discovery and Evaluation Techniques [https://www.youtube.com/watch?v=YQUhila3VI4&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=16](https://www.youtube.com/watch?v=YQUhila3VI4&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=16)
+- Biomarker Discovery and Evaluation Techniques: [https://www.youtube.com/watch?v=YQUhila3VI4&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=16](https://www.youtube.com/watch?v=YQUhila3VI4&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=16)
 
 **Slides**:
+- Multi-omics Data Exploration: [https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/blob/main/Workshops/omics_exploration/Omics%20data%20exploration.pdf](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/blob/main/Workshops/omics_exploration/Omics%20data%20exploration.pdf)
+- Biomarker Discovery and Evaluation Techniques: [https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/blob/main/Workshops/biomarker_discovery/Biomarker%20discovery%20and%20evaluation%20techniques.pdf](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/blob/main/Workshops/biomarker_discovery/Biomarker%20discovery%20and%20evaluation%20techniques.pdf)
+- Supervised Multi-omics Integration: [https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/blob/main/Workshops/supervised_data_integration/Supervised%20multiomics%20data%20integration.pdf](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/blob/main/Workshops/supervised_data_integration/Supervised%20multiomics%20data%20integration.pdf)
+- Unsupervised Multi-omics Integration: [https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/blob/main/Workshops/unsupervised_data_integration/Unsupervised%20multiomics%20data%20integration.pdf](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/blob/main/Workshops/unsupervised_data_integration/Unsupervised%20multiomics%20data%20integration.pdf)
 
-
-
+**Workshop Folder**:
+- Multi-omics Data Exploration: [https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/blob/main/Workshops/omics_exploration/](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/blob/main/Workshops/omics_exploration/)
+- Biomarker Discovery and Evaluation Techniques: [https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/blob/main/Workshops/biomarker_discovery/](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/blob/main/Workshops/biomarker_discovery/)
+- Supervised Multi-omics Integration: [https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/blob/main/Workshops/supervised_data_integration/](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/blob/main/Workshops/supervised_data_integration/)
+- Unsupervised Multi-omics Integration: [https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/blob/main/Workshops/unsupervised_data_integration/](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/blob/main/Workshops/unsupervised_data_integration/)
 
 
 ***  
@@ -312,11 +311,11 @@ In this session there will be a basic description of MRI, fMRI, and the core dat
 - Part 2: [https://www.youtube.com/watch?v=6i6TVHM7CoY&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=18](https://www.youtube.com/watch?v=6i6TVHM7CoY&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=18)
 
 **Slides**:
+- fMRI Part 1: [https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/blob/main/Workshops/MRIAnalysisModule/Lecture1.pdf](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/blob/main/Workshops/MRIAnalysisModule/Lecture1.pdf)
+- fMRI Part 2: [https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/blob/main/Workshops/MRIAnalysisModule/Lecture2.pdf](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/blob/main/Workshops/MRIAnalysisModule/Lecture2.pdf)
 
 **Workshop Folder**:
-
-
-
+- fMRI: [https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Workshops/MRIAnalysisModule](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Workshops/MRIAnalysisModule)
 
 *** 
 
@@ -336,8 +335,8 @@ In this session there will be a basic description of MRI, fMRI, and the core dat
 
 **Recordings**:
 
-
 **Slides**:
+
 
 **Workshop Folder**:
 
