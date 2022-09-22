@@ -62,7 +62,7 @@ REFDATA=/project/st-sturvey-1/PrecisionHealthVirtualEnvironment/Databases/Refere
 ################################
 # Don't change this file path #
 ###############################
-# The folder containing the CellRanger Software (shouldn't chance for Sockeye)
+# The folder containing the CellRanger Software (shouldn't change for Sockeye)
 CellRanger_DIR=/project/st-sturvey-1/PrecisionHealthVirtualEnvironment/Software/CellRanger/cellranger-7.0.0
 
 #########################################
