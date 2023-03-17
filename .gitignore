@@ -17,9 +17,11 @@ OpenData/ThousandGenomes/Processed/*
 OpenData/Geuvadis/Raw/*
 OpenData/Geuvadis/Processed/*
 OpenData/ThousandGenomes/HD_SNP_Chip/*
+OpenData/HPRC/*
 
 # Workshop data
 Workshops/IntroToEWAS/data/*
+Workshops/Nextflow/*
 
 # Software
 Software/miniconda3/*

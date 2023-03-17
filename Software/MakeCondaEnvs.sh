@@ -17,4 +17,12 @@ source /project/tr-precisionhealth-1/PrecisionHealthVirtualEnvironment/Software/
 #conda create -c bioconda -n SRATools sra-tools
 
 # Plink
-conda create -c bioconda -n Plink plink bcftools vcftools htslib
+#conda create -c bioconda -n Plink plink bcftools vcftools htslib
+
+# Minimap and samtools
+conda create -y --experimental-solver=libmamba \
+	-c bioconda \
+	-n Minimap2_Samtools \
+	minimap2=2.24 samtools=1.16.1 htslib=1.16.1 bcftools
+
+

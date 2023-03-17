@@ -19,7 +19,7 @@ function buildMiniConda3()
 }
 
 # Execute it
-buildMiniConda3
+#buildMiniConda3
 
 ###############################
 
@@ -30,6 +30,7 @@ function libmamba_solver()
 {
 	DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 	MINI_CONDA_INSTALL_DIR=$DIR/miniconda3
+	source $MINI_CONDA_INSTALL_DIR/etc/profile.d/conda.sh
 	conda install -y \
 		-c conda-forge \
 		conda-libmamba-solver
