@@ -38,6 +38,19 @@ Applied:
 - Ability to log-in to the Sockeye cluster 
 - Access to /scratch/tr-precisionhealth-1/
 
+**Recordings**:
+- _Command Line Intro_: [https://www.youtube.com/watch?v=TtumysCCy7I&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2](https://www.youtube.com/watch?v=TtumysCCy7I&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2). 
+- _HPC Basics_: [https://www.youtube.com/watch?v=ic48MCaPIwM&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=2](https://www.youtube.com/watch?v=ic48MCaPIwM&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=2). 
+
+**Slides**:
+- _Command Line Intro_: [https://docs.google.com/presentation/d/1vl6V92WAsBwl5LjxgTGfv4RuucQtMkHP8UsBjmetJFw/edit#slide=id.p](https://docs.google.com/presentation/d/1vl6V92WAsBwl5LjxgTGfv4RuucQtMkHP8UsBjmetJFw/edit#slide=id.p)
+- _HPC Basics_: [https://docs.google.com/presentation/d/1lJltAnO6dgznRgJi-KjV9UZL1SbB0gWe17xk_9SoNKc/edit#slide=id.g13d0dd4667e_0_2613](https://docs.google.com/presentation/d/1lJltAnO6dgznRgJi-KjV9UZL1SbB0gWe17xk_9SoNKc/edit#slide=id.g13d0dd4667e_0_2613)
+
+**Workshop Folder**:
+- _Command Line Intro_: [https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Workshops/Core_CommandLine](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Workshops/Core_CommandLine)
+- _HPC Basics_: [https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Workshops/Core_HPCBasics](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Workshops/Core_HPCBasics)
+
+
 ***  
 
 #### Workshop 3 and 4  
@@ -54,6 +67,24 @@ Applied:
 **Prerequisites**: 
 - Familiarity with LINUX command line and PBS Pro scheduler or our Bootcamp’s Core Workshop: [Intro to Sockeye and HPC basics](#workshop-1-and-2) 
 
+**Recordings**:
+- _Conda and Singularity_: [https://www.youtube.com/watch?v=093Iq2n5kMM&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=3](https://www.youtube.com/watch?v=093Iq2n5kMM&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=3). 
+- _Git/GitHub_: [https://www.youtube.com/watch?v=ZtC1qmM_CHA&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=4](https://www.youtube.com/watch?v=ZtC1qmM_CHA&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=4). 
+- _Chinook_: yet to be added[]()
+
+**Slides**:
+- _Conda and Singularity_: [https://docs.google.com/presentation/d/1twzjIsN1u4BtKXWFuOCVOpaIz-1mv93TSippl8rJTvI/edit#slide=id.g13b8381d6ce_0_0](https://docs.google.com/presentation/d/1twzjIsN1u4BtKXWFuOCVOpaIz-1mv93TSippl8rJTvI/edit#slide=id.g13b8381d6ce_0_0)
+- _Git/GitHub_: [https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/blob/main/Workshops/github/slides/Git(Hub).pdf](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/blob/main/Workshops/github/slides/Git(Hub).pdf)
+- _Chinook_: [https://docs.google.com/presentation/d/1PtiK7835BO0QTzxBzXuGJ0WIIpaUsJAlOtuhv84WjvA/edit#slide=id.g13b9875dd28_0_84](https://docs.google.com/presentation/d/1PtiK7835BO0QTzxBzXuGJ0WIIpaUsJAlOtuhv84WjvA/edit#slide=id.g13b9875dd28_0_84)
+
+
+**Workshop Folder**:
+- _Conda_: [https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Workshops/Core_Conda](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Workshops/Core_Conda)
+- _Singularity_: [https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Workshops/Core_Singularity](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Workshops/Core_Singularity)
+- _Git/GitHub_: [https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Workshops/github](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Workshops/github)
+- _Chinook_: [https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Workshops/Core_Chinook](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Workshops/Core_Chinook)
+
+
 ***  
 
 #### Workshop 5 
@@ -67,6 +98,15 @@ Applied:
 
 **Prerequisites**
 - Familiarity with the LINUX command line, PBS Pro scheduler, and Singularity or our Bootcamp’s Core Workshops: [Intro to Sockeye and HPC basics](#workshop-1-and-2) and [Conda and Singularity](#workshop-3-and-4)   
+
+**Recordings**:
+- _Rstudio and R Library Management_: [https://www.youtube.com/watch?v=AkbeDw8Ksuk&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=5](https://www.youtube.com/watch?v=AkbeDw8Ksuk&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=5)
+
+**Slides**:
+- _Rstudio and R Library Management_: [https://docs.google.com/presentation/d/16jHGlhIx3UIlVcYLU4GbHjYTL6m4DgO9Zq_jFhlhwZg/edit#slide=id.g13edabaa23a_0_325](https://docs.google.com/presentation/d/16jHGlhIx3UIlVcYLU4GbHjYTL6m4DgO9Zq_jFhlhwZg/edit#slide=id.g13edabaa23a_0_325)
+
+**Workshop Folder**:
+- _Rstudio and R Library Management_: [https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Workshops/Core_Rstudio](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Workshops/Core_Rstudio)
 
 ***  
 
@@ -95,6 +135,18 @@ Applied:
 **Prerequisites:** 
 - Familiarity with the LINUX command line, PBS Pro scheduler, and Singularity or our Bootcamp’s Core Workshops: [Intro to Sockeye and HPC basics](#workshop-1-and-2) and [Conda and Singularity](#workshop-3-and-4)     
 
+**Recordings**:
+- _Nextflow Part 1_: [https://www.youtube.com/watch?v=rgBPNxuYkFk&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=6](https://www.youtube.com/watch?v=rgBPNxuYkFk&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=6)
+- _Nextflow Part 2_: [https://www.youtube.com/watch?v=bxEWSzeOLdE&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=7](https://www.youtube.com/watch?v=bxEWSzeOLdE&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=7)
+
+**Slides**:
+- _Nextflow Part 1_: [https://docs.google.com/presentation/d/1U1NlXyaeUz2rgpO6ahNb19mLRFxf3fE8UVvbIRUcD7E/edit#slide=id.g13d11b74600_1_331](https://docs.google.com/presentation/d/1U1NlXyaeUz2rgpO6ahNb19mLRFxf3fE8UVvbIRUcD7E/edit#slide=id.g13d11b74600_1_331)
+- _Nextflow Part 2_: [https://docs.google.com/presentation/d/1G0j21Hjk-fpL5y-q-DZQBypVNlsII8HZsYxaXx6GF0Y/edit?usp=sharing](https://docs.google.com/presentation/d/1G0j21Hjk-fpL5y-q-DZQBypVNlsII8HZsYxaXx6GF0Y/edit?usp=sharing)
+
+**Workshop Folder**:
+- _NextFlow_: [https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Workshops/Nextflow](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Workshops/Nextflow)
+
+
 ***  
 
 #### Workshop 8  
@@ -109,6 +161,17 @@ Applied:
 **Prerequisites:**  
 - Familiarity with the R programming languge, LINUX command line, PBS Pro scheduler, and Singularity for Rstudio or our Bootcamp’s Core Workshops: [Intro to Sockeye and HPC basics](#workshop-1-and-2), [Conda and Singularity](#workshop-3-and-4), [Interactive Rstudio and package management](#workshop-5).     
   
+  
+**Recording**:
+- _Intro to EWAS_: [https://www.youtube.com/watch?v=CnEGKXufarw&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=10](https://www.youtube.com/watch?v=CnEGKXufarw&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=10)
+
+**Slides**:
+- _Intro to EWAS_: [https://docs.google.com/presentation/d/1J-yii-91nH6KAsNqLUELakKhLAMwGvT864Qwwsz7ug0/edit#slide=id.g13dea8c6159_5_0](https://docs.google.com/presentation/d/1J-yii-91nH6KAsNqLUELakKhLAMwGvT864Qwwsz7ug0/edit#slide=id.g13dea8c6159_5_0)
+
+**Workshop Folder**:
+- _Intro to EWAS_: [https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Workshops/IntroToEWAS](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Workshops/IntroToEWAS)
+
+
 ***  
   
 #### Workshop 9 and 10     
@@ -126,6 +189,16 @@ Applied:
 - If you haven’t ever used R/RStudio before, complete our Bootcamp’s Core Workshop: [Interactive RStudio + Package Management](#workshop-5)    
 - Ensure that RStudio is installed on, and works, on your Sockeye allocation. 
 
+**Recordings**:
+- _RNAseq Part 1_: [https://www.youtube.com/watch?v=T-YUK46J3AE&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=8](https://www.youtube.com/watch?v=T-YUK46J3AE&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=8)
+- _RNAseq Part 2_: [https://www.youtube.com/watch?v=L3WiDr4hnhU&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=9](https://www.youtube.com/watch?v=L3WiDr4hnhU&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=9)
+
+**Slides**:
+- _RNAseq_ (Note: Download HTML file, open in web browser): [https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/blob/main/Workshops/Applied_RNA-seq/Slides.html](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/blob/main/Workshops/Applied_RNA-seq/Slides.html)
+
+**Workshop Folder**:
+- _RNAseq_: [https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Workshops/Applied_RNA-seq](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Workshops/Applied_RNA-seq)
+
 ***  
 
 #### Workshop 11 and 12 
@@ -142,6 +215,17 @@ Applied:
 **Prerequisites:** 
 - Familiarity with the R programming languge, LINUX command line, PBS Pro scheduler, and Singularity for Rstudio or our Bootcamp’s Core Workshops: [Intro to Sockeye and HPC basics](#workshop-1-and-2), [Conda and Singularity](#workshop-3-and-4), and [Interactive Rstudio and package management](#workshop-5).
 
+**Recordings**:
+- _scRNAseq Part 1_: [https://www.youtube.com/watch?v=_IonfgJ-y-s&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=11](https://www.youtube.com/watch?v=_IonfgJ-y-s&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=11)
+- _scRNAseq Part 2_: [https://www.youtube.com/watch?v=VcQ8UcHzfn0&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=12](https://www.youtube.com/watch?v=VcQ8UcHzfn0&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=12)
+
+**Slides**:
+- _scRNAseq Part 1_: [https://docs.google.com/presentation/d/1Q9I5efRXDfej3QDVP1fAlHPftsJ7INLs-B7O9BqnAOY/edit?usp=sharing](https://docs.google.com/presentation/d/1Q9I5efRXDfej3QDVP1fAlHPftsJ7INLs-B7O9BqnAOY/edit?usp=sharing)
+- _scRNAseq Part 2_: [https://docs.google.com/presentation/d/1t3B_PYF-Noxfll-nYXzj0bobimKiDgg3QwEksh-6kPo/edit?usp=sharing](https://docs.google.com/presentation/d/1t3B_PYF-Noxfll-nYXzj0bobimKiDgg3QwEksh-6kPo/edit?usp=sharing)
+
+**Workshop Folder**:
+- _scRNAseq_: [https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Workshops/scRNAseq](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Workshops/scRNAseq)
+
 ***
 
 #### Workshop 13 and 14 
@@ -157,6 +241,16 @@ Applied:
 
 **Prerequisites:**
 - Basic familiarity with LINUX and HPC or our Bootcamp’s Core Workshops: [Intro to Sockeye and HPC basics](#workshop-1-and-2), [Conda and Singularity](#workshop-3-and-4), [Interactive Rstudio + Package management](#workshop-5).
+
+**Recordings**:
+- _GWAS Part 1_: [https://www.youtube.com/watch?v=vAKWjePf8LE&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=13](https://www.youtube.com/watch?v=vAKWjePf8LE&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=13)
+- _GWAS Part 2_: [https://www.youtube.com/watch?v=F7xSFVb2gb0&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=14](https://www.youtube.com/watch?v=F7xSFVb2gb0&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=14)
+
+**Slides**:
+- _GWAS_: [https://docs.google.com/presentation/d/1ZaP_xxDOKHKRDLxerSta0eseyGfkpUVNWJlik2kwnmI/edit#slide=id.p](https://docs.google.com/presentation/d/1ZaP_xxDOKHKRDLxerSta0eseyGfkpUVNWJlik2kwnmI/edit#slide=id.p)
+
+**Workshop Folder**:
+- _GWAS_: [https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Workshops/SNP_associations](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Workshops/SNP_associations)
 
 ***
 
@@ -176,7 +270,23 @@ Applied:
 
 **Prerequisites**: 
 - Basic familiarity with LINUX and HPC or our Bootcamp’s Core Workshops: [Intro to Sockeye and HPC basics](#workshop-1-and-2), [Conda and Singularity](#workshop-3-and-4), [Interactive Rstudio + Package management](#workshop-5).
-- 
+
+**Recordings**:
+- _Multi-omics Data Exploration_: [https://www.youtube.com/watch?v=IGPuS_367Dw&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=15](https://www.youtube.com/watch?v=IGPuS_367Dw&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=15)
+- _Biomarker Discovery and Evaluation Techniques_: [https://www.youtube.com/watch?v=YQUhila3VI4&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=16](https://www.youtube.com/watch?v=YQUhila3VI4&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=16)
+
+**Slides**:
+- _Multi-omics Data Exploration_: [https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/blob/main/Workshops/omics_exploration/Omics%20data%20exploration.pdf](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/blob/main/Workshops/omics_exploration/Omics%20data%20exploration.pdf)
+- _Biomarker Discovery and Evaluation Techniques_: [https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/blob/main/Workshops/biomarker_discovery/Biomarker%20discovery%20and%20evaluation%20techniques.pdf](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/blob/main/Workshops/biomarker_discovery/Biomarker%20discovery%20and%20evaluation%20techniques.pdf)
+- _Supervised Multi-omics Integration_: [https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/blob/main/Workshops/supervised_data_integration/Supervised%20multiomics%20data%20integration.pdf](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/blob/main/Workshops/supervised_data_integration/Supervised%20multiomics%20data%20integration.pdf)
+- _Unsupervised Multi-omics Integration_: [https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/blob/main/Workshops/unsupervised_data_integration/Unsupervised%20multiomics%20data%20integration.pdf](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/blob/main/Workshops/unsupervised_data_integration/Unsupervised%20multiomics%20data%20integration.pdf)
+
+**Workshop Folder**:
+- _Multi-omics Data Exploration_: [https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/blob/main/Workshops/omics_exploration/](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/blob/main/Workshops/omics_exploration/)
+- _Biomarker Discovery and Evaluation Techniques_: [https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/blob/main/Workshops/biomarker_discovery/](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/blob/main/Workshops/biomarker_discovery/)
+- _Supervised Multi-omics Integration_: [https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/blob/main/Workshops/supervised_data_integration/](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/blob/main/Workshops/supervised_data_integration/)
+- _Unsupervised Multi-omics Integration_: [https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/blob/main/Workshops/unsupervised_data_integration/](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/blob/main/Workshops/unsupervised_data_integration/)
+
 
 ***  
 
@@ -196,6 +306,17 @@ In this session there will be a basic description of MRI, fMRI, and the core dat
 - If you want to execute the commands, then the following:
   -  Basic familiarity with LINUX and HPC or our Bootcamp’s Core Workshops: [Intro to Sockeye and HPC basics](#workshop-1-and-2), [Conda and Singularity](#workshop-3-and-4), [Interactive Rstudio + Package management](#workshop-5).
 
+**Recordings**:
+- _fMRI Part 1_: [https://www.youtube.com/watch?v=5faYirHpn6w&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=17](https://www.youtube.com/watch?v=5faYirHpn6w&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=17)
+- _fMRI Part 2_: [https://www.youtube.com/watch?v=6i6TVHM7CoY&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=18](https://www.youtube.com/watch?v=6i6TVHM7CoY&list=PLvb5_JhXTpMJEfkj_c3Avjzp7uTv_I7B2&index=18)
+
+**Slides**:
+- _fMRI Part 1_: [https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/blob/main/Workshops/MRIAnalysisModule/Lecture1.pdf](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/blob/main/Workshops/MRIAnalysisModule/Lecture1.pdf)
+- _fMRI Part 2_: [https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/blob/main/Workshops/MRIAnalysisModule/Lecture2.pdf](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/blob/main/Workshops/MRIAnalysisModule/Lecture2.pdf)
+
+**Workshop Folder**:
+- _fMRI_: [https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Workshops/MRIAnalysisModule](https://github.com/Phillip-a-richmond/PrecisionHealthVirtualEnvironment/tree/main/Workshops/MRIAnalysisModule)
+
 *** 
 
 #### Workshop 21 and 22 
@@ -212,7 +333,14 @@ In this session there will be a basic description of MRI, fMRI, and the core dat
 **Prerequisites:** 
 - Basic familiarity with navigation on HPC servers, or our Bootcamp’s Core Workshop: [Intro to Sockeye](#workshop-1-and-2) and [Conda and Singularity](#workshop-3-and-4). 
 
-*** 
+**Recordings**:
 
+**Slides**:
+- _DeepLabCut_: [https://docs.google.com/presentation/d/1rheT8aw_piJu_Kcf2ybTasX2biZKCGRjP6zIXSOkI2U/edit#slide=id.g13b5e5a1929_2_75](https://docs.google.com/presentation/d/1rheT8aw_piJu_Kcf2ybTasX2biZKCGRjP6zIXSOkI2U/edit#slide=id.g13b5e5a1929_2_75)
+
+**Workshop Folder**:
+
+
+*** 
 
 
